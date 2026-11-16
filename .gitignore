@@ -1,0 +1,68 @@
+# Operating system artifacts
+.DS_Store
+**/.DS_Store
+Thumbs.db
+.Spotlight-V100
+.Trashes
+.AppleDouble
+.LSOverride
+Desktop.ini
+._*
+
+# Editor temporary and workspace files
+*.swp
+*.swo
+*~
+*.tmp
+*.bak
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.sublime-workspace
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+credentials.json
+secrets.*
+
+# Node / frontend build artifacts (future implementation phases)
+node_modules/
+dist/
+dist-ssr/
+build/
+.vite/
+coverage/
+*.tsbuildinfo
+
+# Python / audit script caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.venv/
+venv/
+
+# Temporary scientific computation outputs and local caches
+*.npy.tmp
+*.npz.tmp
+*.mat.tmp
+.cache/
+tmp/
+temp/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Generated test and local scratch artifacts
+playwright-report/
+test-results/
+.playwright/
+*.local
