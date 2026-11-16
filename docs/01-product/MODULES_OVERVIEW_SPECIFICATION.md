@@ -18,7 +18,7 @@ This document defines the scientific scope, functional boundary, required inputs
 - **Primary Environment:** `ENV-01` (Explore Landing) · **Scales:** `L1`–`L9`
 - **Scope:** Platform command observatory unifying whole-brain anatomical context, multi-scale concentric navigation wheel (`L1`–`L9`), 12 functional brain systems overview, featured curated experiments (`EXP-*`), recent entity history, and global scientific concept discovery.
 - **Cross-Module Integration:** Deep-links into all 11 sibling modules; pulls live node counts and coverage summaries from Knowledge Graph (`MOD-12`).
-- **Detailed Spec:** [APPLICATION_LAYOUT_AND_ENVIRONMENTS.md](../13-ui-ux/APPLICATION_LAYOUT_AND_ENVIRONMENTS.md), [MODULE_UX_SPECIFICATIONS.md](../13-ui-ux/MODULE_UX_SPECIFICATIONS.md#module-01--cortexia-observatory).
+- **Detailed Spec:** [APPLICATION_LAYOUT_AND_ENVIRONMENTS.md](../13-ui-ux/APPLICATION_LAYOUT_AND_ENVIRONMENTS.md), [MODULE_UX_SPECIFICATIONS.md](../13-ui-ux/MODULE_UX_SPECIFICATIONS.md).
 
 ### Module 02 (`MOD-02`) — Neuroanatomy Atlas
 - **Primary Environment:** `ENV-01` (Studio A) · **Scales:** `L6`–`L7`

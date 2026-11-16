@@ -1,0 +1,508 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "ANALYTIC-001",
+      "name": "Zero-Phase Butterworth IIR Bandpass/Lowpass/Highpass/Notch Filter",
+      "category": "SIGNAL_PROCESSING",
+      "governingEquationId": "EQ-087",
+      "inputSpecification": "Time-series array x[n], sampling rate fs (Hz), cutoff frequencies [f_low, f_high], order N (2 or 4)",
+      "outputSpecification": "Zero-phase filtered signal y[n] (uV/mV) and magnitude/phase Bode response",
+      "assumptions": [
+        "Stationary passband characteristics",
+        "Sufficient padding to suppress edge transients"
+      ],
+      "limitations": [
+        "Ringing artifacts near sharp step discontinuities if order N is excessive"
+      ],
+      "causalInferenceWarning": "Statistical associations, spectral coherence, and functional connectivity metrics do not establish causal direction or monosynaptic wiring.",
+      "references": [
+        "REF-WELCH-1967"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANALYTIC-002",
+      "name": "Linear-Phase Windowed-Sinc FIR Digital Filter",
+      "category": "SIGNAL_PROCESSING",
+      "governingEquationId": "EQ-088",
+      "inputSpecification": "Time-series array x[n], fs (Hz), cutoff frequency, Hann/Hamming tap count M",
+      "outputSpecification": "Filtered signal y[n] with exact constant group delay",
+      "assumptions": [
+        "Bounded input signal",
+        "Symmetric impulse response"
+      ],
+      "limitations": [
+        "Requires higher tap order M than IIR for steep transition bands"
+      ],
+      "causalInferenceWarning": "Statistical associations, spectral coherence, and functional connectivity metrics do not establish causal direction or monosynaptic wiring.",
+      "references": [
+        "REF-WELCH-1967"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANALYTIC-003",
+      "name": "Discrete Fourier Transform (DFT / Radix-2 FFT)",
+      "category": "SIGNAL_PROCESSING",
+      "governingEquationId": "EQ-089",
+      "inputSpecification": "Windowed time-series segment x[n] of length N, sampling rate fs (Hz)",
+      "outputSpecification": "Complex spectrum X[k], one-sided amplitude spectrum |X(f)|, and phase angle arg X(f)",
+      "assumptions": [
+        "Weak wide-sense stationarity over window N/fs",
+        "Sampling rate fs > 2*f_max (Nyquist)"
+      ],
+      "limitations": [
+        "Spectral leakage if non-integer cycles without windowing; zero temporal localization"
+      ],
+      "causalInferenceWarning": "Statistical associations, spectral coherence, and functional connectivity metrics do not establish causal direction or monosynaptic wiring.",
+      "references": [
+        "REF-WELCH-1967"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANALYTIC-004",
+      "name": "Welch Averaged Modified Periodogram Power Spectral Density (PSD)",
+      "category": "SIGNAL_PROCESSING",
+      "governingEquationId": "EQ-090",
+      "inputSpecification": "Time series x[n], fs (Hz), segment length L, overlap fraction (50%), Hann window",
+      "outputSpecification": "Power spectral density P_xx(f) (uV^2/Hz) and canonical delta/theta/alpha/beta/gamma band powers",
+      "assumptions": [
+        "Quasi-stationarity across averaged segments"
+      ],
+      "limitations": [
+        "Frequency resolution Delta_f = fs/L trades off against variance reduction K"
+      ],
+      "causalInferenceWarning": "Statistical associations, spectral coherence, and functional connectivity metrics do not establish causal direction or monosynaptic wiring.",
+      "references": [
+        "REF-WELCH-1967",
+        "REF-BUZSAKI-2012"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANALYTIC-005",
+      "name": "Short-Time Fourier Transform (STFT) Time-Frequency Spectrogram",
+      "category": "SIGNAL_PROCESSING",
+      "governingEquationId": "EQ-091",
+      "inputSpecification": "Time series x[n], fs (Hz), sliding window length L, hop size H",
+      "outputSpecification": "2D time-frequency power matrix S_xx(t, f) (dB or uV^2/Hz)",
+      "assumptions": [
+        "Local stationarity within sliding window L/fs"
+      ],
+      "limitations": [
+        "Fixed time-frequency resolution grid governed by Gabor uncertainty Delta_t * Delta_f >= 1/(4*pi)"
+      ],
+      "causalInferenceWarning": "Statistical associations, spectral coherence, and functional connectivity metrics do not establish causal direction or monosynaptic wiring.",
+      "references": [
+        "REF-WELCH-1967"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANALYTIC-006",
+      "name": "Complex Morlet Wavelet Time-Frequency Decomposition",
+      "category": "SIGNAL_PROCESSING",
+      "governingEquationId": "EQ-092",
+      "inputSpecification": "Time series x[n], fs (Hz), center frequency vector f_0, cycle count n_cycles (~7)",
+      "outputSpecification": "Instantaneous power |W(t,f)|^2, analytic phase phi(t,f), and Cone-of-Influence (COI) boundary",
+      "assumptions": [
+        "Admissibility of zero-mean Morlet mother wavelet"
+      ],
+      "limitations": [
+        "Edge artifacts inside the Cone of Influence; spectral smoothing at high frequencies"
+      ],
+      "causalInferenceWarning": "Statistical associations, spectral coherence, and functional connectivity metrics do not establish causal direction or monosynaptic wiring.",
+      "references": [
+        "REF-TALLON-BAUDRY-1996"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANALYTIC-007",
+      "name": "Event-Related Potential (ERP) Time-Locked Trial Averaging",
+      "category": "SIGNAL_PROCESSING",
+      "governingEquationId": "EQ-093",
+      "inputSpecification": "Continuous signal x[n], event trigger timestamps t_m, pre/post epoch window [-200, +800 ms]",
+      "outputSpecification": "Baseline-corrected mean ERP waveform v_ERP(tau) and +/- 1 SEM ribbon",
+      "assumptions": [
+        "Evoked response is invariant across trials and additive with zero-mean background noise"
+      ],
+      "limitations": [
+        "Cancels induced non-phase-locked oscillatory bursts (requires wavelet power averaging)"
+      ],
+      "causalInferenceWarning": "Statistical associations, spectral coherence, and functional connectivity metrics do not establish causal direction or monosynaptic wiring.",
+      "references": [
+        "REF-BUZSAKI-2012"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANALYTIC-008",
+      "name": "Signal Preprocessing, Common Average Reference & Artifact Rejection Pipeline",
+      "category": "SIGNAL_PROCESSING",
+      "governingEquationId": "EQ-087",
+      "inputSpecification": "Multichannel matrix X[c, n], channel status metadata, amplitude threshold (uV)",
+      "outputSpecification": "Re-referenced, demeaned, artifact-masked multichannel signal matrix",
+      "assumptions": [
+        "Uncorrelated spatial distribution of neural sources across montage for CAR"
+      ],
+      "limitations": [
+        "Large single-channel electrode pop can contaminate all channels if not rejected prior to CAR"
+      ],
+      "causalInferenceWarning": "Statistical associations, spectral coherence, and functional connectivity metrics do not establish causal direction or monosynaptic wiring.",
+      "references": [
+        "REF-BUZSAKI-2012"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANALYTIC-009",
+      "name": "Spike Train Raster & Gaussian-Kernel Population Firing Rate",
+      "category": "SPIKE_TRAIN_ANALYTICS",
+      "governingEquationId": "EQ-094",
+      "inputSpecification": "Array of neuron spike-time lists {t_i^(f)}, duration T (ms), kernel bandwidth sigma_K (ms)",
+      "outputSpecification": "2D spike raster coordinates and continuous population firing rate R_pop(t) (Hz)",
+      "assumptions": [
+        "Point-process representation of action potential peak times"
+      ],
+      "limitations": [
+        "Over-smoothing fast oscillations if sigma_K is too wide"
+      ],
+      "causalInferenceWarning": "Statistical associations, spectral coherence, and functional connectivity metrics do not establish causal direction or monosynaptic wiring.",
+      "references": [
+        "REF-DAYAN-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANALYTIC-010",
+      "name": "Inter-Spike Interval (ISI) Histogram, CV_ISI & Local CV2",
+      "category": "SPIKE_TRAIN_ANALYTICS",
+      "governingEquationId": "EQ-095",
+      "inputSpecification": "Ordered spike times t^(1) < t^(2) < ... < t^(N_sp) with N_sp >= 5",
+      "outputSpecification": "ISI distribution histogram, mean ISI (ms), global CV_ISI, and local rate-robust CV2",
+      "assumptions": [
+        "Stationary firing rate for global CV_ISI interpretation"
+      ],
+      "limitations": [
+        "Global CV_ISI is inflated by slow firing-rate drifts (use CV2 for non-stationary trains)"
+      ],
+      "causalInferenceWarning": "Statistical associations, spectral coherence, and functional connectivity metrics do not establish causal direction or monosynaptic wiring.",
+      "references": [
+        "REF-DAYAN-2001",
+        "REF-BRUNEL-2000"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANALYTIC-011",
+      "name": "Fano Factor Spike-Count Variability Analysis",
+      "category": "SPIKE_TRAIN_ANALYTICS",
+      "governingEquationId": "EQ-096",
+      "inputSpecification": "Spike counts N_sp across M trials or non-overlapping counting windows of width W (ms)",
+      "outputSpecification": "Fano factor F(W) = Var(N_sp)/E[N_sp] across window sizes",
+      "assumptions": [
+        "Identically distributed trials or stationary counting windows"
+      ],
+      "limitations": [
+        "Refractory periods depress F(W) below 1 at small window widths W"
+      ],
+      "causalInferenceWarning": "Statistical associations, spectral coherence, and functional connectivity metrics do not establish causal direction or monosynaptic wiring.",
+      "references": [
+        "REF-DAYAN-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANALYTIC-012",
+      "name": "Peri-Stimulus Time Histogram (PSTH)",
+      "category": "SPIKE_TRAIN_ANALYTICS",
+      "governingEquationId": "EQ-097",
+      "inputSpecification": "Multi-trial spike times aligned to stimulus onset, bin width Delta_bin (ms)",
+      "outputSpecification": "Time-resolved trial-averaged firing rate histogram r_PSTH(t) (Hz)",
+      "assumptions": [
+        "Conditional independence of trials given the stimulus"
+      ],
+      "limitations": [
+        "Bin-edge quantization artifacts if Delta_bin is too coarse"
+      ],
+      "causalInferenceWarning": "Statistical associations, spectral coherence, and functional connectivity metrics do not establish causal direction or monosynaptic wiring.",
+      "references": [
+        "REF-DAYAN-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANALYTIC-013",
+      "name": "Spike-Triggered Average (STA) Linear Filter Estimation",
+      "category": "SPIKE_TRAIN_ANALYTICS",
+      "governingEquationId": "EQ-098",
+      "inputSpecification": "Continuous stimulus waveform s(t) and spike times {t^(f)}, pre-spike lag window [0, tau_max]",
+      "outputSpecification": "Average pre-spike stimulus waveform STA(tau)",
+      "assumptions": [
+        "Zero-mean spherically symmetric (white-noise) stimulus distribution"
+      ],
+      "limitations": [
+        "Fails to recover symmetric nonlinear subunits (e.g. complex cells where +s and -s cancel)"
+      ],
+      "causalInferenceWarning": "Statistical associations, spectral coherence, and functional connectivity metrics do not establish causal direction or monosynaptic wiring.",
+      "references": [
+        "REF-DAYAN-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANALYTIC-014",
+      "name": "Spike-Train Cross-Correlogram (CCG) & Auto-Correlogram (ACG)",
+      "category": "SPIKE_TRAIN_ANALYTICS",
+      "governingEquationId": "EQ-099",
+      "inputSpecification": "Spike trains of neuron pair (i, j), max lag +/- tau_max (ms), bin width Delta (ms)",
+      "outputSpecification": "Normalized coincidence rate C_ij(tau) and jitter/shift-predictor baseline",
+      "assumptions": [
+        "Stationary firing rates over recording epoch T"
+      ],
+      "limitations": [
+        "Peak at lag tau does NOT prove monosynaptic connection without controlling for shared common input"
+      ],
+      "causalInferenceWarning": "Statistical associations, spectral coherence, and functional connectivity metrics do not establish causal direction or monosynaptic wiring.",
+      "references": [
+        "REF-DAYAN-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANALYTIC-015",
+      "name": "Population Synchrony (chi), Phase-Locking Value (PLV) & Coherence",
+      "category": "SPIKE_TRAIN_ANALYTICS",
+      "governingEquationId": "EQ-100",
+      "inputSpecification": "Population voltages V_i(t) or narrowband Hilbert/wavelet phases phi_x(t), phi_y(t)",
+      "outputSpecification": "Golomb-Rinzel synchrony chi in [0,1], pairwise PLV matrix, and spectral coherence C_xy(f)",
+      "assumptions": [
+        "Narrowband phase well-defined for PLV; finite sample bias correction"
+      ],
+      "limitations": [
+        "Volume conduction in scalp EEG can produce spurious zero-lag PLV/coherence"
+      ],
+      "causalInferenceWarning": "Statistical associations, spectral coherence, and functional connectivity metrics do not establish causal direction or monosynaptic wiring.",
+      "references": [
+        "REF-LACHAUX-1999",
+        "REF-BRUNEL-2000"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANALYTIC-016",
+      "name": "Node Degree, In/Out Strength & Density Distribution",
+      "category": "NETWORK_SCIENCE",
+      "governingEquationId": "EQ-081",
+      "inputSpecification": "Directed or undirected adjacency matrix A_ij / W_ij (N x N)",
+      "outputSpecification": "Per-node degree k_i, in/out strength s_i, graph density, and degree distribution P(k)",
+      "assumptions": [
+        "Well-defined parcellation nodes and edge weights"
+      ],
+      "limitations": [
+        "Sensitive to arbitrary thresholding of continuous functional correlation matrices"
+      ],
+      "causalInferenceWarning": "Statistical associations, spectral coherence, and functional connectivity metrics do not establish causal direction or monosynaptic wiring.",
+      "references": [
+        "REF-RUBINOV-2010"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANALYTIC-017",
+      "name": "Clustering Coefficient, Triangles & Node Betweenness Centrality",
+      "category": "NETWORK_SCIENCE",
+      "governingEquationId": "EQ-082",
+      "inputSpecification": "Adjacency matrix A_ij / W_ij (N x N)",
+      "outputSpecification": "Local clustering C_i, global clustering C, and Brandes shortest-path betweenness centrality b_i",
+      "assumptions": [
+        "Non-negative edge weights mapped to topological distances l_ij = 1/W_ij"
+      ],
+      "limitations": [
+        "Shortest-path centrality assumes routing along geodesic paths rather than parallel diffusion"
+      ],
+      "causalInferenceWarning": "Statistical associations, spectral coherence, and functional connectivity metrics do not establish causal direction or monosynaptic wiring.",
+      "references": [
+        "REF-WATTS-STROGATZ-1998",
+        "REF-RUBINOV-2010"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANALYTIC-018",
+      "name": "Characteristic Path Length, Global Efficiency & Small-Worldness (sigma_SW)",
+      "category": "NETWORK_SCIENCE",
+      "governingEquationId": "EQ-083",
+      "inputSpecification": "Adjacency matrix A_ij / W_ij and M=20 degree-preserving Maslov-Sneppen null graphs",
+      "outputSpecification": "Characteristic path length L, global efficiency E_glob, normalized gamma=C/C_rand, lambda=L/L_rand, and sigma_SW",
+      "assumptions": [
+        "Connected graph for finite path length L (efficiency E_glob handles disconnected components)"
+      ],
+      "limitations": [
+        "Small-world index sigma_SW can be inflated in very sparse networks if C_rand is tiny"
+      ],
+      "causalInferenceWarning": "Statistical associations, spectral coherence, and functional connectivity metrics do not establish causal direction or monosynaptic wiring.",
+      "references": [
+        "REF-WATTS-STROGATZ-1998",
+        "REF-BULLMORE-2009"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANALYTIC-019",
+      "name": "Newman-Girvan Modularity Q, Community Detection & Lesion Robustness",
+      "category": "NETWORK_SCIENCE",
+      "governingEquationId": "EQ-085",
+      "inputSpecification": "Weighted matrix W_ij, resolution parameter gamma_res, lesion fraction schedule f",
+      "outputSpecification": "Optimal partition assignments c_i, modularity score Q, and LCC(f)/E_glob(f) robustness curves",
+      "assumptions": [
+        "Positive edge weights (or signed modularity extension for negative correlations)"
+      ],
+      "limitations": [
+        "Modularity optimization has a resolution limit and degeneracy of near-optimal partitions"
+      ],
+      "causalInferenceWarning": "Statistical associations, spectral coherence, and functional connectivity metrics do not establish causal direction or monosynaptic wiring.",
+      "references": [
+        "REF-NEWMAN-2006",
+        "REF-RUBINOV-2010"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANALYTIC-020",
+      "name": "Descriptive Statistics, Quantiles & Parametric Distribution Fitting",
+      "category": "STATISTICAL_INFERENCE",
+      "governingEquationId": "EQ-103",
+      "inputSpecification": "1D sample vector x (n >= 5)",
+      "outputSpecification": "Mean, SD, SEM, median, IQR, skewness, kurtosis, ECDF, and Gaussian/Poisson/Log-Normal MLE fits",
+      "assumptions": [
+        "Independent observations for standard error interpretation"
+      ],
+      "limitations": [
+        "Sample mean and SD are sensitive to extreme outliers (use median/IQR alongside)"
+      ],
+      "causalInferenceWarning": "Statistical associations, spectral coherence, and functional connectivity metrics do not establish causal direction or monosynaptic wiring.",
+      "references": [
+        "REF-EFRON-1979"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANALYTIC-021",
+      "name": "Pearson Linear & Spearman Rank Correlation Matrix",
+      "category": "STATISTICAL_INFERENCE",
+      "governingEquationId": "EQ-103",
+      "inputSpecification": "Paired sample vectors (x, y) or multichannel matrix X",
+      "outputSpecification": "Pearson r, Spearman rho, p-values, and 95% Fisher-z confidence intervals",
+      "assumptions": [
+        "Linearity and bivariate normality for Pearson p-value; monotonicity for Spearman"
+      ],
+      "limitations": [
+        "Correlation strictly measures statistical association and NEVER proves causal direction"
+      ],
+      "causalInferenceWarning": "Statistical associations, spectral coherence, and functional connectivity metrics do not establish causal direction or monosynaptic wiring.",
+      "references": [
+        "REF-RUBINOV-2010"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANALYTIC-022",
+      "name": "Ordinary Least Squares (OLS) Regression & Residual Diagnostics",
+      "category": "STATISTICAL_INFERENCE",
+      "governingEquationId": "EQ-104",
+      "inputSpecification": "Design matrix X (n x p) and response vector y (n x 1)",
+      "outputSpecification": "Coefficient vector beta_hat, standard errors, R^2, adjusted R^2, Durbin-Watson statistic, and residual plots",
+      "assumptions": [
+        "Uncorrelated homoscedastic residuals and full-rank design matrix X"
+      ],
+      "limitations": [
+        "Autocorrelated time-series residuals inflate naive t-statistics if unaccounted for"
+      ],
+      "causalInferenceWarning": "Statistical associations, spectral coherence, and functional connectivity metrics do not establish causal direction or monosynaptic wiring.",
+      "references": [
+        "REF-EFRON-1979"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANALYTIC-023",
+      "name": "Nonparametric Bootstrap Confidence Interval Estimation",
+      "category": "STATISTICAL_INFERENCE",
+      "governingEquationId": "EQ-105",
+      "inputSpecification": "Sample vector(s), target estimator theta(x), resample count B (1000..5000), PRNG seed",
+      "outputSpecification": "Bootstrap standard error SE_boot, bias estimate, and 95% percentile confidence interval",
+      "assumptions": [
+        "Sample is representative of the underlying population distribution"
+      ],
+      "limitations": [
+        "Standard i.i.d. bootstrap fails on strongly dependent time series without block resampling"
+      ],
+      "causalInferenceWarning": "Statistical associations, spectral coherence, and functional connectivity metrics do not establish causal direction or monosynaptic wiring.",
+      "references": [
+        "REF-EFRON-1979"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANALYTIC-024",
+      "name": "Two-Sample Permutation Test & Benjamini-Hochberg FDR Correction",
+      "category": "STATISTICAL_INFERENCE",
+      "governingEquationId": "EQ-106",
+      "inputSpecification": "Two sample groups (A, B) or vector of m hypothesis p-values, target q_FDR (0.05)",
+      "outputSpecification": "Exact/Monte-Carlo permutation p-value, BH critical thresholds, and FDR-adjusted q-values",
+      "assumptions": [
+        "Exchangeability under the null hypothesis for permutation tests"
+      ],
+      "limitations": [
+        "Controls expected False Discovery Rate rather than family-wise error rate under arbitrary negative dependence"
+      ],
+      "causalInferenceWarning": "Statistical associations, spectral coherence, and functional connectivity metrics do not establish causal direction or monosynaptic wiring.",
+      "references": [
+        "REF-BENJAMINI-HOCHBERG-1995"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANALYTIC-025",
+      "name": "Nonlinear Least-Squares Parameter Estimation & Local Sensitivity Index",
+      "category": "STATISTICAL_INFERENCE",
+      "governingEquationId": "EQ-107",
+      "inputSpecification": "Model function M(p), empirical target vector y, baseline parameter vector p_0",
+      "outputSpecification": "Best-fit parameter vector p_hat, residual RMSE, and dimensionless sensitivity matrix S_pk^M",
+      "assumptions": [
+        "Local smoothness and identifiability around baseline parameters p_0"
+      ],
+      "limitations": [
+        "Local OAT derivatives do not capture higher-order nonlinear multi-parameter interactions"
+      ],
+      "causalInferenceWarning": "Statistical associations, spectral coherence, and functional connectivity metrics do not establish causal direction or monosynaptic wiring.",
+      "references": [
+        "REF-DAYAN-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANALYTIC-026",
+      "name": "Akaike & Bayesian Information Criterion (AIC / BIC) Model Selection",
+      "category": "STATISTICAL_INFERENCE",
+      "governingEquationId": "EQ-108",
+      "inputSpecification": "Competing fitted models {M_1, M_2, ...} with parameter counts k_i, sample size n, and log-likelihoods",
+      "outputSpecification": "AIC, finite-sample AICc, BIC, Delta_AIC, and Akaike model weights",
+      "assumptions": [
+        "Models evaluated on the exact same dataset vector y of length n"
+      ],
+      "limitations": [
+        "Relative comparison only; a low AIC among poorly specified models does not imply absolute model validity"
+      ],
+      "causalInferenceWarning": "Statistical associations, spectral coherence, and functional connectivity metrics do not establish causal direction or monosynaptic wiring.",
+      "references": [
+        "REF-EFRON-1979"
+      ],
+      "schemaVersion": "1.0.0"
+    }
+  ]
+}

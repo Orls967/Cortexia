@@ -1,0 +1,1455 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "MOL-CH-NAV1-1",
+      "canonicalName": "Voltage-Gated Sodium Channel NaV1.1",
+      "geneOrSubunitSymbols": [
+        "SCN1A"
+      ],
+      "molecularCategory": "VOLTAGE_GATED_CHANNEL",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "Na+ (Inward)",
+      "biophysicalMechanism": "Rapid voltage-activated Na+ channel enriched on fast-spiking PV+ GABAergic interneuron axons; sustains high-frequency inhibitory firing.",
+      "reversalPotentialMv": 55.0,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-001"
+      ],
+      "references": [
+        "REF-HILLE-2001",
+        "REF-CATTERALL-2012"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-CH-NAV1-2",
+      "canonicalName": "Voltage-Gated Sodium Channel NaV1.2",
+      "geneOrSubunitSymbols": [
+        "SCN2A"
+      ],
+      "molecularCategory": "VOLTAGE_GATED_CHANNEL",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "Na+ (Inward)",
+      "biophysicalMechanism": "Somatodendritic and proximal AIS voltage-gated Na+ channel supporting action potential backpropagation into pyramidal dendrites.",
+      "reversalPotentialMv": 55.0,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-001",
+        "MODEL-010"
+      ],
+      "references": [
+        "REF-HILLE-2001",
+        "REF-CATTERALL-2012"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-CH-NAV1-6",
+      "canonicalName": "Voltage-Gated Sodium Channel NaV1.6",
+      "geneOrSubunitSymbols": [
+        "SCN8A"
+      ],
+      "molecularCategory": "VOLTAGE_GATED_CHANNEL",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "Na+ (Inward)",
+      "biophysicalMechanism": "Low-threshold voltage-gated Na+ channel concentrated at the distal AIS and Nodes of Ranvier; primary initiator of action potentials and saltatory conduction.",
+      "reversalPotentialMv": 55.0,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-001",
+        "MODEL-010"
+      ],
+      "references": [
+        "REF-HILLE-2001",
+        "REF-CATTERALL-2012"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-CH-NAV1-7",
+      "canonicalName": "Peripheral Nociceptive Sodium Channel NaV1.7",
+      "geneOrSubunitSymbols": [
+        "SCN9A"
+      ],
+      "molecularCategory": "VOLTAGE_GATED_CHANNEL",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "Na+ (Inward)",
+      "biophysicalMechanism": "Threshold-amplifying ramp Na+ channel expressed in DRG nociceptors and sympathetic ganglia.",
+      "reversalPotentialMv": 55.0,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-001"
+      ],
+      "references": [
+        "REF-HILLE-2001",
+        "REF-CATTERALL-2012"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-CH-KV1-1",
+      "canonicalName": "Low-Threshold Delayed-Rectifier Potassium Channel Kv1.1",
+      "geneOrSubunitSymbols": [
+        "KCNA1"
+      ],
+      "molecularCategory": "VOLTAGE_GATED_CHANNEL",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "K+ (Outward)",
+      "biophysicalMechanism": "Juxtaparanodal and axonal low-threshold K+ channel dampening hyperexcitability and regulating spike timing precision.",
+      "reversalPotentialMv": -85.0,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-001"
+      ],
+      "references": [
+        "REF-HILLE-2001",
+        "REF-CATTERALL-2012"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-CH-KV2-1",
+      "canonicalName": "Somatic Delayed-Rectifier Potassium Channel Kv2.1",
+      "geneOrSubunitSymbols": [
+        "KCNB1"
+      ],
+      "molecularCategory": "VOLTAGE_GATED_CHANNEL",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "K+ (Outward)",
+      "biophysicalMechanism": "High-threshold somatodendritic delayed-rectifier K+ channel mediating action potential repolarization during repetitive firing.",
+      "reversalPotentialMv": -85.0,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-001"
+      ],
+      "references": [
+        "REF-HILLE-2001",
+        "REF-CATTERALL-2012"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-CH-KV3-1",
+      "canonicalName": "Ultra-Fast Repolarizing Potassium Channel Kv3.1",
+      "geneOrSubunitSymbols": [
+        "KCNC1"
+      ],
+      "molecularCategory": "VOLTAGE_GATED_CHANNEL",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "K+ (Outward)",
+      "biophysicalMechanism": "High-voltage-activating, rapidly deactivating K+ channel enabling sub-millisecond spike widths and >200 Hz firing in PV+ interneurons.",
+      "reversalPotentialMv": -85.0,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-001",
+        "MODEL-009"
+      ],
+      "references": [
+        "REF-HILLE-2001",
+        "REF-CATTERALL-2012"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-CH-KV4-2",
+      "canonicalName": "Transient A-Type Potassium Channel Kv4.2 (I_A)",
+      "geneOrSubunitSymbols": [
+        "KCND2"
+      ],
+      "molecularCategory": "VOLTAGE_GATED_CHANNEL",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "K+ (Outward)",
+      "biophysicalMechanism": "Fast-inactivating somatodendritic K+ channel enabling continuous low-frequency Type I firing and attenuating backpropagating dendritic spikes.",
+      "reversalPotentialMv": -85.0,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-003",
+        "MODEL-010"
+      ],
+      "references": [
+        "REF-HILLE-2001",
+        "REF-CATTERALL-2012"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-CH-KV7-2",
+      "canonicalName": "Muscarinic-Sensitive M-Current Channel Kv7.2/7.3 (I_M)",
+      "geneOrSubunitSymbols": [
+        "KCNQ2",
+        "KCNQ3"
+      ],
+      "molecularCategory": "VOLTAGE_GATED_CHANNEL",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "K+ (Outward)",
+      "biophysicalMechanism": "Non-inactivating subthreshold K+ channel mediating spike-frequency adaptation; inhibited by muscarinic Gq/PIP2 depletion.",
+      "reversalPotentialMv": -85.0,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-008"
+      ],
+      "references": [
+        "REF-HILLE-2001",
+        "REF-CATTERALL-2012"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-CH-CAV1-2",
+      "canonicalName": "L-Type Voltage-Gated Calcium Channel CaV1.2",
+      "geneOrSubunitSymbols": [
+        "CACNA1C"
+      ],
+      "molecularCategory": "VOLTAGE_GATED_CHANNEL",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "Ca2+ (Inward)",
+      "biophysicalMechanism": "High-voltage-activated somatodendritic Ca2+ channel coupling postsynaptic depolarization to CaMKII/CREB gene transcription and dendritic plateaus.",
+      "reversalPotentialMv": 120.0,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-002"
+      ],
+      "references": [
+        "REF-HILLE-2001",
+        "REF-CATTERALL-2012"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-CH-CAV2-1",
+      "canonicalName": "P/Q-Type Presynaptic Calcium Channel CaV2.1",
+      "geneOrSubunitSymbols": [
+        "CACNA1A"
+      ],
+      "molecularCategory": "VOLTAGE_GATED_CHANNEL",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "Ca2+ (Inward)",
+      "biophysicalMechanism": "Active-zone high-voltage Ca2+ channel tightly coupled to SNARE/synaptotagmin complexes to trigger fast synchronous vesicle exocytosis.",
+      "reversalPotentialMv": 120.0,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-016"
+      ],
+      "references": [
+        "REF-HILLE-2001",
+        "REF-CATTERALL-2012"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-CH-CAV2-2",
+      "canonicalName": "N-Type Presynaptic Calcium Channel CaV2.2",
+      "geneOrSubunitSymbols": [
+        "CACNA1B"
+      ],
+      "molecularCategory": "VOLTAGE_GATED_CHANNEL",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "Ca2+ (Inward)",
+      "biophysicalMechanism": "Presynaptic Ca2+ channel mediating neurotransmitter release at central and primary nociceptive dorsal-horn synapses; inhibited by Gi/o GPCR beta-gamma subunits.",
+      "reversalPotentialMv": 120.0,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-016"
+      ],
+      "references": [
+        "REF-HILLE-2001",
+        "REF-CATTERALL-2012"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-CH-CAV3-1",
+      "canonicalName": "Low-Threshold T-Type Calcium Channel CaV3.1 (I_T)",
+      "geneOrSubunitSymbols": [
+        "CACNA1G"
+      ],
+      "molecularCategory": "VOLTAGE_GATED_CHANNEL",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "Ca2+ (Inward)",
+      "biophysicalMechanism": "Transient low-voltage-activated Ca2+ channel de-inactivated by hyperpolarization, driving rebound burst firing in thalamocortical and TRN neurons.",
+      "reversalPotentialMv": 120.0,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-002",
+        "MODEL-009"
+      ],
+      "references": [
+        "REF-HILLE-2001",
+        "REF-CATTERALL-2012"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-CH-HCN1",
+      "canonicalName": "Hyperpolarization-Activated Cyclic-Nucleotide Channel HCN1/2 (I_h)",
+      "geneOrSubunitSymbols": [
+        "HCN1",
+        "HCN2"
+      ],
+      "molecularCategory": "VOLTAGE_GATED_CHANNEL",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "Mixed Na+/K+ (Inward at rest)",
+      "biophysicalMechanism": "Pacemaker channel activated by hyperpolarization and facilitated by cAMP; stabilizes resting potential, generates rhythmic bursting, and shapes dendritic resonance.",
+      "reversalPotentialMv": -30.0,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-002",
+        "MODEL-010"
+      ],
+      "references": [
+        "REF-HILLE-2001",
+        "REF-CATTERALL-2012"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-CH-K2P-LEAK",
+      "canonicalName": "Two-Pore-Domain Background Leak Potassium Channel (K2P / TREK / TASK)",
+      "geneOrSubunitSymbols": [
+        "KCNK2",
+        "KCNK3"
+      ],
+      "molecularCategory": "VOLTAGE_GATED_CHANNEL",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "K+ (Outward Leak)",
+      "biophysicalMechanism": "Voltage-independent background K+ channel establishing baseline membrane leak conductance g_L and negative resting membrane potential.",
+      "reversalPotentialMv": -85.0,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-001",
+        "MODEL-005"
+      ],
+      "references": [
+        "REF-HILLE-2001",
+        "REF-CATTERALL-2012"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-REC-AMPAR",
+      "canonicalName": "AMPA Ionotropic Glutamate Receptor (GluA1\u2013GluA4)",
+      "geneOrSubunitSymbols": [
+        "GRIA1",
+        "GRIA2",
+        "GRIA3",
+        "GRIA4"
+      ],
+      "molecularCategory": "LIGAND_GATED_RECEPTOR",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "Glutamate -> Na+/K+ (Ca2+ if GluA2-lacking)",
+      "biophysicalMechanism": "Tetrameric glutamate-gated cation channel mediating fast excitatory postsynaptic currents (rise ~0.4 ms, decay ~2 ms); dynamic PSD trafficking underlies LTP/LTD expression.",
+      "reversalPotentialMv": 0.0,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-012",
+        "MODEL-013"
+      ],
+      "references": [
+        "REF-TRAYNELIS-2010",
+        "REF-SIGEL-2012"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-REC-NMDAR",
+      "canonicalName": "NMDA Coincidence-Detector Glutamate Receptor (GluN1/GluN2A-B)",
+      "geneOrSubunitSymbols": [
+        "GRIN1",
+        "GRIN2A",
+        "GRIN2B"
+      ],
+      "molecularCategory": "LIGAND_GATED_RECEPTOR",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "Glutamate + Glycine/D-Serine -> Ca2+/Na+/K+",
+      "biophysicalMechanism": "Heterotetrameric receptor requiring both glutamate binding and postsynaptic depolarization to expel extracellular Mg2+ block, gating Ca2+ influx for LTP/STDP.",
+      "reversalPotentialMv": 0.0,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-014",
+        "MODEL-024"
+      ],
+      "references": [
+        "REF-TRAYNELIS-2010",
+        "REF-SIGEL-2012"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-REC-KAINATE",
+      "canonicalName": "Kainate Ionotropic Glutamate Receptor (GluK1\u2013GluK5)",
+      "geneOrSubunitSymbols": [
+        "GRIK1",
+        "GRIK2",
+        "GRIK4"
+      ],
+      "molecularCategory": "LIGAND_GATED_RECEPTOR",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "Glutamate -> Na+/K+",
+      "biophysicalMechanism": "Ionotropic glutamate receptor expressed postsynaptically at hippocampal mossy-fiber CA3 synapses and presynaptically to modulate transmitter release.",
+      "reversalPotentialMv": 0.0,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-013"
+      ],
+      "references": [
+        "REF-TRAYNELIS-2010",
+        "REF-SIGEL-2012"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-REC-GABAA",
+      "canonicalName": "GABA_A Ionotropic Chloride Receptor Channel",
+      "geneOrSubunitSymbols": [
+        "GABRA1",
+        "GABRB2",
+        "GABRG2"
+      ],
+      "molecularCategory": "LIGAND_GATED_RECEPTOR",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "GABA -> Cl- / HCO3-",
+      "biophysicalMechanism": "Pentameric Cys-loop ligand-gated Cl- channel mediating fast phasic (synaptic) and tonic (extrasynaptic) hyperpolarizing and shunting inhibition.",
+      "reversalPotentialMv": -75.0,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-013",
+        "MODEL-021"
+      ],
+      "references": [
+        "REF-TRAYNELIS-2010",
+        "REF-SIGEL-2012"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-REC-NACHR-A7",
+      "canonicalName": "Nicotinic Acetylcholine Receptor (Alpha-7 & Alpha4-Beta2)",
+      "geneOrSubunitSymbols": [
+        "CHRNA7",
+        "CHRNA4",
+        "CHRNB2"
+      ],
+      "molecularCategory": "LIGAND_GATED_RECEPTOR",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "Acetylcholine -> Na+/K+/Ca2+",
+      "biophysicalMechanism": "Pentameric ACh-gated cation channel mediating fast neuromuscular transmission and presynaptic/interneuronal attentional gain in cortex.",
+      "reversalPotentialMv": 0.0,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-013"
+      ],
+      "references": [
+        "REF-TRAYNELIS-2010",
+        "REF-SIGEL-2012"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-REC-5HT3",
+      "canonicalName": "Ionotropic Serotonin 5-HT3 Receptor",
+      "geneOrSubunitSymbols": [
+        "HTR3A",
+        "HTR3B"
+      ],
+      "molecularCategory": "LIGAND_GATED_RECEPTOR",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "Serotonin (5-HT) -> Na+/K+",
+      "biophysicalMechanism": "Only ionotropic monoamine receptor; mediates fast serotonergic excitation of superficial cortical VIP+/5-HT3aR+ interneurons and vagal afferents.",
+      "reversalPotentialMv": 0.0,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-013",
+        "MODEL-021"
+      ],
+      "references": [
+        "REF-TRAYNELIS-2010",
+        "REF-SIGEL-2012"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-REC-GLYCINE",
+      "canonicalName": "Inhibitory Glycine Receptor Channel (GlyR)",
+      "geneOrSubunitSymbols": [
+        "GLRA1",
+        "GLRB"
+      ],
+      "molecularCategory": "LIGAND_GATED_RECEPTOR",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "Glycine -> Cl-",
+      "biophysicalMechanism": "Pentameric Cl- channel mediating fast postsynaptic reciprocal and Renshaw inhibition in spinal cord and brainstem motor circuits.",
+      "reversalPotentialMv": -75.0,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-013"
+      ],
+      "references": [
+        "REF-TRAYNELIS-2010",
+        "REF-SIGEL-2012"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-REC-P2X7",
+      "canonicalName": "Purinergic ATP-Gated Ionotropic Receptor (P2X4 / P2X7)",
+      "geneOrSubunitSymbols": [
+        "P2RX4",
+        "P2RX7"
+      ],
+      "molecularCategory": "LIGAND_GATED_RECEPTOR",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "Extracellular ATP -> Na+/Ca2+/K+",
+      "biophysicalMechanism": "Trimeric ATP-gated cation channel expressed on microglia and astrocytes sensing activity-dependent or injury-induced purinergic signals.",
+      "reversalPotentialMv": 0.0,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-013"
+      ],
+      "references": [
+        "REF-TRAYNELIS-2010",
+        "REF-SIGEL-2012"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-REC-MGLUR1-5",
+      "canonicalName": "Group I Metabotropic Glutamate Receptors (mGluR1 / mGluR5)",
+      "geneOrSubunitSymbols": [
+        "GRM1",
+        "GRM5"
+      ],
+      "molecularCategory": "METABOTROPIC_GPCR",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "Glutamate -> Gq/11 -> PLCbeta -> IP3/DAG",
+      "biophysicalMechanism": "Perisynaptic Gq-coupled glutamate receptors triggering intracellular ER Ca2+ release, endocannabinoid synthesis, and mGluR-dependent LTD.",
+      "reversalPotentialMv": null,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-023"
+      ],
+      "references": [
+        "REF-SUDHOF-2013",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-REC-MGLUR2-3",
+      "canonicalName": "Group II/III Presynaptic Metabotropic Glutamate Receptors (mGluR2/3)",
+      "geneOrSubunitSymbols": [
+        "GRM2",
+        "GRM3"
+      ],
+      "molecularCategory": "METABOTROPIC_GPCR",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "Glutamate -> Gi/o -> Inhibit CaV / cAMP",
+      "biophysicalMechanism": "Presynaptic autoreceptors suppressing excess glutamate release Probability during high-frequency stimulation.",
+      "reversalPotentialMv": null,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-016"
+      ],
+      "references": [
+        "REF-SUDHOF-2013",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-REC-GABAB",
+      "canonicalName": "Metabotropic GABA_B Receptor (GABBR1 / GABBR2)",
+      "geneOrSubunitSymbols": [
+        "GABBR1",
+        "GABBR2"
+      ],
+      "molecularCategory": "METABOTROPIC_GPCR",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "GABA -> Gi/o -> Open GIRK K+ / Inhibit CaV",
+      "biophysicalMechanism": "Obligate heterodimeric GPCR mediating slow (100\u2013300 ms) postsynaptic K+ hyperpolarization and presynaptic release inhibition.",
+      "reversalPotentialMv": -90.0,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-013"
+      ],
+      "references": [
+        "REF-SUDHOF-2013",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-REC-DRD1",
+      "canonicalName": "Dopamine D1-Class Receptor (D1 / D5)",
+      "geneOrSubunitSymbols": [
+        "DRD1",
+        "DRD5"
+      ],
+      "molecularCategory": "METABOTROPIC_GPCR",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "Dopamine -> Gs/olf -> Adenylyl Cyclase -> cAMP/PKA",
+      "biophysicalMechanism": "Activates PKA and DARPP-32 signaling in direct-pathway striatal dMSNs and prefrontal pyramidal cells to enhance excitability and LTP.",
+      "reversalPotentialMv": null,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-026"
+      ],
+      "references": [
+        "REF-SUDHOF-2013",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-REC-DRD2",
+      "canonicalName": "Dopamine D2-Class Receptor (D2 / D3 / D4)",
+      "geneOrSubunitSymbols": [
+        "DRD2",
+        "DRD3",
+        "DRD4"
+      ],
+      "molecularCategory": "METABOTROPIC_GPCR",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "Dopamine -> Gi/o -> Decrease cAMP / Open GIRK",
+      "biophysicalMechanism": "Suppresses indirect-pathway striatal iMSN excitability and acts as a somatodendritic/presynaptic dopamine autoreceptor.",
+      "reversalPotentialMv": null,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-026"
+      ],
+      "references": [
+        "REF-SUDHOF-2013",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-REC-ADRENERGIC-B1",
+      "canonicalName": "Noradrenergic Beta-1 & Alpha-2 Receptors",
+      "geneOrSubunitSymbols": [
+        "ADRB1",
+        "ADRA2A"
+      ],
+      "molecularCategory": "METABOTROPIC_GPCR",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "Norepinephrine -> Gs (Beta1) / Gi (Alpha2A)",
+      "biophysicalMechanism": "Mediate locus coeruleus neuromodulation: Alpha-2A closes HCN channels in dlPFC spines to strengthen working memory; Beta-1 facilitates hippocampal LTP.",
+      "reversalPotentialMv": null,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-017"
+      ],
+      "references": [
+        "REF-SUDHOF-2013",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-REC-MUSCARINIC-M1",
+      "canonicalName": "Muscarinic Acetylcholine Receptors (M1 Gq / M2 Gi)",
+      "geneOrSubunitSymbols": [
+        "CHRM1",
+        "CHRM2"
+      ],
+      "molecularCategory": "METABOTROPIC_GPCR",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "Acetylcholine -> Gq (M1 closes Kv7 M-current)",
+      "biophysicalMechanism": "M1 activation suppresses Kv7 M-current to boost cortical pyramidal excitability and learning; M2 mediates vagal cardiac slowing and presynaptic inhibition.",
+      "reversalPotentialMv": null,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-008"
+      ],
+      "references": [
+        "REF-SUDHOF-2013",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-REC-5HT1A-2A",
+      "canonicalName": "Serotonergic 5-HT1A (Gi) & 5-HT2A (Gq) Receptors",
+      "geneOrSubunitSymbols": [
+        "HTR1A",
+        "HTR2A"
+      ],
+      "molecularCategory": "METABOTROPIC_GPCR",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "Serotonin -> Gi/o (5-HT1A) / Gq (5-HT2A)",
+      "biophysicalMechanism": "5-HT1A hyperpolarizes raphe and hippocampal somata via GIRK channels; 5-HT2A excites Layer 5 cortical apical dendrites.",
+      "reversalPotentialMv": null,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-017"
+      ],
+      "references": [
+        "REF-SUDHOF-2013",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-REC-CB1",
+      "canonicalName": "Endocannabinoid CB1 Presynaptic Receptor",
+      "geneOrSubunitSymbols": [
+        "CNR1"
+      ],
+      "molecularCategory": "METABOTROPIC_GPCR",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "2-AG / Anandamide -> Gi/o -> Inhibit Presynaptic CaV2",
+      "biophysicalMechanism": "Abundant CNS presynaptic GPCR mediating retrograde depolarization-induced suppression of inhibition/excitation (DSI/DSE) and endocannabinoid LTD.",
+      "reversalPotentialMv": null,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-016"
+      ],
+      "references": [
+        "REF-SUDHOF-2013",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-REC-MOR-OREXIN",
+      "canonicalName": "Mu-Opioid (MOR Gi) & Orexin (OX1/OX2 Gq) Peptide GPCRs",
+      "geneOrSubunitSymbols": [
+        "OPRM1",
+        "HCRTR1",
+        "HCRTR2"
+      ],
+      "molecularCategory": "METABOTROPIC_GPCR",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "Endorphins (Gi) / Orexin-A,B (Gq)",
+      "biophysicalMechanism": "MOR inhibits nociceptive neurotransmitter release and disinhibits PAG analgesia; OX1/OX2 excite monoaminergic arousal nuclei to stabilize wakefulness.",
+      "reversalPotentialMv": null,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-017"
+      ],
+      "references": [
+        "REF-SUDHOF-2013",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-NT-GLUTAMATE",
+      "canonicalName": "L-Glutamate (Primary Excitatory Neurotransmitter)",
+      "geneOrSubunitSymbols": [
+        "SLC17A7",
+        "GLS"
+      ],
+      "molecularCategory": "NEUROTRANSMITTER",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "Binds AMPA, NMDA, Kainate, mGluR1\u20138",
+      "biophysicalMechanism": "Principal fast excitatory amino acid neurotransmitter across >80% of cortical and hippocampal synapses; synthesized from glutamine via phosphate-activated glutaminase.",
+      "reversalPotentialMv": 0.0,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-012",
+        "MODEL-013",
+        "MODEL-014"
+      ],
+      "references": [
+        "REF-SUDHOF-2013",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-NT-GABA",
+      "canonicalName": "Gamma-Aminobutyric Acid (GABA, Primary Inhibitory Neurotransmitter)",
+      "geneOrSubunitSymbols": [
+        "GAD1",
+        "GAD2"
+      ],
+      "molecularCategory": "NEUROTRANSMITTER",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "Binds GABA_A and GABA_B Receptors",
+      "biophysicalMechanism": "Principal inhibitory neurotransmitter of the adult mammalian brain, synthesized from glutamate by GAD65 and GAD67.",
+      "reversalPotentialMv": -75.0,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-013",
+        "MODEL-021"
+      ],
+      "references": [
+        "REF-SUDHOF-2013",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-NT-DOPAMINE",
+      "canonicalName": "Dopamine (Catecholamine Neuromodulator)",
+      "geneOrSubunitSymbols": [
+        "TH",
+        "DDC"
+      ],
+      "molecularCategory": "NEUROTRANSMITTER",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "Binds D1\u2013D5 GPCRs",
+      "biophysicalMechanism": "Catecholamine synthesized from L-tyrosine via tyrosine hydroxylase and AADC; signals reward prediction errors, motivational vigor, and prefrontal gain.",
+      "reversalPotentialMv": null,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-026"
+      ],
+      "references": [
+        "REF-SUDHOF-2013",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-NT-SEROTONIN",
+      "canonicalName": "Serotonin (5-Hydroxytryptamine, 5-HT)",
+      "geneOrSubunitSymbols": [
+        "TPH2",
+        "DDC"
+      ],
+      "molecularCategory": "NEUROTRANSMITTER",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "Binds 5-HT1\u20137 Receptors",
+      "biophysicalMechanism": "Indolamine synthesized from L-tryptophan via TPH2 in brainstem raphe nuclei; regulates sleep-wake states, affective processing, and sensory modulation.",
+      "reversalPotentialMv": null,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-017"
+      ],
+      "references": [
+        "REF-SUDHOF-2013",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-NT-ACETYLCHOLINE",
+      "canonicalName": "Acetylcholine (ACh)",
+      "geneOrSubunitSymbols": [
+        "CHAT",
+        "ACHE"
+      ],
+      "molecularCategory": "NEUROTRANSMITTER",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "Binds Nicotinic (nAChR) & Muscarinic (M1\u2013M5) Receptors",
+      "biophysicalMechanism": "Synthesized from choline and acetyl-CoA by ChAT; mediates neuromuscular transmission, autonomic pre/parasympathetic signaling, and cortical attentional arousal.",
+      "reversalPotentialMv": 0.0,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-008",
+        "MODEL-013"
+      ],
+      "references": [
+        "REF-SUDHOF-2013",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-NT-NOREPINEPHRINE",
+      "canonicalName": "Norepinephrine (Noradrenaline, NE)",
+      "geneOrSubunitSymbols": [
+        "TH",
+        "DBH"
+      ],
+      "molecularCategory": "NEUROTRANSMITTER",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "Binds Alpha-1, Alpha-2, and Beta-1..3 Adrenergic GPCRs",
+      "biophysicalMechanism": "Synthesized from dopamine by dopamine beta-hydroxylase in locus coeruleus and sympathetic neurons; controls vigilance, network gain, and sympathetic tone.",
+      "reversalPotentialMv": null,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-017"
+      ],
+      "references": [
+        "REF-SUDHOF-2013",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-NT-HISTAMINE",
+      "canonicalName": "Histamine (Wake-Promoting Monoamine)",
+      "geneOrSubunitSymbols": [
+        "HDC",
+        "HNMT"
+      ],
+      "molecularCategory": "NEUROTRANSMITTER",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "Binds H1, H2, H3, H4 GPCRs",
+      "biophysicalMechanism": "Synthesized from L-histidine by histidine decarboxylase exclusively in hypothalamic tuberomammillary nucleus neurons; promotes cortical wakefulness.",
+      "reversalPotentialMv": null,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-017"
+      ],
+      "references": [
+        "REF-SUDHOF-2013",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-NT-GLYCINE-ATP",
+      "canonicalName": "Glycine & Purinergic ATP Cotransmitters",
+      "geneOrSubunitSymbols": [
+        "SLC6A5",
+        "VNUT"
+      ],
+      "molecularCategory": "NEUROTRANSMITTER",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "Binds GlyR / NMDA Co-agonist site & P2X/P2Y",
+      "biophysicalMechanism": "Glycine serves both as the primary spinal inhibitory neurotransmitter and an obligatory co-agonist at NMDA receptors; ATP mediates fast purinergic gliotransmission.",
+      "reversalPotentialMv": -75.0,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-013",
+        "MODEL-014"
+      ],
+      "references": [
+        "REF-SUDHOF-2013",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-PEP-OREXIN",
+      "canonicalName": "Orexin-A & Orexin-B (Hypocretin-1 / 2)",
+      "geneOrSubunitSymbols": [
+        "HCRT"
+      ],
+      "molecularCategory": "NEUROPEPTIDE",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "Binds OX1R / OX2R (Gq)",
+      "biophysicalMechanism": "Lateral hypothalamic neuropeptides stabilizing the wakefulness flip-flop switch; loss of orexin neurons causes narcolepsy instability.",
+      "reversalPotentialMv": null,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-017"
+      ],
+      "references": [
+        "REF-SUDHOF-2013",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-PEP-ENDORPHIN-ENK",
+      "canonicalName": "Endogenous Opioids (Beta-Endorphin, Enkephalin, Dynorphin)",
+      "geneOrSubunitSymbols": [
+        "POMC",
+        "PENK",
+        "PDYN"
+      ],
+      "molecularCategory": "NEUROPEPTIDE",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "Binds Mu, Delta, and Kappa Opioid GPCRs",
+      "biophysicalMechanism": "Peptide neuromodulators suppressing nociceptive transmission in the spinal dorsal horn and gating striatal direct/indirect pathways.",
+      "reversalPotentialMv": null,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-017"
+      ],
+      "references": [
+        "REF-SUDHOF-2013",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-PEP-SUBSTANCE-P",
+      "canonicalName": "Substance P & CGRP (Nociceptive Tachykinin/Peptide)",
+      "geneOrSubunitSymbols": [
+        "TAC1",
+        "CALCA"
+      ],
+      "molecularCategory": "NEUROPEPTIDE",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "Binds NK1R / CGRP Receptor",
+      "biophysicalMechanism": "Co-released with glutamate from peptidergic C-fiber nociceptors in Dorsal Horn Lamina I to drive slow sustained depolarization and neurogenic inflammation.",
+      "reversalPotentialMv": null,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-014"
+      ],
+      "references": [
+        "REF-SUDHOF-2013",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-PEP-OXYTOCIN-AVP",
+      "canonicalName": "Oxytocin & Arginine Vasopressin (AVP)",
+      "geneOrSubunitSymbols": [
+        "OXT",
+        "AVP"
+      ],
+      "molecularCategory": "NEUROPEPTIDE",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "Binds OXTR & V1a/V1b/V2 Receptors",
+      "biophysicalMechanism": "Nonapeptides synthesized in hypothalamic PVN and supraoptic nuclei acting both as central social/autonomic neuromodulators and posterior pituitary hormones.",
+      "reversalPotentialMv": null,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-017"
+      ],
+      "references": [
+        "REF-SUDHOF-2013",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-PEP-NPY-VIP",
+      "canonicalName": "Neuropeptide Y (NPY) & Vasoactive Intestinal Peptide (VIP)",
+      "geneOrSubunitSymbols": [
+        "NPY",
+        "VIP"
+      ],
+      "molecularCategory": "NEUROPEPTIDE",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "Binds Y1\u2013Y5 (Gi) & VPAC1/2 (Gs)",
+      "biophysicalMechanism": "GABAergic interneuron co-transmitters: NPY dampens epileptic hyperexcitability and stimulates arcuate feeding; VIP mediates cortical disinhibition and vasodilation.",
+      "reversalPotentialMv": null,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-021"
+      ],
+      "references": [
+        "REF-SUDHOF-2013",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-PEP-BDNF",
+      "canonicalName": "Brain-Derived Neurotrophic Factor (BDNF) & TrkB Receptor",
+      "geneOrSubunitSymbols": [
+        "BDNF",
+        "NTRK2"
+      ],
+      "molecularCategory": "NEUROPEPTIDE",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "Binds TrkB Receptor Tyrosine Kinase",
+      "biophysicalMechanism": "Activity-dependent neurotrophin secreted during high-frequency stimulation; activates Ras-MAPK, PI3K-Akt, and PLCgamma to consolidate Late-LTP and spine growth.",
+      "reversalPotentialMv": null,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-024"
+      ],
+      "references": [
+        "REF-SUDHOF-2013",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-PUMP-NAK-ATPASE",
+      "canonicalName": "Electrogenic Na+/K+-ATPase Pump (Alpha-3 Neuronal / Alpha-2 Glial)",
+      "geneOrSubunitSymbols": [
+        "ATP1A3",
+        "ATP1A2"
+      ],
+      "molecularCategory": "TRANSPORTER_OR_PUMP",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "3 Na+ Out / 2 K+ In per 1 ATP hydrolyzed",
+      "biophysicalMechanism": "Consumes ~50% of brain ATP to maintain transmembrane Na+ and K+ concentration gradients required for Nernst potentials and secondary active transport.",
+      "reversalPotentialMv": null,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-001"
+      ],
+      "references": [
+        "REF-SUDHOF-2013",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-PUMP-PMCA-NCX",
+      "canonicalName": "Plasma Membrane Ca2+-ATPase (PMCA) & Na+/Ca2+ Exchanger (NCX)",
+      "geneOrSubunitSymbols": [
+        "ATP2B1",
+        "SLC8A1"
+      ],
+      "molecularCategory": "TRANSPORTER_OR_PUMP",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "Ca2+ Extrusion (High-affinity PMCA / High-capacity 3Na+:1Ca2+ NCX)",
+      "biophysicalMechanism": "Rapidly restores intracellular free [Ca2+] back to ~100 nM basal levels following action potentials and NMDA/CaV influx.",
+      "reversalPotentialMv": null,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-014",
+        "MODEL-016"
+      ],
+      "references": [
+        "REF-SUDHOF-2013",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-TRANS-KCC2-NKCC1",
+      "canonicalName": "Cation-Chloride Cotransporters KCC2 & NKCC1",
+      "geneOrSubunitSymbols": [
+        "SLC12A5 (KCC2)",
+        "SLC12A2 (NKCC1)"
+      ],
+      "molecularCategory": "TRANSPORTER_OR_PUMP",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "KCC2 extrudes K+/Cl-; NKCC1 imports Na+/K+/2Cl-",
+      "biophysicalMechanism": "Developmental upregulation of KCC2 lowers intracellular [Cl-], shifting E_GABA from depolarizing in immature neurons to hyperpolarizing (-75 mV) in mature CNS.",
+      "reversalPotentialMv": -75.0,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-013"
+      ],
+      "references": [
+        "REF-SUDHOF-2013",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-TRANS-EAAT2",
+      "canonicalName": "Excitatory Amino Acid Transporters EAAT1 (GLAST) & EAAT2 (GLT-1)",
+      "geneOrSubunitSymbols": [
+        "SLC1A3",
+        "SLC1A2"
+      ],
+      "molecularCategory": "TRANSPORTER_OR_PUMP",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "Co-transports 3 Na+, 1 H+ in + 1 K+ out per Glutamate",
+      "biophysicalMechanism": "Astrocytic perisynaptic glutamate uptake transporters clearing >90% of cleft glutamate within milliseconds to preserve point-to-point specificity and prevent excitotoxicity.",
+      "reversalPotentialMv": null,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-013"
+      ],
+      "references": [
+        "REF-SUDHOF-2013",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-TRANS-GAT1",
+      "canonicalName": "GABA Plasma-Membrane Transporters GAT-1 & GAT-3",
+      "geneOrSubunitSymbols": [
+        "SLC6A1",
+        "SLC6A11"
+      ],
+      "molecularCategory": "TRANSPORTER_OR_PUMP",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "2 Na+ : 1 Cl- : 1 GABA Reuptake",
+      "biophysicalMechanism": "Neuronal (GAT-1) and astrocytic (GAT-3) transporters terminating synaptic GABA signaling and regulating tonic extrasynaptic inhibition.",
+      "reversalPotentialMv": null,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-013"
+      ],
+      "references": [
+        "REF-SUDHOF-2013",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-TRANS-MONOAMINE",
+      "canonicalName": "Monoamine Plasma-Membrane Transporters (DAT, SERT, NET)",
+      "geneOrSubunitSymbols": [
+        "SLC6A3",
+        "SLC6A4",
+        "SLC6A2"
+      ],
+      "molecularCategory": "TRANSPORTER_OR_PUMP",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "Na+/Cl--dependent Dopamine, Serotonin & NE Reuptake",
+      "biophysicalMechanism": "High-affinity presynaptic transporters clearing released monoamines from the extracellular space to control volume transmission duration.",
+      "reversalPotentialMv": null,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-026"
+      ],
+      "references": [
+        "REF-SUDHOF-2013",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-TRANS-VESICULAR",
+      "canonicalName": "Vesicular Neurotransmitter Transporters (VGLUT1/2, VGAT, VMAT2, VAChT)",
+      "geneOrSubunitSymbols": [
+        "SLC17A7",
+        "SLC32A1",
+        "SLC18A2",
+        "SLC18A3"
+      ],
+      "molecularCategory": "TRANSPORTER_OR_PUMP",
+      "primaryScale": "L2",
+      "ionOrLigandSpecificity": "H+ Electrochemical Gradient Driven Vesicle Loading",
+      "biophysicalMechanism": "Driven by vesicular V-ATPase proton pumps to concentrate neurotransmitters inside 40 nm synaptic vesicles up to 100 mM.",
+      "reversalPotentialMv": null,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-016"
+      ],
+      "references": [
+        "REF-SUDHOF-2013",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-VES-SNARE",
+      "canonicalName": "Core SNARE Fusion Complex (Synaptobrevin/VAMP2, Syntaxin-1, SNAP-25)",
+      "geneOrSubunitSymbols": [
+        "VAMP2",
+        "STX1A",
+        "SNAP25"
+      ],
+      "molecularCategory": "VESICLE_TRAFFICKING_PROTEIN",
+      "primaryScale": "L2",
+      "ionOrLigandSpecificity": "Four-helix bundle zippering membrane fusion",
+      "biophysicalMechanism": "Zippers from N- to C-terminus to overcome hydration repulsion and fuse docked synaptic vesicles with the presynaptic active-zone plasma membrane.",
+      "reversalPotentialMv": null,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-016"
+      ],
+      "references": [
+        "REF-SUDHOF-2013",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-VES-SYT1",
+      "canonicalName": "Synaptotagmin-1 (Fast Synchronous Ca2+ Sensor)",
+      "geneOrSubunitSymbols": [
+        "SYT1"
+      ],
+      "molecularCategory": "VESICLE_TRAFFICKING_PROTEIN",
+      "primaryScale": "L2",
+      "ionOrLigandSpecificity": "Binds 4\u20135 Ca2+ ions via C2A and C2B domains",
+      "biophysicalMechanism": "Transmembrane vesicle protein that triggers sub-millisecond SNARE-mediated pore opening upon local CaV2 microdomain Ca2+ influx.",
+      "reversalPotentialMv": null,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-016"
+      ],
+      "references": [
+        "REF-SUDHOF-2013",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-VES-ACHE",
+      "canonicalName": "Synaptic Cleft Acetylcholinesterase (AChE)",
+      "geneOrSubunitSymbols": [
+        "ACHE"
+      ],
+      "molecularCategory": "VESICLE_TRAFFICKING_PROTEIN",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "Hydrolyzes ACh -> Choline + Acetate (~25,000 molecules/s)",
+      "biophysicalMechanism": "Catalytically near-diffusion-limited enzyme anchored in the synaptic cleft that terminates nicotinic and muscarinic ACh signaling in <1 ms.",
+      "reversalPotentialMv": null,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-013"
+      ],
+      "references": [
+        "REF-SUDHOF-2013",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-SIG-CALMODULIN",
+      "canonicalName": "Calmodulin (CaM) Intracellular Ca2+ Sensor",
+      "geneOrSubunitSymbols": [
+        "CALM1",
+        "CALM2",
+        "CALM3"
+      ],
+      "molecularCategory": "INTRACELLULAR_SIGNALING",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "Binds up to 4 Ca2+ ions via EF-hand motifs",
+      "biophysicalMechanism": "Ubiquitous Ca2+-binding transducer that conformationally activates CaMKII, calcineurin, adenylyl cyclase 1/8, and CaV channel CDI feedback.",
+      "reversalPotentialMv": null,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-024"
+      ],
+      "references": [
+        "REF-SUDHOF-2013",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-SIG-CAMKII",
+      "canonicalName": "Ca2+/Calmodulin-Dependent Protein Kinase II (CaMKII-Alpha)",
+      "geneOrSubunitSymbols": [
+        "CAMK2A"
+      ],
+      "molecularCategory": "INTRACELLULAR_SIGNALING",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "Thr286 Autophosphorylation molecular memory switch",
+      "biophysicalMechanism": "Dodecameric holoenzyme comprising ~1\u20132% of total PSD protein; high-frequency Ca2+ influx triggers autonomous Thr286 phosphorylation, trapping GluA1 AMPARs at PSD-95 for LTP.",
+      "reversalPotentialMv": null,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-023",
+        "MODEL-024"
+      ],
+      "references": [
+        "REF-SUDHOF-2013",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-SIG-CALCINEURIN",
+      "canonicalName": "Calcineurin (Protein Phosphatase 2B, PP2B) & PP1 Cascade",
+      "geneOrSubunitSymbols": [
+        "PPP3CA",
+        "PPP1CA"
+      ],
+      "molecularCategory": "INTRACELLULAR_SIGNALING",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "High-affinity Ca2+/CaM-activated Ser/Thr Phosphatase",
+      "biophysicalMechanism": "Activated by prolonged modest Ca2+ elevations during low-frequency stimulation; dephosphorylates Inhibitor-1 to activate PP1 and drive AMPAR endocytosis in LTD.",
+      "reversalPotentialMv": null,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-023",
+        "MODEL-024"
+      ],
+      "references": [
+        "REF-SUDHOF-2013",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-SIG-CAMP-PKA",
+      "canonicalName": "Adenylyl Cyclase \u2013 cAMP \u2013 Protein Kinase A (PKA) Cascade",
+      "geneOrSubunitSymbols": [
+        "ADCY1",
+        "PRKACA"
+      ],
+      "molecularCategory": "INTRACELLULAR_SIGNALING",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "ATP -> cAMP -> PKA Catalytic Subunit Release",
+      "biophysicalMechanism": "Activated by Gs-coupled GPCRs (D1, Beta-1) and inhibited by Gi/o (D2, Alpha-2, mGluR2); phosphorylates GluA1 Ser845, ion channels, and DARPP-32.",
+      "reversalPotentialMv": null,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-026"
+      ],
+      "references": [
+        "REF-SUDHOF-2013",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-SIG-PLC-IP3-PKC",
+      "canonicalName": "Phospholipase C-Beta (PLCbeta) \u2013 IP3 / DAG \u2013 PKC Cascade",
+      "geneOrSubunitSymbols": [
+        "PLCB1",
+        "ITPR1",
+        "PRKCA"
+      ],
+      "molecularCategory": "INTRACELLULAR_SIGNALING",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "PIP2 -> IP3 (ER Ca2+ release) + DAG (PKC activation)",
+      "biophysicalMechanism": "Activated by Gq-coupled receptors (mGluR1/5, M1, 5-HT2A, Alpha-1); mobilizes intracellular ER calcium waves and modulates TRP/K+ channels.",
+      "reversalPotentialMv": null,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-023"
+      ],
+      "references": [
+        "REF-SUDHOF-2013",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-SIG-CREB",
+      "canonicalName": "cAMP Response Element-Binding Protein (CREB1) & IEGs (c-Fos, Arc)",
+      "geneOrSubunitSymbols": [
+        "CREB1",
+        "FOS",
+        "ARC"
+      ],
+      "molecularCategory": "INTRACELLULAR_SIGNALING",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "Ser133 Phosphorylation -> Activity-Dependent Transcription",
+      "biophysicalMechanism": "Nuclear transcription factor phosphorylated by PKA, CaMKIV, and MAPK/ERK to induce immediate-early genes (Arc, c-Fos, BDNF) required for Late-LTP and memory consolidation.",
+      "reversalPotentialMv": null,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-024"
+      ],
+      "references": [
+        "REF-SUDHOF-2013",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-SIG-PSD95",
+      "canonicalName": "Postsynaptic Density Protein 95 (PSD-95 / DLG4) MAGUK Scaffold",
+      "geneOrSubunitSymbols": [
+        "DLG4"
+      ],
+      "molecularCategory": "INTRACELLULAR_SIGNALING",
+      "primaryScale": "L2",
+      "ionOrLigandSpecificity": "PDZ-domain scaffolding of NMDARs and TARP/AMPARs",
+      "biophysicalMechanism": "Master structural organizer of the excitatory postsynaptic density aligning postsynaptic receptors opposite presynaptic active-zone nanocolumns.",
+      "reversalPotentialMv": null,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-013",
+        "MODEL-014"
+      ],
+      "references": [
+        "REF-SUDHOF-2013",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MOL-SIG-CLOCK-BMAL1",
+      "canonicalName": "Circadian Transcriptional Oscillator Complex (CLOCK:BMAL1 & PER:CRY)",
+      "geneOrSubunitSymbols": [
+        "CLOCK",
+        "ARNTL",
+        "PER1",
+        "CRY1"
+      ],
+      "molecularCategory": "INTRACELLULAR_SIGNALING",
+      "primaryScale": "L1",
+      "ionOrLigandSpecificity": "E-box Transcription-Translation Feedback Loop (~24 h)",
+      "biophysicalMechanism": "Core molecular clockwork inside SCN neurons regulating circadian firing-rate rhythms via daily transcription and feedback repression of Per and Cry genes.",
+      "reversalPotentialMv": null,
+      "educationalScopeNote": "Mechanistic biophysical and neurochemical specification only; non-clinical and non-pharmacological.",
+      "associatedModelIds": [
+        "MODEL-027"
+      ],
+      "references": [
+        "REF-SUDHOF-2013",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    }
+  ]
+}

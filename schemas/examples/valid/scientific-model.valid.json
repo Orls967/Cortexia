@@ -1,0 +1,94 @@
+{
+  "$schemaRef": "models/scientific-model.schema.json",
+  "payload": {
+    "id": "MODEL-001",
+    "name": "Hodgkin-Huxley Conductance-Based Membrane Model",
+    "modelFamilyId": "FAM-01",
+    "modelFamilyName": "Biophysical Conductance Membrane",
+    "primaryScale": "L3",
+    "abstractionLevel": "Single-compartment biophysical conductance ODE",
+    "biologicalInterpretation": "Space-clamped excitable axonal membrane patch driven by voltage-gated sodium, potassium, and leak conductances.",
+    "governingEquationIds": [
+      "EQ-001",
+      "EQ-002",
+      "EQ-003",
+      "EQ-004"
+    ],
+    "stateVariables": [
+      {
+        "symbol": "V",
+        "name": "Membrane potential",
+        "unit": "mV"
+      },
+      {
+        "symbol": "m",
+        "name": "Na+ activation gate",
+        "unit": "dimensionless"
+      },
+      {
+        "symbol": "h",
+        "name": "Na+ inactivation gate",
+        "unit": "dimensionless"
+      },
+      {
+        "symbol": "n",
+        "name": "K+ activation gate",
+        "unit": "dimensionless"
+      }
+    ],
+    "parameterIds": [
+      "PARAM-001",
+      "PARAM-002",
+      "PARAM-003",
+      "PARAM-004",
+      "PARAM-005",
+      "PARAM-006",
+      "PARAM-007"
+    ],
+    "initialConditions": {
+      "V": -65.0,
+      "m": 0.05293,
+      "h": 0.59612,
+      "n": 0.31768
+    },
+    "numericalMethod": {
+      "defaultSolver": "SOLVER-RK4",
+      "supportedSolvers": [
+        "SOLVER-RK4",
+        "SOLVER-RUSH-LARSEN",
+        "SOLVER-RK45",
+        "SOLVER-FE"
+      ],
+      "defaultDtMs": 0.01,
+      "minDtMs": 0.001,
+      "maxSafeDtMs": 0.025
+    },
+    "computeEnvelope": {
+      "maxUnitsInBrowser": 200,
+      "maxDurationMs": 2000,
+      "workerMemoryBudgetMb": 64
+    },
+    "assumptions": [
+      "Isopotential membrane patch",
+      "Independent gating particles"
+    ],
+    "limitations": [
+      "No spatial dendritic tree",
+      "Squid 6.3C kinetics unless temperature-scaled"
+    ],
+    "validityDomain": [
+      "Space-clamped action potential generation and refractory dynamics"
+    ],
+    "validationCaseIds": [
+      "VAL-HH-001",
+      "VAL-HH-002",
+      "VAL-HH-003"
+    ],
+    "references": [
+      "REF-HH-1952",
+      "REF-DAYAN-2001"
+    ],
+    "version": "1.0.0",
+    "schemaVersion": "1.0.0"
+  }
+}

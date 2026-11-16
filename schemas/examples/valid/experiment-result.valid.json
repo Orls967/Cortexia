@@ -1,0 +1,27 @@
+{
+  "$schemaRef": "experiments/experiment-result.schema.json",
+  "payload": {
+    "experimentRunId": "RUN-20261116-0001",
+    "experimentPresetId": "EXP-001",
+    "modelId": "MODEL-001",
+    "modelVersion": "1.0.0",
+    "solver": "SOLVER-RK4",
+    "timeStepMs": 0.01,
+    "durationMs": 50.0,
+    "randomSeed": 42,
+    "parameterSnapshot": {
+      "C_m": 1.0,
+      "g_Na_max": 120.0
+    },
+    "initialConditions": {
+      "V": -65.0
+    },
+    "summaryMetrics": {
+      "spikeCount": 4,
+      "meanFiringRateHz": 72.4
+    },
+    "validationStatus": "PASSED",
+    "createdAt": "2026-11-16T15:00:00Z",
+    "schemaVersion": "1.0.0"
+  }
+}

@@ -1,0 +1,515 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "SYS-NEUROENDOCRINE",
+      "canonicalName": "Hypothalamic-Pituitary Neuroendocrine & Stress Axis System",
+      "primaryScale": "L9",
+      "coreStructureIds": [
+        "ANAT-HYPOTHALAMUS",
+        "ANAT-PVN-HYPO",
+        "ANAT-SCN",
+        "ANAT-PITUITARY-GLAND",
+        "ANAT-THIRD-VENTRICLE"
+      ],
+      "circuitIds": [
+        "CIRC-018"
+      ],
+      "mechanismIds": [
+        "MECH-051"
+      ],
+      "associatedModelIds": [
+        "MODEL-017",
+        "MODEL-027"
+      ],
+      "systemSummary": "Integrates hypothalamic paraventricular and arcuate neurosecretory circuits with anterior/posterior pituitary endocrine axes.",
+      "references": [
+        "REF-KANDEL-2021",
+        "REF-TAKAHASHI-2017"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "SYS-VISUAL",
+      "canonicalName": "Visual System",
+      "primaryScale": "L9",
+      "coreStructureIds": [
+        "ANAT-RETINA",
+        "ANAT-CN-II",
+        "ANAT-LGN",
+        "ANAT-CALCARINE-SULCUS",
+        "ANAT-VISUAL-MT-V5",
+        "ANAT-FUSIFORM-GYRUS"
+      ],
+      "circuitIds": [
+        "CIRC-019",
+        "CIRC-020",
+        "CIRC-021"
+      ],
+      "mechanismIds": [
+        "MECH-022",
+        "MECH-043"
+      ],
+      "associatedModelIds": [
+        "MODEL-018",
+        "MODEL-020",
+        "MODEL-023"
+      ],
+      "systemSummary": "Hierarchical retinotopic, dorsal motion/spatial, and ventral object/face processing system.",
+      "references": [
+        "REF-FELLEMAN-VANESSEN-1991"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "SYS-AUDITORY",
+      "canonicalName": "Auditory System",
+      "primaryScale": "L9",
+      "coreStructureIds": [
+        "ANAT-COCHLEA-ORGAN-CORTI",
+        "ANAT-CN-VIII",
+        "ANAT-INFERIOR-COLLICULUS",
+        "ANAT-MGN",
+        "ANAT-SUPERIOR-TEMPORAL-GYRUS"
+      ],
+      "circuitIds": [
+        "CIRC-022"
+      ],
+      "mechanismIds": [
+        "MECH-007",
+        "MECH-046"
+      ],
+      "associatedModelIds": [
+        "MODEL-005",
+        "MODEL-027"
+      ],
+      "systemSummary": "Tonotopic mechanoelectrical transduction, brainstem binaural localization, and spectrotemporal cortical decoding.",
+      "references": [
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "SYS-SOMATOSENSORY",
+      "canonicalName": "Somatosensory System",
+      "primaryScale": "L9",
+      "coreStructureIds": [
+        "ANAT-DRG",
+        "ANAT-SPINAL-CORD",
+        "ANAT-THALAMUS-VPL",
+        "ANAT-THALAMUS-VPM",
+        "ANAT-POSTCENTRAL-GYRUS"
+      ],
+      "circuitIds": [
+        "CIRC-006",
+        "CIRC-023"
+      ],
+      "mechanismIds": [
+        "MECH-014",
+        "MECH-022"
+      ],
+      "associatedModelIds": [
+        "MODEL-001",
+        "MODEL-021"
+      ],
+      "systemSummary": "Discriminative touch, vibration, conscious proprioception, and somatotopic cortical representation.",
+      "references": [
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "SYS-VESTIBULAR",
+      "canonicalName": "Vestibular Balance & Gaze Stabilization System",
+      "primaryScale": "L9",
+      "coreStructureIds": [
+        "ANAT-CN-VIII",
+        "ANAT-VESTIBULAR-NUCLEI",
+        "ANAT-FLOCCULONODULAR-LOBE",
+        "ANAT-CN-III",
+        "ANAT-CN-VI"
+      ],
+      "circuitIds": [
+        "CIRC-027"
+      ],
+      "mechanismIds": [
+        "MECH-034"
+      ],
+      "associatedModelIds": [
+        "MODEL-023"
+      ],
+      "systemSummary": "Semicircular canal and otolith angular/linear acceleration sensing coupled to vestibulo-ocular and postural reflexes.",
+      "references": [
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "SYS-OLFACTORY",
+      "canonicalName": "Olfactory Chemosensory System",
+      "primaryScale": "L9",
+      "coreStructureIds": [
+        "ANAT-CN-I",
+        "ANAT-AMYGDALA",
+        "ANAT-ENTORHINAL-CORTEX",
+        "ANAT-OFC-VMPFC"
+      ],
+      "circuitIds": [
+        "CIRC-006"
+      ],
+      "mechanismIds": [
+        "MECH-026",
+        "MECH-043"
+      ],
+      "associatedModelIds": [
+        "MODEL-015",
+        "MODEL-021"
+      ],
+      "systemSummary": "Direct glomerular odorant coding projecting to piriform, amygdala, and entorhinal cortices without an obligatory thalamic relay.",
+      "references": [
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "SYS-GUSTATORY",
+      "canonicalName": "Gustatory & Viscerosensory Taste System",
+      "primaryScale": "L9",
+      "coreStructureIds": [
+        "ANAT-CN-VII",
+        "ANAT-CN-IX",
+        "ANAT-CN-X",
+        "ANAT-NTS",
+        "ANAT-THALAMUS-VPM",
+        "ANAT-INSULAR-LOBE",
+        "ANAT-OFC-VMPFC"
+      ],
+      "circuitIds": [
+        "CIRC-032"
+      ],
+      "mechanismIds": [
+        "MECH-022"
+      ],
+      "associatedModelIds": [
+        "MODEL-017"
+      ],
+      "systemSummary": "Cranial nerve VII/IX/X taste transduction relayed via rostral NTS and VPMpc thalamus to primary insular gustatory cortex.",
+      "references": [
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "SYS-MOTOR",
+      "canonicalName": "Somatic Voluntary & Subcortical Motor Control System",
+      "primaryScale": "L9",
+      "coreStructureIds": [
+        "ANAT-PRECENTRAL-GYRUS",
+        "ANAT-BASAL-GANGLIA",
+        "ANAT-CEREBELLUM",
+        "ANAT-THALAMUS-VL",
+        "ANAT-CORTICOSPINAL-TRACT",
+        "ANAT-SPINAL-VENTRAL-HORN"
+      ],
+      "circuitIds": [
+        "CIRC-011",
+        "CIRC-012",
+        "CIRC-014",
+        "CIRC-026"
+      ],
+      "mechanismIds": [
+        "MECH-014",
+        "MECH-037"
+      ],
+      "associatedModelIds": [
+        "MODEL-001",
+        "MODEL-017",
+        "MODEL-023",
+        "MODEL-026"
+      ],
+      "systemSummary": "Integrates cortical motor planning, basal ganglia action selection, cerebellar forward internal models, and spinal motor pools.",
+      "references": [
+        "REF-ALEXANDER-1986",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "SYS-AUTONOMIC",
+      "canonicalName": "Autonomic Nervous System (Sympathetic, Parasympathetic & Enteric)",
+      "primaryScale": "L9",
+      "coreStructureIds": [
+        "ANAT-HYPOTHALAMUS",
+        "ANAT-PVN-HYPO",
+        "ANAT-NTS",
+        "ANAT-CN-X",
+        "ANAT-SYMPATHETIC-CHAIN",
+        "ANAT-PARASYMPATHETIC-ENTERIC"
+      ],
+      "circuitIds": [
+        "CIRC-032"
+      ],
+      "mechanismIds": [
+        "MECH-025",
+        "MECH-050"
+      ],
+      "associatedModelIds": [
+        "MODEL-002",
+        "MODEL-017"
+      ],
+      "systemSummary": "Coordinates cardiovascular, respiratory, thermoregulatory, and visceral homeostasis via balanced sympathetic and vagal outflow.",
+      "references": [
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "SYS-PAIN",
+      "canonicalName": "Nociceptive & Descending Pain Modulation System",
+      "primaryScale": "L9",
+      "coreStructureIds": [
+        "ANAT-DRG",
+        "ANAT-SPINAL-DORSAL-HORN",
+        "ANAT-SPINOTHALAMIC-TRACT",
+        "ANAT-THALAMUS-VPL",
+        "ANAT-INSULAR-LOBE",
+        "ANAT-ACC",
+        "ANAT-PAG"
+      ],
+      "circuitIds": [
+        "CIRC-024",
+        "CIRC-025"
+      ],
+      "mechanismIds": [
+        "MECH-023",
+        "MECH-050"
+      ],
+      "associatedModelIds": [
+        "MODEL-014",
+        "MODEL-017"
+      ],
+      "systemSummary": "Combines ascending spinothalamic sensory-discriminative and affective-motivational pain pathways with descending PAG-RVM analgesia.",
+      "references": [
+        "REF-BASBAUM-2009"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "SYS-SLEEP",
+      "canonicalName": "Sleep, Wakefulness & Circadian Arousal System",
+      "primaryScale": "L9",
+      "coreStructureIds": [
+        "ANAT-SCN",
+        "ANAT-HYPOTHALAMUS",
+        "ANAT-LOCUS-COERULEUS",
+        "ANAT-RAPHE-NUCLEI",
+        "ANAT-NUCLEUS-BASALIS",
+        "ANAT-THALAMUS",
+        "ANAT-TRN"
+      ],
+      "circuitIds": [
+        "CIRC-010",
+        "CIRC-018"
+      ],
+      "mechanismIds": [
+        "MECH-044",
+        "MECH-051"
+      ],
+      "associatedModelIds": [
+        "MODEL-017",
+        "MODEL-018",
+        "MODEL-027"
+      ],
+      "systemSummary": "Couples the 24-hour SCN circadian clock with hypothalamic-brainstem flip-flop sleep-wake switching and thalamocortical rhythms.",
+      "references": [
+        "REF-SCAMMELL-2017",
+        "REF-TAKAHASHI-2017"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "SYS-EMOTION",
+      "canonicalName": "Emotion, Threat Valuation & Affective Regulation System",
+      "primaryScale": "L9",
+      "coreStructureIds": [
+        "ANAT-AMYGDALA-BLA",
+        "ANAT-AMYGDALA-CEA",
+        "ANAT-OFC-VMPFC",
+        "ANAT-ACC",
+        "ANAT-INSULAR-LOBE",
+        "ANAT-PAG"
+      ],
+      "circuitIds": [
+        "CIRC-015",
+        "CIRC-032"
+      ],
+      "mechanismIds": [
+        "MECH-032",
+        "MECH-035"
+      ],
+      "associatedModelIds": [
+        "MODEL-017",
+        "MODEL-024"
+      ],
+      "systemSummary": "Distributed amygdala-insular-prefrontal-periaqueductal network mediating associative threat/valence learning and top-down cognitive reappraisal.",
+      "references": [
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "SYS-REWARD",
+      "canonicalName": "Mesocorticolimbic Reward, Valuation & Reinforcement System",
+      "primaryScale": "L9",
+      "coreStructureIds": [
+        "ANAT-VTA",
+        "ANAT-SUBSTANTIA-NIGRA",
+        "ANAT-NUCLEUS-ACCUMBENS",
+        "ANAT-STRIATUM",
+        "ANAT-OFC-VMPFC",
+        "ANAT-EPITHALAMUS-HABENULA"
+      ],
+      "circuitIds": [
+        "CIRC-016",
+        "CIRC-017"
+      ],
+      "mechanismIds": [
+        "MECH-037"
+      ],
+      "associatedModelIds": [
+        "MODEL-026"
+      ],
+      "systemSummary": "Computes dopaminergic reward prediction errors and subjective action values across VTA, ventral striatum, and orbitofrontal cortex.",
+      "references": [
+        "REF-SCHULTZ-1997",
+        "REF-SUTTON-BARTO-2018"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "SYS-MEMORY-CONSOLIDATION",
+      "canonicalName": "Declarative & Spatial Memory Consolidation System",
+      "primaryScale": "L9",
+      "coreStructureIds": [
+        "ANAT-HIPPOCAMPAL-FORMATION",
+        "ANAT-DENTATE-GYRUS",
+        "ANAT-HIPPOCAMPUS-CA3",
+        "ANAT-HIPPOCAMPUS-CA1",
+        "ANAT-ENTORHINAL-CORTEX",
+        "ANAT-MAMMILLARY-BODIES",
+        "ANAT-PCC"
+      ],
+      "circuitIds": [
+        "CIRC-007",
+        "CIRC-008",
+        "CIRC-009"
+      ],
+      "mechanismIds": [
+        "MECH-032",
+        "MECH-035",
+        "MECH-045"
+      ],
+      "associatedModelIds": [
+        "MODEL-014",
+        "MODEL-021",
+        "MODEL-024"
+      ],
+      "systemSummary": "Complementary medial temporal and neocortical network encoding rapid episodic traces and replaying them into distributed long-term storage.",
+      "references": [
+        "REF-SQUIRE-2004",
+        "REF-BLISS-LOMO-1973"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "SYS-LANGUAGE",
+      "canonicalName": "Dual-Stream Speech & Language System",
+      "primaryScale": "L9",
+      "coreStructureIds": [
+        "ANAT-SUPERIOR-TEMPORAL-GYRUS",
+        "ANAT-IFG-BROCA",
+        "ANAT-ANGULAR-SUPRAMARGINAL",
+        "ANAT-FUSIFORM-GYRUS",
+        "ANAT-ARCUATE-FASCICULUS",
+        "ANAT-UNCINATE-FASCICULUS"
+      ],
+      "circuitIds": [
+        "CIRC-028"
+      ],
+      "mechanismIds": [
+        "MECH-043",
+        "MECH-046"
+      ],
+      "associatedModelIds": [
+        "MODEL-028"
+      ],
+      "systemSummary": "Bilateral ventral lexical-semantic stream and left-dominant dorsal phonological-articulatory stream.",
+      "references": [
+        "REF-HICKOK-POEPPEL-2007"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "SYS-EXECUTIVE-CONTROL",
+      "canonicalName": "Frontoparietal Executive Control & Attention System",
+      "primaryScale": "L9",
+      "coreStructureIds": [
+        "ANAT-DLPFC",
+        "ANAT-FEF-IPS",
+        "ANAT-ACC",
+        "ANAT-THALAMUS-MD",
+        "ANAT-CAUDATE-NUCLEUS",
+        "ANAT-STN"
+      ],
+      "circuitIds": [
+        "CIRC-013",
+        "CIRC-030",
+        "CIRC-031"
+      ],
+      "mechanismIds": [
+        "MECH-050",
+        "MECH-052"
+      ],
+      "associatedModelIds": [
+        "MODEL-017",
+        "MODEL-019",
+        "MODEL-028"
+      ],
+      "systemSummary": "Maintains working-memory representations, biases attentional competition, monitors conflict, and inhibits inappropriate actions.",
+      "references": [
+        "REF-MILLER-COHEN-2001",
+        "REF-CORBETTA-SHULMAN-2002",
+        "REF-BADDELEY-2003"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "SYS-DEFAULT-MODE",
+      "canonicalName": "Default Mode & Internal Mentation Network System",
+      "primaryScale": "L9",
+      "coreStructureIds": [
+        "ANAT-PCC",
+        "ANAT-OFC-VMPFC",
+        "ANAT-ANGULAR-SUPRAMARGINAL",
+        "ANAT-HIPPOCAMPAL-FORMATION",
+        "ANAT-CINGULUM-BUNDLE"
+      ],
+      "circuitIds": [
+        "CIRC-029"
+      ],
+      "mechanismIds": [
+        "MECH-046",
+        "MECH-049"
+      ],
+      "associatedModelIds": [
+        "MODEL-027",
+        "MODEL-028"
+      ],
+      "systemSummary": "Distributed medial-parietal, prefrontal, and medial-temporal network supporting autobiographical recollection, future simulation, and conceptual integration.",
+      "references": [
+        "REF-RAICHLE-2015"
+      ],
+      "schemaVersion": "1.0.0"
+    }
+  ]
+}

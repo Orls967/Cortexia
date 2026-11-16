@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cortexia.science/schemas/cells/cellular-entity.schema.json",
+  "title": "CellularEntity",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "canonicalName",
+    "cellCategory",
+    "primaryScale",
+    "primaryNeurotransmitter",
+    "morphologySummary",
+    "physiologicalRole",
+    "characteristicMarkers",
+    "locatedInIds",
+    "references",
+    "schemaVersion"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^CELL-[A-Z0-9-]+$"
+    },
+    "canonicalName": {
+      "type": "string",
+      "minLength": 3
+    },
+    "aliases": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "cellCategory": {
+      "type": "string",
+      "enum": [
+        "EXCITATORY_NEURON",
+        "INHIBITORY_INTERNEURON",
+        "MODULATORY_NEURON",
+        "SENSORY_MOTOR_NEURON",
+        "CNS_GLIA",
+        "PNS_GLIA",
+        "SUBCELLULAR_COMPARTMENT"
+      ]
+    },
+    "primaryScale": {
+      "type": "string",
+      "enum": [
+        "L2",
+        "L3"
+      ]
+    },
+    "primaryNeurotransmitter": {
+      "type": "string",
+      "minLength": 2
+    },
+    "morphologySummary": {
+      "type": "string",
+      "minLength": 40
+    },
+    "physiologicalRole": {
+      "type": "string",
+      "minLength": 40
+    },
+    "characteristicMarkers": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "locatedInIds": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "pattern": "^ANAT-[A-Z0-9-]+$"
+      }
+    },
+    "associatedModelIds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^MODEL-[0-9]{3}$"
+      }
+    },
+    "assetId": {
+      "type": "string",
+      "pattern": "^ASSET-[A-Z0-9-]+$"
+    },
+    "references": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "pattern": "^REF-[A-Z0-9-]+$"
+      }
+    },
+    "schemaVersion": {
+      "type": "string",
+      "const": "1.0.0"
+    }
+  }
+}

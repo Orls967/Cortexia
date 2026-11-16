@@ -1,0 +1,1101 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "EXP-001",
+      "title": "Hodgkin-Huxley Action Potential Threshold & Rheobase Step",
+      "experimentType": "EXP_SINGLE_PARAM",
+      "modelId": "MODEL-001",
+      "primaryScale": "L3",
+      "hypothesis": "Increasing external step current I_ext above ~6.2 uA/cm^2 triggers an all-or-none regenerative Na+ action potential.",
+      "independentVariables": [
+        "I_ext"
+      ],
+      "dependentMetrics": [
+        "Peak voltage V_max (mV)",
+        "First spike latency (ms)"
+      ],
+      "solverId": "SOLVER-RK4",
+      "dtMs": 0.01,
+      "durationMs": 50.0,
+      "randomSeed": 42,
+      "digitalTwinCouplingMode": "SINGLE_SCALE_MECHANISTIC",
+      "validationCaseId": "VAL-HH-002",
+      "references": [
+        "REF-HH-1952"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EXP-002",
+      "title": "Hodgkin-Huxley Repetitive Firing f-I Curve Sweep",
+      "experimentType": "EXP_PARAM_SWEEP",
+      "modelId": "MODEL-001",
+      "primaryScale": "L3",
+      "hypothesis": "Sweeping constant current I_ext from 0 to 30 uA/cm^2 reveals a Type II discontinuous onset of repetitive spiking near 65 Hz.",
+      "independentVariables": [
+        "I_ext (0..30 uA/cm^2)"
+      ],
+      "dependentMetrics": [
+        "Firing rate f (Hz)",
+        "Mean ISI (ms)"
+      ],
+      "solverId": "SOLVER-RK4",
+      "dtMs": 0.01,
+      "durationMs": 200.0,
+      "randomSeed": 42,
+      "digitalTwinCouplingMode": "SINGLE_SCALE_MECHANISTIC",
+      "validationCaseId": "VAL-HH-002",
+      "references": [
+        "REF-HH-1952",
+        "REF-GERSTNER-2014"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EXP-003",
+      "title": "Absolute vs Relative Refractory Period Paired-Pulse Probe",
+      "experimentType": "EXP_MULTI_PARAM",
+      "modelId": "MODEL-001",
+      "primaryScale": "L3",
+      "hypothesis": "A second current pulse delivered within 1.5 ms fails due to h-gate inactivation; pulses at 2\u20138 ms require elevated amplitude.",
+      "independentVariables": [
+        "Inter-pulse interval Delta_t (ms)",
+        "Pulse 2 amplitude"
+      ],
+      "dependentMetrics": [
+        "Second spike occurrence",
+        "Peak dV/dt"
+      ],
+      "solverId": "SOLVER-RK4",
+      "dtMs": 0.01,
+      "durationMs": 40.0,
+      "randomSeed": 42,
+      "digitalTwinCouplingMode": "SINGLE_SCALE_MECHANISTIC",
+      "validationCaseId": "VAL-HH-003",
+      "references": [
+        "REF-HH-1952"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EXP-004",
+      "title": "Anodal Break (Post-Hyperpolarization Rebound) Excitation",
+      "experimentType": "EXP_BASELINE_INTERVENTION",
+      "modelId": "MODEL-001",
+      "primaryScale": "L3",
+      "hypothesis": "Brief hyperpolarizing current removes resting Na+ inactivation (raises h) and lowers n, eliciting a rebound action potential upon release.",
+      "independentVariables": [
+        "Hyperpolarizing step amplitude",
+        "Step duration (ms)"
+      ],
+      "dependentMetrics": [
+        "Rebound spike peak (mV)",
+        "h-gate recovery"
+      ],
+      "solverId": "SOLVER-RK4",
+      "dtMs": 0.01,
+      "durationMs": 60.0,
+      "randomSeed": 42,
+      "digitalTwinCouplingMode": "SINGLE_SCALE_MECHANISTIC",
+      "validationCaseId": "VAL-HH-001",
+      "references": [
+        "REF-HH-1952"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EXP-005",
+      "title": "Simulated TTX (g_Na Block) vs TEA (g_K Block) Channel Pharmacology",
+      "experimentType": "EXP_BASELINE_INTERVENTION",
+      "modelId": "MODEL-001",
+      "primaryScale": "L3",
+      "hypothesis": "Reducing g_Na_max mimics tetrodotoxin abolish of upstroke; reducing g_K_max mimics tetraethylammonium broadening of action potential duration.",
+      "independentVariables": [
+        "g_Na_max",
+        "g_K_max"
+      ],
+      "dependentMetrics": [
+        "Action potential half-width (ms)",
+        "Peak overshoot (mV)"
+      ],
+      "solverId": "SOLVER-RK4",
+      "dtMs": 0.01,
+      "durationMs": 50.0,
+      "randomSeed": 42,
+      "digitalTwinCouplingMode": "SINGLE_SCALE_MECHANISTIC",
+      "validationCaseId": "VAL-HH-002",
+      "references": [
+        "REF-HH-1952",
+        "REF-HILLE-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EXP-006",
+      "title": "Q10 Thermal Acceleration of Action Potential Kinetics",
+      "experimentType": "EXP_PARAM_SWEEP",
+      "modelId": "MODEL-001",
+      "primaryScale": "L3",
+      "hypothesis": "Increasing temperature from 6.3 C to 25 C accelerates gating rates via Q10=3, narrowing spike width and increasing firing frequency.",
+      "independentVariables": [
+        "T_celsius (6.3..30 C)"
+      ],
+      "dependentMetrics": [
+        "Spike duration (ms)",
+        "Firing rate (Hz)"
+      ],
+      "solverId": "SOLVER-RUSH-LARSEN",
+      "dtMs": 0.01,
+      "durationMs": 50.0,
+      "randomSeed": 42,
+      "digitalTwinCouplingMode": "SINGLE_SCALE_MECHANISTIC",
+      "validationCaseId": "VAL-HH-002",
+      "references": [
+        "REF-HH-1952"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EXP-007",
+      "title": "Hodgkin-Huxley Local Parameter Sensitivity Matrix",
+      "experimentType": "EXP_SENSITIVITY",
+      "modelId": "MODEL-001",
+      "primaryScale": "L3",
+      "hypothesis": "Normalized elasticity analysis identifies E_Na, g_Na_max, and g_K_max as dominant determinants of spike amplitude and frequency.",
+      "independentVariables": [
+        "All 8 HH parameters (+/- 5%)"
+      ],
+      "dependentMetrics": [
+        "Normalized sensitivity index S_pk^M"
+      ],
+      "solverId": "SOLVER-RK4",
+      "dtMs": 0.01,
+      "durationMs": 100.0,
+      "randomSeed": 42,
+      "digitalTwinCouplingMode": "SINGLE_SCALE_MECHANISTIC",
+      "validationCaseId": "VAL-HH-002",
+      "references": [
+        "REF-DAYAN-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EXP-008",
+      "title": "Numerical Solver Stability & Convergence Comparison (FE vs RK4 vs Rush-Larsen)",
+      "experimentType": "EXP_MODEL_COMPARISON",
+      "modelId": "MODEL-001",
+      "primaryScale": "L3",
+      "hypothesis": "Forward Euler exhibits oscillatory errors or divergence above dt=0.04 ms whereas RK4 and Rush-Larsen remain stable and accurate.",
+      "independentVariables": [
+        "Solver algorithm",
+        "Time step dt (0.002..0.05 ms)"
+      ],
+      "dependentMetrics": [
+        "L_inf voltage error (mV)",
+        "Empirical convergence order p"
+      ],
+      "solverId": "SOLVER-RK4",
+      "dtMs": 0.01,
+      "durationMs": 50.0,
+      "randomSeed": 42,
+      "digitalTwinCouplingMode": "SINGLE_SCALE_MECHANISTIC",
+      "validationCaseId": "VAL-HH-001",
+      "references": [
+        "REF-DAYAN-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EXP-009",
+      "title": "Morris-Lecar Type I (SNIC) vs Type II (Hopf) Excitability Bifurcation",
+      "experimentType": "EXP_MULTI_PARAM",
+      "modelId": "MODEL-002",
+      "primaryScale": "L3",
+      "hypothesis": "Shifting V_3 and V_4 switches membrane onset between continuous low-frequency SNIC integration and discontinuous Hopf resonance.",
+      "independentVariables": [
+        "V_3",
+        "V_4",
+        "I_ext"
+      ],
+      "dependentMetrics": [
+        "Onset frequency (Hz)",
+        "Nullcline intersection Jacobian eigenvalues"
+      ],
+      "solverId": "SOLVER-RK4",
+      "dtMs": 0.05,
+      "durationMs": 300.0,
+      "randomSeed": 42,
+      "digitalTwinCouplingMode": "SINGLE_SCALE_MECHANISTIC",
+      "validationCaseId": "VAL-ML-001",
+      "references": [
+        "REF-MORRIS-LECAR-1981"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EXP-010",
+      "title": "Connor-Stevens A-Current Linearization of Low-Frequency Firing",
+      "experimentType": "EXP_BASELINE_INTERVENTION",
+      "modelId": "MODEL-003",
+      "primaryScale": "L3",
+      "hypothesis": "Presence of transient inactivating K+ conductance g_A delays inter-spike depolarization to permit arbitrarily slow Type I spiking.",
+      "independentVariables": [
+        "g_A_max (0 vs 47.7 mS/cm^2)",
+        "I_ext"
+      ],
+      "dependentMetrics": [
+        "Minimum sustainable firing rate (Hz)"
+      ],
+      "solverId": "SOLVER-RK4",
+      "dtMs": 0.01,
+      "durationMs": 300.0,
+      "randomSeed": 42,
+      "digitalTwinCouplingMode": "SINGLE_SCALE_MECHANISTIC",
+      "validationCaseId": "VAL-ML-001",
+      "references": [
+        "REF-DAYAN-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EXP-011",
+      "title": "FitzHugh-Nagumo Phase-Plane Nullcline & Separatrix Exploration",
+      "experimentType": "EXP_SINGLE_PARAM",
+      "modelId": "MODEL-004",
+      "primaryScale": "L3",
+      "hypothesis": "Phase-plane trajectories cross the cubic v-nullcline middle branch to execute a large excitable excursion before relaxing along w.",
+      "independentVariables": [
+        "I_ext",
+        "Initial state (v_0, w_0)"
+      ],
+      "dependentMetrics": [
+        "Phase-plane trajectory",
+        "Limit-cycle period"
+      ],
+      "solverId": "SOLVER-RK4",
+      "dtMs": 0.05,
+      "durationMs": 200.0,
+      "randomSeed": 42,
+      "digitalTwinCouplingMode": "SINGLE_SCALE_MECHANISTIC",
+      "validationCaseId": "VAL-FHN-001",
+      "references": [
+        "REF-FITZHUGH-1961"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EXP-012",
+      "title": "CUBA-LIF Analytical vs Numerical f-I Curve Verification",
+      "experimentType": "EXP_PARAM_SWEEP",
+      "modelId": "MODEL-005",
+      "primaryScale": "L3",
+      "hypothesis": "Simulated LIF firing rates across suprathreshold currents match the logarithmic analytical solution within <0.2%.",
+      "independentVariables": [
+        "I_ext (200..600 pA)"
+      ],
+      "dependentMetrics": [
+        "Simulated vs analytical firing rate (Hz)"
+      ],
+      "solverId": "SOLVER-EXACT-LIF",
+      "dtMs": 0.1,
+      "durationMs": 500.0,
+      "randomSeed": 42,
+      "digitalTwinCouplingMode": "SINGLE_SCALE_MECHANISTIC",
+      "validationCaseId": "VAL-LIF-001",
+      "references": [
+        "REF-ABBOTT-1999",
+        "REF-DAYAN-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EXP-013",
+      "title": "COBA-LIF High-Conductance State & Shunting Inhibition",
+      "experimentType": "EXP_MULTI_PARAM",
+      "modelId": "MODEL-006",
+      "primaryScale": "L3",
+      "hypothesis": "Simultaneous balanced E/I conductance bombardment slashes effective membrane time constant tau_eff and divisively shunts EPSPs.",
+      "independentVariables": [
+        "g_E baseline (nS)",
+        "g_I shunting conductance (nS)"
+      ],
+      "dependentMetrics": [
+        "Effective time constant tau_eff (ms)",
+        "EPSP peak attenuation"
+      ],
+      "solverId": "SOLVER-HYBRID-SPIKE",
+      "dtMs": 0.1,
+      "durationMs": 300.0,
+      "randomSeed": 42,
+      "digitalTwinCouplingMode": "SINGLE_SCALE_MECHANISTIC",
+      "validationCaseId": "VAL-LIF-001",
+      "references": [
+        "REF-DESTEXHE-1994"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EXP-014",
+      "title": "Quadratic Integrate-and-Fire (QIF) SNIC Latency Scaling",
+      "experimentType": "EXP_PARAM_SWEEP",
+      "modelId": "MODEL-007",
+      "primaryScale": "L3",
+      "hypothesis": "Near rheobase I_rh, first-spike latency scales inversely with sqrt(I - I_rh), characteristic of a saddle-node bifurcation.",
+      "independentVariables": [
+        "I_ext near rheobase"
+      ],
+      "dependentMetrics": [
+        "First-spike latency T_lat (ms)"
+      ],
+      "solverId": "SOLVER-HYBRID-SPIKE",
+      "dtMs": 0.05,
+      "durationMs": 500.0,
+      "randomSeed": 42,
+      "digitalTwinCouplingMode": "SINGLE_SCALE_MECHANISTIC",
+      "validationCaseId": "VAL-LIF-001",
+      "references": [
+        "REF-GERSTNER-2014"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EXP-015",
+      "title": "AdEx Cortical Firing Regimes (Regular Spiking, Adapting, Bursting)",
+      "experimentType": "EXP_MULTI_PARAM",
+      "modelId": "MODEL-008",
+      "primaryScale": "L3",
+      "hypothesis": "Co-varying adaptation conductance a, jump b, and V_reset transitions AdEx between regular adaptation, initial bursting, and tonic spiking.",
+      "independentVariables": [
+        "a_AdEx (nS)",
+        "b_AdEx (pA)",
+        "V_reset (mV)"
+      ],
+      "dependentMetrics": [
+        "Adaptation index",
+        "Burst spike count"
+      ],
+      "solverId": "SOLVER-HYBRID-SPIKE",
+      "dtMs": 0.05,
+      "durationMs": 600.0,
+      "randomSeed": 42,
+      "digitalTwinCouplingMode": "SINGLE_SCALE_MECHANISTIC",
+      "validationCaseId": "VAL-ADEX-001",
+      "references": [
+        "REF-BRETTE-GERSTNER-2005"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EXP-016",
+      "title": "Izhikevich 5-Class Firing Pattern Taxonomy (RS, IB, CH, FS, LTS)",
+      "experimentType": "EXP_MULTI_PARAM",
+      "modelId": "MODEL-009",
+      "primaryScale": "L3",
+      "hypothesis": "Switching canonical (a,b,c,d) parameter quadruplets reproduces distinct cortical and thalamic spiking signatures.",
+      "independentVariables": [
+        "a_Izh",
+        "b_Izh",
+        "c_Izh",
+        "d_Izh"
+      ],
+      "dependentMetrics": [
+        "ISI sequence",
+        "Burst frequency (Hz)"
+      ],
+      "solverId": "SOLVER-HYBRID-SPIKE",
+      "dtMs": 0.1,
+      "durationMs": 400.0,
+      "randomSeed": 42,
+      "digitalTwinCouplingMode": "SINGLE_SCALE_MECHANISTIC",
+      "validationCaseId": "VAL-IZH-001",
+      "references": [
+        "REF-IZHIKEVICH-2003"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EXP-017",
+      "title": "Ornstein-Uhlenbeck Colored Synaptic Noise Spike-Timing Reliability",
+      "experimentType": "EXP_STOCHASTIC_REPEAT",
+      "modelId": "MODEL-005",
+      "primaryScale": "L3",
+      "hypothesis": "Fluctuating colored noise (sigma_I > 0) elicits millisecond-precise reproducible spike rasters across 25 trials compared to flat DC steps.",
+      "independentVariables": [
+        "Noise sigma_I (pA)",
+        "Mean mu_I (pA)"
+      ],
+      "dependentMetrics": [
+        "Fano factor F",
+        "Cross-trial spike reliability"
+      ],
+      "solverId": "SOLVER-EULER-MARUYAMA",
+      "dtMs": 0.1,
+      "durationMs": 1000.0,
+      "randomSeed": 101,
+      "digitalTwinCouplingMode": "SINGLE_SCALE_MECHANISTIC",
+      "validationCaseId": "VAL-LIF-001",
+      "references": [
+        "REF-DAYAN-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EXP-018",
+      "title": "Passive Dendritic Cable Spatial Attenuation & Temporal Filtering",
+      "experimentType": "EXP_SINGLE_PARAM",
+      "modelId": "MODEL-010",
+      "primaryScale": "L2",
+      "hypothesis": "Distal dendritic EPSPs attenuate exponentially with distance x/lambda and broaden temporally as they propagate to the soma.",
+      "independentVariables": [
+        "Synapse distance x/lambda",
+        "lambda_cable (um)"
+      ],
+      "dependentMetrics": [
+        "Somatic EPSP peak (mV)",
+        "Somatic rise time (ms)"
+      ],
+      "solverId": "SOLVER-CRANK-NICOLSON",
+      "dtMs": 0.05,
+      "durationMs": 100.0,
+      "randomSeed": 42,
+      "digitalTwinCouplingMode": "SINGLE_SCALE_MECHANISTIC",
+      "validationCaseId": "VAL-CABLE-001",
+      "references": [
+        "REF-RALL-1962"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EXP-019",
+      "title": "Rall 3/2 Dendritic Branch Impedance Matching Test",
+      "experimentType": "EXP_BASELINE_INTERVENTION",
+      "modelId": "MODEL-010",
+      "primaryScale": "L2",
+      "hypothesis": "Action potential or subthreshold wave propagates smoothly across a bifurcation when d_parent^(3/2) = sum d_child^(3/2), but reflects/fails when mismatched.",
+      "independentVariables": [
+        "Daughter branch diameter ratio"
+      ],
+      "dependentMetrics": [
+        "Branch transmission ratio"
+      ],
+      "solverId": "SOLVER-CRANK-NICOLSON",
+      "dtMs": 0.05,
+      "durationMs": 100.0,
+      "randomSeed": 42,
+      "digitalTwinCouplingMode": "SINGLE_SCALE_MECHANISTIC",
+      "validationCaseId": "VAL-CABLE-001",
+      "references": [
+        "REF-RALL-1962"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EXP-020",
+      "title": "Single-Neuron Model Family Benchmark (HH vs AdEx vs LIF)",
+      "experimentType": "EXP_MODEL_COMPARISON",
+      "modelId": "MODEL-008",
+      "primaryScale": "L3",
+      "hypothesis": "Compares action potential waveform, adaptation trajectory, and computational runtime across HH, AdEx, and LIF under matched drive.",
+      "independentVariables": [
+        "Model family selection",
+        "Step current amplitude"
+      ],
+      "dependentMetrics": [
+        "Firing rate (Hz)",
+        "Compute time (ms)"
+      ],
+      "solverId": "SOLVER-RK4",
+      "dtMs": 0.02,
+      "durationMs": 300.0,
+      "randomSeed": 42,
+      "digitalTwinCouplingMode": "SINGLE_SCALE_MECHANISTIC",
+      "validationCaseId": "VAL-ADEX-001",
+      "references": [
+        "REF-GERSTNER-2014"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EXP-021",
+      "title": "Current-Based vs Conductance-Based Synaptic Saturation",
+      "experimentType": "EXP_MODEL_COMPARISON",
+      "modelId": "MODEL-011",
+      "primaryScale": "L4",
+      "hypothesis": "High-rate excitatory input drives unbounded depolarization in CUBA synapses (`MODEL-011`) but saturates asymptotically at E_rev = 0 mV in COBA synapses (`MODEL-012`).",
+      "independentVariables": [
+        "Presynaptic Poisson rate (Hz)"
+      ],
+      "dependentMetrics": [
+        "Mean postsynaptic voltage (mV)"
+      ],
+      "solverId": "SOLVER-RK4",
+      "dtMs": 0.1,
+      "durationMs": 500.0,
+      "randomSeed": 42,
+      "digitalTwinCouplingMode": "SINGLE_SCALE_MECHANISTIC",
+      "validationCaseId": "VAL-SYN-001",
+      "references": [
+        "REF-DAYAN-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EXP-022",
+      "title": "AMPA vs GABA_A Bi-Exponential Postsynaptic Kinetic Comparison",
+      "experimentType": "EXP_MULTI_PARAM",
+      "modelId": "MODEL-013",
+      "primaryScale": "L4",
+      "hypothesis": "Contrasts fast AMPA excitation (rise 0.4 ms, decay 2 ms) against slower GABA_A chloride inhibition (decay 8 ms) and temporal summation.",
+      "independentVariables": [
+        "tau_r_AMPA",
+        "tau_d_AMPA",
+        "tau_d_GABAA"
+      ],
+      "dependentMetrics": [
+        "EPSP/IPSP integral (mV*ms)",
+        "Peak latency (ms)"
+      ],
+      "solverId": "SOLVER-RK4",
+      "dtMs": 0.1,
+      "durationMs": 150.0,
+      "randomSeed": 42,
+      "digitalTwinCouplingMode": "SINGLE_SCALE_MECHANISTIC",
+      "validationCaseId": "VAL-SYN-001",
+      "references": [
+        "REF-DESTEXHE-1994"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EXP-023",
+      "title": "NMDA Receptor Mg2+ Unblock & Coincidence Detection Curve",
+      "experimentType": "EXP_PARAM_SWEEP",
+      "modelId": "MODEL-014",
+      "primaryScale": "L4",
+      "hypothesis": "Sweeping holding potential from -80 to +40 mV at [Mg2+]=1 mM demonstrates negative slope conductance below -30 mV that vanishes in 0 mM Mg2+.",
+      "independentVariables": [
+        "Postsynaptic V_hold (-80..+40 mV)",
+        "[Mg2+]_out (0..2 mM)"
+      ],
+      "dependentMetrics": [
+        "Peak I_NMDA (pA)",
+        "Unblock fraction B(V)"
+      ],
+      "solverId": "SOLVER-RK4",
+      "dtMs": 0.1,
+      "durationMs": 300.0,
+      "randomSeed": 42,
+      "digitalTwinCouplingMode": "SINGLE_SCALE_MECHANISTIC",
+      "validationCaseId": "VAL-SYN-001",
+      "references": [
+        "REF-TRAYNELIS-2010"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EXP-024",
+      "title": "Electrical Gap-Junction Sub-Millisecond Pair Synchronization",
+      "experimentType": "EXP_PARAM_SWEEP",
+      "modelId": "MODEL-015",
+      "primaryScale": "L4",
+      "hypothesis": "Increasing gap-junction conductance g_gap between two spiking interneurons transitions them from independent drift to zero-lag phase locking.",
+      "independentVariables": [
+        "g_gap (0..5 nS)"
+      ],
+      "dependentMetrics": [
+        "Spike time lag |t_1 - t_2| (ms)",
+        "Synchrony index"
+      ],
+      "solverId": "SOLVER-RK4",
+      "dtMs": 0.05,
+      "durationMs": 500.0,
+      "randomSeed": 42,
+      "digitalTwinCouplingMode": "SINGLE_SCALE_MECHANISTIC",
+      "validationCaseId": "VAL-SYN-001",
+      "references": [
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EXP-025",
+      "title": "Tsodyks-Markram Short-Term Depression vs Facilitation Filter",
+      "experimentType": "EXP_BASELINE_INTERVENTION",
+      "modelId": "MODEL-016",
+      "primaryScale": "L4",
+      "hypothesis": "A 20 Hz spike train depresses monotonically in high-U0 pyramidal-pyramidal synapses (low-pass filter) but facilitates in low-U0 pyramidal-SST synapses (band/high-pass).",
+      "independentVariables": [
+        "U0_STP",
+        "tau_rec_STP",
+        "tau_facil_STP",
+        "Train frequency (Hz)"
+      ],
+      "dependentMetrics": [
+        "Normalized EPSC_10 / EPSC_1 ratio"
+      ],
+      "solverId": "SOLVER-HYBRID-SPIKE",
+      "dtMs": 0.1,
+      "durationMs": 600.0,
+      "randomSeed": 42,
+      "digitalTwinCouplingMode": "SINGLE_SCALE_MECHANISTIC",
+      "validationCaseId": "VAL-STP-001",
+      "references": [
+        "REF-TSODYKS-1997"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EXP-026",
+      "title": "Wilson-Cowan E/I Phase-Plane Limit Cycle & Working-Memory Bistability",
+      "experimentType": "EXP_MULTI_PARAM",
+      "modelId": "MODEL-017",
+      "primaryScale": "L6",
+      "hypothesis": "Varying external drive P_ext and recurrent weight w_EE transitions the cortical column between a single rest state, bistable persistent attractor, and gamma/alpha limit cycle.",
+      "independentVariables": [
+        "P_ext_WC",
+        "w_EE_WC",
+        "w_EI_WC"
+      ],
+      "dependentMetrics": [
+        "Oscillation frequency (Hz)",
+        "Bistable hysteresis width"
+      ],
+      "solverId": "SOLVER-RK4",
+      "dtMs": 0.1,
+      "durationMs": 1000.0,
+      "randomSeed": 42,
+      "digitalTwinCouplingMode": "SINGLE_SCALE_MECHANISTIC",
+      "validationCaseId": "VAL-WC-001",
+      "references": [
+        "REF-WILSON-COWAN-1972"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EXP-027",
+      "title": "Jansen-Rit Cortical Column Alpha Rhythm & Visual Evoked Potential",
+      "experimentType": "EXP_SINGLE_PARAM",
+      "modelId": "MODEL-018",
+      "primaryScale": "L6",
+      "hypothesis": "Standard connectivity C=135 under noisy thalamic drive generates a prominent ~10 Hz alpha PSD peak; transient pulse input evokes a triphasic VEP.",
+      "independentVariables": [
+        "Connectivity C_JR (68..270)",
+        "Mean thalamic input p(t)"
+      ],
+      "dependentMetrics": [
+        "Peak PSD frequency (Hz)",
+        "Alpha band power"
+      ],
+      "solverId": "SOLVER-RK4",
+      "dtMs": 0.5,
+      "durationMs": 5000.0,
+      "randomSeed": 42,
+      "digitalTwinCouplingMode": "SINGLE_SCALE_MECHANISTIC",
+      "validationCaseId": "VAL-JR-001",
+      "references": [
+        "REF-JANSEN-RIT-1995"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EXP-028",
+      "title": "Wong-Wang Perceptual Decision Psychometric & Chronometric Curves",
+      "experimentType": "EXP_STOCHASTIC_REPEAT",
+      "modelId": "MODEL-019",
+      "primaryScale": "L9",
+      "hypothesis": "Increasing motion coherence c_coh speeds up reaction time and shifts choice probability sigmoidally via competing NMDA attractor ramping.",
+      "independentVariables": [
+        "Stimulus coherence c_coh (0..51.2%)"
+      ],
+      "dependentMetrics": [
+        "Choice accuracy (%)",
+        "Mean decision reaction time (ms)"
+      ],
+      "solverId": "SOLVER-EULER-MARUYAMA",
+      "dtMs": 0.5,
+      "durationMs": 3000.0,
+      "randomSeed": 42,
+      "digitalTwinCouplingMode": "SINGLE_SCALE_MECHANISTIC",
+      "validationCaseId": "VAL-WC-001",
+      "references": [
+        "REF-GERSTNER-2014"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EXP-029",
+      "title": "Feedforward Synfire Pulse-Packet Survival vs Dispersion Map",
+      "experimentType": "EXP_MULTI_PARAM",
+      "modelId": "MODEL-020",
+      "primaryScale": "L5",
+      "hypothesis": "Initial synchronous spike packets (a_1, sigma_1) above the separatrix converge to a stable sub-millisecond synfire wave across 8 layers.",
+      "independentVariables": [
+        "Initial packet size a_1",
+        "Initial jitter sigma_1 (ms)"
+      ],
+      "dependentMetrics": [
+        "Final layer packet survival",
+        "Output jitter sigma_L (ms)"
+      ],
+      "solverId": "SOLVER-HYBRID-SPIKE",
+      "dtMs": 0.1,
+      "durationMs": 200.0,
+      "randomSeed": 42,
+      "digitalTwinCouplingMode": "SINGLE_SCALE_MECHANISTIC",
+      "validationCaseId": "VAL-BRUNEL-001",
+      "references": [
+        "REF-DAYAN-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EXP-030",
+      "title": "Brunel (g, eta) Phase Diagram: AI, SR, SI-Fast & SI-Slow Regimes",
+      "experimentType": "EXP_MULTI_PARAM",
+      "modelId": "MODEL-021",
+      "primaryScale": "L5",
+      "hypothesis": "Co-varying relative inhibition g and external drive eta across a 1000-neuron sparse network transitions dynamics from synchronous regular (g<4) to asynchronous irregular (g>4).",
+      "independentVariables": [
+        "g_Brunel (2..8)",
+        "eta_Brunel (0.8..4.0)"
+      ],
+      "dependentMetrics": [
+        "Mean CV_ISI",
+        "Population synchrony chi",
+        "Mean firing rate (Hz)"
+      ],
+      "solverId": "SOLVER-HYBRID-SPIKE",
+      "dtMs": 0.1,
+      "durationMs": 1000.0,
+      "randomSeed": 42,
+      "digitalTwinCouplingMode": "SINGLE_SCALE_MECHANISTIC",
+      "validationCaseId": "VAL-BRUNEL-001",
+      "references": [
+        "REF-BRUNEL-2000"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EXP-031",
+      "title": "Vogels Inhibitory STDP Self-Organization of Detailed E/I Balance",
+      "experimentType": "EXP_BASELINE_INTERVENTION",
+      "modelId": "MODEL-022",
+      "primaryScale": "L5",
+      "hypothesis": "Turning on symmetric iSTDP automatically scales I-to-E weights to cancel runaway excitation and clamp postsynaptic firing at rho_0 = 5 Hz.",
+      "independentVariables": [
+        "rho0_Vogels (Hz)",
+        "eta_Vogels"
+      ],
+      "dependentMetrics": [
+        "Postsynaptic rate convergence (Hz)",
+        "E/I current correlation"
+      ],
+      "solverId": "SOLVER-HYBRID-SPIKE",
+      "dtMs": 0.1,
+      "durationMs": 5000.0,
+      "randomSeed": 42,
+      "digitalTwinCouplingMode": "SINGLE_SCALE_MECHANISTIC",
+      "validationCaseId": "VAL-BRUNEL-001",
+      "references": [
+        "REF-VOGELS-2011"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EXP-032",
+      "title": "Oja Normalized Hebbian Rule vs Unbounded Hebbian PCA Convergence",
+      "experimentType": "EXP_MODEL_COMPARISON",
+      "modelId": "MODEL-023",
+      "primaryScale": "L4",
+      "hypothesis": "Unbounded correlation Hebbian weights diverge to saturation, whereas Oja's rule converges smoothly to the unit-norm first principal eigenvector.",
+      "independentVariables": [
+        "alpha_Oja",
+        "Input correlation r"
+      ],
+      "dependentMetrics": [
+        "Weight norm ||w||_2",
+        "Principal eigenvector angle error (deg)"
+      ],
+      "solverId": "SOLVER-RK4",
+      "dtMs": 1.0,
+      "durationMs": 5000.0,
+      "randomSeed": 42,
+      "digitalTwinCouplingMode": "SINGLE_SCALE_MECHANISTIC",
+      "validationCaseId": "VAL-OJA-001",
+      "references": [
+        "REF-OJA-1982"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EXP-033",
+      "title": "BCM Sliding-Threshold Orientation Selectivity & Bidirectional Plasticity",
+      "experimentType": "EXP_SINGLE_PARAM",
+      "modelId": "MODEL-023",
+      "primaryScale": "L4",
+      "hypothesis": "Sliding modification threshold theta_M (~ <y^2>) stabilizes synaptic competition so the neuron becomes selective to a single preferred input pattern.",
+      "independentVariables": [
+        "tau_theta_BCM",
+        "Stimulus presentation rate"
+      ],
+      "dependentMetrics": [
+        "Selectivity index",
+        "Threshold trajectory theta_M(t)"
+      ],
+      "solverId": "SOLVER-RK4",
+      "dtMs": 1.0,
+      "durationMs": 10000.0,
+      "randomSeed": 42,
+      "digitalTwinCouplingMode": "SINGLE_SCALE_MECHANISTIC",
+      "validationCaseId": "VAL-OJA-001",
+      "references": [
+        "REF-BCM-1982"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EXP-034",
+      "title": "Bi & Poo Pair-Based STDP Asymmetric Timing Curve Sweep",
+      "experimentType": "EXP_PARAM_SWEEP",
+      "modelId": "MODEL-024",
+      "primaryScale": "L4",
+      "hypothesis": "Sweeping spike-time difference Delta_t = t_post - t_pre from -100 to +100 ms reproduces the exponential LTP (Delta_t > 0) and LTD (Delta_t < 0) window.",
+      "independentVariables": [
+        "Delta_t (-100..+100 ms)",
+        "Weight bound mode (Additive vs Multiplicative)"
+      ],
+      "dependentMetrics": [
+        "Percentage weight change Delta_w (%)"
+      ],
+      "solverId": "SOLVER-HYBRID-SPIKE",
+      "dtMs": 0.1,
+      "durationMs": 2000.0,
+      "randomSeed": 42,
+      "digitalTwinCouplingMode": "SINGLE_SCALE_MECHANISTIC",
+      "validationCaseId": "VAL-STDP-001",
+      "references": [
+        "REF-BI-POO-1998"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EXP-035",
+      "title": "Multiplicative Homeostatic Scaling Under Chronic Deprivation / Hyperdrive",
+      "experimentType": "EXP_BASELINE_INTERVENTION",
+      "modelId": "MODEL-025",
+      "primaryScale": "L4",
+      "hypothesis": "Halving afferent input rate triggers slow multiplicative upscaling of all excitatory weights to restore target firing rate while preserving relative weight ratios.",
+      "independentVariables": [
+        "Input rate perturbation",
+        "r_target_Homeo (Hz)"
+      ],
+      "dependentMetrics": [
+        "Mean firing rate trajectory (Hz)",
+        "Relative weight ratio invariance"
+      ],
+      "solverId": "SOLVER-RK4",
+      "dtMs": 1.0,
+      "durationMs": 20000.0,
+      "randomSeed": 42,
+      "digitalTwinCouplingMode": "SINGLE_SCALE_MECHANISTIC",
+      "validationCaseId": "VAL-STDP-001",
+      "references": [
+        "REF-TURRIGIANO-2008"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EXP-036",
+      "title": "Dopamine TD-RL Conditioning: US-to-CS Shift & Omission Dip",
+      "experimentType": "EXP_TIME_SERIES",
+      "modelId": "MODEL-026",
+      "primaryScale": "L9",
+      "hypothesis": "Across Pavlovian conditioning trials, phasic RPE delta_t transfers from reward delivery (US) to the predictive cue (CS) and dips negative when expected reward is omitted.",
+      "independentVariables": [
+        "alpha_TDRL",
+        "gamma_TDRL",
+        "Reward omission trial"
+      ],
+      "dependentMetrics": [
+        "Phasic RPE delta_t at CS and US",
+        "Value function V(t)"
+      ],
+      "solverId": "SOLVER-RK4",
+      "dtMs": 1.0,
+      "durationMs": 5000.0,
+      "randomSeed": 42,
+      "digitalTwinCouplingMode": "SINGLE_SCALE_MECHANISTIC",
+      "validationCaseId": "VAL-TDRL-001",
+      "references": [
+        "REF-SCHULTZ-1997",
+        "REF-SUTTON-BARTO-2018"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EXP-037",
+      "title": "Kuramoto Synchronization Transition Across Critical Coupling K_c",
+      "experimentType": "EXP_PARAM_SWEEP",
+      "modelId": "MODEL-027",
+      "primaryScale": "L8",
+      "hypothesis": "Sweeping global coupling K across K_c = 2*gamma transitions the oscillator population from incoherent drift (R ~ 0) to phase-locked coherence (R -> 1).",
+      "independentVariables": [
+        "K_Kuramoto (0..10 rad/s)",
+        "gamma_Kuramoto"
+      ],
+      "dependentMetrics": [
+        "Steady-state order parameter R",
+        "Phase cluster count"
+      ],
+      "solverId": "SOLVER-RK4",
+      "dtMs": 0.5,
+      "durationMs": 5000.0,
+      "randomSeed": 42,
+      "digitalTwinCouplingMode": "SINGLE_SCALE_MECHANISTIC",
+      "validationCaseId": "VAL-KURAMOTO-001",
+      "references": [
+        "REF-KURAMOTO-1984"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EXP-038",
+      "title": "Connectome Structural-to-Functional Correlation & Rich-Club Hub Lesion",
+      "experimentType": "EXP_NETWORK_TOPOLOGY",
+      "modelId": "MODEL-028",
+      "primaryScale": "L8",
+      "hypothesis": "Targeted removal of high-betweenness rich-club connector hubs degrades global efficiency E_glob and FC modularity far faster than random node lesions.",
+      "independentVariables": [
+        "Lesion strategy (Targeted Hub vs Random)",
+        "Lesion fraction f (0..0.5)"
+      ],
+      "dependentMetrics": [
+        "Global efficiency E_glob(f)",
+        "SC-FC Pearson correlation r"
+      ],
+      "solverId": "SOLVER-RK4",
+      "dtMs": 0.5,
+      "durationMs": 5000.0,
+      "randomSeed": 42,
+      "digitalTwinCouplingMode": "SINGLE_SCALE_MECHANISTIC",
+      "validationCaseId": "VAL-GRAPH-001",
+      "references": [
+        "REF-BULLMORE-2009",
+        "REF-RUBINOV-2010"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EXP-039",
+      "title": "Synthetic Ground-Truth EEG Spectral & Wavelet Resolution Benchmark",
+      "experimentType": "EXP_TIME_SERIES",
+      "modelId": "MODEL-018",
+      "primaryScale": "L6",
+      "hypothesis": "Evaluates Butterworth filtering, Welch PSD, STFT, and Morlet wavelets on a multi-component chirp + 10 Hz alpha + 40 Hz gamma burst benchmark signal.",
+      "independentVariables": [
+        "Window length L",
+        "Wavelet cycle count n_cycles"
+      ],
+      "dependentMetrics": [
+        "Peak frequency error (Hz)",
+        "Time-frequency resolution"
+      ],
+      "solverId": "SOLVER-RK4",
+      "dtMs": 0.5,
+      "durationMs": 10000.0,
+      "randomSeed": 42,
+      "digitalTwinCouplingMode": "SINGLE_SCALE_MECHANISTIC",
+      "validationCaseId": "VAL-JR-001",
+      "references": [
+        "REF-WELCH-1967",
+        "REF-TALLON-BAUDRY-1996"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EXP-040",
+      "title": "Digital Twin Exp A: Neuronal Excitability -> Synaptic Response -> Microcircuit Synchrony",
+      "experimentType": "EXP_DIGITAL_TWIN",
+      "modelId": "MODEL-021",
+      "primaryScale": "L5",
+      "hypothesis": "Coupled pipeline: lowering pyramidal adaptation/leak conductance increases single-cell f-I gain, elevating recurrent AMPA/GABA drive and shifting E/I microcircuit gamma power.",
+      "independentVariables": [
+        "Pyramidal leak g_L / adaptation a",
+        "Inhibitory synaptic decay tau_d_GABAA"
+      ],
+      "dependentMetrics": [
+        "Single-cell rheobase (pA)",
+        "Microcircuit firing rate (Hz)",
+        "Gamma PSD power (30-80 Hz)"
+      ],
+      "solverId": "SOLVER-HYBRID-SPIKE",
+      "dtMs": 0.1,
+      "durationMs": 2000.0,
+      "randomSeed": 42,
+      "digitalTwinCouplingMode": "MULTI_STAGE_MECHANISTIC_AND_CONCEPTUAL",
+      "validationCaseId": "VAL-BRUNEL-001",
+      "references": [
+        "REF-BRUNEL-2000",
+        "REF-BRETTE-GERSTNER-2005"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EXP-041",
+      "title": "Digital Twin Exp B: Pair STDP Plasticity -> Directed Connectivity -> Population Recall",
+      "experimentType": "EXP_DIGITAL_TWIN",
+      "modelId": "MODEL-024",
+      "primaryScale": "L5",
+      "hypothesis": "Coupled pipeline: STDP training under patterned stimulation strengthens recurrent CA3-like assemblies, increasing clustering coefficient and enabling cue-triggered pattern completion.",
+      "independentVariables": [
+        "STDP A_plus / A_minus",
+        "Cue stimulation overlap"
+      ],
+      "dependentMetrics": [
+        "Synaptic weight modularity Q",
+        "Cue-evoked recall firing rate (Hz)"
+      ],
+      "solverId": "SOLVER-HYBRID-SPIKE",
+      "dtMs": 0.1,
+      "durationMs": 5000.0,
+      "randomSeed": 42,
+      "digitalTwinCouplingMode": "MULTI_STAGE_MECHANISTIC_AND_CONCEPTUAL",
+      "validationCaseId": "VAL-STDP-001",
+      "references": [
+        "REF-BI-POO-1998",
+        "REF-SQUIRE-2004"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EXP-042",
+      "title": "Digital Twin Exp C: Connectome Coupling & Delays -> Oscillatory Phase Locking -> Signal Analytics",
+      "experimentType": "EXP_DIGITAL_TWIN",
+      "modelId": "MODEL-027",
+      "primaryScale": "L8",
+      "hypothesis": "Coupled pipeline: global coupling G and conduction velocity v across a 68-region connectome generate metastable alpha/gamma phase-locking (PLV) analyzed in the Signal Analytics suite.",
+      "independentVariables": [
+        "Global coupling G",
+        "Conduction velocity v (m/s)"
+      ],
+      "dependentMetrics": [
+        "Kuramoto order parameter R(t)",
+        "Pairwise PLV matrix",
+        "SC-to-PLV correlation r"
+      ],
+      "solverId": "SOLVER-RK4",
+      "dtMs": 0.5,
+      "durationMs": 10000.0,
+      "randomSeed": 42,
+      "digitalTwinCouplingMode": "MULTI_STAGE_MECHANISTIC_AND_CONCEPTUAL",
+      "validationCaseId": "VAL-KURAMOTO-001",
+      "references": [
+        "REF-SANZ-LEON-2013",
+        "REF-BREAKSPEAR-2017",
+        "REF-LACHAUX-1999"
+      ],
+      "schemaVersion": "1.0.0"
+    }
+  ]
+}

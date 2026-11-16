@@ -1,0 +1,42 @@
+{
+  "$schemaRef": "anatomy/anatomical-entity.schema.json",
+  "payload": {
+    "id": "ANAT-HIPPOCAMPUS",
+    "canonicalName": "Hippocampus Proper (Cornu Ammonis)",
+    "tnaLatinName": "Hippocampus proprius (Cornu Ammonis)",
+    "aliases": [
+      "Ammon's horn",
+      "Hippocampus"
+    ],
+    "division": "HIPPOCAMPAL_FORMATION",
+    "parentId": "ANAT-HIPPOCAMPAL-FORMATION",
+    "primaryScale": "L7",
+    "mniCentroidMm": [
+      26.0,
+      -21.0,
+      -14.0
+    ],
+    "atlasProvenance": "Desikan-Killiany / Julich-Brain / FIPAT TNA",
+    "provenanceClass": "ATLAS_SURFACE_DERIVED",
+    "shortDefinition": "Medial temporal allocortical structure comprising CA1, CA2, and CA3 subfields central to episodic memory and spatial coding.",
+    "biologicalRole": "Integrates perforant-path and dentate mossy-fiber inputs across the trisynaptic circuit to support pattern separation, completion, and memory consolidation.",
+    "connectedStructureIds": [
+      "ANAT-DENTATE-GYRUS",
+      "ANAT-SUBICULUM",
+      "ANAT-ENTORHINAL-CORTEX"
+    ],
+    "associatedSystemIds": [
+      "SYS-MEMORY-CONSOLIDATION"
+    ],
+    "associatedModelIds": [
+      "MODEL-021",
+      "MODEL-024"
+    ],
+    "assetId": "ASSET-HIPPOCAMPUS-3D",
+    "references": [
+      "REF-TNA-FIPAT",
+      "REF-SQUIRE-2004"
+    ],
+    "schemaVersion": "1.0.0"
+  }
+}

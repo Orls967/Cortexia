@@ -1,0 +1,4861 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "ANAT-NERVOUS-SYSTEM",
+      "canonicalName": "Human Nervous System",
+      "tnaLatinName": "Systema nervosum",
+      "aliases": [
+        "Human Nervous System",
+        "Systema nervosum"
+      ],
+      "division": "ROOT",
+      "parentId": null,
+      "primaryScale": "L7",
+      "mniCentroidMm": null,
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "SCHEMATIC_ANATOMICAL",
+      "shortDefinition": "Root anatomical hierarchy encompassing central and peripheral divisions of the human nervous system.",
+      "biologicalRole": "Integrates sensory transduction, internal computation, homeostatic regulation, and motor execution across the organism.",
+      "connectedStructureIds": [
+        "ANAT-CNS",
+        "ANAT-PNS"
+      ],
+      "associatedSystemIds": [
+        "SYS-VISUAL",
+        "SYS-MOTOR"
+      ],
+      "associatedModelIds": [
+        "MODEL-028"
+      ],
+      "assetId": "ASSET-BRAIN-WHOLE",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-CNS",
+      "canonicalName": "Central Nervous System",
+      "tnaLatinName": "Systema nervosum centrale",
+      "aliases": [
+        "Central Nervous System",
+        "Systema nervosum centrale"
+      ],
+      "division": "ROOT",
+      "parentId": "ANAT-NERVOUS-SYSTEM",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        0.0,
+        -15.0,
+        10.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Encephalon (brain) and spinal cord enclosed within the cranial vault, vertebral canal, and meninges.",
+      "biologicalRole": "Primary integrative and computational core of the nervous system.",
+      "connectedStructureIds": [
+        "ANAT-ENCEPHALON",
+        "ANAT-SPINAL-CORD"
+      ],
+      "associatedSystemIds": [
+        "SYS-MOTOR",
+        "SYS-SOMATOSENSORY"
+      ],
+      "associatedModelIds": [
+        "MODEL-028"
+      ],
+      "assetId": "ASSET-BRAIN-WHOLE",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-PNS",
+      "canonicalName": "Peripheral Nervous System",
+      "tnaLatinName": "Systema nervosum periphericum",
+      "aliases": [
+        "Peripheral Nervous System",
+        "Systema nervosum periphericum"
+      ],
+      "division": "PERIPHERAL_NERVOUS_SYSTEM",
+      "parentId": "ANAT-NERVOUS-SYSTEM",
+      "primaryScale": "L7",
+      "mniCentroidMm": null,
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "SCHEMATIC_ANATOMICAL",
+      "shortDefinition": "Cranial nerves, spinal nerves, dorsal root ganglia, and autonomic ganglia outside the pial-glial limitans.",
+      "biologicalRole": "Conveys afferent sensory signals to CNS and efferent somatic/autonomic commands to effector organs.",
+      "connectedStructureIds": [
+        "ANAT-CNS",
+        "ANAT-SPINAL-CORD"
+      ],
+      "associatedSystemIds": [
+        "SYS-SOMATOSENSORY",
+        "SYS-AUTONOMIC"
+      ],
+      "associatedModelIds": [
+        "MODEL-001"
+      ],
+      "assetId": "ASSET-PNS-OVERVIEW",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-ENCEPHALON",
+      "canonicalName": "Brain (Encephalon)",
+      "tnaLatinName": "Encephalon",
+      "aliases": [
+        "Brain",
+        "Encephalon"
+      ],
+      "division": "ROOT",
+      "parentId": "ANAT-CNS",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        0.0,
+        -18.0,
+        15.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Intracranial division of the CNS comprising forebrain, midbrain, and hindbrain.",
+      "biologicalRole": "Mediates perception, motor control, homeostatic regulation, emotion, language, and cognition.",
+      "connectedStructureIds": [
+        "ANAT-FOREBRAIN",
+        "ANAT-MIDBRAIN",
+        "ANAT-HINDBRAIN"
+      ],
+      "associatedSystemIds": [
+        "SYS-VISUAL",
+        "SYS-MOTOR"
+      ],
+      "associatedModelIds": [
+        "MODEL-028"
+      ],
+      "assetId": "ASSET-BRAIN-WHOLE",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-FOREBRAIN",
+      "canonicalName": "Forebrain (Prosencephalon)",
+      "tnaLatinName": "Prosencephalon",
+      "aliases": [
+        "Forebrain",
+        "Prosencephalon"
+      ],
+      "division": "HEMISPHERES_COMMISSURES",
+      "parentId": "ANAT-ENCEPHALON",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        0.0,
+        -10.0,
+        22.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Rostral brain vesicle comprising telencephalon (cerebral hemispheres, basal ganglia, limbic structures) and diencephalon.",
+      "biologicalRole": "Supports higher-order sensory, motor, associative, limbic, and neuroendocrine integration.",
+      "connectedStructureIds": [
+        "ANAT-TELENCEPHALON",
+        "ANAT-DIENCEPHALON"
+      ],
+      "associatedSystemIds": [
+        "SYS-VISUAL",
+        "SYS-REWARD"
+      ],
+      "associatedModelIds": [
+        "MODEL-028"
+      ],
+      "assetId": "ASSET-BRAIN-WHOLE",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-TELENCEPHALON",
+      "canonicalName": "Telencephalon (Cerebrum)",
+      "tnaLatinName": "Telencephalon",
+      "aliases": [
+        "Telencephalon",
+        "Telencephalon"
+      ],
+      "division": "HEMISPHERES_COMMISSURES",
+      "parentId": "ANAT-FOREBRAIN",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        0.0,
+        -8.0,
+        28.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Cerebral cortex, subcortical white matter, basal ganglia, hippocampal formation, and amygdala.",
+      "biologicalRole": "Largest division of the human brain mediating cortical and subcortical computation.",
+      "connectedStructureIds": [
+        "ANAT-LEFT-HEMISPHERE",
+        "ANAT-RIGHT-HEMISPHERE"
+      ],
+      "associatedSystemIds": [
+        "SYS-VISUAL",
+        "SYS-LANGUAGE"
+      ],
+      "associatedModelIds": [
+        "MODEL-028"
+      ],
+      "assetId": "ASSET-BRAIN-WHOLE",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-DIENCEPHALON",
+      "canonicalName": "Diencephalon",
+      "tnaLatinName": "Diencephalon",
+      "aliases": [
+        "Diencephalon",
+        "Diencephalon"
+      ],
+      "division": "THALAMUS_HYPOTHALAMUS",
+      "parentId": "ANAT-FOREBRAIN",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        0.0,
+        -16.0,
+        6.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Midline forebrain complex surrounding the third ventricle, including thalamus, hypothalamus, epithalamus, and subthalamus.",
+      "biologicalRole": "Central relay for sensory/motor/limbic loops and master regulator of autonomic and circadian homeostasis.",
+      "connectedStructureIds": [
+        "ANAT-THALAMUS",
+        "ANAT-HYPOTHALAMUS"
+      ],
+      "associatedSystemIds": [
+        "SYS-SLEEP",
+        "SYS-AUTONOMIC"
+      ],
+      "associatedModelIds": [
+        "MODEL-018"
+      ],
+      "assetId": "ASSET-THALAMUS-HYPO-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-LEFT-HEMISPHERE",
+      "canonicalName": "Left Cerebral Hemisphere",
+      "tnaLatinName": "Hemispherium cerebri sinistrum",
+      "aliases": [
+        "Left Cerebral Hemisphere",
+        "Hemispherium cerebri sinistrum"
+      ],
+      "division": "HEMISPHERES_COMMISSURES",
+      "parentId": "ANAT-TELENCEPHALON",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        -32.0,
+        -18.0,
+        28.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Left half of the cerebrum separated from the right hemisphere by the longitudinal cerebral fissure.",
+      "biologicalRole": "Processes contralateral right-sided sensorimotor space and typically dominates language production/comprehension.",
+      "connectedStructureIds": [
+        "ANAT-RIGHT-HEMISPHERE",
+        "ANAT-CORPUS-CALLOSUM"
+      ],
+      "associatedSystemIds": [
+        "SYS-LANGUAGE",
+        "SYS-MOTOR"
+      ],
+      "associatedModelIds": [
+        "MODEL-028"
+      ],
+      "assetId": "ASSET-HEMISPHERES-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-RIGHT-HEMISPHERE",
+      "canonicalName": "Right Cerebral Hemisphere",
+      "tnaLatinName": "Hemispherium cerebri dextrum",
+      "aliases": [
+        "Right Cerebral Hemisphere",
+        "Hemispherium cerebri dextrum"
+      ],
+      "division": "HEMISPHERES_COMMISSURES",
+      "parentId": "ANAT-TELENCEPHALON",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        32.0,
+        -18.0,
+        28.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Right half of the cerebrum linked to the left hemisphere via commissural tracts.",
+      "biologicalRole": "Processes contralateral left-sided sensorimotor space and contributes strongly to visuospatial orienting and prosody.",
+      "connectedStructureIds": [
+        "ANAT-LEFT-HEMISPHERE",
+        "ANAT-CORPUS-CALLOSUM"
+      ],
+      "associatedSystemIds": [
+        "SYS-VISUAL",
+        "SYS-SOMATOSENSORY"
+      ],
+      "associatedModelIds": [
+        "MODEL-028"
+      ],
+      "assetId": "ASSET-HEMISPHERES-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-CORPUS-CALLOSUM",
+      "canonicalName": "Corpus Callosum",
+      "tnaLatinName": "Corpus callosum",
+      "aliases": [
+        "Corpus Callosum",
+        "Corpus callosum"
+      ],
+      "division": "HEMISPHERES_COMMISSURES",
+      "parentId": "ANAT-TELENCEPHALON",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        0.0,
+        -12.0,
+        22.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Largest commissural white-matter bundle (~200 million axons) comprising rostrum, genu, body, and splenium.",
+      "biologicalRole": "Synchronizes and transfers sensorimotor and associative information between homotopic and heterotopic cortical areas.",
+      "connectedStructureIds": [
+        "ANAT-LEFT-HEMISPHERE",
+        "ANAT-RIGHT-HEMISPHERE"
+      ],
+      "associatedSystemIds": [
+        "SYS-VISUAL",
+        "SYS-MOTOR"
+      ],
+      "associatedModelIds": [
+        "MODEL-027",
+        "MODEL-028"
+      ],
+      "assetId": "ASSET-WHITE-MATTER-TRACTS",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-ANTERIOR-COMMISSURE",
+      "canonicalName": "Anterior Commissure",
+      "tnaLatinName": "Commissura anterior",
+      "aliases": [
+        "Anterior Commissure",
+        "Commissura anterior"
+      ],
+      "division": "HEMISPHERES_COMMISSURES",
+      "parentId": "ANAT-TELENCEPHALON",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        0.0,
+        2.0,
+        -4.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Compact commissural fiber bundle crossing rostral to the columns of the fornix.",
+      "biologicalRole": "Interconnects bilateral temporal lobes, olfactory bulbs, and amygdaloid complexes.",
+      "connectedStructureIds": [
+        "ANAT-AMYGDALA",
+        "ANAT-TEMPORAL-LOBE"
+      ],
+      "associatedSystemIds": [
+        "SYS-OLFACTORY",
+        "SYS-EMOTION"
+      ],
+      "associatedModelIds": [
+        "MODEL-028"
+      ],
+      "assetId": "ASSET-WHITE-MATTER-TRACTS",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-POSTERIOR-COMMISSURE",
+      "canonicalName": "Posterior Commissure",
+      "tnaLatinName": "Commissura posterior",
+      "aliases": [
+        "Posterior Commissure",
+        "Commissura posterior"
+      ],
+      "division": "HEMISPHERES_COMMISSURES",
+      "parentId": "ANAT-DIENCEPHALON",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        0.0,
+        -28.0,
+        -1.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Dorsal epithalamic/pretectal commissure at the junction of third ventricle and cerebral aqueduct.",
+      "biologicalRole": "Mediates consensual pupillary light reflex by coupling bilateral pretectal and Edinger-Westphal nuclei.",
+      "connectedStructureIds": [
+        "ANAT-MIDBRAIN",
+        "ANAT-CN-III"
+      ],
+      "associatedSystemIds": [
+        "SYS-VISUAL",
+        "SYS-AUTONOMIC"
+      ],
+      "associatedModelIds": [
+        "MODEL-017"
+      ],
+      "assetId": "ASSET-BRAINSTEM-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-FRONTAL-LOBE",
+      "canonicalName": "Frontal Lobe",
+      "tnaLatinName": "Lobus frontalis",
+      "aliases": [
+        "Frontal Lobe",
+        "Lobus frontalis"
+      ],
+      "division": "CEREBRAL_LOBES",
+      "parentId": "ANAT-TELENCEPHALON",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        28.0,
+        28.0,
+        26.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Anterior cerebral lobe rostral to the central sulcus and superior to the lateral sulcus.",
+      "biologicalRole": "Houses primary motor, premotor, supplementary motor, Broca's speech, and prefrontal executive/valuation cortices.",
+      "connectedStructureIds": [
+        "ANAT-PRECENTRAL-GYRUS",
+        "ANAT-DLPFC",
+        "ANAT-PARIETAL-LOBE"
+      ],
+      "associatedSystemIds": [
+        "SYS-MOTOR",
+        "SYS-EXECUTIVE-CONTROL"
+      ],
+      "associatedModelIds": [
+        "MODEL-019",
+        "MODEL-021"
+      ],
+      "assetId": "ASSET-LOBES-CORTEX-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-PARIETAL-LOBE",
+      "canonicalName": "Parietal Lobe",
+      "tnaLatinName": "Lobus parietalis",
+      "aliases": [
+        "Parietal Lobe",
+        "Lobus parietalis"
+      ],
+      "division": "CEREBRAL_LOBES",
+      "parentId": "ANAT-TELENCEPHALON",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        30.0,
+        -45.0,
+        48.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Dorsoposterior cerebral lobe bounded by the central sulcus rostrally and parieto-occipital sulcus caudally.",
+      "biologicalRole": "Processes somatosensory touch/proprioception, multisensory spatial coordinate transformations, and dorsal attention.",
+      "connectedStructureIds": [
+        "ANAT-POSTCENTRAL-GYRUS",
+        "ANAT-FRONTAL-LOBE",
+        "ANAT-OCCIPITAL-LOBE"
+      ],
+      "associatedSystemIds": [
+        "SYS-SOMATOSENSORY",
+        "SYS-VISUAL"
+      ],
+      "associatedModelIds": [
+        "MODEL-021"
+      ],
+      "assetId": "ASSET-LOBES-CORTEX-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-TEMPORAL-LOBE",
+      "canonicalName": "Temporal Lobe",
+      "tnaLatinName": "Lobus temporalis",
+      "aliases": [
+        "Temporal Lobe",
+        "Lobus temporalis"
+      ],
+      "division": "CEREBRAL_LOBES",
+      "parentId": "ANAT-TELENCEPHALON",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        48.0,
+        -18.0,
+        -12.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Ventrolateral cerebral lobe inferior to the lateral (Sylvian) fissure.",
+      "biologicalRole": "Contains primary/association auditory cortex, ventral visual object stream, lexical-semantic networks, and medial temporal memory structures.",
+      "connectedStructureIds": [
+        "ANAT-SUPERIOR-TEMPORAL-GYRUS",
+        "ANAT-HIPPOCAMPAL-FORMATION",
+        "ANAT-AMYGDALA"
+      ],
+      "associatedSystemIds": [
+        "SYS-AUDITORY",
+        "SYS-LANGUAGE"
+      ],
+      "associatedModelIds": [
+        "MODEL-024"
+      ],
+      "assetId": "ASSET-LOBES-CORTEX-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-OCCIPITAL-LOBE",
+      "canonicalName": "Occipital Lobe",
+      "tnaLatinName": "Lobus occipitalis",
+      "aliases": [
+        "Occipital Lobe",
+        "Lobus occipitalis"
+      ],
+      "division": "CEREBRAL_LOBES",
+      "parentId": "ANAT-TELENCEPHALON",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        18.0,
+        -82.0,
+        8.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Posterior cerebral lobe surrounding the calcarine sulcus.",
+      "biologicalRole": "Dedicated to early and intermediate retinotopic visual processing (V1, V2, V3, V4).",
+      "connectedStructureIds": [
+        "ANAT-CALCARINE-SULCUS",
+        "ANAT-LGN",
+        "ANAT-PARIETAL-LOBE"
+      ],
+      "associatedSystemIds": [
+        "SYS-VISUAL"
+      ],
+      "associatedModelIds": [
+        "MODEL-018",
+        "MODEL-020"
+      ],
+      "assetId": "ASSET-LOBES-CORTEX-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-INSULAR-LOBE",
+      "canonicalName": "Insular Cortex (Insula)",
+      "tnaLatinName": "Lobus insularis",
+      "aliases": [
+        "Insular Cortex",
+        "Lobus insularis"
+      ],
+      "division": "CEREBRAL_LOBES",
+      "parentId": "ANAT-TELENCEPHALON",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        38.0,
+        6.0,
+        2.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Deep cerebral cortex buried within the floor of the lateral sulcus and covered by frontal/parietal/temporal opercula.",
+      "biologicalRole": "Integrates viscerosensory interoception, gustation, nociceptive salience, and autonomic regulation.",
+      "connectedStructureIds": [
+        "ANAT-ACC",
+        "ANAT-AMYGDALA",
+        "ANAT-THALAMUS-VPM"
+      ],
+      "associatedSystemIds": [
+        "SYS-GUSTATORY",
+        "SYS-PAIN",
+        "SYS-AUTONOMIC"
+      ],
+      "associatedModelIds": [
+        "MODEL-017"
+      ],
+      "assetId": "ASSET-LOBES-CORTEX-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-LIMBIC-LOBE",
+      "canonicalName": "Limbic Lobe",
+      "tnaLatinName": "Lobus limbicus",
+      "aliases": [
+        "Limbic Lobe",
+        "Lobus limbicus"
+      ],
+      "division": "CEREBRAL_LOBES",
+      "parentId": "ANAT-TELENCEPHALON",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        8.0,
+        -15.0,
+        24.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Medial cortical ring comprising cingulate, parahippocampal, and subcallosal gyri encircling the corpus callosum and diencephalon.",
+      "biologicalRole": "Coordinates emotion, episodic memory routing, autonomic state, and default-mode internal cognition.",
+      "connectedStructureIds": [
+        "ANAT-CINGULATE-GYRUS",
+        "ANAT-PARAHIPPOCAMPAL-GYRUS",
+        "ANAT-HIPPOCAMPAL-FORMATION"
+      ],
+      "associatedSystemIds": [
+        "SYS-EMOTION",
+        "SYS-DEFAULT-MODE"
+      ],
+      "associatedModelIds": [
+        "MODEL-028"
+      ],
+      "assetId": "ASSET-LIMBIC-SYSTEM-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-PRECENTRAL-GYRUS",
+      "canonicalName": "Precentral Gyrus (Primary Motor Cortex, M1)",
+      "tnaLatinName": "Gyrus precentralis",
+      "aliases": [
+        "Precentral Gyrus",
+        "Gyrus precentralis"
+      ],
+      "division": "GYRI_AND_SULCI",
+      "parentId": "ANAT-FRONTAL-LOBE",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        -36.0,
+        -18.0,
+        56.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Frontal gyrus immediately anterior to the central sulcus corresponding to Brodmann Area 4.",
+      "biologicalRole": "Somatotopically organized origin of corticospinal and corticobulbar tracts controlling voluntary movement.",
+      "connectedStructureIds": [
+        "ANAT-CENTRAL-SULCUS",
+        "ANAT-CORTICOSPINAL-TRACT",
+        "ANAT-THALAMUS-VL"
+      ],
+      "associatedSystemIds": [
+        "SYS-MOTOR"
+      ],
+      "associatedModelIds": [
+        "MODEL-001",
+        "MODEL-021"
+      ],
+      "assetId": "ASSET-CORTICAL-GYRI-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-POSTCENTRAL-GYRUS",
+      "canonicalName": "Postcentral Gyrus (Primary Somatosensory Cortex, S1)",
+      "tnaLatinName": "Gyrus postcentralis",
+      "aliases": [
+        "Postcentral Gyrus",
+        "Gyrus postcentralis"
+      ],
+      "division": "GYRI_AND_SULCI",
+      "parentId": "ANAT-PARIETAL-LOBE",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        -42.0,
+        -28.0,
+        54.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Parietal gyrus immediately posterior to the central sulcus encompassing Brodmann Areas 3a, 3b, 1, and 2.",
+      "biologicalRole": "Receives VPL/VPM thalamic relays for discriminative touch, vibration, and proprioception.",
+      "connectedStructureIds": [
+        "ANAT-CENTRAL-SULCUS",
+        "ANAT-THALAMUS-VPL",
+        "ANAT-THALAMUS-VPM"
+      ],
+      "associatedSystemIds": [
+        "SYS-SOMATOSENSORY",
+        "SYS-PAIN"
+      ],
+      "associatedModelIds": [
+        "MODEL-021"
+      ],
+      "assetId": "ASSET-CORTICAL-GYRI-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-SUPERIOR-FRONTAL-GYRUS",
+      "canonicalName": "Superior Frontal Gyrus",
+      "tnaLatinName": "Gyrus frontalis superior",
+      "aliases": [
+        "Superior Frontal Gyrus",
+        "Gyrus frontalis superior"
+      ],
+      "division": "GYRI_AND_SULCI",
+      "parentId": "ANAT-FRONTAL-LOBE",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        -18.0,
+        32.0,
+        46.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Dorsal frontal gyrus extending onto the medial surface including the supplementary motor area (SMA).",
+      "biologicalRole": "Supports motor sequence planning, working memory maintenance, and cognitive control.",
+      "connectedStructureIds": [
+        "ANAT-PRECENTRAL-GYRUS",
+        "ANAT-DLPFC"
+      ],
+      "associatedSystemIds": [
+        "SYS-MOTOR",
+        "SYS-EXECUTIVE-CONTROL"
+      ],
+      "associatedModelIds": [
+        "MODEL-019"
+      ],
+      "assetId": "ASSET-CORTICAL-GYRI-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-DLPFC",
+      "canonicalName": "Dorsolateral Prefrontal Cortex (dlPFC)",
+      "tnaLatinName": "Cortex praefrontalis dorsolateralis",
+      "aliases": [
+        "Dorsolateral Prefrontal Cortex",
+        "Cortex praefrontalis dorsolateralis"
+      ],
+      "division": "CEREBRAL_CORTEX",
+      "parentId": "ANAT-FRONTAL-LOBE",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        -42.0,
+        34.0,
+        28.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Middle frontal gyral association cortex (BA 9/46) with dense recurrent Layer 3 pyramidal networks.",
+      "biologicalRole": "Core hub of the frontoparietal network mediating working memory manipulation, rule maintenance, and executive control.",
+      "connectedStructureIds": [
+        "ANAT-PARIETAL-LOBE",
+        "ANAT-THALAMUS-MD",
+        "ANAT-CAUDATE-NUCLEUS"
+      ],
+      "associatedSystemIds": [
+        "SYS-EXECUTIVE-CONTROL"
+      ],
+      "associatedModelIds": [
+        "MODEL-017",
+        "MODEL-019"
+      ],
+      "assetId": "ASSET-CORTICAL-GYRI-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-IFG-BROCA",
+      "canonicalName": "Inferior Frontal Gyrus (Pars Opercularis & Triangularis)",
+      "tnaLatinName": "Gyrus frontalis inferior",
+      "aliases": [
+        "Inferior Frontal Gyrus",
+        "Gyrus frontalis inferior"
+      ],
+      "division": "GYRI_AND_SULCI",
+      "parentId": "ANAT-FRONTAL-LOBE",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        -48.0,
+        20.0,
+        14.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Ventrolateral frontal gyrus comprising pars opercularis (BA 44), pars triangularis (BA 45), and pars orbitalis (BA 47).",
+      "biologicalRole": "Participates in phonological-articulatory dorsal-stream speech sequencing, syntactic unification, and inhibitory control.",
+      "connectedStructureIds": [
+        "ANAT-ARCUATE-FASCICULUS",
+        "ANAT-SUPERIOR-TEMPORAL-GYRUS"
+      ],
+      "associatedSystemIds": [
+        "SYS-LANGUAGE",
+        "SYS-EXECUTIVE-CONTROL"
+      ],
+      "associatedModelIds": [
+        "MODEL-028"
+      ],
+      "assetId": "ASSET-CORTICAL-GYRI-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-OFC-VMPFC",
+      "canonicalName": "Orbitofrontal & Ventromedial Prefrontal Cortex (OFC / vmPFC)",
+      "tnaLatinName": "Cortex orbitofrontalis",
+      "aliases": [
+        "Orbitofrontal & Ventromedial Prefrontal Cortex",
+        "Cortex orbitofrontalis"
+      ],
+      "division": "CEREBRAL_CORTEX",
+      "parentId": "ANAT-FRONTAL-LOBE",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        12.0,
+        42.0,
+        -14.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Ventral prefrontal cortex overlying the orbital plates and medial frontal wall (BA 10/11/14/25/32).",
+      "biologicalRole": "Encodes subjective outcome value, reward expectation, autonomic regulation, and fear extinction gating.",
+      "connectedStructureIds": [
+        "ANAT-AMYGDALA-BLA",
+        "ANAT-NUCLEUS-ACCUMBENS",
+        "ANAT-HYPOTHALAMUS"
+      ],
+      "associatedSystemIds": [
+        "SYS-REWARD",
+        "SYS-EMOTION"
+      ],
+      "associatedModelIds": [
+        "MODEL-026"
+      ],
+      "assetId": "ASSET-CORTICAL-GYRI-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-SUPERIOR-TEMPORAL-GYRUS",
+      "canonicalName": "Superior Temporal Gyrus & Primary Auditory Cortex (A1)",
+      "tnaLatinName": "Gyrus temporalis superior",
+      "aliases": [
+        "Superior Temporal Gyrus & Primary Auditory Cortex",
+        "Gyrus temporalis superior"
+      ],
+      "division": "GYRI_AND_SULCI",
+      "parentId": "ANAT-TEMPORAL-LOBE",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        -54.0,
+        -22.0,
+        6.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Dorsal temporal gyrus housing Heschl's transverse gyri (A1, BA 41/42) and Wernicke-related posterior STG (BA 22).",
+      "biologicalRole": "Performs tonotopic auditory analysis, spectrotemporal speech decoding, and auditory-motor integration.",
+      "connectedStructureIds": [
+        "ANAT-MGN",
+        "ANAT-ARCUATE-FASCICULUS",
+        "ANAT-IFG-BROCA"
+      ],
+      "associatedSystemIds": [
+        "SYS-AUDITORY",
+        "SYS-LANGUAGE"
+      ],
+      "associatedModelIds": [
+        "MODEL-020",
+        "MODEL-027"
+      ],
+      "assetId": "ASSET-CORTICAL-GYRI-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-FUSIFORM-GYRUS",
+      "canonicalName": "Fusiform (Occipitotemporal) Gyrus",
+      "tnaLatinName": "Gyrus occipitotemporalis lateralis",
+      "aliases": [
+        "Fusiform",
+        "Gyrus occipitotemporalis lateralis"
+      ],
+      "division": "GYRI_AND_SULCI",
+      "parentId": "ANAT-TEMPORAL-LOBE",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        38.0,
+        -52.0,
+        -18.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Ventral occipitotemporal gyrus bounded medially by the collateral sulcus.",
+      "biologicalRole": "High-level ventral visual stream hub mediating invariant object, face, and word-form recognition.",
+      "connectedStructureIds": [
+        "ANAT-OCCIPITAL-LOBE",
+        "ANAT-TEMPORAL-LOBE"
+      ],
+      "associatedSystemIds": [
+        "SYS-VISUAL",
+        "SYS-LANGUAGE"
+      ],
+      "associatedModelIds": [
+        "MODEL-020"
+      ],
+      "assetId": "ASSET-CORTICAL-GYRI-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-ANGULAR-SUPRAMARGINAL",
+      "canonicalName": "Inferior Parietal Lobule (Angular & Supramarginal Gyri)",
+      "tnaLatinName": "Lobulus parietalis inferior",
+      "aliases": [
+        "Inferior Parietal Lobule",
+        "Lobulus parietalis inferior"
+      ],
+      "division": "GYRI_AND_SULCI",
+      "parentId": "ANAT-PARIETAL-LOBE",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        -46.0,
+        -54.0,
+        38.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Multimodal temporoparietal association cortex (BA 39 and BA 40).",
+      "biologicalRole": "Integrates phonological, semantic, attentional reorienting, and praxis representations.",
+      "connectedStructureIds": [
+        "ANAT-ARCUATE-FASCICULUS",
+        "ANAT-PCC"
+      ],
+      "associatedSystemIds": [
+        "SYS-LANGUAGE",
+        "SYS-DEFAULT-MODE"
+      ],
+      "associatedModelIds": [
+        "MODEL-028"
+      ],
+      "assetId": "ASSET-CORTICAL-GYRI-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-CINGULATE-GYRUS",
+      "canonicalName": "Cingulate Gyrus (Anterior & Posterior Cingulate)",
+      "tnaLatinName": "Gyrus cinguli",
+      "aliases": [
+        "Cingulate Gyrus",
+        "Gyrus cinguli"
+      ],
+      "division": "GYRI_AND_SULCI",
+      "parentId": "ANAT-LIMBIC-LOBE",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        0.0,
+        10.0,
+        32.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Medial arch of cortex superior to the corpus callosum, divided into anterior (ACC) and posterior (PCC) zones.",
+      "biologicalRole": "Links conflict/salience monitoring and pain affect (ACC) with default-mode autobiographical integration (PCC).",
+      "connectedStructureIds": [
+        "ANAT-ACC",
+        "ANAT-PCC",
+        "ANAT-CINGULUM-BUNDLE"
+      ],
+      "associatedSystemIds": [
+        "SYS-EXECUTIVE-CONTROL",
+        "SYS-DEFAULT-MODE",
+        "SYS-PAIN"
+      ],
+      "associatedModelIds": [
+        "MODEL-028"
+      ],
+      "assetId": "ASSET-LIMBIC-SYSTEM-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-ACC",
+      "canonicalName": "Anterior Cingulate Cortex (ACC)",
+      "tnaLatinName": "Cortex cingularis anterior",
+      "aliases": [
+        "Anterior Cingulate Cortex",
+        "Cortex cingularis anterior"
+      ],
+      "division": "CEREBRAL_CORTEX",
+      "parentId": "ANAT-CINGULATE-GYRUS",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        0.0,
+        26.0,
+        24.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Rostral and dorsal cingulate zone (BA 24/32/25) connected to insula, amygdala, and prefrontal cortex.",
+      "biologicalRole": "Mediates cognitive conflict monitoring, effort valuation, autonomic arousal, and affective pain processing.",
+      "connectedStructureIds": [
+        "ANAT-INSULAR-LOBE",
+        "ANAT-DLPFC",
+        "ANAT-AMYGDALA"
+      ],
+      "associatedSystemIds": [
+        "SYS-EXECUTIVE-CONTROL",
+        "SYS-PAIN",
+        "SYS-EMOTION"
+      ],
+      "associatedModelIds": [
+        "MODEL-019"
+      ],
+      "assetId": "ASSET-LIMBIC-SYSTEM-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-PCC",
+      "canonicalName": "Posterior Cingulate Cortex & Precuneus (PCC)",
+      "tnaLatinName": "Cortex cingularis posterior",
+      "aliases": [
+        "Posterior Cingulate Cortex & Precuneus",
+        "Cortex cingularis posterior"
+      ],
+      "division": "CEREBRAL_CORTEX",
+      "parentId": "ANAT-CINGULATE-GYRUS",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        0.0,
+        -52.0,
+        28.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Caudal medial parietal/cingulate hub (BA 23/31) exhibiting high baseline metabolic rate.",
+      "biologicalRole": "Core structural and functional connector hub of the Default Mode Network and episodic retrieval circuit.",
+      "connectedStructureIds": [
+        "ANAT-HIPPOCAMPAL-FORMATION",
+        "ANAT-ANGULAR-SUPRAMARGINAL"
+      ],
+      "associatedSystemIds": [
+        "SYS-DEFAULT-MODE"
+      ],
+      "associatedModelIds": [
+        "MODEL-028"
+      ],
+      "assetId": "ASSET-LIMBIC-SYSTEM-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-PARAHIPPOCAMPAL-GYRUS",
+      "canonicalName": "Parahippocampal Gyrus",
+      "tnaLatinName": "Gyrus parahippocampalis",
+      "aliases": [
+        "Parahippocampal Gyrus",
+        "Gyrus parahippocampalis"
+      ],
+      "division": "GYRI_AND_SULCI",
+      "parentId": "ANAT-LIMBIC-LOBE",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        24.0,
+        -28.0,
+        -16.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Medial temporal gyrus encompassing entorhinal, perirhinal, and parahippocampal cortices.",
+      "biologicalRole": "Primary cortical interface funneling multimodal neocortical associations into and out of the hippocampal formation.",
+      "connectedStructureIds": [
+        "ANAT-ENTORHINAL-CORTEX",
+        "ANAT-HIPPOCAMPUS"
+      ],
+      "associatedSystemIds": [
+        "SYS-MEMORY-CONSOLIDATION"
+      ],
+      "associatedModelIds": [
+        "MODEL-024"
+      ],
+      "assetId": "ASSET-LIMBIC-SYSTEM-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-CENTRAL-SULCUS",
+      "canonicalName": "Central Sulcus (of Rolando)",
+      "tnaLatinName": "Sulcus centralis",
+      "aliases": [
+        "Central Sulcus",
+        "Sulcus centralis"
+      ],
+      "division": "GYRI_AND_SULCI",
+      "parentId": "ANAT-TELENCEPHALON",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        -38.0,
+        -22.0,
+        52.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Deep landmark sulcus separating the frontal lobe (M1) from the parietal lobe (S1).",
+      "biologicalRole": "Anatomical boundary dividing primary motor output cortex from primary somatosensory input cortex.",
+      "connectedStructureIds": [
+        "ANAT-PRECENTRAL-GYRUS",
+        "ANAT-POSTCENTRAL-GYRUS"
+      ],
+      "associatedSystemIds": [
+        "SYS-MOTOR",
+        "SYS-SOMATOSENSORY"
+      ],
+      "associatedModelIds": [
+        "MODEL-021"
+      ],
+      "assetId": "ASSET-CORTICAL-GYRI-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-LATERAL-SULCUS",
+      "canonicalName": "Lateral Sulcus (Sylvian Fissure)",
+      "tnaLatinName": "Sulcus lateralis",
+      "aliases": [
+        "Lateral Sulcus",
+        "Sulcus lateralis"
+      ],
+      "division": "GYRI_AND_SULCI",
+      "parentId": "ANAT-TELENCEPHALON",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        -46.0,
+        4.0,
+        4.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Deep cleft separating frontal and parietal lobes superiorly from the temporal lobe inferiorly, housing the insula.",
+      "biologicalRole": "Major perisylvian anatomical landmark enclosing auditory, insular, and language networks.",
+      "connectedStructureIds": [
+        "ANAT-INSULAR-LOBE",
+        "ANAT-SUPERIOR-TEMPORAL-GYRUS",
+        "ANAT-IFG-BROCA"
+      ],
+      "associatedSystemIds": [
+        "SYS-LANGUAGE",
+        "SYS-AUDITORY"
+      ],
+      "associatedModelIds": [
+        "MODEL-028"
+      ],
+      "assetId": "ASSET-CORTICAL-GYRI-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-CALCARINE-SULCUS",
+      "canonicalName": "Calcarine Sulcus & Primary Visual Cortex (V1)",
+      "tnaLatinName": "Sulcus calcarinus",
+      "aliases": [
+        "Calcarine Sulcus & Primary Visual Cortex",
+        "Sulcus calcarinus"
+      ],
+      "division": "GYRI_AND_SULCI",
+      "parentId": "ANAT-OCCIPITAL-LOBE",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        12.0,
+        -84.0,
+        4.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Medial occipital sulcus flanked by striate cortex (Brodmann Area 17 / V1, Gennari's stripe in Layer 4B).",
+      "biologicalRole": "Receives retinotopic optic radiation inputs from LGN and extracts local orientation, spatial frequency, and ocular dominance.",
+      "connectedStructureIds": [
+        "ANAT-LGN",
+        "ANAT-OCCIPITAL-LOBE"
+      ],
+      "associatedSystemIds": [
+        "SYS-VISUAL"
+      ],
+      "associatedModelIds": [
+        "MODEL-018",
+        "MODEL-020",
+        "MODEL-023"
+      ],
+      "assetId": "ASSET-CORTICAL-GYRI-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-NEOCORTEX-L23",
+      "canonicalName": "Neocortical Supragranular Layers (Layers I\u2013III)",
+      "tnaLatinName": "Laminae I-III isocorticis",
+      "aliases": [
+        "Neocortical Supragranular Layers",
+        "Laminae I-III isocorticis"
+      ],
+      "division": "CEREBRAL_CORTEX",
+      "parentId": "ANAT-TELENCEPHALON",
+      "primaryScale": "L6",
+      "mniCentroidMm": null,
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "SCHEMATIC_ANATOMICAL",
+      "shortDefinition": "Superficial cortical laminae containing apical tufts (L1) and dense cortico-cortical pyramidal neurons (L2/3).",
+      "biologicalRole": "Principal source and target of horizontal, associative, and feedforward/feedback intracortical connections.",
+      "connectedStructureIds": [
+        "ANAT-NEOCORTEX-L456",
+        "ANAT-DLPFC"
+      ],
+      "associatedSystemIds": [
+        "SYS-VISUAL",
+        "SYS-EXECUTIVE-CONTROL"
+      ],
+      "associatedModelIds": [
+        "MODEL-008",
+        "MODEL-021"
+      ],
+      "assetId": "ASSET-CORTICAL-COLUMN-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-NEOCORTEX-L456",
+      "canonicalName": "Neocortical Granular & Infragranular Layers (Layers IV\u2013VI)",
+      "tnaLatinName": "Laminae IV-VI isocorticis",
+      "aliases": [
+        "Neocortical Granular & Infragranular Layers",
+        "Laminae IV-VI isocorticis"
+      ],
+      "division": "CEREBRAL_CORTEX",
+      "parentId": "ANAT-TELENCEPHALON",
+      "primaryScale": "L6",
+      "mniCentroidMm": null,
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "SCHEMATIC_ANATOMICAL",
+      "shortDefinition": "Thalamorecipient granular Layer IV, subcortically projecting Layer V pyramidal cells, and corticothalamic Layer VI.",
+      "biologicalRole": "Receives core thalamic relays (L4) and dispatches motor/striatal/brainstem (L5) and thalamic feedback (L6) outputs.",
+      "connectedStructureIds": [
+        "ANAT-NEOCORTEX-L23",
+        "ANAT-THALAMUS"
+      ],
+      "associatedSystemIds": [
+        "SYS-VISUAL",
+        "SYS-MOTOR"
+      ],
+      "associatedModelIds": [
+        "MODEL-018",
+        "MODEL-021"
+      ],
+      "assetId": "ASSET-CORTICAL-COLUMN-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-HIPPOCAMPAL-FORMATION",
+      "canonicalName": "Hippocampal Formation",
+      "tnaLatinName": "Formatio hippocampi",
+      "aliases": [
+        "Hippocampal Formation",
+        "Formatio hippocampi"
+      ],
+      "division": "HIPPOCAMPAL_FORMATION",
+      "parentId": "ANAT-LIMBIC-LOBE",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        26.0,
+        -20.0,
+        -14.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Medial temporal allocortical complex comprising dentate gyrus, hippocampus proper (CA3/CA2/CA1), subiculum, and entorhinal interface.",
+      "biologicalRole": "Essential biological substrate for episodic memory encoding, spatial cognitive mapping, and sharp-wave ripple consolidation.",
+      "connectedStructureIds": [
+        "ANAT-DENTATE-GYRUS",
+        "ANAT-HIPPOCAMPUS",
+        "ANAT-SUBICULUM",
+        "ANAT-ENTORHINAL-CORTEX"
+      ],
+      "associatedSystemIds": [
+        "SYS-MEMORY-CONSOLIDATION"
+      ],
+      "associatedModelIds": [
+        "MODEL-021",
+        "MODEL-024"
+      ],
+      "assetId": "ASSET-HIPPOCAMPUS-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-HIPPOCAMPUS",
+      "canonicalName": "Hippocampus Proper (Cornu Ammonis)",
+      "tnaLatinName": "Hippocampus proprius",
+      "aliases": [
+        "Hippocampus Proper",
+        "Hippocampus proprius"
+      ],
+      "division": "HIPPOCAMPAL_FORMATION",
+      "parentId": "ANAT-HIPPOCAMPAL-FORMATION",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        26.0,
+        -21.0,
+        -14.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Three-layered archicortical structure subdivided into CA3, CA2, and CA1 fields along the hippocampal transverse axis.",
+      "biologicalRole": "Executes auto-associative pattern completion (CA3) and sequence comparison/output routing (CA1).",
+      "connectedStructureIds": [
+        "ANAT-HIPPOCAMPUS-CA3",
+        "ANAT-HIPPOCAMPUS-CA2",
+        "ANAT-HIPPOCAMPUS-CA1"
+      ],
+      "associatedSystemIds": [
+        "SYS-MEMORY-CONSOLIDATION"
+      ],
+      "associatedModelIds": [
+        "MODEL-021",
+        "MODEL-024"
+      ],
+      "assetId": "ASSET-HIPPOCAMPUS-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-DENTATE-GYRUS",
+      "canonicalName": "Dentate Gyrus (DG)",
+      "tnaLatinName": "Gyrus dentatus",
+      "aliases": [
+        "Dentate Gyrus",
+        "Gyrus dentatus"
+      ],
+      "division": "HIPPOCAMPAL_FORMATION",
+      "parentId": "ANAT-HIPPOCAMPAL-FORMATION",
+      "primaryScale": "L6",
+      "mniCentroidMm": [
+        25.0,
+        -19.0,
+        -15.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Dense granule-cell layer receiving perforant path axons from entorhinal cortex and projecting unmyelinated mossy fibers to CA3.",
+      "biologicalRole": "Performs sparse-coding expansion recoding and orthogonalization (pattern separation) of overlapping cortical inputs.",
+      "connectedStructureIds": [
+        "ANAT-ENTORHINAL-CORTEX",
+        "ANAT-HIPPOCAMPUS-CA3"
+      ],
+      "associatedSystemIds": [
+        "SYS-MEMORY-CONSOLIDATION"
+      ],
+      "associatedModelIds": [
+        "MODEL-021"
+      ],
+      "assetId": "ASSET-HIPPOCAMPUS-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-HIPPOCAMPUS-CA3",
+      "canonicalName": "Hippocampal Subfield CA3",
+      "tnaLatinName": "Regio III cornus ammonis (CA3)",
+      "aliases": [
+        "Hippocampal Subfield CA3",
+        "Regio III cornus ammonis (CA3)"
+      ],
+      "division": "HIPPOCAMPAL_FORMATION",
+      "parentId": "ANAT-HIPPOCAMPUS",
+      "primaryScale": "L6",
+      "mniCentroidMm": [
+        24.0,
+        -18.0,
+        -13.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Proximal Cornu Ammonis subfield receiving dentate mossy fibers and elaborating extensive recurrent collateral axons.",
+      "biologicalRole": "Acts as an auto-associative attractor network capable of cue-triggered pattern completion and sharp-wave generation.",
+      "connectedStructureIds": [
+        "ANAT-DENTATE-GYRUS",
+        "ANAT-HIPPOCAMPUS-CA1"
+      ],
+      "associatedSystemIds": [
+        "SYS-MEMORY-CONSOLIDATION"
+      ],
+      "associatedModelIds": [
+        "MODEL-021",
+        "MODEL-024"
+      ],
+      "assetId": "ASSET-HIPPOCAMPUS-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-HIPPOCAMPUS-CA2",
+      "canonicalName": "Hippocampal Subfield CA2",
+      "tnaLatinName": "Regio II cornus ammonis (CA2)",
+      "aliases": [
+        "Hippocampal Subfield CA2",
+        "Regio II cornus ammonis (CA2)"
+      ],
+      "division": "HIPPOCAMPAL_FORMATION",
+      "parentId": "ANAT-HIPPOCAMPUS",
+      "primaryScale": "L6",
+      "mniCentroidMm": [
+        26.0,
+        -19.0,
+        -12.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Compact Cornu Ammonis zone intercalated between CA3 and CA1 with distinct vasopressin/oxytocin receptor expression.",
+      "biologicalRole": "Modulates social memory recognition and gates propagation between CA3 and CA1.",
+      "connectedStructureIds": [
+        "ANAT-HIPPOCAMPUS-CA3",
+        "ANAT-HIPPOCAMPUS-CA1"
+      ],
+      "associatedSystemIds": [
+        "SYS-MEMORY-CONSOLIDATION",
+        "SYS-EMOTION"
+      ],
+      "associatedModelIds": [
+        "MODEL-021"
+      ],
+      "assetId": "ASSET-HIPPOCAMPUS-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-HIPPOCAMPUS-CA1",
+      "canonicalName": "Hippocampal Subfield CA1",
+      "tnaLatinName": "Regio I cornus ammonis (CA1)",
+      "aliases": [
+        "Hippocampal Subfield CA1",
+        "Regio I cornus ammonis (CA1)"
+      ],
+      "division": "HIPPOCAMPAL_FORMATION",
+      "parentId": "ANAT-HIPPOCAMPUS",
+      "primaryScale": "L6",
+      "mniCentroidMm": [
+        27.0,
+        -23.0,
+        -14.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Distal Cornu Ammonis subfield receiving CA3 Schaffer collaterals in stratum radiatum and direct EC L3 inputs in stratum lacunosum-moleculare.",
+      "biologicalRole": "Compares stored CA3 predictions with current entorhinal sensory reality and serves as the classic locus of NMDA-dependent LTP.",
+      "connectedStructureIds": [
+        "ANAT-HIPPOCAMPUS-CA3",
+        "ANAT-SUBICULUM",
+        "ANAT-ENTORHINAL-CORTEX"
+      ],
+      "associatedSystemIds": [
+        "SYS-MEMORY-CONSOLIDATION"
+      ],
+      "associatedModelIds": [
+        "MODEL-014",
+        "MODEL-024"
+      ],
+      "assetId": "ASSET-HIPPOCAMPUS-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-SUBICULUM",
+      "canonicalName": "Subiculum",
+      "tnaLatinName": "Subiculum",
+      "aliases": [
+        "Subiculum",
+        "Subiculum"
+      ],
+      "division": "HIPPOCAMPAL_FORMATION",
+      "parentId": "ANAT-HIPPOCAMPAL-FORMATION",
+      "primaryScale": "L6",
+      "mniCentroidMm": [
+        23.0,
+        -25.0,
+        -16.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Transition zone between three-layered CA1 and six-layered presubiculum/entorhinal cortex.",
+      "biologicalRole": "Major output stage of the hippocampus projecting via the fornix and back to deep entorhinal layers.",
+      "connectedStructureIds": [
+        "ANAT-HIPPOCAMPUS-CA1",
+        "ANAT-FORNIX",
+        "ANAT-ENTORHINAL-CORTEX"
+      ],
+      "associatedSystemIds": [
+        "SYS-MEMORY-CONSOLIDATION"
+      ],
+      "associatedModelIds": [
+        "MODEL-008"
+      ],
+      "assetId": "ASSET-HIPPOCAMPUS-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-ENTORHINAL-CORTEX",
+      "canonicalName": "Entorhinal Cortex (EC)",
+      "tnaLatinName": "Cortex entorhinalis",
+      "aliases": [
+        "Entorhinal Cortex",
+        "Cortex entorhinalis"
+      ],
+      "division": "HIPPOCAMPAL_FORMATION",
+      "parentId": "ANAT-PARAHIPPOCAMPAL-GYRUS",
+      "primaryScale": "L6",
+      "mniCentroidMm": [
+        22.0,
+        -10.0,
+        -26.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Anterior parahippocampal allocortex (BA 28) containing grid cells in medial EC and object-context cells in lateral EC.",
+      "biologicalRole": "Bidirectional gateway between neocortex and hippocampus via the perforant and temporoammonic pathways.",
+      "connectedStructureIds": [
+        "ANAT-DENTATE-GYRUS",
+        "ANAT-HIPPOCAMPUS-CA1",
+        "ANAT-SUBICULUM"
+      ],
+      "associatedSystemIds": [
+        "SYS-MEMORY-CONSOLIDATION"
+      ],
+      "associatedModelIds": [
+        "MODEL-021",
+        "MODEL-027"
+      ],
+      "assetId": "ASSET-HIPPOCAMPUS-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-AMYGDALA",
+      "canonicalName": "Amygdaloid Complex (Amygdala)",
+      "tnaLatinName": "Corpus amygdaloideum",
+      "aliases": [
+        "Amygdaloid Complex",
+        "Corpus amygdaloideum"
+      ],
+      "division": "AMYGDALA_LIMBIC",
+      "parentId": "ANAT-TELENCEPHALON",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        22.0,
+        -4.0,
+        -18.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Almond-shaped nuclear complex in the anteromedial temporal lobe comprising basolateral, central, and corticomedial groups.",
+      "biologicalRole": "Evaluates emotional valence and threat/reward salience, coordinating defensive, autonomic, and memory modulation.",
+      "connectedStructureIds": [
+        "ANAT-AMYGDALA-BLA",
+        "ANAT-AMYGDALA-CEA",
+        "ANAT-HIPPOCAMPUS"
+      ],
+      "associatedSystemIds": [
+        "SYS-EMOTION",
+        "SYS-REWARD"
+      ],
+      "associatedModelIds": [
+        "MODEL-017",
+        "MODEL-024"
+      ],
+      "assetId": "ASSET-AMYGDALA-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-AMYGDALA-BLA",
+      "canonicalName": "Basolateral Amygdala Complex (BLA)",
+      "tnaLatinName": "Complexus basolateralis amygdalae",
+      "aliases": [
+        "Basolateral Amygdala Complex",
+        "Complexus basolateralis amygdalae"
+      ],
+      "division": "AMYGDALA_LIMBIC",
+      "parentId": "ANAT-AMYGDALA",
+      "primaryScale": "L6",
+      "mniCentroidMm": [
+        25.0,
+        -4.0,
+        -20.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Cortex-like glutamatergic + GABAergic interneuron complex (lateral, basal, and accessory basal nuclei).",
+      "biologicalRole": "Primary sensory input stage of the amygdala where conditioned-unconditioned stimulus associations undergo LTP.",
+      "connectedStructureIds": [
+        "ANAT-AMYGDALA-CEA",
+        "ANAT-OFC-VMPFC",
+        "ANAT-THALAMUS"
+      ],
+      "associatedSystemIds": [
+        "SYS-EMOTION",
+        "SYS-REWARD"
+      ],
+      "associatedModelIds": [
+        "MODEL-024"
+      ],
+      "assetId": "ASSET-AMYGDALA-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-AMYGDALA-CEA",
+      "canonicalName": "Central Nucleus of the Amygdala (CeA)",
+      "tnaLatinName": "Nucleus centralis amygdalae",
+      "aliases": [
+        "Central Nucleus of the Amygdala",
+        "Nucleus centralis amygdalae"
+      ],
+      "division": "AMYGDALA_LIMBIC",
+      "parentId": "ANAT-AMYGDALA",
+      "primaryScale": "L6",
+      "mniCentroidMm": [
+        20.0,
+        -3.0,
+        -15.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Striatum-like GABAergic output nucleus of the amygdala projecting to hypothalamus, PAG, and brainstem autonomic centers.",
+      "biologicalRole": "Drives physiological, autonomic, and behavioral expression of defensive and stress responses.",
+      "connectedStructureIds": [
+        "ANAT-AMYGDALA-BLA",
+        "ANAT-HYPOTHALAMUS",
+        "ANAT-PAG"
+      ],
+      "associatedSystemIds": [
+        "SYS-EMOTION",
+        "SYS-AUTONOMIC"
+      ],
+      "associatedModelIds": [
+        "MODEL-017"
+      ],
+      "assetId": "ASSET-AMYGDALA-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-SEPTAL-NUCLEI",
+      "canonicalName": "Septal Nuclei (Medial Septum & Diagonal Band)",
+      "tnaLatinName": "Nuclei septales",
+      "aliases": [
+        "Septal Nuclei",
+        "Nuclei septales"
+      ],
+      "division": "AMYGDALA_LIMBIC",
+      "parentId": "ANAT-TELENCEPHALON",
+      "primaryScale": "L6",
+      "mniCentroidMm": [
+        0.0,
+        4.0,
+        2.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Subcallosal basal forebrain cholinergic and GABAergic pacemaker nuclei connected to hippocampus via the fornix.",
+      "biologicalRole": "Paces hippocampal theta oscillations (4-8 Hz) essential for active spatial and episodic encoding.",
+      "connectedStructureIds": [
+        "ANAT-FORNIX",
+        "ANAT-HIPPOCAMPUS"
+      ],
+      "associatedSystemIds": [
+        "SYS-MEMORY-CONSOLIDATION"
+      ],
+      "associatedModelIds": [
+        "MODEL-027"
+      ],
+      "assetId": "ASSET-LIMBIC-SYSTEM-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-BASAL-GANGLIA",
+      "canonicalName": "Basal Ganglia Complex",
+      "tnaLatinName": "Nuclei basales",
+      "aliases": [
+        "Basal Ganglia Complex",
+        "Nuclei basales"
+      ],
+      "division": "BASAL_GANGLIA",
+      "parentId": "ANAT-TELENCEPHALON",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        18.0,
+        2.0,
+        4.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Interconnected subcortical nuclei comprising striatum, pallidum, subthalamic nucleus, and substantia nigra.",
+      "biologicalRole": "Gates action selection, motor vigor, habit learning, and reinforcement-driven value updating via parallel thalamocortical loops.",
+      "connectedStructureIds": [
+        "ANAT-STRIATUM",
+        "ANAT-GPE",
+        "ANAT-GPI",
+        "ANAT-STN",
+        "ANAT-SUBSTANTIA-NIGRA"
+      ],
+      "associatedSystemIds": [
+        "SYS-MOTOR",
+        "SYS-REWARD"
+      ],
+      "associatedModelIds": [
+        "MODEL-026"
+      ],
+      "assetId": "ASSET-BASAL-GANGLIA-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-STRIATUM",
+      "canonicalName": "Striatum (Dorsal & Ventral)",
+      "tnaLatinName": "Striatum",
+      "aliases": [
+        "Striatum",
+        "Striatum"
+      ],
+      "division": "BASAL_GANGLIA",
+      "parentId": "ANAT-BASAL-GANGLIA",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        18.0,
+        10.0,
+        6.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Primary input stage of the basal ganglia encompassing caudate nucleus, putamen, and ventral striatum (nucleus accumbens).",
+      "biologicalRole": "Integrates glutamatergic cortical/thalamic inputs with midbrain dopaminergic RPE signals onto D1 and D2 medium spiny neurons.",
+      "connectedStructureIds": [
+        "ANAT-CAUDATE-NUCLEUS",
+        "ANAT-PUTAMEN",
+        "ANAT-NUCLEUS-ACCUMBENS"
+      ],
+      "associatedSystemIds": [
+        "SYS-MOTOR",
+        "SYS-REWARD"
+      ],
+      "associatedModelIds": [
+        "MODEL-026"
+      ],
+      "assetId": "ASSET-BASAL-GANGLIA-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-CAUDATE-NUCLEUS",
+      "canonicalName": "Caudate Nucleus",
+      "tnaLatinName": "Nucleus caudatus",
+      "aliases": [
+        "Caudate Nucleus",
+        "Nucleus caudatus"
+      ],
+      "division": "BASAL_GANGLIA",
+      "parentId": "ANAT-STRIATUM",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        14.0,
+        12.0,
+        12.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "C-shaped dorsal striatal nucleus (head, body, tail) bordering the lateral ventricle.",
+      "biologicalRole": "Receives prefrontal and parietal association inputs supporting goal-directed cognitive and oculomotor control.",
+      "connectedStructureIds": [
+        "ANAT-DLPFC",
+        "ANAT-GPE",
+        "ANAT-GPI"
+      ],
+      "associatedSystemIds": [
+        "SYS-EXECUTIVE-CONTROL",
+        "SYS-MOTOR"
+      ],
+      "associatedModelIds": [
+        "MODEL-026"
+      ],
+      "assetId": "ASSET-BASAL-GANGLIA-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-PUTAMEN",
+      "canonicalName": "Putamen",
+      "tnaLatinName": "Putamen",
+      "aliases": [
+        "Putamen",
+        "Putamen"
+      ],
+      "division": "BASAL_GANGLIA",
+      "parentId": "ANAT-STRIATUM",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        26.0,
+        2.0,
+        2.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Lateral dorsal striatal nucleus lateral to the globus pallidus and medial to the external capsule.",
+      "biologicalRole": "Receives somatotopic sensorimotor cortical projections mediating motor execution and procedural habit learning.",
+      "connectedStructureIds": [
+        "ANAT-PRECENTRAL-GYRUS",
+        "ANAT-GPE",
+        "ANAT-GPI"
+      ],
+      "associatedSystemIds": [
+        "SYS-MOTOR"
+      ],
+      "associatedModelIds": [
+        "MODEL-026"
+      ],
+      "assetId": "ASSET-BASAL-GANGLIA-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-NUCLEUS-ACCUMBENS",
+      "canonicalName": "Nucleus Accumbens (Ventral Striatum, NAc)",
+      "tnaLatinName": "Nucleus accumbens",
+      "aliases": [
+        "Nucleus Accumbens",
+        "Nucleus accumbens"
+      ],
+      "division": "BASAL_GANGLIA",
+      "parentId": "ANAT-STRIATUM",
+      "primaryScale": "L6",
+      "mniCentroidMm": [
+        10.0,
+        12.0,
+        -8.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Ventromedial striatal core and shell receiving dense VTA dopamine, amygdala, hippocampal subiculum, and vmPFC inputs.",
+      "biologicalRole": "Central limbic-motor interface translating reward prediction errors and motivational salience into action vigor.",
+      "connectedStructureIds": [
+        "ANAT-VTA",
+        "ANAT-OFC-VMPFC",
+        "ANAT-AMYGDALA-BLA"
+      ],
+      "associatedSystemIds": [
+        "SYS-REWARD",
+        "SYS-EMOTION"
+      ],
+      "associatedModelIds": [
+        "MODEL-026"
+      ],
+      "assetId": "ASSET-BASAL-GANGLIA-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-GPE",
+      "canonicalName": "Globus Pallidus Externus (GPe)",
+      "tnaLatinName": "Globus pallidus lateralis (externus)",
+      "aliases": [
+        "Globus Pallidus Externus",
+        "Globus pallidus lateralis (externus)"
+      ],
+      "division": "BASAL_GANGLIA",
+      "parentId": "ANAT-BASAL-GANGLIA",
+      "primaryScale": "L6",
+      "mniCentroidMm": [
+        20.0,
+        -2.0,
+        0.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Tonically active GABAergic pallidal nucleus inhibited by D2 indirect-pathway striatal medium spiny neurons.",
+      "biologicalRole": "Inhibits the subthalamic nucleus and coordinates indirect-pathway motor suppression.",
+      "connectedStructureIds": [
+        "ANAT-PUTAMEN",
+        "ANAT-STN",
+        "ANAT-GPI"
+      ],
+      "associatedSystemIds": [
+        "SYS-MOTOR"
+      ],
+      "associatedModelIds": [
+        "MODEL-017"
+      ],
+      "assetId": "ASSET-BASAL-GANGLIA-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-GPI",
+      "canonicalName": "Globus Pallidus Internus (GPi)",
+      "tnaLatinName": "Globus pallidus medialis (internus)",
+      "aliases": [
+        "Globus Pallidus Internus",
+        "Globus pallidus medialis (internus)"
+      ],
+      "division": "BASAL_GANGLIA",
+      "parentId": "ANAT-BASAL-GANGLIA",
+      "primaryScale": "L6",
+      "mniCentroidMm": [
+        16.0,
+        -4.0,
+        -2.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Principal GABAergic output nucleus of the basal ganglia (functionally homologous with SNr).",
+      "biologicalRole": "Tonically inhibits VL/VA motor thalamus; transient pauses induced by D1 direct-pathway input disinhibit movement.",
+      "connectedStructureIds": [
+        "ANAT-STRIATUM",
+        "ANAT-STN",
+        "ANAT-THALAMUS-VL"
+      ],
+      "associatedSystemIds": [
+        "SYS-MOTOR"
+      ],
+      "associatedModelIds": [
+        "MODEL-017"
+      ],
+      "assetId": "ASSET-BASAL-GANGLIA-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-STN",
+      "canonicalName": "Subthalamic Nucleus (STN)",
+      "tnaLatinName": "Nucleus subthalamicus",
+      "aliases": [
+        "Subthalamic Nucleus",
+        "Nucleus subthalamicus"
+      ],
+      "division": "BASAL_GANGLIA",
+      "parentId": "ANAT-DIENCEPHALON",
+      "primaryScale": "L6",
+      "mniCentroidMm": [
+        12.0,
+        -13.0,
+        -6.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Lens-shaped glutamatergic diencephalic nucleus receiving hyperdirect frontal cortical input and GPe inhibition.",
+      "biologicalRole": "Provides fast global excitatory drive to GPi/SNr to brake or cancel premature motor actions.",
+      "connectedStructureIds": [
+        "ANAT-GPE",
+        "ANAT-GPI",
+        "ANAT-IFG-BROCA"
+      ],
+      "associatedSystemIds": [
+        "SYS-MOTOR",
+        "SYS-EXECUTIVE-CONTROL"
+      ],
+      "associatedModelIds": [
+        "MODEL-019"
+      ],
+      "assetId": "ASSET-BASAL-GANGLIA-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-SUBSTANTIA-NIGRA",
+      "canonicalName": "Substantia Nigra (SNc & SNr)",
+      "tnaLatinName": "Substantia nigra",
+      "aliases": [
+        "Substantia Nigra",
+        "Substantia nigra"
+      ],
+      "division": "BASAL_GANGLIA",
+      "parentId": "ANAT-MIDBRAIN",
+      "primaryScale": "L6",
+      "mniCentroidMm": [
+        10.0,
+        -18.0,
+        -11.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Midbrain nuclear complex divided into dopaminergic pars compacta (SNc, nigrostriatal pathway) and GABAergic pars reticulata (SNr).",
+      "biologicalRole": "SNc modulates dorsal striatal D1/D2 excitability via dopamine; SNr gates superior colliculus and thalamic oculomotor outputs.",
+      "connectedStructureIds": [
+        "ANAT-STRIATUM",
+        "ANAT-SUPERIOR-COLLICULUS",
+        "ANAT-THALAMUS"
+      ],
+      "associatedSystemIds": [
+        "SYS-MOTOR",
+        "SYS-REWARD"
+      ],
+      "associatedModelIds": [
+        "MODEL-026"
+      ],
+      "assetId": "ASSET-BASAL-GANGLIA-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-THALAMUS",
+      "canonicalName": "Thalamus",
+      "tnaLatinName": "Thalamus",
+      "aliases": [
+        "Thalamus",
+        "Thalamus"
+      ],
+      "division": "THALAMUS_HYPOTHALAMUS",
+      "parentId": "ANAT-DIENCEPHALON",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        12.0,
+        -18.0,
+        8.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Paired egg-shaped diencephalic nuclear complex subdivided by the internal medullary lamina into anterior, medial, and lateral nuclear groups.",
+      "biologicalRole": "Gates and transforms sensory, motor, and associative cortico-thalamo-cortical information across wakefulness and sleep.",
+      "connectedStructureIds": [
+        "ANAT-THALAMUS-VPL",
+        "ANAT-LGN",
+        "ANAT-MGN",
+        "ANAT-THALAMUS-MD",
+        "ANAT-TRN"
+      ],
+      "associatedSystemIds": [
+        "SYS-VISUAL",
+        "SYS-SOMATOSENSORY",
+        "SYS-SLEEP"
+      ],
+      "associatedModelIds": [
+        "MODEL-018"
+      ],
+      "assetId": "ASSET-THALAMUS-HYPO-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-THALAMUS-VPL",
+      "canonicalName": "Ventral Posterolateral Nucleus of Thalamus (VPL)",
+      "tnaLatinName": "Nucleus ventralis posterolateralis",
+      "aliases": [
+        "Ventral Posterolateral Nucleus of Thalamus",
+        "Nucleus ventralis posterolateralis"
+      ],
+      "division": "THALAMUS_HYPOTHALAMUS",
+      "parentId": "ANAT-THALAMUS",
+      "primaryScale": "L6",
+      "mniCentroidMm": [
+        18.0,
+        -20.0,
+        6.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Somatosensory relay nucleus receiving the medial lemniscus (DCML) and spinothalamic tracts from the body and limbs.",
+      "biologicalRole": "Relays somatotopic mechanosensory and nociceptive signals from the trunk and extremities to S1.",
+      "connectedStructureIds": [
+        "ANAT-POSTCENTRAL-GYRUS",
+        "ANAT-SPINOTHALAMIC-TRACT"
+      ],
+      "associatedSystemIds": [
+        "SYS-SOMATOSENSORY",
+        "SYS-PAIN"
+      ],
+      "associatedModelIds": [
+        "MODEL-018"
+      ],
+      "assetId": "ASSET-THALAMUS-HYPO-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-THALAMUS-VPM",
+      "canonicalName": "Ventral Posteromedial Nucleus of Thalamus (VPM)",
+      "tnaLatinName": "Nucleus ventralis posteromedialis",
+      "aliases": [
+        "Ventral Posteromedial Nucleus of Thalamus",
+        "Nucleus ventralis posteromedialis"
+      ],
+      "division": "THALAMUS_HYPOTHALAMUS",
+      "parentId": "ANAT-THALAMUS",
+      "primaryScale": "L6",
+      "mniCentroidMm": [
+        14.0,
+        -19.0,
+        5.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Somatosensory and gustatory relay nucleus receiving trigeminothalamic (CN V) and solitary tract (rNTS) inputs.",
+      "biologicalRole": "Relays facial somatosensation to lateral S1 and gustatory signals (via VPMpc) to anterior insula.",
+      "connectedStructureIds": [
+        "ANAT-POSTCENTRAL-GYRUS",
+        "ANAT-INSULAR-LOBE",
+        "ANAT-CN-V"
+      ],
+      "associatedSystemIds": [
+        "SYS-SOMATOSENSORY",
+        "SYS-GUSTATORY"
+      ],
+      "associatedModelIds": [
+        "MODEL-018"
+      ],
+      "assetId": "ASSET-THALAMUS-HYPO-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-THALAMUS-VL",
+      "canonicalName": "Ventral Lateral & Ventral Anterior Thalamic Nuclei (VL / VA)",
+      "tnaLatinName": "Nuclei ventralis lateralis et anterior",
+      "aliases": [
+        "Ventral Lateral & Ventral Anterior Thalamic Nuclei",
+        "Nuclei ventralis lateralis et anterior"
+      ],
+      "division": "THALAMUS_HYPOTHALAMUS",
+      "parentId": "ANAT-THALAMUS",
+      "primaryScale": "L6",
+      "mniCentroidMm": [
+        14.0,
+        -12.0,
+        10.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Motor thalamic relay nuclei receiving pallidal (GPi/SNr) inhibition and deep cerebellar (dentate) excitation.",
+      "biologicalRole": "Transmits basal ganglia and cerebellar motor loop signals to primary motor (M1) and premotor cortices.",
+      "connectedStructureIds": [
+        "ANAT-PRECENTRAL-GYRUS",
+        "ANAT-GPI",
+        "ANAT-DENTATE-NUCLEUS"
+      ],
+      "associatedSystemIds": [
+        "SYS-MOTOR"
+      ],
+      "associatedModelIds": [
+        "MODEL-018"
+      ],
+      "assetId": "ASSET-THALAMUS-HYPO-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-LGN",
+      "canonicalName": "Lateral Geniculate Nucleus (LGN)",
+      "tnaLatinName": "Corpus geniculatum laterale",
+      "aliases": [
+        "Lateral Geniculate Nucleus",
+        "Corpus geniculatum laterale"
+      ],
+      "division": "THALAMUS_HYPOTHALAMUS",
+      "parentId": "ANAT-THALAMUS",
+      "primaryScale": "L6",
+      "mniCentroidMm": [
+        22.0,
+        -24.0,
+        -2.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Six-layered visual thalamic nucleus (magnocellular layers 1-2, parvocellular layers 3-6, koniocellular interlaminar).",
+      "biologicalRole": "Relays contralateral visual hemifield retinal ganglion cell inputs via the optic radiations to V1 Layer 4C.",
+      "connectedStructureIds": [
+        "ANAT-CN-II",
+        "ANAT-CALCARINE-SULCUS",
+        "ANAT-TRN"
+      ],
+      "associatedSystemIds": [
+        "SYS-VISUAL"
+      ],
+      "associatedModelIds": [
+        "MODEL-018",
+        "MODEL-020"
+      ],
+      "assetId": "ASSET-THALAMUS-HYPO-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-MGN",
+      "canonicalName": "Medial Geniculate Nucleus (MGN)",
+      "tnaLatinName": "Corpus geniculatum mediale",
+      "aliases": [
+        "Medial Geniculate Nucleus",
+        "Corpus geniculatum mediale"
+      ],
+      "division": "THALAMUS_HYPOTHALAMUS",
+      "parentId": "ANAT-THALAMUS",
+      "primaryScale": "L6",
+      "mniCentroidMm": [
+        16.0,
+        -26.0,
+        -4.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Auditory thalamic nucleus (ventral tonotopic, dorsal, and medial divisions) receiving inferior colliculus inputs.",
+      "biologicalRole": "Relays frequency-organized auditory signals to primary auditory cortex (A1) in Heschl's gyrus.",
+      "connectedStructureIds": [
+        "ANAT-INFERIOR-COLLICULUS",
+        "ANAT-SUPERIOR-TEMPORAL-GYRUS"
+      ],
+      "associatedSystemIds": [
+        "SYS-AUDITORY"
+      ],
+      "associatedModelIds": [
+        "MODEL-018"
+      ],
+      "assetId": "ASSET-THALAMUS-HYPO-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-THALAMUS-MD",
+      "canonicalName": "Mediodorsal Nucleus of Thalamus (MD)",
+      "tnaLatinName": "Nucleus mediodorsalis thalami",
+      "aliases": [
+        "Mediodorsal Nucleus of Thalamus",
+        "Nucleus mediodorsalis thalami"
+      ],
+      "division": "THALAMUS_HYPOTHALAMUS",
+      "parentId": "ANAT-THALAMUS",
+      "primaryScale": "L6",
+      "mniCentroidMm": [
+        6.0,
+        -16.0,
+        10.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Large association nucleus medial to the internal medullary lamina reciprocally connected with prefrontal cortex and amygdala.",
+      "biologicalRole": "Sustains persistent prefrontal working-memory activity and executive rule switching.",
+      "connectedStructureIds": [
+        "ANAT-DLPFC",
+        "ANAT-OFC-VMPFC",
+        "ANAT-AMYGDALA"
+      ],
+      "associatedSystemIds": [
+        "SYS-EXECUTIVE-CONTROL",
+        "SYS-MEMORY-CONSOLIDATION"
+      ],
+      "associatedModelIds": [
+        "MODEL-017",
+        "MODEL-019"
+      ],
+      "assetId": "ASSET-THALAMUS-HYPO-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-PULVINAR",
+      "canonicalName": "Pulvinar Nucleus",
+      "tnaLatinName": "Pulvinar thalami",
+      "aliases": [
+        "Pulvinar Nucleus",
+        "Pulvinar thalami"
+      ],
+      "division": "THALAMUS_HYPOTHALAMUS",
+      "parentId": "ANAT-THALAMUS",
+      "primaryScale": "L6",
+      "mniCentroidMm": [
+        16.0,
+        -28.0,
+        8.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Largest posterior association nucleus of the human thalamus interconnected with occipital, parietal, and temporal cortices.",
+      "biologicalRole": "Synchronizes cortico-cortical alpha/gamma communication to gate visual attention and salience.",
+      "connectedStructureIds": [
+        "ANAT-OCCIPITAL-LOBE",
+        "ANAT-PARIETAL-LOBE",
+        "ANAT-SUPERIOR-COLLICULUS"
+      ],
+      "associatedSystemIds": [
+        "SYS-VISUAL",
+        "SYS-EXECUTIVE-CONTROL"
+      ],
+      "associatedModelIds": [
+        "MODEL-027"
+      ],
+      "assetId": "ASSET-THALAMUS-HYPO-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-TRN",
+      "canonicalName": "Thalamic Reticular Nucleus (TRN)",
+      "tnaLatinName": "Nucleus reticularis thalami",
+      "aliases": [
+        "Thalamic Reticular Nucleus",
+        "Nucleus reticularis thalami"
+      ],
+      "division": "THALAMUS_HYPOTHALAMUS",
+      "parentId": "ANAT-THALAMUS",
+      "primaryScale": "L6",
+      "mniCentroidMm": [
+        20.0,
+        -16.0,
+        8.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Thin shell of parvalbumin-rich GABAergic neurons enveloping the lateral thalamus, innervated by thalamocortical and corticothalamic collaterals.",
+      "biologicalRole": "Paces sleep spindles, alpha oscillations, and selective attentional gating by inhibiting thalamocortical relay nuclei.",
+      "connectedStructureIds": [
+        "ANAT-THALAMUS",
+        "ANAT-LGN"
+      ],
+      "associatedSystemIds": [
+        "SYS-SLEEP",
+        "SYS-VISUAL"
+      ],
+      "associatedModelIds": [
+        "MODEL-018",
+        "MODEL-002"
+      ],
+      "assetId": "ASSET-THALAMUS-HYPO-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-HYPOTHALAMUS",
+      "canonicalName": "Hypothalamus",
+      "tnaLatinName": "Hypothalamus",
+      "aliases": [
+        "Hypothalamus",
+        "Hypothalamus"
+      ],
+      "division": "THALAMUS_HYPOTHALAMUS",
+      "parentId": "ANAT-DIENCEPHALON",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        4.0,
+        -4.0,
+        -10.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Ventral diencephalic nuclear complex forming the floor and lower walls of the third ventricle above the pituitary gland.",
+      "biologicalRole": "Integrates thermoregulation, circadian rhythms, sleep-wake switching, hunger/satiety, autonomic output, and neuroendocrine HPA/HPG axes.",
+      "connectedStructureIds": [
+        "ANAT-SCN",
+        "ANAT-PVN-HYPO",
+        "ANAT-PITUITARY-GLAND"
+      ],
+      "associatedSystemIds": [
+        "SYS-AUTONOMIC",
+        "SYS-SLEEP",
+        "SYS-NEUROENDOCRINE"
+      ],
+      "associatedModelIds": [
+        "MODEL-017"
+      ],
+      "assetId": "ASSET-THALAMUS-HYPO-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-SCN",
+      "canonicalName": "Suprachiasmatic Nucleus (SCN)",
+      "tnaLatinName": "Nucleus suprachiasmaticus",
+      "aliases": [
+        "Suprachiasmatic Nucleus",
+        "Nucleus suprachiasmaticus"
+      ],
+      "division": "THALAMUS_HYPOTHALAMUS",
+      "parentId": "ANAT-HYPOTHALAMUS",
+      "primaryScale": "L6",
+      "mniCentroidMm": [
+        2.0,
+        2.0,
+        -10.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Paired anterior hypothalamic nucleus immediately dorsal to the optic chiasm receiving retinohypothalamic ipRGC inputs.",
+      "biologicalRole": "Master mammalian circadian pacemaker (~20,000 neurons) synchronizing 24-hour physiological rhythms via CLOCK:BMAL1/PER:CRY loops.",
+      "connectedStructureIds": [
+        "ANAT-HYPOTHALAMUS",
+        "ANAT-CN-II"
+      ],
+      "associatedSystemIds": [
+        "SYS-SLEEP",
+        "SYS-NEUROENDOCRINE"
+      ],
+      "associatedModelIds": [
+        "MODEL-027"
+      ],
+      "assetId": "ASSET-THALAMUS-HYPO-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-PVN-HYPO",
+      "canonicalName": "Paraventricular Nucleus of Hypothalamus (PVN)",
+      "tnaLatinName": "Nucleus paraventricularis hypothalami",
+      "aliases": [
+        "Paraventricular Nucleus of Hypothalamus",
+        "Nucleus paraventricularis hypothalami"
+      ],
+      "division": "THALAMUS_HYPOTHALAMUS",
+      "parentId": "ANAT-HYPOTHALAMUS",
+      "primaryScale": "L6",
+      "mniCentroidMm": [
+        3.0,
+        -2.0,
+        -6.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Medial hypothalamic nucleus containing magnocellular (oxytocin/vasopressin) and parvocellular (CRH/TRH + pre-autonomic) neurons.",
+      "biologicalRole": "Drives the HPA stress axis (CRH -> ACTH -> cortisol) and descending sympathetic/parasympathetic brainstem control.",
+      "connectedStructureIds": [
+        "ANAT-HYPOTHALAMUS",
+        "ANAT-PITUITARY-GLAND",
+        "ANAT-NTS"
+      ],
+      "associatedSystemIds": [
+        "SYS-AUTONOMIC",
+        "SYS-NEUROENDOCRINE"
+      ],
+      "associatedModelIds": [
+        "MODEL-017"
+      ],
+      "assetId": "ASSET-THALAMUS-HYPO-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-PITUITARY-GLAND",
+      "canonicalName": "Pituitary Gland (Hypophysis & Infundibulum)",
+      "tnaLatinName": "Hypophysis (Glandula pituitaria)",
+      "aliases": [
+        "Pituitary Gland",
+        "Hypophysis (Glandula pituitaria)"
+      ],
+      "division": "THALAMUS_HYPOTHALAMUS",
+      "parentId": "ANAT-HYPOTHALAMUS",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        0.0,
+        2.0,
+        -24.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Neuroendocrine gland suspended in the sella turcica comprising adenohypophysis (anterior) and neurohypophysis (posterior).",
+      "biologicalRole": "Secretes systemic peptide hormones in response to hypothalamic releasing factors and posterior magnocellular axon terminals.",
+      "connectedStructureIds": [
+        "ANAT-HYPOTHALAMUS",
+        "ANAT-PVN-HYPO"
+      ],
+      "associatedSystemIds": [
+        "SYS-NEUROENDOCRINE"
+      ],
+      "associatedModelIds": [
+        "MODEL-017"
+      ],
+      "assetId": "ASSET-THALAMUS-HYPO-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-CEREBELLUM",
+      "canonicalName": "Cerebellum",
+      "tnaLatinName": "Cerebellum",
+      "aliases": [
+        "Cerebellum",
+        "Cerebellum"
+      ],
+      "division": "CEREBELLUM",
+      "parentId": "ANAT-HINDBRAIN",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        22.0,
+        -60.0,
+        -32.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Posterior fossa hindbrain structure containing >50% of all human brain neurons, divided into vermis, paravermis, hemispheres, and flocculonodular lobe.",
+      "biologicalRole": "Computes real-time sensorimotor forward models, motor timing, vestibulo-ocular calibration, and cognitive sequence prediction.",
+      "connectedStructureIds": [
+        "ANAT-CEREBELLAR-CORTEX",
+        "ANAT-DENTATE-NUCLEUS",
+        "ANAT-PONS"
+      ],
+      "associatedSystemIds": [
+        "SYS-MOTOR",
+        "SYS-VESTIBULAR"
+      ],
+      "associatedModelIds": [
+        "MODEL-023"
+      ],
+      "assetId": "ASSET-CEREBELLUM-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-CEREBELLAR-CORTEX",
+      "canonicalName": "Cerebellar Cortex (Molecular, Purkinje & Granule Layers)",
+      "tnaLatinName": "Cortex cerebelli",
+      "aliases": [
+        "Cerebellar Cortex",
+        "Cortex cerebelli"
+      ],
+      "division": "CEREBELLUM",
+      "parentId": "ANAT-CEREBELLUM",
+      "primaryScale": "L6",
+      "mniCentroidMm": [
+        24.0,
+        -62.0,
+        -30.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Highly regular three-layered foliar cortex where granule parallel fibers and inferior olivary climbing fibers converge on Purkinje cells.",
+      "biologicalRole": "Executes high-dimensional expansion recoding and supervised error-driven LTD/LTP at parallel-fiber to Purkinje synapses.",
+      "connectedStructureIds": [
+        "ANAT-CEREBELLUM",
+        "ANAT-DENTATE-NUCLEUS"
+      ],
+      "associatedSystemIds": [
+        "SYS-MOTOR",
+        "SYS-VESTIBULAR"
+      ],
+      "associatedModelIds": [
+        "MODEL-023"
+      ],
+      "assetId": "ASSET-CEREBELLUM-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-CEREBELLAR-VERMIS",
+      "canonicalName": "Cerebellar Vermis & Fastigial Zone",
+      "tnaLatinName": "Vermis cerebelli",
+      "aliases": [
+        "Cerebellar Vermis & Fastigial Zone",
+        "Vermis cerebelli"
+      ],
+      "division": "CEREBELLUM",
+      "parentId": "ANAT-CEREBELLUM",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        0.0,
+        -62.0,
+        -28.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Midline spinocerebellar zone receiving proprioceptive, vestibular, and visual posture inputs.",
+      "biologicalRole": "Regulates axial musculature, gait posture, and saccadic accuracy via the fastigial nucleus.",
+      "connectedStructureIds": [
+        "ANAT-CEREBELLUM",
+        "ANAT-VESTIBULAR-NUCLEI"
+      ],
+      "associatedSystemIds": [
+        "SYS-MOTOR",
+        "SYS-VESTIBULAR"
+      ],
+      "associatedModelIds": [
+        "MODEL-023"
+      ],
+      "assetId": "ASSET-CEREBELLUM-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-FLOCCULONODULAR-LOBE",
+      "canonicalName": "Flocculonodular Lobe (Vestibulocerebellum)",
+      "tnaLatinName": "Lobus flocculonodularis",
+      "aliases": [
+        "Flocculonodular Lobe",
+        "Lobus flocculonodularis"
+      ],
+      "division": "CEREBELLUM",
+      "parentId": "ANAT-CEREBELLUM",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        20.0,
+        -48.0,
+        -42.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Phylogenetically oldest cerebellar lobe reciprocally connected with the brainstem vestibular nuclei.",
+      "biologicalRole": "Calibrates the vestibulo-ocular reflex (VOR), smooth pursuit eye movements, and balance.",
+      "connectedStructureIds": [
+        "ANAT-CEREBELLUM",
+        "ANAT-VESTIBULAR-NUCLEI",
+        "ANAT-CN-VIII"
+      ],
+      "associatedSystemIds": [
+        "SYS-VESTIBULAR"
+      ],
+      "associatedModelIds": [
+        "MODEL-023"
+      ],
+      "assetId": "ASSET-CEREBELLUM-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-DENTATE-NUCLEUS",
+      "canonicalName": "Deep Cerebellar Nuclei (Dentate, Interposed & Fastigial)",
+      "tnaLatinName": "Nuclei cerebelli (Nucleus dentatus)",
+      "aliases": [
+        "Deep Cerebellar Nuclei",
+        "Nuclei cerebelli (Nucleus dentatus)"
+      ],
+      "division": "CEREBELLUM",
+      "parentId": "ANAT-CEREBELLUM",
+      "primaryScale": "L6",
+      "mniCentroidMm": [
+        16.0,
+        -56.0,
+        -34.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Deep output nuclei embedded in cerebellar white matter receiving inhibitory Purkinje axons and excitatory mossy/climbing collaterals.",
+      "biologicalRole": "Sole output stage of the cerebellum projecting via the superior cerebellar peduncle to VL thalamus and red nucleus.",
+      "connectedStructureIds": [
+        "ANAT-CEREBELLAR-CORTEX",
+        "ANAT-THALAMUS-VL",
+        "ANAT-SUPERIOR-CEREBELLAR-PEDUNCLE"
+      ],
+      "associatedSystemIds": [
+        "SYS-MOTOR"
+      ],
+      "associatedModelIds": [
+        "MODEL-017"
+      ],
+      "assetId": "ASSET-CEREBELLUM-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-SUPERIOR-CEREBELLAR-PEDUNCLE",
+      "canonicalName": "Cerebellar Peduncles (Superior, Middle & Inferior)",
+      "tnaLatinName": "Pedunculi cerebellares",
+      "aliases": [
+        "Cerebellar Peduncles",
+        "Pedunculi cerebellares"
+      ],
+      "division": "CEREBELLUM",
+      "parentId": "ANAT-CEREBELLUM",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        14.0,
+        -44.0,
+        -28.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Three paired white-matter stalks linking cerebellum to midbrain (SCP efferent), pons (MCP corticopontocerebellar afferent), and medulla (ICP).",
+      "biologicalRole": "Convey massive cortico-ponto-cerebellar input, spinocerebellar/olivary feedback, and dentato-rubro-thalamic output.",
+      "connectedStructureIds": [
+        "ANAT-CEREBELLUM",
+        "ANAT-PONS",
+        "ANAT-THALAMUS-VL"
+      ],
+      "associatedSystemIds": [
+        "SYS-MOTOR"
+      ],
+      "associatedModelIds": [
+        "MODEL-028"
+      ],
+      "assetId": "ASSET-CEREBELLUM-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-HINDBRAIN",
+      "canonicalName": "Hindbrain (Rhombencephalon)",
+      "tnaLatinName": "Rhombencephalon",
+      "aliases": [
+        "Hindbrain",
+        "Rhombencephalon"
+      ],
+      "division": "BRAINSTEM",
+      "parentId": "ANAT-ENCEPHALON",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        0.0,
+        -38.0,
+        -32.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Posterior brain division comprising pons, medulla oblongata, and cerebellum surrounding the fourth ventricle.",
+      "biologicalRole": "Integrates cranial nerve nuclei, cardiorespiratory vitality centers, ascending/descending tracts, and cerebellar loops.",
+      "connectedStructureIds": [
+        "ANAT-PONS",
+        "ANAT-MEDULLA-OBLONGATA",
+        "ANAT-CEREBELLUM"
+      ],
+      "associatedSystemIds": [
+        "SYS-AUTONOMIC",
+        "SYS-MOTOR"
+      ],
+      "associatedModelIds": [
+        "MODEL-017"
+      ],
+      "assetId": "ASSET-BRAINSTEM-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-MIDBRAIN",
+      "canonicalName": "Midbrain (Mesencephalon)",
+      "tnaLatinName": "Mesencephalon",
+      "aliases": [
+        "Midbrain",
+        "Mesencephalon"
+      ],
+      "division": "BRAINSTEM",
+      "parentId": "ANAT-ENCEPHALON",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        0.0,
+        -22.0,
+        -10.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Rostral brainstem segment comprising tectum (colliculi), tegmentum (VTA, red nucleus, PAG), and cerebral peduncles.",
+      "biologicalRole": "Coordinates orienting reflexes, dopaminergic reward/motor signaling, descending analgesia, and oculomotor control.",
+      "connectedStructureIds": [
+        "ANAT-SUPERIOR-COLLICULUS",
+        "ANAT-INFERIOR-COLLICULUS",
+        "ANAT-VTA",
+        "ANAT-PAG",
+        "ANAT-SUBSTANTIA-NIGRA"
+      ],
+      "associatedSystemIds": [
+        "SYS-VISUAL",
+        "SYS-REWARD",
+        "SYS-PAIN"
+      ],
+      "associatedModelIds": [
+        "MODEL-026"
+      ],
+      "assetId": "ASSET-BRAINSTEM-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-SUPERIOR-COLLICULUS",
+      "canonicalName": "Superior Colliculus",
+      "tnaLatinName": "Colliculus superior",
+      "aliases": [
+        "Superior Colliculus",
+        "Colliculus superior"
+      ],
+      "division": "BRAINSTEM",
+      "parentId": "ANAT-MIDBRAIN",
+      "primaryScale": "L6",
+      "mniCentroidMm": [
+        6.0,
+        -28.0,
+        -4.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Layered dorsal midbrain tectal nucleus receiving direct retinal, visual cortical, auditory, and SNr inputs.",
+      "biologicalRole": "Generates rapid saccadic eye movements and multisensory spatial orienting toward salient stimuli.",
+      "connectedStructureIds": [
+        "ANAT-MIDBRAIN",
+        "ANAT-SUBSTANTIA-NIGRA",
+        "ANAT-PULVINAR"
+      ],
+      "associatedSystemIds": [
+        "SYS-VISUAL",
+        "SYS-MOTOR"
+      ],
+      "associatedModelIds": [
+        "MODEL-017"
+      ],
+      "assetId": "ASSET-BRAINSTEM-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-INFERIOR-COLLICULUS",
+      "canonicalName": "Inferior Colliculus",
+      "tnaLatinName": "Colliculus inferior",
+      "aliases": [
+        "Inferior Colliculus",
+        "Colliculus inferior"
+      ],
+      "division": "BRAINSTEM",
+      "parentId": "ANAT-MIDBRAIN",
+      "primaryScale": "L6",
+      "mniCentroidMm": [
+        6.0,
+        -34.0,
+        -10.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Caudal midbrain tectal nucleus receiving ascending lateral lemniscus binaural auditory pathways.",
+      "biologicalRole": "Obligatory midbrain convergence hub for auditory frequency, timing, and localization prior to MGN relay.",
+      "connectedStructureIds": [
+        "ANAT-MIDBRAIN",
+        "ANAT-MGN",
+        "ANAT-CN-VIII"
+      ],
+      "associatedSystemIds": [
+        "SYS-AUDITORY"
+      ],
+      "associatedModelIds": [
+        "MODEL-018"
+      ],
+      "assetId": "ASSET-BRAINSTEM-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-VTA",
+      "canonicalName": "Ventral Tegmental Area (VTA)",
+      "tnaLatinName": "Area tegmentalis ventralis",
+      "aliases": [
+        "Ventral Tegmental Area",
+        "Area tegmentalis ventralis"
+      ],
+      "division": "BRAINSTEM",
+      "parentId": "ANAT-MIDBRAIN",
+      "primaryScale": "L6",
+      "mniCentroidMm": [
+        4.0,
+        -16.0,
+        -12.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Medial midbrain tegmental cluster of dopaminergic (A10), GABAergic, and glutamatergic neurons.",
+      "biologicalRole": "Origin of mesolimbic and mesocortical dopamine pathways broadcasting reward prediction errors to NAc and PFC.",
+      "connectedStructureIds": [
+        "ANAT-NUCLEUS-ACCUMBENS",
+        "ANAT-OFC-VMPFC",
+        "ANAT-DLPFC"
+      ],
+      "associatedSystemIds": [
+        "SYS-REWARD"
+      ],
+      "associatedModelIds": [
+        "MODEL-026"
+      ],
+      "assetId": "ASSET-BRAINSTEM-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-PAG",
+      "canonicalName": "Periaqueductal Gray (PAG)",
+      "tnaLatinName": "Substantia grisea centralis",
+      "aliases": [
+        "Periaqueductal Gray",
+        "Substantia grisea centralis"
+      ],
+      "division": "BRAINSTEM",
+      "parentId": "ANAT-MIDBRAIN",
+      "primaryScale": "L6",
+      "mniCentroidMm": [
+        0.0,
+        -28.0,
+        -8.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Columnar gray matter surrounding the cerebral aqueduct innervated by hypothalamus, CeA, ACC, and spinomesencephalic tracts.",
+      "biologicalRole": "Coordinates descending opioid/serotonergic/noradrenergic pain suppression (via RVM) and defensive freezing/flight behaviors.",
+      "connectedStructureIds": [
+        "ANAT-AMYGDALA-CEA",
+        "ANAT-RAPHE-NUCLEI",
+        "ANAT-SPINAL-DORSAL-HORN"
+      ],
+      "associatedSystemIds": [
+        "SYS-PAIN",
+        "SYS-EMOTION"
+      ],
+      "associatedModelIds": [
+        "MODEL-017"
+      ],
+      "assetId": "ASSET-BRAINSTEM-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-PONS",
+      "canonicalName": "Pons",
+      "tnaLatinName": "Pons",
+      "aliases": [
+        "Pons",
+        "Pons"
+      ],
+      "division": "BRAINSTEM",
+      "parentId": "ANAT-HINDBRAIN",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        0.0,
+        -28.0,
+        -28.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Middle brainstem division between midbrain and medulla containing basis pontis nuclei and pontine tegmentum.",
+      "biologicalRole": "Relays massive corticopontocerebellar traffic and houses CN V\u2013VIII nuclei, locus coeruleus, and pontine respiratory/REM centers.",
+      "connectedStructureIds": [
+        "ANAT-MIDBRAIN",
+        "ANAT-MEDULLA-OBLONGATA",
+        "ANAT-CEREBELLUM",
+        "ANAT-LOCUS-COERULEUS"
+      ],
+      "associatedSystemIds": [
+        "SYS-MOTOR",
+        "SYS-SLEEP"
+      ],
+      "associatedModelIds": [
+        "MODEL-017"
+      ],
+      "assetId": "ASSET-BRAINSTEM-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-LOCUS-COERULEUS",
+      "canonicalName": "Locus Coeruleus (LC)",
+      "tnaLatinName": "Locus caeruleus",
+      "aliases": [
+        "Locus Coeruleus",
+        "Locus caeruleus"
+      ],
+      "division": "BRAINSTEM",
+      "parentId": "ANAT-PONS",
+      "primaryScale": "L6",
+      "mniCentroidMm": [
+        4.0,
+        -36.0,
+        -24.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Dorsolateral pontine tegmental nucleus (A6) providing the primary noradrenergic innervation to forebrain, cerebellum, and spinal cord.",
+      "biologicalRole": "Modulates global neural gain, pupil-linked arousal, attentional alerting, and exploration-exploitation trade-offs.",
+      "connectedStructureIds": [
+        "ANAT-PONS",
+        "ANAT-DLPFC",
+        "ANAT-HYPOTHALAMUS"
+      ],
+      "associatedSystemIds": [
+        "SYS-SLEEP",
+        "SYS-EXECUTIVE-CONTROL"
+      ],
+      "associatedModelIds": [
+        "MODEL-017"
+      ],
+      "assetId": "ASSET-BRAINSTEM-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-RAPHE-NUCLEI",
+      "canonicalName": "Raphe Nuclei (Dorsal & Median Raphe)",
+      "tnaLatinName": "Nuclei raphes",
+      "aliases": [
+        "Raphe Nuclei",
+        "Nuclei raphes"
+      ],
+      "division": "BRAINSTEM",
+      "parentId": "ANAT-PONS",
+      "primaryScale": "L6",
+      "mniCentroidMm": [
+        0.0,
+        -28.0,
+        -18.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Midline brainstem serotonergic cell groups (B1\u2013B9) spanning midbrain, pons, and medulla.",
+      "biologicalRole": "Diffuse serotonergic projections regulating sleep-wake cycles, affective tone, patience, and dorsal-horn pain gating.",
+      "connectedStructureIds": [
+        "ANAT-PONS",
+        "ANAT-OFC-VMPFC",
+        "ANAT-PAG"
+      ],
+      "associatedSystemIds": [
+        "SYS-SLEEP",
+        "SYS-EMOTION",
+        "SYS-PAIN"
+      ],
+      "associatedModelIds": [
+        "MODEL-017"
+      ],
+      "assetId": "ASSET-BRAINSTEM-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-MEDULLA-OBLONGATA",
+      "canonicalName": "Medulla Oblongata",
+      "tnaLatinName": "Medulla oblongata (Myelencephalon)",
+      "aliases": [
+        "Medulla Oblongata",
+        "Medulla oblongata (Myelencephalon)"
+      ],
+      "division": "BRAINSTEM",
+      "parentId": "ANAT-HINDBRAIN",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        0.0,
+        -42.0,
+        -46.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Caudal brainstem segment continuous with the spinal cord at the foramen magnum, housing pyramids, olives, and CN IX\u2013XII.",
+      "biologicalRole": "Contains vital cardiovascular, baroreflex, and respiratory rhythm-generating centers (pre-B\u00f6tzinger complex).",
+      "connectedStructureIds": [
+        "ANAT-PONS",
+        "ANAT-SPINAL-CORD",
+        "ANAT-NTS"
+      ],
+      "associatedSystemIds": [
+        "SYS-AUTONOMIC",
+        "SYS-MOTOR"
+      ],
+      "associatedModelIds": [
+        "MODEL-002"
+      ],
+      "assetId": "ASSET-BRAINSTEM-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-NTS",
+      "canonicalName": "Nucleus of the Solitary Tract (NTS)",
+      "tnaLatinName": "Nucleus tractus solitarii",
+      "aliases": [
+        "Nucleus of the Solitary Tract",
+        "Nucleus tractus solitarii"
+      ],
+      "division": "BRAINSTEM",
+      "parentId": "ANAT-MEDULLA-OBLONGATA",
+      "primaryScale": "L6",
+      "mniCentroidMm": [
+        4.0,
+        -42.0,
+        -44.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Dorsomedial medullary sensory nucleus receiving visceral and gustatory afferents from CN VII, IX, and X.",
+      "biologicalRole": "Rostral NTS relays taste to VPMpc; caudal NTS integrates baroreceptor, chemoreceptor, and gastrointestinal vagal reflexes.",
+      "connectedStructureIds": [
+        "ANAT-CN-X",
+        "ANAT-THALAMUS-VPM",
+        "ANAT-PVN-HYPO"
+      ],
+      "associatedSystemIds": [
+        "SYS-GUSTATORY",
+        "SYS-AUTONOMIC"
+      ],
+      "associatedModelIds": [
+        "MODEL-017"
+      ],
+      "assetId": "ASSET-BRAINSTEM-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-VESTIBULAR-NUCLEI",
+      "canonicalName": "Vestibular Nuclear Complex (Superior, Lateral, Medial, Inferior)",
+      "tnaLatinName": "Nuclei vestibulares",
+      "aliases": [
+        "Vestibular Nuclear Complex",
+        "Nuclei vestibulares"
+      ],
+      "division": "BRAINSTEM",
+      "parentId": "ANAT-PONS",
+      "primaryScale": "L6",
+      "mniCentroidMm": [
+        10.0,
+        -40.0,
+        -36.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Floor of fourth ventricle nuclear complex at the pontomedullary junction receiving CN VIII vestibular afferents.",
+      "biologicalRole": "Drives vestibulo-ocular (MLF) and vestibulospinal reflexes maintaining gaze stability and antigravity posture.",
+      "connectedStructureIds": [
+        "ANAT-CN-VIII",
+        "ANAT-FLOCCULONODULAR-LOBE",
+        "ANAT-SPINAL-CORD"
+      ],
+      "associatedSystemIds": [
+        "SYS-VESTIBULAR",
+        "SYS-MOTOR"
+      ],
+      "associatedModelIds": [
+        "MODEL-023"
+      ],
+      "assetId": "ASSET-BRAINSTEM-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-VENTRICULAR-SYSTEM",
+      "canonicalName": "Ventricular System & Choroid Plexus",
+      "tnaLatinName": "Systema ventriculare encephali",
+      "aliases": [
+        "Ventricular System & Choroid Plexus",
+        "Systema ventriculare encephali"
+      ],
+      "division": "VENTRICULAR_MENINGEAL",
+      "parentId": "ANAT-ENCEPHALON",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        0.0,
+        -18.0,
+        12.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Interconnected ependymal-lined cavities producing, circulating, and cushioning the CNS with cerebrospinal fluid (CSF).",
+      "biologicalRole": "Produces ~500 mL/day of CSF via choroid plexus, providing mechanical buoyancy, ionic homeostasis, and glymphatic clearance.",
+      "connectedStructureIds": [
+        "ANAT-LATERAL-VENTRICLES",
+        "ANAT-THIRD-VENTRICLE",
+        "ANAT-FOURTH-VENTRICLE"
+      ],
+      "associatedSystemIds": [
+        "SYS-AUTONOMIC"
+      ],
+      "associatedModelIds": [
+        "MODEL-010"
+      ],
+      "assetId": "ASSET-VENTRICLES-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-LATERAL-VENTRICLES",
+      "canonicalName": "Lateral Ventricles (Left & Right)",
+      "tnaLatinName": "Ventriculi laterales",
+      "aliases": [
+        "Lateral Ventricles",
+        "Ventriculi laterales"
+      ],
+      "division": "VENTRICULAR_MENINGEAL",
+      "parentId": "ANAT-VENTRICULAR-SYSTEM",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        14.0,
+        -16.0,
+        18.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Paired C-shaped cerebral cavities (anterior horn, body, atrium, inferior/temporal horn, posterior/occipital horn) draining via foramina of Monro.",
+      "biologicalRole": "Border the caudate nucleus, corpus callosum, thalamus, and hippocampus; adult SVZ neurogenic niche lines the lateral wall.",
+      "connectedStructureIds": [
+        "ANAT-VENTRICULAR-SYSTEM",
+        "ANAT-THIRD-VENTRICLE",
+        "ANAT-CAUDATE-NUCLEUS"
+      ],
+      "associatedSystemIds": [
+        "SYS-AUTONOMIC"
+      ],
+      "associatedModelIds": [
+        "MODEL-010"
+      ],
+      "assetId": "ASSET-VENTRICLES-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-THIRD-VENTRICLE",
+      "canonicalName": "Third Ventricle & Cerebral Aqueduct",
+      "tnaLatinName": "Ventriculus tertius et Aqueductus mesencephali",
+      "aliases": [
+        "Third Ventricle & Cerebral Aqueduct",
+        "Ventriculus tertius et Aqueductus mesencephali"
+      ],
+      "division": "VENTRICULAR_MENINGEAL",
+      "parentId": "ANAT-VENTRICULAR-SYSTEM",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        0.0,
+        -14.0,
+        2.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Narrow midline diencephalic cleft between the thalami and hypothalami draining caudally through the aqueduct of Sylvius.",
+      "biologicalRole": "Bathes hypothalamic circumventricular organs and conducts CSF from lateral ventricles to the fourth ventricle.",
+      "connectedStructureIds": [
+        "ANAT-LATERAL-VENTRICLES",
+        "ANAT-FOURTH-VENTRICLE",
+        "ANAT-HYPOTHALAMUS"
+      ],
+      "associatedSystemIds": [
+        "SYS-NEUROENDOCRINE"
+      ],
+      "associatedModelIds": [
+        "MODEL-010"
+      ],
+      "assetId": "ASSET-VENTRICLES-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-FOURTH-VENTRICLE",
+      "canonicalName": "Fourth Ventricle",
+      "tnaLatinName": "Ventriculus quartus",
+      "aliases": [
+        "Fourth Ventricle",
+        "Ventriculus quartus"
+      ],
+      "division": "VENTRICULAR_MENINGEAL",
+      "parentId": "ANAT-VENTRICULAR-SYSTEM",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        0.0,
+        -42.0,
+        -32.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Diamond-shaped hindbrain cavity between pons/medulla anteriorly and cerebellum posteriorly, exiting via foramina of Luschka and Magendie.",
+      "biologicalRole": "Conveys CSF into the subarachnoid cisterns and overlies vital brainstem nuclei in the rhomboid fossa.",
+      "connectedStructureIds": [
+        "ANAT-THIRD-VENTRICLE",
+        "ANAT-PONS",
+        "ANAT-CEREBELLUM"
+      ],
+      "associatedSystemIds": [
+        "SYS-AUTONOMIC"
+      ],
+      "associatedModelIds": [
+        "MODEL-010"
+      ],
+      "assetId": "ASSET-VENTRICLES-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-MENINGES-BBB",
+      "canonicalName": "Cranial Meninges (Dura, Arachnoid, Pia) & Blood-Brain Barrier",
+      "tnaLatinName": "Meninges",
+      "aliases": [
+        "Cranial Meninges",
+        "Meninges"
+      ],
+      "division": "VENTRICULAR_MENINGEAL",
+      "parentId": "ANAT-CNS",
+      "primaryScale": "L7",
+      "mniCentroidMm": null,
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "SCHEMATIC_ANATOMICAL",
+      "shortDefinition": "Three protective connective-tissue membranes, dural venous sinuses, subarachnoid space, and neurovascular endothelial tight junctions.",
+      "biologicalRole": "Protects the CNS mechanically, drains CSF and meningeal lymphatics, and restricts paracellular solute entry via the BBB.",
+      "connectedStructureIds": [
+        "ANAT-VENTRICULAR-SYSTEM",
+        "ANAT-CNS"
+      ],
+      "associatedSystemIds": [
+        "SYS-AUTONOMIC"
+      ],
+      "associatedModelIds": [
+        "MODEL-010"
+      ],
+      "assetId": "ASSET-VENTRICLES-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-SPINAL-CORD",
+      "canonicalName": "Spinal Cord (Cervical, Thoracic, Lumbar, Sacral)",
+      "tnaLatinName": "Medulla spinalis",
+      "aliases": [
+        "Spinal Cord",
+        "Medulla spinalis"
+      ],
+      "division": "SPINAL_CORD",
+      "parentId": "ANAT-CNS",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        0.0,
+        -46.0,
+        -75.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Segmental cylindrical CNS structure extending from the foramen magnum to the conus medullaris (L1/L2 vertebral level).",
+      "biologicalRole": "Conveys ascending sensory and descending motor tracts and executes segmental spinal reflexes and central pattern generation.",
+      "connectedStructureIds": [
+        "ANAT-SPINAL-DORSAL-HORN",
+        "ANAT-SPINAL-VENTRAL-HORN",
+        "ANAT-MEDULLA-OBLONGATA"
+      ],
+      "associatedSystemIds": [
+        "SYS-MOTOR",
+        "SYS-SOMATOSENSORY",
+        "SYS-PAIN"
+      ],
+      "associatedModelIds": [
+        "MODEL-001",
+        "MODEL-010"
+      ],
+      "assetId": "ASSET-SPINAL-CORD-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-SPINAL-DORSAL-HORN",
+      "canonicalName": "Spinal Cord Dorsal Horn (Rexed Laminae I\u2013VI)",
+      "tnaLatinName": "Cornu posterius medullae spinalis",
+      "aliases": [
+        "Spinal Cord Dorsal Horn",
+        "Cornu posterius medullae spinalis"
+      ],
+      "division": "SPINAL_CORD",
+      "parentId": "ANAT-SPINAL-CORD",
+      "primaryScale": "L6",
+      "mniCentroidMm": null,
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "SCHEMATIC_ANATOMICAL",
+      "shortDefinition": "Posterior spinal gray matter column including marginal zone (Lamina I), substantia gelatinosa (Lamina II), and nucleus proprius.",
+      "biologicalRole": "First synaptic processing and gating stage for nociceptive, thermal, and mechanosensory dorsal root ganglion afferents.",
+      "connectedStructureIds": [
+        "ANAT-SPINAL-CORD",
+        "ANAT-DRG",
+        "ANAT-SPINOTHALAMIC-TRACT"
+      ],
+      "associatedSystemIds": [
+        "SYS-PAIN",
+        "SYS-SOMATOSENSORY"
+      ],
+      "associatedModelIds": [
+        "MODEL-014"
+      ],
+      "assetId": "ASSET-SPINAL-CORD-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-SPINAL-VENTRAL-HORN",
+      "canonicalName": "Spinal Cord Ventral & Lateral Horns (Rexed Laminae VII\u2013IX)",
+      "tnaLatinName": "Cornu anterius et laterale medullae spinalis",
+      "aliases": [
+        "Spinal Cord Ventral & Lateral Horns",
+        "Cornu anterius et laterale medullae spinalis"
+      ],
+      "division": "SPINAL_CORD",
+      "parentId": "ANAT-SPINAL-CORD",
+      "primaryScale": "L6",
+      "mniCentroidMm": null,
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "SCHEMATIC_ANATOMICAL",
+      "shortDefinition": "Anterior spinal gray matter housing alpha/gamma motor neuron pools and Renshaw/Ia interneurons, plus T1\u2013L2/S2\u2013S4 autonomic columns.",
+      "biologicalRole": "Final common pathway driving skeletal muscle contraction and preganglionic sympathetic/sacral parasympathetic outflow.",
+      "connectedStructureIds": [
+        "ANAT-SPINAL-CORD",
+        "ANAT-CORTICOSPINAL-TRACT",
+        "ANAT-SYMPATHETIC-CHAIN"
+      ],
+      "associatedSystemIds": [
+        "SYS-MOTOR",
+        "SYS-AUTONOMIC"
+      ],
+      "associatedModelIds": [
+        "MODEL-001"
+      ],
+      "assetId": "ASSET-SPINAL-CORD-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-CORTICOSPINAL-TRACT",
+      "canonicalName": "Lateral & Anterior Corticospinal (Pyramidal) Tracts",
+      "tnaLatinName": "Tractus corticospinalis",
+      "aliases": [
+        "Lateral & Anterior Corticospinal",
+        "Tractus corticospinalis"
+      ],
+      "division": "WHITE_MATTER_TRACTS",
+      "parentId": "ANAT-SPINAL-CORD",
+      "primaryScale": "L7",
+      "mniCentroidMm": null,
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "SCHEMATIC_ANATOMICAL",
+      "shortDefinition": "Descending motor axon tract originating in M1/premotor Layer 5, descending through internal capsule and medullary pyramids (85-90% decussating).",
+      "biologicalRole": "Conveys voluntary fine fractionated motor commands\u2014especially skilled distal hand movements\u2014to spinal interneurons and alpha motor neurons.",
+      "connectedStructureIds": [
+        "ANAT-PRECENTRAL-GYRUS",
+        "ANAT-INTERNAL-CAPSULE",
+        "ANAT-SPINAL-VENTRAL-HORN"
+      ],
+      "associatedSystemIds": [
+        "SYS-MOTOR"
+      ],
+      "associatedModelIds": [
+        "MODEL-001",
+        "MODEL-010"
+      ],
+      "assetId": "ASSET-SPINAL-CORD-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-SPINOTHALAMIC-TRACT",
+      "canonicalName": "Spinothalamic (Anterolateral) & Dorsal Column-Medial Lemniscus Tracts",
+      "tnaLatinName": "Tractus spinothalamicus et Lemniscus medialis",
+      "aliases": [
+        "Spinothalamic",
+        "Tractus spinothalamicus et Lemniscus medialis"
+      ],
+      "division": "WHITE_MATTER_TRACTS",
+      "parentId": "ANAT-SPINAL-CORD",
+      "primaryScale": "L7",
+      "mniCentroidMm": null,
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "SCHEMATIC_ANATOMICAL",
+      "shortDefinition": "Major ascending spinal white-matter pathways for pain/temperature (anterolateral) and fine touch/proprioception (gracile/cuneate DCML).",
+      "biologicalRole": "Transmits somatotopically organized peripheral sensory information from the spinal cord and medulla to VPL thalamus.",
+      "connectedStructureIds": [
+        "ANAT-SPINAL-DORSAL-HORN",
+        "ANAT-THALAMUS-VPL"
+      ],
+      "associatedSystemIds": [
+        "SYS-SOMATOSENSORY",
+        "SYS-PAIN"
+      ],
+      "associatedModelIds": [
+        "MODEL-010"
+      ],
+      "assetId": "ASSET-SPINAL-CORD-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-DRG",
+      "canonicalName": "Dorsal Root Ganglia (DRG) & Spinal Nerves",
+      "tnaLatinName": "Ganglia sensoria nervorum spinalium",
+      "aliases": [
+        "Dorsal Root Ganglia",
+        "Ganglia sensoria nervorum spinalium"
+      ],
+      "division": "PERIPHERAL_NERVOUS_SYSTEM",
+      "parentId": "ANAT-PNS",
+      "primaryScale": "L6",
+      "mniCentroidMm": null,
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "SCHEMATIC_ANATOMICAL",
+      "shortDefinition": "31 pairs of segmental paravertebral ganglia housing pseudounipolar primary somatosensory and nociceptive neuron somata.",
+      "biologicalRole": "Transduce mechanical, thermal, proprioceptive, and nociceptive stimuli from skin, muscle spindles, and viscera into central spikes.",
+      "connectedStructureIds": [
+        "ANAT-SPINAL-DORSAL-HORN",
+        "ANAT-PNS"
+      ],
+      "associatedSystemIds": [
+        "SYS-SOMATOSENSORY",
+        "SYS-PAIN"
+      ],
+      "associatedModelIds": [
+        "MODEL-001"
+      ],
+      "assetId": "ASSET-PNS-OVERVIEW",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-SYMPATHETIC-CHAIN",
+      "canonicalName": "Sympathetic Paravertebral & Prevertebral Ganglia",
+      "tnaLatinName": "Truncus sympathicus",
+      "aliases": [
+        "Sympathetic Paravertebral & Prevertebral Ganglia",
+        "Truncus sympathicus"
+      ],
+      "division": "PERIPHERAL_NERVOUS_SYSTEM",
+      "parentId": "ANAT-PNS",
+      "primaryScale": "L7",
+      "mniCentroidMm": null,
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "SCHEMATIC_ANATOMICAL",
+      "shortDefinition": "Bilateral paravertebral sympathetic chain and celiac/mesenteric ganglia innervated by thoracolumbar (T1\u2013L2) preganglionic neurons.",
+      "biologicalRole": "Releases norepinephrine (and adrenal epinephrine) onto cardiovascular, bronchial, and metabolic effectors during fight-or-flight mobilization.",
+      "connectedStructureIds": [
+        "ANAT-SPINAL-VENTRAL-HORN",
+        "ANAT-HYPOTHALAMUS"
+      ],
+      "associatedSystemIds": [
+        "SYS-AUTONOMIC"
+      ],
+      "associatedModelIds": [
+        "MODEL-002"
+      ],
+      "assetId": "ASSET-PNS-OVERVIEW",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-PARASYMPATHETIC-ENTERIC",
+      "canonicalName": "Parasympathetic Terminal Ganglia & Enteric Nervous System",
+      "tnaLatinName": " Pars parasympathica et Systema nervosum entericum",
+      "aliases": [
+        "Parasympathetic Terminal Ganglia & Enteric Nervous System",
+        " Pars parasympathica et Systema nervosum entericum"
+      ],
+      "division": "PERIPHERAL_NERVOUS_SYSTEM",
+      "parentId": "ANAT-PNS",
+      "primaryScale": "L7",
+      "mniCentroidMm": null,
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "SCHEMATIC_ANATOMICAL",
+      "shortDefinition": "Craniosacral parasympathetic ganglia (ciliary, pterygopalatine, submandibular, otic, intramural) and myenteric/submucosal enteric plexuses.",
+      "biologicalRole": "Mediates cholinergic rest-and-digest homeostasis, bradycardia, pupillary constriction, and autonomous gastrointestinal peristalsis.",
+      "connectedStructureIds": [
+        "ANAT-CN-X",
+        "ANAT-PNS"
+      ],
+      "associatedSystemIds": [
+        "SYS-AUTONOMIC"
+      ],
+      "associatedModelIds": [
+        "MODEL-002"
+      ],
+      "assetId": "ASSET-PNS-OVERVIEW",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-CN-I",
+      "canonicalName": "Cranial Nerve I \u2014 Olfactory Nerve & Bulb",
+      "tnaLatinName": "Nervus olfactorius (I)",
+      "aliases": [
+        "Cranial Nerve I \u2014 Olfactory Nerve & Bulb",
+        "Nervus olfactorius (I)"
+      ],
+      "division": "CRANIAL_NERVES",
+      "parentId": "ANAT-PNS",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        8.0,
+        36.0,
+        -22.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Special sensory nerve (SVA) formed by olfactory receptor axons traversing the cribriform plate to the olfactory bulb glomeruli.",
+      "biologicalRole": "Conveys odorant identity directly to olfactory bulb and piriform/amygdala/entorhinal cortex without a thalamic relay.",
+      "connectedStructureIds": [
+        "ANAT-AMYGDALA",
+        "ANAT-ENTORHINAL-CORTEX"
+      ],
+      "associatedSystemIds": [
+        "SYS-OLFACTORY"
+      ],
+      "associatedModelIds": [
+        "MODEL-021"
+      ],
+      "assetId": "ASSET-CRANIAL-NERVES-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-CN-II",
+      "canonicalName": "Cranial Nerve II \u2014 Optic Nerve, Chiasm & Tract",
+      "tnaLatinName": "Nervus opticus (II)",
+      "aliases": [
+        "Cranial Nerve II \u2014 Optic Nerve, Chiasm & Tract",
+        "Nervus opticus (II)"
+      ],
+      "division": "CRANIAL_NERVES",
+      "parentId": "ANAT-CNS",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        8.0,
+        8.0,
+        -16.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "CNS myelinated fiber tract formed by retinal ganglion cell axons hemidecussating at the optic chiasm en route to LGN, pretectum, and SCN.",
+      "biologicalRole": "Transmits high-resolution retinotopic visual streams and non-image-forming circadian light intensity.",
+      "connectedStructureIds": [
+        "ANAT-LGN",
+        "ANAT-SCN",
+        "ANAT-SUPERIOR-COLLICULUS"
+      ],
+      "associatedSystemIds": [
+        "SYS-VISUAL",
+        "SYS-SLEEP"
+      ],
+      "associatedModelIds": [
+        "MODEL-020"
+      ],
+      "assetId": "ASSET-CRANIAL-NERVES-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-CN-III",
+      "canonicalName": "Cranial Nerve III \u2014 Oculomotor Nerve",
+      "tnaLatinName": "Nervus oculomotorius (III)",
+      "aliases": [
+        "Cranial Nerve III \u2014 Oculomotor Nerve",
+        "Nervus oculomotorius (III)"
+      ],
+      "division": "CRANIAL_NERVES",
+      "parentId": "ANAT-MIDBRAIN",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        4.0,
+        -18.0,
+        -16.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Midbrain motor and parasympathetic nerve (GSE + GVE Edinger-Westphal) exiting the interpeduncular fossa through the superior orbital fissure.",
+      "biologicalRole": "Innervates superior/inferior/medial recti, inferior oblique, levator palpebrae, and sphincter pupillae/ciliary muscles.",
+      "connectedStructureIds": [
+        "ANAT-MIDBRAIN",
+        "ANAT-POSTERIOR-COMMISSURE"
+      ],
+      "associatedSystemIds": [
+        "SYS-VISUAL",
+        "SYS-MOTOR",
+        "SYS-AUTONOMIC"
+      ],
+      "associatedModelIds": [
+        "MODEL-001"
+      ],
+      "assetId": "ASSET-CRANIAL-NERVES-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-CN-IV",
+      "canonicalName": "Cranial Nerve IV \u2014 Trochlear Nerve",
+      "tnaLatinName": "Nervus trochlearis (IV)",
+      "aliases": [
+        "Cranial Nerve IV \u2014 Trochlear Nerve",
+        "Nervus trochlearis (IV)"
+      ],
+      "division": "CRANIAL_NERVES",
+      "parentId": "ANAT-MIDBRAIN",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        4.0,
+        -28.0,
+        -14.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Slender dorsal-exiting, fully decussating midbrain somatic motor nerve (GSE) at the level of the inferior colliculus.",
+      "biologicalRole": "Innervates the contralateral superior oblique extraocular muscle to depress and intort the eye.",
+      "connectedStructureIds": [
+        "ANAT-MIDBRAIN",
+        "ANAT-VESTIBULAR-NUCLEI"
+      ],
+      "associatedSystemIds": [
+        "SYS-MOTOR",
+        "SYS-VESTIBULAR"
+      ],
+      "associatedModelIds": [
+        "MODEL-001"
+      ],
+      "assetId": "ASSET-CRANIAL-NERVES-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-CN-V",
+      "canonicalName": "Cranial Nerve V \u2014 Trigeminal Nerve & Ganglion",
+      "tnaLatinName": "Nervus trigeminus (V)",
+      "aliases": [
+        "Cranial Nerve V \u2014 Trigeminal Nerve & Ganglion",
+        "Nervus trigeminus (V)"
+      ],
+      "division": "CRANIAL_NERVES",
+      "parentId": "ANAT-PONS",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        20.0,
+        -14.0,
+        -24.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Largest mixed cranial nerve (GSA ophthalmic V1, maxillary V2, mandibular V3 + SVE branchial motor) anchored in the pons.",
+      "biologicalRole": "Conveys facial/corneal/dural touch, pain, and proprioception to VPM thalamus and innervates the muscles of mastication.",
+      "connectedStructureIds": [
+        "ANAT-PONS",
+        "ANAT-THALAMUS-VPM"
+      ],
+      "associatedSystemIds": [
+        "SYS-SOMATOSENSORY",
+        "SYS-PAIN",
+        "SYS-MOTOR"
+      ],
+      "associatedModelIds": [
+        "MODEL-001"
+      ],
+      "assetId": "ASSET-CRANIAL-NERVES-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-CN-VI",
+      "canonicalName": "Cranial Nerve VI \u2014 Abducens Nerve",
+      "tnaLatinName": "Nervus abducens (VI)",
+      "aliases": [
+        "Cranial Nerve VI \u2014 Abducens Nerve",
+        "Nervus abducens (VI)"
+      ],
+      "division": "CRANIAL_NERVES",
+      "parentId": "ANAT-PONS",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        4.0,
+        -32.0,
+        -34.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Pontomedullary somatic motor nerve (GSE) whose nucleus coordinates conjugate horizontal gaze with contralateral CN III via the MLF.",
+      "biologicalRole": "Innervates the ipsilateral lateral rectus muscle to abduct the eye.",
+      "connectedStructureIds": [
+        "ANAT-PONS",
+        "ANAT-VESTIBULAR-NUCLEI"
+      ],
+      "associatedSystemIds": [
+        "SYS-MOTOR",
+        "SYS-VESTIBULAR"
+      ],
+      "associatedModelIds": [
+        "MODEL-001"
+      ],
+      "assetId": "ASSET-CRANIAL-NERVES-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-CN-VII",
+      "canonicalName": "Cranial Nerve VII \u2014 Facial Nerve",
+      "tnaLatinName": "Nervus facialis (VII)",
+      "aliases": [
+        "Cranial Nerve VII \u2014 Facial Nerve",
+        "Nervus facialis (VII)"
+      ],
+      "division": "CRANIAL_NERVES",
+      "parentId": "ANAT-PONS",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        14.0,
+        -34.0,
+        -36.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Mixed pontine nerve (SVE facial expression, SVA chorda tympani anterior 2/3 tongue taste, GVE lacrimal/submandibular parasympathetic).",
+      "biologicalRole": "Drives mimetic facial expression, stapedius acoustic attenuation, anterior tongue gustation, and lacrimal/salivary secretion.",
+      "connectedStructureIds": [
+        "ANAT-PONS",
+        "ANAT-NTS"
+      ],
+      "associatedSystemIds": [
+        "SYS-MOTOR",
+        "SYS-GUSTATORY",
+        "SYS-AUTONOMIC"
+      ],
+      "associatedModelIds": [
+        "MODEL-001"
+      ],
+      "assetId": "ASSET-CRANIAL-NERVES-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-CN-VIII",
+      "canonicalName": "Cranial Nerve VIII \u2014 Vestibulocochlear Nerve",
+      "tnaLatinName": "Nervus vestibulocochlearis (VIII)",
+      "aliases": [
+        "Cranial Nerve VIII \u2014 Vestibulocochlear Nerve",
+        "Nervus vestibulocochlearis (VIII)"
+      ],
+      "division": "CRANIAL_NERVES",
+      "parentId": "ANAT-PONS",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        18.0,
+        -36.0,
+        -36.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Special sensory nerve (SSA) entering the cerebellopontine angle from the spiral (cochlear) and Scarpa's (vestibular) ganglia.",
+      "biologicalRole": "Conveys auditory frequency/intensity from the organ of Corti and linear/angular head acceleration from the vestibular labyrinth.",
+      "connectedStructureIds": [
+        "ANAT-VESTIBULAR-NUCLEI",
+        "ANAT-INFERIOR-COLLICULUS"
+      ],
+      "associatedSystemIds": [
+        "SYS-AUDITORY",
+        "SYS-VESTIBULAR"
+      ],
+      "associatedModelIds": [
+        "MODEL-005"
+      ],
+      "assetId": "ASSET-CRANIAL-NERVES-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-CN-IX",
+      "canonicalName": "Cranial Nerve IX \u2014 Glossopharyngeal Nerve",
+      "tnaLatinName": "Nervus glossopharyngeus (IX)",
+      "aliases": [
+        "Cranial Nerve IX \u2014 Glossopharyngeal Nerve",
+        "Nervus glossopharyngeus (IX)"
+      ],
+      "division": "CRANIAL_NERVES",
+      "parentId": "ANAT-MEDULLA-OBLONGATA",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        12.0,
+        -40.0,
+        -44.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Mixed medullary nerve (SVA posterior 1/3 tongue taste, GVA carotid body/sinus baroreception, GVE parotid, SVE stylopharyngeus).",
+      "biologicalRole": "Mediates carotid sinus baroreceptor reflex, posterior tongue taste, gag reflex afferent limb, and parotid salivation.",
+      "connectedStructureIds": [
+        "ANAT-MEDULLA-OBLONGATA",
+        "ANAT-NTS"
+      ],
+      "associatedSystemIds": [
+        "SYS-GUSTATORY",
+        "SYS-AUTONOMIC"
+      ],
+      "associatedModelIds": [
+        "MODEL-001"
+      ],
+      "assetId": "ASSET-CRANIAL-NERVES-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-CN-X",
+      "canonicalName": "Cranial Nerve X \u2014 Vagus Nerve",
+      "tnaLatinName": "Nervus vagus (X)",
+      "aliases": [
+        "Cranial Nerve X \u2014 Vagus Nerve",
+        "Nervus vagus (X)"
+      ],
+      "division": "CRANIAL_NERVES",
+      "parentId": "ANAT-MEDULLA-OBLONGATA",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        10.0,
+        -42.0,
+        -46.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Extensive mixed medullary nerve (GVE dorsal motor nucleus + nucleus ambiguus, GVA thoracoabdominal viscera, SVE pharyngeal/laryngeal).",
+      "biologicalRole": "Principal parasympathetic outflow and interoceptive afferent highway linking heart, lungs, and gut to the NTS.",
+      "connectedStructureIds": [
+        "ANAT-MEDULLA-OBLONGATA",
+        "ANAT-NTS",
+        "ANAT-PARASYMPATHETIC-ENTERIC"
+      ],
+      "associatedSystemIds": [
+        "SYS-AUTONOMIC",
+        "SYS-GUSTATORY"
+      ],
+      "associatedModelIds": [
+        "MODEL-002"
+      ],
+      "assetId": "ASSET-CRANIAL-NERVES-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-CN-XI",
+      "canonicalName": "Cranial Nerve XI \u2014 Accessory Nerve",
+      "tnaLatinName": "Nervus accessorius (XI)",
+      "aliases": [
+        "Cranial Nerve XI \u2014 Accessory Nerve",
+        "Nervus accessorius (XI)"
+      ],
+      "division": "CRANIAL_NERVES",
+      "parentId": "ANAT-SPINAL-CORD",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        8.0,
+        -44.0,
+        -54.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Somatic/branchial motor nerve originating from upper cervical spinal segments (C1\u2013C5) ascending through the foramen magnum.",
+      "biologicalRole": "Innervates the sternocleidomastoid and trapezius muscles for head rotation and shoulder elevation.",
+      "connectedStructureIds": [
+        "ANAT-SPINAL-CORD",
+        "ANAT-MEDULLA-OBLONGATA"
+      ],
+      "associatedSystemIds": [
+        "SYS-MOTOR"
+      ],
+      "associatedModelIds": [
+        "MODEL-001"
+      ],
+      "assetId": "ASSET-CRANIAL-NERVES-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-CN-XII",
+      "canonicalName": "Cranial Nerve XII \u2014 Hypoglossal Nerve",
+      "tnaLatinName": "Nervus hypoglossus (XII)",
+      "aliases": [
+        "Cranial Nerve XII \u2014 Hypoglossal Nerve",
+        "Nervus hypoglossus (XII)"
+      ],
+      "division": "CRANIAL_NERVES",
+      "parentId": "ANAT-MEDULLA-OBLONGATA",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        4.0,
+        -42.0,
+        -48.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Medullary somatic motor nerve (GSE) exiting between the pyramid and olive via the hypoglossal canal.",
+      "biologicalRole": "Innervates intrinsic and extrinsic tongue muscles essential for speech articulation and swallowing.",
+      "connectedStructureIds": [
+        "ANAT-MEDULLA-OBLONGATA",
+        "ANAT-PRECENTRAL-GYRUS"
+      ],
+      "associatedSystemIds": [
+        "SYS-MOTOR",
+        "SYS-LANGUAGE"
+      ],
+      "associatedModelIds": [
+        "MODEL-001"
+      ],
+      "assetId": "ASSET-CRANIAL-NERVES-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-INTERNAL-CAPSULE",
+      "canonicalName": "Internal Capsule (Anterior Limb, Genu & Posterior Limb)",
+      "tnaLatinName": "Capsula interna",
+      "aliases": [
+        "Internal Capsule",
+        "Capsula interna"
+      ],
+      "division": "WHITE_MATTER_TRACTS",
+      "parentId": "ANAT-TELENCEPHALON",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        20.0,
+        -8.0,
+        8.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "V-shaped subcortical projection fiber bottleneck flanked by caudate/thalamus medially and lentiform nucleus laterally.",
+      "biologicalRole": "Conveys thalamocortical radiations, corticospinal/corticobulbar motor tracts, and corticopontine fibers.",
+      "connectedStructureIds": [
+        "ANAT-PRECENTRAL-GYRUS",
+        "ANAT-THALAMUS",
+        "ANAT-CORTICOSPINAL-TRACT"
+      ],
+      "associatedSystemIds": [
+        "SYS-MOTOR",
+        "SYS-SOMATOSENSORY"
+      ],
+      "associatedModelIds": [
+        "MODEL-028"
+      ],
+      "assetId": "ASSET-WHITE-MATTER-TRACTS",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-ARCUATE-FASCICULUS",
+      "canonicalName": "Arcuate Fasciculus & Superior Longitudinal Fasciculus (SLF)",
+      "tnaLatinName": "Fasciculus arcuatus et longitudinalis superior",
+      "aliases": [
+        "Arcuate Fasciculus & Superior Longitudinal Fasciculus",
+        "Fasciculus arcuatus et longitudinalis superior"
+      ],
+      "division": "WHITE_MATTER_TRACTS",
+      "parentId": "ANAT-TELENCEPHALON",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        -38.0,
+        -24.0,
+        26.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Perisylvian association white-matter tract arching around the insula to link posterior temporal (Wernicke) and inferior frontal (Broca) cortices.",
+      "biologicalRole": "Structural backbone of the dorsal phonological/articulatory language stream and frontoparietal attention network.",
+      "connectedStructureIds": [
+        "ANAT-SUPERIOR-TEMPORAL-GYRUS",
+        "ANAT-IFG-BROCA",
+        "ANAT-ANGULAR-SUPRAMARGINAL"
+      ],
+      "associatedSystemIds": [
+        "SYS-LANGUAGE",
+        "SYS-EXECUTIVE-CONTROL"
+      ],
+      "associatedModelIds": [
+        "MODEL-028"
+      ],
+      "assetId": "ASSET-WHITE-MATTER-TRACTS",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-UNCINATE-FASCICULUS",
+      "canonicalName": "Uncinate Fasciculus",
+      "tnaLatinName": "Fasciculus uncinatus",
+      "aliases": [
+        "Uncinate Fasciculus",
+        "Fasciculus uncinatus"
+      ],
+      "division": "WHITE_MATTER_TRACTS",
+      "parentId": "ANAT-TELENCEPHALON",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        30.0,
+        12.0,
+        -14.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Hook-shaped ventral association tract linking anterior temporal pole and amygdala with orbitofrontal/vmPFC cortex.",
+      "biologicalRole": "Supports ventral semantic processing, episodic-valuation integration, and prefrontal regulation of amygdala reactivity.",
+      "connectedStructureIds": [
+        "ANAT-AMYGDALA-BLA",
+        "ANAT-OFC-VMPFC",
+        "ANAT-TEMPORAL-LOBE"
+      ],
+      "associatedSystemIds": [
+        "SYS-EMOTION",
+        "SYS-LANGUAGE"
+      ],
+      "associatedModelIds": [
+        "MODEL-028"
+      ],
+      "assetId": "ASSET-WHITE-MATTER-TRACTS",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-CINGULUM-BUNDLE",
+      "canonicalName": "Cingulum Bundle",
+      "tnaLatinName": "Cingulum",
+      "aliases": [
+        "Cingulum Bundle",
+        "Cingulum"
+      ],
+      "division": "WHITE_MATTER_TRACTS",
+      "parentId": "ANAT-LIMBIC-LOBE",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        8.0,
+        -18.0,
+        28.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Medial limbic association tract running within the cingulate and parahippocampal gyri from subgenual ACC to entorhinal cortex.",
+      "biologicalRole": "Connects medial prefrontal, posterior cingulate, and medial temporal hubs of the Papez circuit and Default Mode Network.",
+      "connectedStructureIds": [
+        "ANAT-ACC",
+        "ANAT-PCC",
+        "ANAT-PARAHIPPOCAMPAL-GYRUS"
+      ],
+      "associatedSystemIds": [
+        "SYS-DEFAULT-MODE",
+        "SYS-MEMORY-CONSOLIDATION"
+      ],
+      "associatedModelIds": [
+        "MODEL-028"
+      ],
+      "assetId": "ASSET-WHITE-MATTER-TRACTS",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-FORNIX",
+      "canonicalName": "Fornix (Crus, Body & Columns)",
+      "tnaLatinName": "Fornix",
+      "aliases": [
+        "Fornix",
+        "Fornix"
+      ],
+      "division": "WHITE_MATTER_TRACTS",
+      "parentId": "ANAT-LIMBIC-LOBE",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        4.0,
+        -8.0,
+        10.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "C-shaped efferent/afferent fiber bundle arching from the hippocampal subiculum/CA1 to the mammillary bodies, septal nuclei, and anterior thalamus.",
+      "biologicalRole": "Principal subcortical output highway of the hippocampal formation in the Papez episodic memory loop.",
+      "connectedStructureIds": [
+        "ANAT-SUBICULUM",
+        "ANAT-MAMMILLARY-BODIES",
+        "ANAT-SEPTAL-NUCLEI"
+      ],
+      "associatedSystemIds": [
+        "SYS-MEMORY-CONSOLIDATION"
+      ],
+      "associatedModelIds": [
+        "MODEL-028"
+      ],
+      "assetId": "ASSET-LIMBIC-SYSTEM-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-MAMMILLARY-BODIES",
+      "canonicalName": "Mammillary Bodies & Mammillothalamic Tract",
+      "tnaLatinName": "Corpora mamillaria",
+      "aliases": [
+        "Mammillary Bodies & Mammillothalamic Tract",
+        "Corpora mamillaria"
+      ],
+      "division": "THALAMUS_HYPOTHALAMUS",
+      "parentId": "ANAT-HYPOTHALAMUS",
+      "primaryScale": "L6",
+      "mniCentroidMm": [
+        4.0,
+        -10.0,
+        -14.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Paired posterior hypothalamic nuclei receiving the postcommissural fornix and projecting via the mammillothalamic tract to anterior thalamus.",
+      "biologicalRole": "Critical diencephalic relay for head-directiontheta signaling and recollective episodic memory.",
+      "connectedStructureIds": [
+        "ANAT-FORNIX",
+        "ANAT-THALAMUS"
+      ],
+      "associatedSystemIds": [
+        "SYS-MEMORY-CONSOLIDATION"
+      ],
+      "associatedModelIds": [
+        "MODEL-027"
+      ],
+      "assetId": "ASSET-THALAMUS-HYPO-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-EPITHALAMUS-HABENULA",
+      "canonicalName": "Epithalamus (Pineal Gland & Lateral/Medial Habenula)",
+      "tnaLatinName": "Epithalamus (Habenula et Glandula pinealis)",
+      "aliases": [
+        "Epithalamus",
+        "Epithalamus (Habenula et Glandula pinealis)"
+      ],
+      "division": "THALAMUS_HYPOTHALAMUS",
+      "parentId": "ANAT-DIENCEPHALON",
+      "primaryScale": "L6",
+      "mniCentroidMm": [
+        4.0,
+        -24.0,
+        2.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Dorsomedial diencephalic complex comprising the melatonin-secreting pineal gland and the habenular nuclei.",
+      "biologicalRole": "Lateral habenula encodes negative reward prediction errors (disappointment/aversion) to inhibit VTA dopamine neurons; pineal secretes nocturnal melatonin.",
+      "connectedStructureIds": [
+        "ANAT-VTA",
+        "ANAT-SCN",
+        "ANAT-RAPHE-NUCLEI"
+      ],
+      "associatedSystemIds": [
+        "SYS-REWARD",
+        "SYS-SLEEP"
+      ],
+      "associatedModelIds": [
+        "MODEL-026"
+      ],
+      "assetId": "ASSET-THALAMUS-HYPO-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-NUCLEUS-BASALIS",
+      "canonicalName": "Basal Forebrain Cholinergic Complex (Nucleus Basalis of Meynert)",
+      "tnaLatinName": "Nucleus basalis (Meynert)",
+      "aliases": [
+        "Basal Forebrain Cholinergic Complex",
+        "Nucleus basalis (Meynert)"
+      ],
+      "division": "AMYGDALA_LIMBIC",
+      "parentId": "ANAT-TELENCEPHALON",
+      "primaryScale": "L6",
+      "mniCentroidMm": [
+        16.0,
+        0.0,
+        -8.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Substantia innominata cholinergic cell group providing widespread acetylcholine innervation across the entire neocortex and amygdala.",
+      "biologicalRole": "Elevates cortical signal-to-noise ratio, desynchronizes slow waves during wake/REM, and gates sensory cortical plasticity.",
+      "connectedStructureIds": [
+        "ANAT-DLPFC",
+        "ANAT-CALCARINE-SULCUS",
+        "ANAT-AMYGDALA"
+      ],
+      "associatedSystemIds": [
+        "SYS-EXECUTIVE-CONTROL",
+        "SYS-SLEEP"
+      ],
+      "associatedModelIds": [
+        "MODEL-021"
+      ],
+      "assetId": "ASSET-LIMBIC-SYSTEM-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-RED-NUCLEUS",
+      "canonicalName": "Red Nucleus (Nucleus Ruber)",
+      "tnaLatinName": "Nucleus ruber",
+      "aliases": [
+        "Red Nucleus",
+        "Nucleus ruber"
+      ],
+      "division": "BRAINSTEM",
+      "parentId": "ANAT-MIDBRAIN",
+      "primaryScale": "L6",
+      "mniCentroidMm": [
+        6.0,
+        -20.0,
+        -8.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Oval rostral midbrain tegmental nucleus (magnocellular and parvocellular divisions) receiving dentate cerebellar and motor cortical inputs.",
+      "biologicalRole": "Origin of the rubrospinal tract and dentato-rubro-olivary triangle supporting upper-limb motor coordination.",
+      "connectedStructureIds": [
+        "ANAT-DENTATE-NUCLEUS",
+        "ANAT-INFERIOR-OLIVE",
+        "ANAT-SPINAL-CORD"
+      ],
+      "associatedSystemIds": [
+        "SYS-MOTOR"
+      ],
+      "associatedModelIds": [
+        "MODEL-017"
+      ],
+      "assetId": "ASSET-BRAINSTEM-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-INFERIOR-OLIVE",
+      "canonicalName": "Inferior Olivary Complex",
+      "tnaLatinName": "Complexus olivaris inferior",
+      "aliases": [
+        "Inferior Olivary Complex",
+        "Complexus olivaris inferior"
+      ],
+      "division": "BRAINSTEM",
+      "parentId": "ANAT-MEDULLA-OBLONGATA",
+      "primaryScale": "L6",
+      "mniCentroidMm": [
+        6.0,
+        -38.0,
+        -46.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Crumpled ventrolateral medullary nuclear lamina with Cx36 gap-junction-coupled oscillatory neurons giving rise to cerebellar climbing fibers.",
+      "biologicalRole": "Delivers powerful complex-spike motor error teaching signals to contralateral cerebellar Purkinje dendrites.",
+      "connectedStructureIds": [
+        "ANAT-CEREBELLAR-CORTEX",
+        "ANAT-RED-NUCLEUS"
+      ],
+      "associatedSystemIds": [
+        "SYS-MOTOR"
+      ],
+      "associatedModelIds": [
+        "MODEL-015",
+        "MODEL-023"
+      ],
+      "assetId": "ASSET-BRAINSTEM-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-RETINA",
+      "canonicalName": "Neural Retina (Photoreceptor, Bipolar, Amacrine & Ganglion Layers)",
+      "tnaLatinName": "Retina ( Tunica interna bulbi)",
+      "aliases": [
+        "Neural Retina",
+        "Retina ( Tunica interna bulbi)"
+      ],
+      "division": "PERIPHERAL_NERVOUS_SYSTEM",
+      "parentId": "ANAT-CNS",
+      "primaryScale": "L6",
+      "mniCentroidMm": [
+        24.0,
+        56.0,
+        -14.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Outpouching of embryonic diencephalon containing rods, cones, horizontal, ON/OFF bipolar, amacrine, and retinal ganglion cells.",
+      "biologicalRole": "Transduces photons into graded potentials and center-surround ganglion spike trains transmitted via CN II.",
+      "connectedStructureIds": [
+        "ANAT-CN-II",
+        "ANAT-LGN"
+      ],
+      "associatedSystemIds": [
+        "SYS-VISUAL"
+      ],
+      "associatedModelIds": [
+        "MODEL-005",
+        "MODEL-020"
+      ],
+      "assetId": "ASSET-CRANIAL-NERVES-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-COCHLEA-ORGAN-CORTI",
+      "canonicalName": "Cochlea & Organ of Corti",
+      "tnaLatinName": "Cochlea et Organum spirale",
+      "aliases": [
+        "Cochlea & Organ of Corti",
+        "Cochlea et Organum spirale"
+      ],
+      "division": "PERIPHERAL_NERVOUS_SYSTEM",
+      "parentId": "ANAT-PNS",
+      "primaryScale": "L6",
+      "mniCentroidMm": [
+        28.0,
+        -32.0,
+        -36.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Fluid-filled snail-shaped inner ear sensory organ with basilar membrane tonotopy, electromotile outer hair cells, and inner hair cells.",
+      "biologicalRole": "Mechanoelectrically transduces acoustic pressure waves into phase-locked spiral ganglion spike trains along CN VIII.",
+      "connectedStructureIds": [
+        "ANAT-CN-VIII",
+        "ANAT-INFERIOR-COLLICULUS"
+      ],
+      "associatedSystemIds": [
+        "SYS-AUDITORY"
+      ],
+      "associatedModelIds": [
+        "MODEL-005",
+        "MODEL-027"
+      ],
+      "assetId": "ASSET-CRANIAL-NERVES-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-VISUAL-MT-V5",
+      "canonicalName": "Middle Temporal Visual Area (V5 / MT)",
+      "tnaLatinName": "Area visualis temporalis media (MT/V5)",
+      "aliases": [
+        "Middle Temporal Visual Area",
+        "Area visualis temporalis media (MT/V5)"
+      ],
+      "division": "CEREBRAL_CORTEX",
+      "parentId": "ANAT-OCCIPITAL-LOBE",
+      "primaryScale": "L6",
+      "mniCentroidMm": [
+        44.0,
+        -68.0,
+        4.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Heavily myelinated extrastriate occipitotemporal area receiving direct magnocellular V1 Layer 4B and pulvinar inputs.",
+      "biologicalRole": "Computes visual motion direction and speed, feeding parietal LIP/IPS accumulators during perceptual decision-making.",
+      "connectedStructureIds": [
+        "ANAT-CALCARINE-SULCUS",
+        "ANAT-PARIETAL-LOBE"
+      ],
+      "associatedSystemIds": [
+        "SYS-VISUAL",
+        "SYS-EXECUTIVE-CONTROL"
+      ],
+      "associatedModelIds": [
+        "MODEL-019",
+        "MODEL-020"
+      ],
+      "assetId": "ASSET-CORTICAL-GYRI-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ANAT-FEF-IPS",
+      "canonicalName": "Frontal Eye Fields (FEF) & Intraparietal Sulcus (IPS)",
+      "tnaLatinName": "Campi oculares frontales et Sulcus intraparietalis",
+      "aliases": [
+        "Frontal Eye Fields",
+        "Campi oculares frontales et Sulcus intraparietalis"
+      ],
+      "division": "CEREBRAL_CORTEX",
+      "parentId": "ANAT-FRONTAL-LOBE",
+      "primaryScale": "L7",
+      "mniCentroidMm": [
+        -30.0,
+        -6.0,
+        50.0
+      ],
+      "atlasProvenance": "FIPAT TNA / Desikan-Killiany / Julich-Brain",
+      "provenanceClass": "ATLAS_SURFACE_DERIVED",
+      "shortDefinition": "Reciprocally coupled frontoparietal cortical nodes (BA 8 and IPS/LIP) projecting to superior colliculus and extrastriate visual cortex.",
+      "biologicalRole": "Form the Dorsal Attention Network steering endogenous spatial attention and saccadic target selection.",
+      "connectedStructureIds": [
+        "ANAT-SUPERIOR-COLLICULUS",
+        "ANAT-VISUAL-MT-V5",
+        "ANAT-DLPFC"
+      ],
+      "associatedSystemIds": [
+        "SYS-VISUAL",
+        "SYS-EXECUTIVE-CONTROL"
+      ],
+      "associatedModelIds": [
+        "MODEL-019",
+        "MODEL-021"
+      ],
+      "assetId": "ASSET-CORTICAL-GYRI-3D",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schemaRef": "experiments/simulation-input.schema.json",
+  "expectedErrorReason": "Invalid dtMs (0) and unknown waveformType",
+  "payload": {
+    "jobId": "J1",
+    "modelId": "MODEL-001",
+    "solverId": "SOLVER-RK4",
+    "dtMs": 0,
+    "durationMs": -10,
+    "randomSeed": -1,
+    "parameters": {},
+    "initialConditions": {},
+    "stimulus": {
+      "waveformType": "UNKNOWN",
+      "amplitude": 0,
+      "unit": "x",
+      "onsetMs": -1,
+      "offsetMs": -1
+    },
+    "schemaVersion": "1.0.0"
+  }
+}

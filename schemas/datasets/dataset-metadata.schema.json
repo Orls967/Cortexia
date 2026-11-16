@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cortexia.science/schemas/datasets/dataset-metadata.schema.json",
+  "title": "DatasetSignalSidecarMetadata",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "datasetId",
+    "samplingFrequencyHz",
+    "powerLineFrequencyHz",
+    "referenceScheme",
+    "channels",
+    "deidentifiedHumanOrAnimal",
+    "schemaVersion"
+  ],
+  "properties": {
+    "datasetId": {
+      "type": "string",
+      "pattern": "^DSET-[A-Z0-9-]+$"
+    },
+    "samplingFrequencyHz": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "powerLineFrequencyHz": {
+      "type": "number",
+      "enum": [
+        50,
+        60,
+        0
+      ]
+    },
+    "referenceScheme": {
+      "type": "string",
+      "minLength": 2
+    },
+    "channels": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "type",
+          "unit",
+          "status"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "EEG",
+              "EOG",
+              "EMG",
+              "LFP",
+              "INTRACELLULAR",
+              "SPIKE_UNIT"
+            ]
+          },
+          "unit": {
+            "type": "string",
+            "enum": [
+              "uV",
+              "mV",
+              "pA",
+              "nA",
+              "Hz"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "good",
+              "bad"
+            ]
+          }
+        }
+      }
+    },
+    "deidentifiedHumanOrAnimal": {
+      "type": "boolean",
+      "const": true
+    },
+    "schemaVersion": {
+      "type": "string",
+      "const": "1.0.0"
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "project": "CORTEXIA",
+  "phase": "Phase 0 \u2014 Complete Scientific, Product & Software Specification",
+  "auditTimestamp": "2026-11-16T15:40:00+08:00",
+  "overallStatus": "PASSED",
+  "errorCount": 0,
+  "errors": [],
+  "markdownMetrics": {
+    "markdownFileCount": 70,
+    "uniqueDocumentIds": 68,
+    "totalMarkdownLines": 4891,
+    "totalMarkdownWords": 49637
+  },
+  "schemaAndRegistryMetrics": {
+    "schemaFileCount": 24,
+    "validFixtureCount": 6,
+    "invalidFixtureCount": 4,
+    "registryFileCount": 17,
+    "countsByRegistry": {
+      "scientific-references/scientific-references.json": 82,
+      "anatomical-entities/anatomical-entities.json": 127,
+      "cellular-entities/cellular-entities.json": 30,
+      "molecular-entities/molecular-entities.json": 65,
+      "mechanisms/physiological-mechanisms.json": 52,
+      "circuits-pathways/circuits-and-pathways.json": 34,
+      "functional-systems/functional-systems.json": 17,
+      "equations/equations.json": 108,
+      "parameters/parameters.json": 84,
+      "scientific-models/scientific-models.json": 28,
+      "experiments/experiments.json": 42,
+      "analysis-methods/analysis-methods.json": 26,
+      "datasets/datasets.json": 22,
+      "assets-3d/assets-3d.json": 34,
+      "explanation-coverage/explanation-coverage.json": 616,
+      "uiEntityCoverageMatrix": 17,
+      "knowledgeGraphNodes": 774,
+      "knowledgeGraphEdges": 3451,
+      "traceabilityRequirements": 28,
+      "validationCases": 19
+    }
+  }
+}

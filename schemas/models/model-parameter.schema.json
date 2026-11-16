@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cortexia.science/schemas/models/model-parameter.schema.json",
+  "title": "ModelParameterDefinition",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "symbol",
+    "name",
+    "modelId",
+    "unit",
+    "defaultValue",
+    "minValue",
+    "maxValue",
+    "valueProvenance",
+    "biologicalMeaning",
+    "references",
+    "schemaVersion"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^PARAM-[A-Z0-9-]+$"
+    },
+    "symbol": {
+      "type": "string",
+      "minLength": 1
+    },
+    "name": {
+      "type": "string",
+      "minLength": 3
+    },
+    "modelId": {
+      "type": "string",
+      "pattern": "^MODEL-[0-9]{3}$"
+    },
+    "unit": {
+      "type": "string",
+      "minLength": 1
+    },
+    "defaultValue": {
+      "type": "number"
+    },
+    "minValue": {
+      "type": "number"
+    },
+    "maxValue": {
+      "type": "number"
+    },
+    "valueProvenance": {
+      "type": "string",
+      "enum": [
+        "LITERATURE_MEASURED",
+        "CANONICAL_BENCHMARK_DEFAULT",
+        "ILLUSTRATIVE_TUNED"
+      ]
+    },
+    "biologicalMeaning": {
+      "type": "string",
+      "minLength": 20
+    },
+    "references": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "pattern": "^REF-[A-Z0-9-]+$"
+      }
+    },
+    "schemaVersion": {
+      "type": "string",
+      "const": "1.0.0"
+    }
+  }
+}

@@ -1,0 +1,3479 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "EQ-001",
+      "name": "Nernst Equilibrium Potential",
+      "domain": "Thermodynamics",
+      "latex": "E_X = \\frac{RT}{zF} \\ln\\left(\\frac{[X]_{\\mathrm{out}}}{[X]_{\\mathrm{in}}}\\right)",
+      "lhsUnit": "mV",
+      "rhsUnit": "mV",
+      "variables": [
+        {
+          "symbol": "E_X",
+          "meaning": "Equilibrium potential",
+          "unit": "mV"
+        },
+        {
+          "symbol": "R",
+          "meaning": "Gas constant",
+          "unit": "J/(mol*K)"
+        },
+        {
+          "symbol": "T",
+          "meaning": "Absolute temperature",
+          "unit": "K"
+        },
+        {
+          "symbol": "z",
+          "meaning": "Ion valence",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "F",
+          "meaning": "Faraday constant",
+          "unit": "C/mol"
+        }
+      ],
+      "description": "Reversal potential where net electrochemical flux of ion X is zero.",
+      "relatedModelIds": [
+        "MODEL-001",
+        "MODEL-002"
+      ],
+      "references": [
+        "REF-HILLE-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-002",
+      "name": "Goldman-Hodgkin-Katz (GHK) Voltage Equation",
+      "domain": "Thermodynamics",
+      "latex": "V_m = \\frac{RT}{F} \\ln\\left(\\frac{P_K[K^+]_o + P_{Na}[Na^+]_o + P_{Cl}[Cl^-]_i}{P_K[K^+]_i + P_{Na}[Na^+]_i + P_{Cl}[Cl^-]_o}\\right)",
+      "lhsUnit": "mV",
+      "rhsUnit": "mV",
+      "variables": [
+        {
+          "symbol": "V_m",
+          "meaning": "Resting membrane potential",
+          "unit": "mV"
+        },
+        {
+          "symbol": "P_K",
+          "meaning": "Potassium permeability",
+          "unit": "cm/s"
+        },
+        {
+          "symbol": "P_Na",
+          "meaning": "Sodium permeability",
+          "unit": "cm/s"
+        },
+        {
+          "symbol": "P_Cl",
+          "meaning": "Chloride permeability",
+          "unit": "cm/s"
+        }
+      ],
+      "description": "Steady-state membrane potential governed by multi-ion permeabilities and concentration gradients.",
+      "relatedModelIds": [
+        "MODEL-001"
+      ],
+      "references": [
+        "REF-GOLDMAN-1943",
+        "REF-HODGKIN-KATZ-1949"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-003",
+      "name": "GHK Constant-Field Ionic Current Equation",
+      "domain": "Thermodynamics",
+      "latex": "I_X = P_X z^2 \\frac{V F^2}{RT} \\frac{[X]_i - [X]_o \\exp(-zVF/RT)}{1 - \\exp(-zVF/RT)}",
+      "lhsUnit": "uA/cm^2",
+      "rhsUnit": "uA/cm^2",
+      "variables": [
+        {
+          "symbol": "I_X",
+          "meaning": "Ionic current density",
+          "unit": "uA/cm^2"
+        },
+        {
+          "symbol": "P_X",
+          "meaning": "Membrane permeability",
+          "unit": "cm/s"
+        },
+        {
+          "symbol": "V",
+          "meaning": "Membrane potential",
+          "unit": "mV"
+        }
+      ],
+      "description": "Nonlinear current-voltage relation for electrodiffusion across a homogeneous membrane.",
+      "relatedModelIds": [
+        "MODEL-001"
+      ],
+      "references": [
+        "REF-GOLDMAN-1943",
+        "REF-HILLE-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-004",
+      "name": "Capacitive Transmembrane Current",
+      "domain": "Membrane Biophysics",
+      "latex": "I_C = C_m \\frac{dV}{dt}",
+      "lhsUnit": "uA/cm^2",
+      "rhsUnit": "uA/cm^2",
+      "variables": [
+        {
+          "symbol": "I_C",
+          "meaning": "Capacitive current",
+          "unit": "uA/cm^2"
+        },
+        {
+          "symbol": "C_m",
+          "meaning": "Specific capacitance",
+          "unit": "uF/cm^2"
+        },
+        {
+          "symbol": "V",
+          "meaning": "Membrane potential",
+          "unit": "mV"
+        },
+        {
+          "symbol": "t",
+          "meaning": "Time",
+          "unit": "ms"
+        }
+      ],
+      "description": "Current required to charge the lipid bilayer membrane capacitance.",
+      "relatedModelIds": [
+        "MODEL-001",
+        "MODEL-005"
+      ],
+      "references": [
+        "REF-HH-1952"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-005",
+      "name": "Ohmic Chord-Conductance Ionic Current",
+      "domain": "Membrane Biophysics",
+      "latex": "I_{\\mathrm{ion}} = g_{\\mathrm{ion}}(V, t)\\,(V - E_{\\mathrm{ion}})",
+      "lhsUnit": "uA/cm^2",
+      "rhsUnit": "uA/cm^2",
+      "variables": [
+        {
+          "symbol": "I_ion",
+          "meaning": "Ionic current",
+          "unit": "uA/cm^2"
+        },
+        {
+          "symbol": "g_ion",
+          "meaning": "Conductance",
+          "unit": "mS/cm^2"
+        },
+        {
+          "symbol": "V",
+          "meaning": "Membrane voltage",
+          "unit": "mV"
+        },
+        {
+          "symbol": "E_ion",
+          "meaning": "Reversal potential",
+          "unit": "mV"
+        }
+      ],
+      "description": "Ionic current driven by conductance and electrochemical driving force (V - E_ion).",
+      "relatedModelIds": [
+        "MODEL-001",
+        "MODEL-002"
+      ],
+      "references": [
+        "REF-HH-1952"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-006",
+      "name": "Passive Membrane Time Constant",
+      "domain": "Membrane Biophysics",
+      "latex": "\\tau_m = R_m C_m = \\frac{C_m}{g_L}",
+      "lhsUnit": "ms",
+      "rhsUnit": "ms",
+      "variables": [
+        {
+          "symbol": "tau_m",
+          "meaning": "Membrane time constant",
+          "unit": "ms"
+        },
+        {
+          "symbol": "R_m",
+          "meaning": "Membrane resistance",
+          "unit": "MOhm"
+        },
+        {
+          "symbol": "C_m",
+          "meaning": "Capacitance",
+          "unit": "pF"
+        },
+        {
+          "symbol": "g_L",
+          "meaning": "Leak conductance",
+          "unit": "nS"
+        }
+      ],
+      "description": "Characteristic exponential relaxation time of passive membrane voltage.",
+      "relatedModelIds": [
+        "MODEL-005",
+        "MODEL-010"
+      ],
+      "references": [
+        "REF-RALL-1962"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-007",
+      "name": "Passive Dendritic Electrotonic Space Constant",
+      "domain": "Dendritic Cable",
+      "latex": "\\lambda = \\sqrt{\\frac{r_m}{r_i}} = \\sqrt{\\frac{d R_m}{4 R_i}}",
+      "lhsUnit": "um",
+      "rhsUnit": "um",
+      "variables": [
+        {
+          "symbol": "lambda",
+          "meaning": "Space constant",
+          "unit": "um"
+        },
+        {
+          "symbol": "d",
+          "meaning": "Cable diameter",
+          "unit": "um"
+        },
+        {
+          "symbol": "R_m",
+          "meaning": "Specific membrane resistance",
+          "unit": "Ohm*cm^2"
+        },
+        {
+          "symbol": "R_i",
+          "meaning": "Axial cytoplasmic resistivity",
+          "unit": "Ohm*cm"
+        }
+      ],
+      "description": "Characteristic distance over which steady-state subthreshold voltage decays by 1/e.",
+      "relatedModelIds": [
+        "MODEL-010"
+      ],
+      "references": [
+        "REF-RALL-1962"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-008",
+      "name": "One-Dimensional Passive Cable PDE",
+      "domain": "Dendritic Cable",
+      "latex": "\\tau_m \\frac{\\partial V}{\\partial t} = \\lambda^2 \\frac{\\partial^2 V}{\\partial x^2} - (V - E_L) + r_m i_{\\mathrm{ext}}(x,t)",
+      "lhsUnit": "mV",
+      "rhsUnit": "mV",
+      "variables": [
+        {
+          "symbol": "V",
+          "meaning": "Membrane potential",
+          "unit": "mV"
+        },
+        {
+          "symbol": "x",
+          "meaning": "Axial distance",
+          "unit": "um"
+        },
+        {
+          "symbol": "t",
+          "meaning": "Time",
+          "unit": "ms"
+        },
+        {
+          "symbol": "lambda",
+          "meaning": "Space constant",
+          "unit": "um"
+        }
+      ],
+      "description": "Spatiotemporal diffusion and leak decay of subthreshold potential along a cylindrical neurite.",
+      "relatedModelIds": [
+        "MODEL-010"
+      ],
+      "references": [
+        "REF-RALL-1962"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-009",
+      "name": "Rall 3/2 Power Law for Equivalent Dendritic Cylinder",
+      "domain": "Dendritic Cable",
+      "latex": "d_{\\mathrm{parent}}^{3/2} = \\sum_{k} d_{\\mathrm{daughter}, k}^{3/2}",
+      "lhsUnit": "um^(3/2)",
+      "rhsUnit": "um^(3/2)",
+      "variables": [
+        {
+          "symbol": "d_parent",
+          "meaning": "Parent branch diameter",
+          "unit": "um"
+        },
+        {
+          "symbol": "d_daughter",
+          "meaning": "Daughter branch diameter",
+          "unit": "um"
+        }
+      ],
+      "description": "Impedance-matching condition allowing a branched dendritic tree to collapse into an equivalent cylinder.",
+      "relatedModelIds": [
+        "MODEL-010"
+      ],
+      "references": [
+        "REF-RALL-1962"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-010",
+      "name": "Multi-Compartment Coupled Membrane ODE",
+      "domain": "Dendritic Cable",
+      "latex": "C_k \\frac{dV_k}{dt} = -g_{L,k}(V_k - E_L) + \\sum_{j \\in \\mathcal{N}(k)} g_{k,j}(V_j - V_k) + I_{\\mathrm{syn},k}(t)",
+      "lhsUnit": "pA",
+      "rhsUnit": "pA",
+      "variables": [
+        {
+          "symbol": "C_k",
+          "meaning": "Compartment capacitance",
+          "unit": "pF"
+        },
+        {
+          "symbol": "V_k",
+          "meaning": "Compartment voltage",
+          "unit": "mV"
+        },
+        {
+          "symbol": "g_kj",
+          "meaning": "Axial coupling conductance",
+          "unit": "nS"
+        }
+      ],
+      "description": "Discrete spatial compartmentalization of the cable equation for branched neuron morphologies.",
+      "relatedModelIds": [
+        "MODEL-010"
+      ],
+      "references": [
+        "REF-RALL-1962",
+        "REF-DAYAN-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-011",
+      "name": "Hodgkin-Huxley Master Membrane Balance Equation",
+      "domain": "Hodgkin-Huxley",
+      "latex": "C_m \\frac{dV}{dt} = I_{\\mathrm{ext}}(t) - \\bar{g}_{Na} m^3 h (V - E_{Na}) - \\bar{g}_K n^4 (V - E_K) - \\bar{g}_L (V - E_L)",
+      "lhsUnit": "uA/cm^2",
+      "rhsUnit": "uA/cm^2",
+      "variables": [
+        {
+          "symbol": "C_m",
+          "meaning": "Capacitance",
+          "unit": "uF/cm^2"
+        },
+        {
+          "symbol": "V",
+          "meaning": "Voltage",
+          "unit": "mV"
+        },
+        {
+          "symbol": "m",
+          "meaning": "Na activation",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "h",
+          "meaning": "Na inactivation",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "n",
+          "meaning": "K activation",
+          "unit": "dimensionless"
+        }
+      ],
+      "description": "Four-variable conductance-based differential equation for squid giant axon excitability.",
+      "relatedModelIds": [
+        "MODEL-001"
+      ],
+      "references": [
+        "REF-HH-1952"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-012",
+      "name": "Hodgkin-Huxley Sodium Current",
+      "domain": "Hodgkin-Huxley",
+      "latex": "I_{Na} = \\bar{g}_{Na} m^3 h (V - E_{Na})",
+      "lhsUnit": "uA/cm^2",
+      "rhsUnit": "uA/cm^2",
+      "variables": [
+        {
+          "symbol": "I_Na",
+          "meaning": "Sodium current",
+          "unit": "uA/cm^2"
+        },
+        {
+          "symbol": "g_Na",
+          "meaning": "Max Na conductance",
+          "unit": "mS/cm^2"
+        },
+        {
+          "symbol": "m",
+          "meaning": "Activation gate",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "h",
+          "meaning": "Inactivation gate",
+          "unit": "dimensionless"
+        }
+      ],
+      "description": "Fast inward regeneratively activating and inactivating sodium current.",
+      "relatedModelIds": [
+        "MODEL-001"
+      ],
+      "references": [
+        "REF-HH-1952"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-013",
+      "name": "Hodgkin-Huxley Delayed-Rectifier Potassium Current",
+      "domain": "Hodgkin-Huxley",
+      "latex": "I_K = \\bar{g}_K n^4 (V - E_K)",
+      "lhsUnit": "uA/cm^2",
+      "rhsUnit": "uA/cm^2",
+      "variables": [
+        {
+          "symbol": "I_K",
+          "meaning": "Potassium current",
+          "unit": "uA/cm^2"
+        },
+        {
+          "symbol": "g_K",
+          "meaning": "Max K conductance",
+          "unit": "mS/cm^2"
+        },
+        {
+          "symbol": "n",
+          "meaning": "K activation gate",
+          "unit": "dimensionless"
+        }
+      ],
+      "description": "Outward delayed-rectifier potassium current repolarizing the action potential.",
+      "relatedModelIds": [
+        "MODEL-001"
+      ],
+      "references": [
+        "REF-HH-1952"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-014",
+      "name": "Hodgkin-Huxley Ohmic Leak Current",
+      "domain": "Hodgkin-Huxley",
+      "latex": "I_L = \\bar{g}_L (V - E_L)",
+      "lhsUnit": "uA/cm^2",
+      "rhsUnit": "uA/cm^2",
+      "variables": [
+        {
+          "symbol": "I_L",
+          "meaning": "Leak current",
+          "unit": "uA/cm^2"
+        },
+        {
+          "symbol": "g_L",
+          "meaning": "Leak conductance",
+          "unit": "mS/cm^2"
+        },
+        {
+          "symbol": "E_L",
+          "meaning": "Leak reversal",
+          "unit": "mV"
+        }
+      ],
+      "description": "Voltage-independent background chloride/potassium leak current.",
+      "relatedModelIds": [
+        "MODEL-001"
+      ],
+      "references": [
+        "REF-HH-1952"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-015",
+      "name": "First-Order Hodgkin-Huxley Gating Kinetic ODE",
+      "domain": "Hodgkin-Huxley",
+      "latex": "\\frac{dx}{dt} = \\phi_T \\left[\\alpha_x(V)(1 - x) - \\beta_x(V)x\\right] = \\phi_T \\frac{x_\\infty(V) - x}{\\tau_x(V)}",
+      "lhsUnit": "1/ms",
+      "rhsUnit": "1/ms",
+      "variables": [
+        {
+          "symbol": "x",
+          "meaning": "Gating variable m, h, or n",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "alpha_x",
+          "meaning": "Opening rate",
+          "unit": "1/ms"
+        },
+        {
+          "symbol": "beta_x",
+          "meaning": "Closing rate",
+          "unit": "1/ms"
+        },
+        {
+          "symbol": "phi_T",
+          "meaning": "Temperature factor",
+          "unit": "dimensionless"
+        }
+      ],
+      "description": "Two-state Markov transition kinetics for voltage-dependent ion channel gates.",
+      "relatedModelIds": [
+        "MODEL-001",
+        "MODEL-003"
+      ],
+      "references": [
+        "REF-HH-1952"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-016",
+      "name": "Steady-State Gating Activation and Time Constant",
+      "domain": "Hodgkin-Huxley",
+      "latex": "x_\\infty(V) = \\frac{\\alpha_x(V)}{\\alpha_x(V) + \\beta_x(V)}, \\qquad \\tau_x(V) = \\frac{1}{\\alpha_x(V) + \\beta_x(V)}",
+      "lhsUnit": "dimensionless",
+      "rhsUnit": "dimensionless",
+      "variables": [
+        {
+          "symbol": "x_inf",
+          "meaning": "Asymptotic open fraction",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "tau_x",
+          "meaning": "Relaxation time constant",
+          "unit": "ms"
+        }
+      ],
+      "description": "Equilibrium open probability and voltage-dependent time constant of a gating particle.",
+      "relatedModelIds": [
+        "MODEL-001"
+      ],
+      "references": [
+        "REF-HH-1952"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-017",
+      "name": "Hodgkin-Huxley Sodium Activation Rates (alpha_m, beta_m)",
+      "domain": "Hodgkin-Huxley",
+      "latex": "\\alpha_m(V) = \\frac{0.1(V+40)}{1 - \\exp(-(V+40)/10)}, \\qquad \\beta_m(V) = 4.0\\exp(-(V+65)/18)",
+      "lhsUnit": "1/ms",
+      "rhsUnit": "1/ms",
+      "variables": [
+        {
+          "symbol": "V",
+          "meaning": "Membrane potential",
+          "unit": "mV"
+        },
+        {
+          "symbol": "alpha_m",
+          "meaning": "Na activation opening rate",
+          "unit": "1/ms"
+        },
+        {
+          "symbol": "beta_m",
+          "meaning": "Na activation closing rate",
+          "unit": "1/ms"
+        }
+      ],
+      "description": "Voltage-dependent transition rate constants for sodium m gates.",
+      "relatedModelIds": [
+        "MODEL-001"
+      ],
+      "references": [
+        "REF-HH-1952",
+        "REF-DAYAN-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-018",
+      "name": "Hodgkin-Huxley Sodium Inactivation Rates (alpha_h, beta_h)",
+      "domain": "Hodgkin-Huxley",
+      "latex": "\\alpha_h(V) = 0.07\\exp(-(V+65)/20), \\qquad \\beta_h(V) = \\frac{1}{1 + \\exp(-(V+35)/10)}",
+      "lhsUnit": "1/ms",
+      "rhsUnit": "1/ms",
+      "variables": [
+        {
+          "symbol": "V",
+          "meaning": "Membrane potential",
+          "unit": "mV"
+        },
+        {
+          "symbol": "alpha_h",
+          "meaning": "Na recovery rate",
+          "unit": "1/ms"
+        },
+        {
+          "symbol": "beta_h",
+          "meaning": "Na inactivation rate",
+          "unit": "1/ms"
+        }
+      ],
+      "description": "Voltage-dependent transition rate constants for sodium inactivation h gate.",
+      "relatedModelIds": [
+        "MODEL-001"
+      ],
+      "references": [
+        "REF-HH-1952",
+        "REF-DAYAN-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-019",
+      "name": "Hodgkin-Huxley Potassium Activation Rates (alpha_n, beta_n)",
+      "domain": "Hodgkin-Huxley",
+      "latex": "\\alpha_n(V) = \\frac{0.01(V+55)}{1 - \\exp(-(V+55)/10)}, \\qquad \\beta_n(V) = 0.125\\exp(-(V+65)/80)",
+      "lhsUnit": "1/ms",
+      "rhsUnit": "1/ms",
+      "variables": [
+        {
+          "symbol": "V",
+          "meaning": "Membrane potential",
+          "unit": "mV"
+        },
+        {
+          "symbol": "alpha_n",
+          "meaning": "K activation opening rate",
+          "unit": "1/ms"
+        },
+        {
+          "symbol": "beta_n",
+          "meaning": "K activation closing rate",
+          "unit": "1/ms"
+        }
+      ],
+      "description": "Voltage-dependent transition rate constants for potassium n gates.",
+      "relatedModelIds": [
+        "MODEL-001"
+      ],
+      "references": [
+        "REF-HH-1952",
+        "REF-DAYAN-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-020",
+      "name": "Q10 Temperature Scaling Factor for Channel Kinetics",
+      "domain": "Hodgkin-Huxley",
+      "latex": "\\phi_T = Q_{10}^{(T - T_0)/10}",
+      "lhsUnit": "dimensionless",
+      "rhsUnit": "dimensionless",
+      "variables": [
+        {
+          "symbol": "phi_T",
+          "meaning": "Rate multiplier",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "Q_10",
+          "meaning": "Temperature coefficient (~3.0)",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "T",
+          "meaning": "Operating temperature",
+          "unit": "degC"
+        },
+        {
+          "symbol": "T_0",
+          "meaning": "Reference temperature (6.3 degC)",
+          "unit": "degC"
+        }
+      ],
+      "description": "Arrhenius-like thermal acceleration of channel opening and closing rates.",
+      "relatedModelIds": [
+        "MODEL-001"
+      ],
+      "references": [
+        "REF-HH-1952",
+        "REF-HILLE-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-021",
+      "name": "Morris-Lecar Membrane Voltage ODE",
+      "domain": "Conductance Models",
+      "latex": "C_m \\frac{dV}{dt} = I_{\\mathrm{ext}} - \\bar{g}_{Ca} M_\\infty(V)(V - E_{Ca}) - \\bar{g}_K W(V - E_K) - \\bar{g}_L(V - E_L)",
+      "lhsUnit": "uA/cm^2",
+      "rhsUnit": "uA/cm^2",
+      "variables": [
+        {
+          "symbol": "V",
+          "meaning": "Membrane voltage",
+          "unit": "mV"
+        },
+        {
+          "symbol": "W",
+          "meaning": "Slow K+ recovery gate",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "M_inf",
+          "meaning": "Instantaneous Ca2+ activation",
+          "unit": "dimensionless"
+        }
+      ],
+      "description": "planar conductance-based membrane equation with instantaneous Ca2+ activation and slow K+ recovery.",
+      "relatedModelIds": [
+        "MODEL-002"
+      ],
+      "references": [
+        "REF-MORRIS-LECAR-1981"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-022",
+      "name": "Morris-Lecar Slow Potassium Recovery ODE",
+      "domain": "Conductance Models",
+      "latex": "\\frac{dW}{dt} = \\phi \\frac{W_\\infty(V) - W}{\\tau_W(V)}, \\qquad \\tau_W(V) = \\left[\\cosh\\left(\\frac{V - V_3}{2V_4}\\right)\\right]^{-1}",
+      "lhsUnit": "1/ms",
+      "rhsUnit": "1/ms",
+      "variables": [
+        {
+          "symbol": "W",
+          "meaning": "Recovery variable",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "phi",
+          "meaning": "Rate scaling factor",
+          "unit": "1/ms"
+        },
+        {
+          "symbol": "V_3",
+          "meaning": "Half-activation voltage",
+          "unit": "mV"
+        },
+        {
+          "symbol": "V_4",
+          "meaning": "Slope factor",
+          "unit": "mV"
+        }
+      ],
+      "description": "Slow potassium activation kinetics governing Type I SNIC vs Type II Hopf regimes.",
+      "relatedModelIds": [
+        "MODEL-002"
+      ],
+      "references": [
+        "REF-MORRIS-LECAR-1981"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-023",
+      "name": "Morris-Lecar Hyperbolic Tangent Steady-State Curves",
+      "domain": "Conductance Models",
+      "latex": "M_\\infty(V) = \\frac{1}{2}\\left[1 + \\tanh\\left(\\frac{V - V_1}{V_2}\\right)\\right], \\qquad W_\\infty(V) = \\frac{1}{2}\\left[1 + \\tanh\\left(\\frac{V - V_3}{V_4}\\right)\\right]",
+      "lhsUnit": "dimensionless",
+      "rhsUnit": "dimensionless",
+      "variables": [
+        {
+          "symbol": "M_inf",
+          "meaning": "Ca2+ steady state",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "W_inf",
+          "meaning": "K+ steady state",
+          "unit": "dimensionless"
+        }
+      ],
+      "description": "Boltzmann sigmoidal activation curves expressed in hyperbolic tangent form.",
+      "relatedModelIds": [
+        "MODEL-002"
+      ],
+      "references": [
+        "REF-MORRIS-LECAR-1981"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-024",
+      "name": "Connor-Stevens Transient A-Type Potassium Current (I_A)",
+      "domain": "Conductance Models",
+      "latex": "I_A = \\bar{g}_A a^3 b (V - E_A)",
+      "lhsUnit": "uA/cm^2",
+      "rhsUnit": "uA/cm^2",
+      "variables": [
+        {
+          "symbol": "I_A",
+          "meaning": "A-type potassium current",
+          "unit": "uA/cm^2"
+        },
+        {
+          "symbol": "g_A",
+          "meaning": "Max A conductance",
+          "unit": "mS/cm^2"
+        },
+        {
+          "symbol": "a",
+          "meaning": "Fast activation gate",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "b",
+          "meaning": "Inactivation gate",
+          "unit": "dimensionless"
+        }
+      ],
+      "description": "Inactivating potassium current linearizing the f-I curve to enable low-frequency Type I spiking.",
+      "relatedModelIds": [
+        "MODEL-003"
+      ],
+      "references": [
+        "REF-DAYAN-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-025",
+      "name": "FitzHugh-Nagumo Fast Activator-Slow Recovery System",
+      "domain": "Reduced Excitable",
+      "latex": "\\frac{dv}{dt} = v - \\frac{v^3}{3} - w + I_{\\mathrm{ext}}, \\qquad \\frac{dw}{dt} = \\epsilon(v + a - bw)",
+      "lhsUnit": "1/ms",
+      "rhsUnit": "1/ms",
+      "variables": [
+        {
+          "symbol": "v",
+          "meaning": "Fast voltage-like activator",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "w",
+          "meaning": "Slow recovery variable",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "epsilon",
+          "meaning": "Timescale separation ratio",
+          "unit": "dimensionless"
+        }
+      ],
+      "description": "Canonical 2D cubic phase-plane reduction of neuronal excitability and relaxation oscillations.",
+      "relatedModelIds": [
+        "MODEL-004"
+      ],
+      "references": [
+        "REF-FITZHUGH-1961",
+        "REF-NAGUMO-1962"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-026",
+      "name": "FitzHugh-Nagumo Cubic and Linear Nullclines",
+      "domain": "Reduced Excitable",
+      "latex": "w = v - \\frac{v^3}{3} + I_{\\mathrm{ext}} \\quad (\\dot{v}=0), \\qquad w = \\frac{v + a}{b} \\quad (\\dot{w}=0)",
+      "lhsUnit": "dimensionless",
+      "rhsUnit": "dimensionless",
+      "variables": [
+        {
+          "symbol": "v",
+          "meaning": "Fast variable",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "w",
+          "meaning": "Slow variable",
+          "unit": "dimensionless"
+        }
+      ],
+      "description": "Phase-plane curves whose intersection determines fixed-point stability and Hopf bifurcations.",
+      "relatedModelIds": [
+        "MODEL-004"
+      ],
+      "references": [
+        "REF-FITZHUGH-1961"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-027",
+      "name": "Current-Based Leaky Integrate-and-Fire (CUBA-LIF) ODE",
+      "domain": "Spiking Neurons",
+      "latex": "\\tau_m \\frac{dV}{dt} = -(V - E_L) + R_m I_{\\mathrm{ext}}(t)",
+      "lhsUnit": "mV",
+      "rhsUnit": "mV",
+      "variables": [
+        {
+          "symbol": "tau_m",
+          "meaning": "Membrane time constant",
+          "unit": "ms"
+        },
+        {
+          "symbol": "V",
+          "meaning": "Membrane potential",
+          "unit": "mV"
+        },
+        {
+          "symbol": "E_L",
+          "meaning": "Leak reversal",
+          "unit": "mV"
+        },
+        {
+          "symbol": "R_m",
+          "meaning": "Input resistance",
+          "unit": "MOhm"
+        }
+      ],
+      "description": "Subthreshold linear RC membrane integration prior to threshold crossing.",
+      "relatedModelIds": [
+        "MODEL-005"
+      ],
+      "references": [
+        "REF-ABBOTT-1999",
+        "REF-DAYAN-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-028",
+      "name": "Integrate-and-Fire Threshold Reset and Refractory Rule",
+      "domain": "Spiking Neurons",
+      "latex": "V(t^-) \\ge V_{\\mathrm{th}} \\implies t_{\\mathrm{sp}} = t, \\quad V(t^+) \\leftarrow V_{\\mathrm{reset}}, \\quad V(t) = V_{\\mathrm{reset}} \\ \\forall t \\in (t_{\\mathrm{sp}}, t_{\\mathrm{sp}}+\\tau_{\\mathrm{ref}}]",
+      "lhsUnit": "mV",
+      "rhsUnit": "mV",
+      "variables": [
+        {
+          "symbol": "V_th",
+          "meaning": "Spike threshold",
+          "unit": "mV"
+        },
+        {
+          "symbol": "V_reset",
+          "meaning": "Reset potential",
+          "unit": "mV"
+        },
+        {
+          "symbol": "tau_ref",
+          "meaning": "Absolute refractory period",
+          "unit": "ms"
+        }
+      ],
+      "description": "Discontinuous spike emission, reset, and absolute refractory clamping rule.",
+      "relatedModelIds": [
+        "MODEL-005",
+        "MODEL-006"
+      ],
+      "references": [
+        "REF-GERSTNER-2014"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-029",
+      "name": "Analytical CUBA-LIF Steady-State f-I Curve",
+      "domain": "Spiking Neurons",
+      "latex": "f(I_0) = \\left[\\tau_{\\mathrm{ref}} + \\tau_m \\ln\\left(\\frac{R_m I_0 + E_L - V_{\\mathrm{reset}}}{R_m I_0 + E_L - V_{\\mathrm{th}}}\\right)\\right]^{-1} \\Theta(I_0 - I_{\\mathrm{rh}})",
+      "lhsUnit": "Hz",
+      "rhsUnit": "Hz",
+      "variables": [
+        {
+          "symbol": "f",
+          "meaning": "Firing rate",
+          "unit": "Hz"
+        },
+        {
+          "symbol": "I_0",
+          "meaning": "Constant current",
+          "unit": "pA"
+        },
+        {
+          "symbol": "I_rh",
+          "meaning": "Rheobase current",
+          "unit": "pA"
+        }
+      ],
+      "description": "Exact closed-form firing frequency of a leaky integrate-and-fire neuron under constant current.",
+      "relatedModelIds": [
+        "MODEL-005"
+      ],
+      "references": [
+        "REF-DAYAN-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-030",
+      "name": "Conductance-Based Leaky Integrate-and-Fire (COBA-LIF) ODE",
+      "domain": "Spiking Neurons",
+      "latex": "C_m \\frac{dV}{dt} = -g_L(V - E_L) - g_E(t)(V - E_E) - g_I(t)(V - E_I) + I_{\\mathrm{ext}}(t)",
+      "lhsUnit": "pA",
+      "rhsUnit": "pA",
+      "variables": [
+        {
+          "symbol": "g_E",
+          "meaning": "Excitatory synaptic conductance",
+          "unit": "nS"
+        },
+        {
+          "symbol": "g_I",
+          "meaning": "Inhibitory synaptic conductance",
+          "unit": "nS"
+        },
+        {
+          "symbol": "E_E",
+          "meaning": "Excitatory reversal",
+          "unit": "mV"
+        },
+        {
+          "symbol": "E_I",
+          "meaning": "Inhibitory reversal",
+          "unit": "mV"
+        }
+      ],
+      "description": "LIF neuron where synaptic inputs modulate total membrane conductance and effective time constant.",
+      "relatedModelIds": [
+        "MODEL-006"
+      ],
+      "references": [
+        "REF-DESTEXHE-1994",
+        "REF-GERSTNER-2014"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-031",
+      "name": "Effective Time Constant of Conductance-Driven Membrane",
+      "domain": "Spiking Neurons",
+      "latex": "\\tau_{\\mathrm{eff}}(t) = \\frac{C_m}{g_L + g_E(t) + g_I(t)}",
+      "lhsUnit": "ms",
+      "rhsUnit": "ms",
+      "variables": [
+        {
+          "symbol": "tau_eff",
+          "meaning": "Effective membrane time constant",
+          "unit": "ms"
+        },
+        {
+          "symbol": "C_m",
+          "meaning": "Capacitance",
+          "unit": "pF"
+        }
+      ],
+      "description": "High-conductance synaptic bombardment shortens the membrane integration window.",
+      "relatedModelIds": [
+        "MODEL-006"
+      ],
+      "references": [
+        "REF-DESTEXHE-1994"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-032",
+      "name": "Quadratic Integrate-and-Fire (QIF) Normal Form ODE",
+      "domain": "Spiking Neurons",
+      "latex": "\\tau_m \\frac{dV}{dt} = a_0(V - V_{\\mathrm{rest}})(V - V_c) + R_m I_{\\mathrm{ext}}(t)",
+      "lhsUnit": "mV",
+      "rhsUnit": "mV",
+      "variables": [
+        {
+          "symbol": "V_rest",
+          "meaning": "Resting potential",
+          "unit": "mV"
+        },
+        {
+          "symbol": "V_c",
+          "meaning": "Critical threshold voltage",
+          "unit": "mV"
+        },
+        {
+          "symbol": "a_0",
+          "meaning": "Curvature coefficient",
+          "unit": "1/mV"
+        }
+      ],
+      "description": "Canonical normal form of a Type I neuron near a saddle-node on invariant circle (SNIC) bifurcation.",
+      "relatedModelIds": [
+        "MODEL-007"
+      ],
+      "references": [
+        "REF-GERSTNER-2014"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-033",
+      "name": "Ermentrout-Kopell Theta-Neuron Phase Transformation",
+      "domain": "Spiking Neurons",
+      "latex": "\\frac{d\\theta}{dt} = (1 - \\cos\\theta) + (1 + \\cos\\theta)\\,\\beta I_{\\mathrm{ext}}(t)",
+      "lhsUnit": "rad/ms",
+      "rhsUnit": "rad/ms",
+      "variables": [
+        {
+          "symbol": "theta",
+          "meaning": "Phase variable on unit circle",
+          "unit": "rad"
+        },
+        {
+          "symbol": "I_ext",
+          "meaning": "Input current",
+          "unit": "pA"
+        }
+      ],
+      "description": "Exact trigonometric transformation mapping QIF voltage (-inf, +inf) onto phase circle [-pi, pi].",
+      "relatedModelIds": [
+        "MODEL-007"
+      ],
+      "references": [
+        "REF-GERSTNER-2014"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-034",
+      "name": "Adaptive Exponential Integrate-and-Fire (AdEx) Voltage ODE",
+      "domain": "Spiking Neurons",
+      "latex": "C_m \\frac{dV}{dt} = -g_L(V - E_L) + g_L \\Delta_T \\exp\\left(\\frac{V - V_T}{\\Delta_T}\\right) - w + I_{\\mathrm{ext}}(t)",
+      "lhsUnit": "pA",
+      "rhsUnit": "pA",
+      "variables": [
+        {
+          "symbol": "Delta_T",
+          "meaning": "Slope factor",
+          "unit": "mV"
+        },
+        {
+          "symbol": "V_T",
+          "meaning": "Effective threshold potential",
+          "unit": "mV"
+        },
+        {
+          "symbol": "w",
+          "meaning": "Adaptation current",
+          "unit": "pA"
+        }
+      ],
+      "description": "Combines passive leak, exponential Na+ spike initiation, and slow adaptation current w.",
+      "relatedModelIds": [
+        "MODEL-008"
+      ],
+      "references": [
+        "REF-BRETTE-GERSTNER-2005"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-035",
+      "name": "AdEx Adaptation Current ODE and Spike Jump",
+      "domain": "Spiking Neurons",
+      "latex": "\\tau_w \\frac{dw}{dt} = a(V - E_L) - w, \\qquad V \\ge V_{\\mathrm{peak}} \\implies V \\leftarrow V_{\\mathrm{reset}}, \\ w \\leftarrow w + b",
+      "lhsUnit": "pA/ms",
+      "rhsUnit": "pA/ms",
+      "variables": [
+        {
+          "symbol": "tau_w",
+          "meaning": "Adaptation time constant",
+          "unit": "ms"
+        },
+        {
+          "symbol": "a",
+          "meaning": "Subthreshold adaptation conductance",
+          "unit": "nS"
+        },
+        {
+          "symbol": "b",
+          "meaning": "Spike-triggered adaptation increment",
+          "unit": "pA"
+        }
+      ],
+      "description": "Couples subthreshold voltage-dependent adaptation with discrete post-spike AHP increments.",
+      "relatedModelIds": [
+        "MODEL-008"
+      ],
+      "references": [
+        "REF-BRETTE-GERSTNER-2005"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-036",
+      "name": "Izhikevich 2D Phenomenological Spiking Voltage ODE",
+      "domain": "Spiking Neurons",
+      "latex": "\\frac{dv}{dt} = 0.04v^2 + 5v + 140 - u + I_{\\mathrm{ext}}(t)",
+      "lhsUnit": "mV/ms",
+      "rhsUnit": "mV/ms",
+      "variables": [
+        {
+          "symbol": "v",
+          "meaning": "Membrane potential",
+          "unit": "mV"
+        },
+        {
+          "symbol": "u",
+          "meaning": "Membrane recovery variable",
+          "unit": "pA-scaled"
+        },
+        {
+          "symbol": "I_ext",
+          "meaning": "Input current",
+          "unit": "pA-scaled"
+        }
+      ],
+      "description": "Quadratic voltage upswing reproducing realistic spike initiation latency and threshold variability.",
+      "relatedModelIds": [
+        "MODEL-009"
+      ],
+      "references": [
+        "REF-IZHIKEVICH-2003"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-037",
+      "name": "Izhikevich Recovery Variable ODE and After-Spike Reset",
+      "domain": "Spiking Neurons",
+      "latex": "\\frac{du}{dt} = a(bv - u), \\qquad v \\ge 30\\,\\mathrm{mV} \\implies v \\leftarrow c, \\ u \\leftarrow u + d",
+      "lhsUnit": "1/ms",
+      "rhsUnit": "1/ms",
+      "variables": [
+        {
+          "symbol": "a",
+          "meaning": "Recovery time scale",
+          "unit": "1/ms"
+        },
+        {
+          "symbol": "b",
+          "meaning": "Subthreshold sensitivity",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "c",
+          "meaning": "After-spike reset voltage",
+          "unit": "mV"
+        },
+        {
+          "symbol": "d",
+          "meaning": "After-spike recovery jump",
+          "unit": "dimensionless"
+        }
+      ],
+      "description": "Four-parameter (a,b,c,d) reset law generating RS, IB, CH, FS, and LTS cortical firing classes.",
+      "relatedModelIds": [
+        "MODEL-009"
+      ],
+      "references": [
+        "REF-IZHIKEVICH-2003"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-038",
+      "name": "Sub-Step Linear Threshold Crossing Time Interpolation",
+      "domain": "Numerical Solvers",
+      "latex": "t_{\\mathrm{sp}} = t_n + h \\frac{V_{\\mathrm{th}} - V_n}{V_{n+1} - V_n}",
+      "lhsUnit": "ms",
+      "rhsUnit": "ms",
+      "variables": [
+        {
+          "symbol": "t_sp",
+          "meaning": "Interpolated spike time",
+          "unit": "ms"
+        },
+        {
+          "symbol": "h",
+          "meaning": "Integration time step",
+          "unit": "ms"
+        }
+      ],
+      "description": "Eliminates grid-quantization artifacts in fixed-step integrate-and-fire simulations.",
+      "relatedModelIds": [
+        "MODEL-005",
+        "MODEL-008"
+      ],
+      "references": [
+        "REF-GERSTNER-2014"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-039",
+      "name": "Single-Exponential Current-Based Synaptic Filter",
+      "domain": "Synaptic Models",
+      "latex": "\\frac{ds}{dt} = -\\frac{s}{\\tau_{\\mathrm{syn}}} + \\sum_f \\delta(t - t^{(f)} - \\tau_d), \\qquad I_{\\mathrm{syn}}(t) = w s(t)",
+      "lhsUnit": "1/ms",
+      "rhsUnit": "1/ms",
+      "variables": [
+        {
+          "symbol": "s",
+          "meaning": "Synaptic gating trace",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "tau_syn",
+          "meaning": "Decay time constant",
+          "unit": "ms"
+        },
+        {
+          "symbol": "tau_d",
+          "meaning": "Axonal delay",
+          "unit": "ms"
+        }
+      ],
+      "description": "First-order instantaneous-rise exponential decay synaptic current filter.",
+      "relatedModelIds": [
+        "MODEL-011"
+      ],
+      "references": [
+        "REF-DAYAN-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-040",
+      "name": "Alpha-Function Postsynaptic Conductance Kernel",
+      "domain": "Synaptic Models",
+      "latex": "g_{\\mathrm{syn}}(t) = \\bar{g}_{\\mathrm{syn}} \\frac{t - t_0}{\\tau_\\alpha} \\exp\\left(1 - \\frac{t - t_0}{\\tau_\\alpha}\\right) \\Theta(t - t_0)",
+      "lhsUnit": "nS",
+      "rhsUnit": "nS",
+      "variables": [
+        {
+          "symbol": "g_syn",
+          "meaning": "Synaptic conductance",
+          "unit": "nS"
+        },
+        {
+          "symbol": "tau_alpha",
+          "meaning": "Time to peak",
+          "unit": "ms"
+        }
+      ],
+      "description": "Smooth synaptic conductance waveform peaking at t - t_0 = tau_alpha.",
+      "relatedModelIds": [
+        "MODEL-012"
+      ],
+      "references": [
+        "REF-DAYAN-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-041",
+      "name": "Second-Order ODE Cascade for Alpha-Function Synapse",
+      "domain": "Synaptic Models",
+      "latex": "\\frac{dz}{dt} = -\\frac{z}{\\tau_\\alpha} + e \\sum_f \\delta(t - t^{(f)}), \\qquad \\frac{dg_{\\mathrm{syn}}}{dt} = \\frac{\\bar{g}_{\\mathrm{syn}}z - g_{\\mathrm{syn}}}{\\tau_\\alpha}",
+      "lhsUnit": "nS/ms",
+      "rhsUnit": "nS/ms",
+      "variables": [
+        {
+          "symbol": "z",
+          "meaning": "Auxiliary cascade state",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "g_syn",
+          "meaning": "Conductance",
+          "unit": "nS"
+        }
+      ],
+      "description": "Markov state-variable representation of alpha-function synapses for arbitrary spike trains.",
+      "relatedModelIds": [
+        "MODEL-012"
+      ],
+      "references": [
+        "REF-DESTEXHE-1994"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-042",
+      "name": "Bi-Exponential Difference-of-Exponentials Synaptic Conductance",
+      "domain": "Synaptic Models",
+      "latex": "g_{\\mathrm{syn}}(t) = \\bar{g}_{\\mathrm{syn}} \\mathcal{N} \\left[\\exp\\left(-\\frac{\\Delta t}{\\tau_d}\\right) - \\exp\\left(-\\frac{\\Delta t}{\\tau_r}\\right)\\right] \\Theta(\\Delta t)",
+      "lhsUnit": "nS",
+      "rhsUnit": "nS",
+      "variables": [
+        {
+          "symbol": "tau_r",
+          "meaning": "Rise time constant",
+          "unit": "ms"
+        },
+        {
+          "symbol": "tau_d",
+          "meaning": "Decay time constant",
+          "unit": "ms"
+        },
+        {
+          "symbol": "N",
+          "meaning": "Peak normalization factor",
+          "unit": "dimensionless"
+        }
+      ],
+      "description": "Separately parameterizes rapid transmitter binding rise and slower unbinding/deactivation decay.",
+      "relatedModelIds": [
+        "MODEL-013"
+      ],
+      "references": [
+        "REF-DESTEXHE-1994"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-043",
+      "name": "Bi-Exponential Peak Normalization Factor",
+      "domain": "Synaptic Models",
+      "latex": "\\mathcal{N} = \\left[\\left(\\frac{\\tau_r}{\\tau_d}\\right)^{\\frac{\\tau_r}{\\tau_d - \\tau_r}} - \\left(\\frac{\\tau_r}{\\tau_d}\\right)^{\\frac{\\tau_d}{\\tau_d - \\tau_r}}\\right]^{-1}, \\qquad t_{\\mathrm{peak}} = \\frac{\\tau_r \\tau_d}{\\tau_d - \\tau_r}\\ln\\left(\\frac{\\tau_d}{\\tau_r}\\right)",
+      "lhsUnit": "dimensionless",
+      "rhsUnit": "dimensionless",
+      "variables": [
+        {
+          "symbol": "t_peak",
+          "meaning": "Time of peak conductance",
+          "unit": "ms"
+        }
+      ],
+      "description": "Exact normalization ensuring peak conductance equals g_bar_syn for a single spike.",
+      "relatedModelIds": [
+        "MODEL-013",
+        "MODEL-014"
+      ],
+      "references": [
+        "REF-DESTEXHE-1994"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-044",
+      "name": "Jahr-Stevens Extracellular Mg2+ Block of NMDA Receptors",
+      "domain": "Synaptic Models",
+      "latex": "B(V) = \\frac{1}{1 + \\frac{[\\mathrm{Mg}^{2+}]_{\\mathrm{out}}}{3.57\\,\\mathrm{mM}} \\exp(-0.062\\,\\mathrm{mV}^{-1}\\,V)}",
+      "lhsUnit": "dimensionless",
+      "rhsUnit": "dimensionless",
+      "variables": [
+        {
+          "symbol": "B(V)",
+          "meaning": "Unblocked fraction",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "[Mg2+]_out",
+          "meaning": "Extracellular magnesium concentration",
+          "unit": "mM"
+        },
+        {
+          "symbol": "V",
+          "meaning": "Postsynaptic voltage",
+          "unit": "mV"
+        }
+      ],
+      "description": "Voltage-dependent relief of Mg2+ pore block endowing NMDARs with coincidence detection.",
+      "relatedModelIds": [
+        "MODEL-014"
+      ],
+      "references": [
+        "REF-TRAYNELIS-2010",
+        "REF-DESTEXHE-1994"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-045",
+      "name": "NMDA Voltage- and Ligand-Gated Synaptic Current",
+      "domain": "Synaptic Models",
+      "latex": "I_{\\mathrm{NMDA}}(V, t) = g_{\\mathrm{NMDA}}(t)\\,B(V)\\,(V - E_{\\mathrm{NMDA}})",
+      "lhsUnit": "pA",
+      "rhsUnit": "pA",
+      "variables": [
+        {
+          "symbol": "I_NMDA",
+          "meaning": "NMDA current",
+          "unit": "pA"
+        },
+        {
+          "symbol": "g_NMDA",
+          "meaning": "Bi-exponential NMDA conductance",
+          "unit": "nS"
+        },
+        {
+          "symbol": "B(V)",
+          "meaning": "Mg2+ unblock factor",
+          "unit": "dimensionless"
+        }
+      ],
+      "description": "Full NMDA postsynaptic current exhibiting negative slope conductance below -30 mV.",
+      "relatedModelIds": [
+        "MODEL-014"
+      ],
+      "references": [
+        "REF-TRAYNELIS-2010"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-046",
+      "name": "Electrical Gap-Junction Ohmic Coupling Current",
+      "domain": "Synaptic Models",
+      "latex": "I_{\\mathrm{gap}, i} = \\sum_{j} g_{\\mathrm{gap}, ij}(V_j - V_i)",
+      "lhsUnit": "pA",
+      "rhsUnit": "pA",
+      "variables": [
+        {
+          "symbol": "I_gap",
+          "meaning": "Electrotonic current",
+          "unit": "pA"
+        },
+        {
+          "symbol": "g_gap",
+          "meaning": "Gap junction conductance",
+          "unit": "nS"
+        }
+      ],
+      "description": "Bidirectional symmetric current across connexin-36 hemichannel gap junctions.",
+      "relatedModelIds": [
+        "MODEL-015"
+      ],
+      "references": [
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-047",
+      "name": "Tsodyks-Markram Inter-Spike Recovery ODEs",
+      "domain": "Short-Term Plasticity",
+      "latex": "\\frac{du}{dt} = \\frac{U_0 - u}{\\tau_{\\mathrm{facil}}}, \\qquad \\frac{dx}{dt} = \\frac{1 - x}{\\tau_{\\mathrm{rec}}}",
+      "lhsUnit": "1/ms",
+      "rhsUnit": "1/ms",
+      "variables": [
+        {
+          "symbol": "u",
+          "meaning": "Vesicle release utilization",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "x",
+          "meaning": "Available vesicle pool fraction",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "tau_facil",
+          "meaning": "Facilitation decay time",
+          "unit": "ms"
+        },
+        {
+          "symbol": "tau_rec",
+          "meaning": "Vesicle recovery time",
+          "unit": "ms"
+        }
+      ],
+      "description": "Continuous relaxation of presynaptic Ca2+ utilization u and vesicle pool recovery x between spikes.",
+      "relatedModelIds": [
+        "MODEL-016"
+      ],
+      "references": [
+        "REF-TSODYKS-1997"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-048",
+      "name": "Tsodyks-Markram Spike-Arrival Jump Update",
+      "domain": "Short-Term Plasticity",
+      "latex": "u^+ = u^- + U_0(1 - u^-), \\qquad \\Delta r = u^+ x^-, \\qquad x^+ = x^- - \\Delta r",
+      "lhsUnit": "dimensionless",
+      "rhsUnit": "dimensionless",
+      "variables": [
+        {
+          "symbol": "U_0",
+          "meaning": "Baseline release probability",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "Delta_r",
+          "meaning": "Released vesicle fraction",
+          "unit": "dimensionless"
+        }
+      ],
+      "description": "Discrete facilitation jump and vesicle pool depletion at each presynaptic action potential.",
+      "relatedModelIds": [
+        "MODEL-016"
+      ],
+      "references": [
+        "REF-TSODYKS-1997"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-049",
+      "name": "Steady-State Periodic Tsodyks-Markram Release Fraction",
+      "domain": "Short-Term Plasticity",
+      "latex": "u_{\\infty}(f) = \\frac{U_0}{1 - (1 - U_0)\\exp(-1/(f\\tau_{\\mathrm{facil}}))}, \\qquad x_{\\infty}(f) = \\frac{1 - \\exp(-1/(f\\tau_{\\mathrm{rec}}))}{1 - (1 - u_{\\infty})\\exp(-1/(f\\tau_{\\mathrm{rec}}))}",
+      "lhsUnit": "dimensionless",
+      "rhsUnit": "dimensionless",
+      "variables": [
+        {
+          "symbol": "f",
+          "meaning": "Stimulation frequency",
+          "unit": "Hz"
+        },
+        {
+          "symbol": "u_inf",
+          "meaning": "Steady utilization",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "x_inf",
+          "meaning": "Steady available fraction",
+          "unit": "dimensionless"
+        }
+      ],
+      "description": "Analytical stationary synaptic response under periodic spike train of frequency f.",
+      "relatedModelIds": [
+        "MODEL-016"
+      ],
+      "references": [
+        "REF-TSODYKS-1997"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-050",
+      "name": "Ornstein-Uhlenbeck Colored Synaptic Background Noise SDE",
+      "domain": "Synaptic Models",
+      "latex": "dI_{\\mathrm{OU}}(t) = -\\frac{I_{\\mathrm{OU}}(t) - \\mu_I}{\\tau_{\\mathrm{OU}}}\\,dt + \\sigma_I \\sqrt{\\frac{2}{\\tau_{\\mathrm{OU}}}}\\,dW_t",
+      "lhsUnit": "pA",
+      "rhsUnit": "pA",
+      "variables": [
+        {
+          "symbol": "mu_I",
+          "meaning": "Mean background current",
+          "unit": "pA"
+        },
+        {
+          "symbol": "sigma_I",
+          "meaning": "Stationary standard deviation",
+          "unit": "pA"
+        },
+        {
+          "symbol": "tau_OU",
+          "meaning": "Correlation time constant",
+          "unit": "ms"
+        }
+      ],
+      "description": "Stochastic colored-noise approximation of in-vivo cortical synaptic bombardment.",
+      "relatedModelIds": [
+        "MODEL-005",
+        "MODEL-008"
+      ],
+      "references": [
+        "REF-DESTEXHE-1994",
+        "REF-GERSTNER-2014"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-051",
+      "name": "Wilson-Cowan Excitatory Population Rate ODE",
+      "domain": "Population Models",
+      "latex": "\\tau_E \\frac{dE}{dt} = -E + (1 - r_E E)\\,\\mathcal{S}_E(w_{EE}E - w_{EI}I + P_{\\mathrm{ext}}(t))",
+      "lhsUnit": "1/ms",
+      "rhsUnit": "1/ms",
+      "variables": [
+        {
+          "symbol": "E",
+          "meaning": "Excitatory active fraction",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "I",
+          "meaning": "Inhibitory active fraction",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "tau_E",
+          "meaning": "Excitatory time constant",
+          "unit": "ms"
+        },
+        {
+          "symbol": "w_EE",
+          "meaning": "E-to-E coupling weight",
+          "unit": "dimensionless"
+        }
+      ],
+      "description": "Mean-field rate dynamics of a localized excitatory neuronal population.",
+      "relatedModelIds": [
+        "MODEL-017"
+      ],
+      "references": [
+        "REF-WILSON-COWAN-1972"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-052",
+      "name": "Wilson-Cowan Inhibitory Population Rate ODE",
+      "domain": "Population Models",
+      "latex": "\\tau_I \\frac{dI}{dt} = -I + (1 - r_I I)\\,\\mathcal{S}_I(w_{IE}E - w_{II}I + Q_{\\mathrm{ext}}(t))",
+      "lhsUnit": "1/ms",
+      "rhsUnit": "1/ms",
+      "variables": [
+        {
+          "symbol": "I",
+          "meaning": "Inhibitory active fraction",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "tau_I",
+          "meaning": "Inhibitory time constant",
+          "unit": "ms"
+        },
+        {
+          "symbol": "w_IE",
+          "meaning": "E-to-I coupling weight",
+          "unit": "dimensionless"
+        }
+      ],
+      "description": "Mean-field rate dynamics of the coupled inhibitory interneuron population.",
+      "relatedModelIds": [
+        "MODEL-017"
+      ],
+      "references": [
+        "REF-WILSON-COWAN-1972"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-053",
+      "name": "Wilson-Cowan Zero-Baseline Logistic Transfer Function",
+      "domain": "Population Models",
+      "latex": "\\mathcal{S}_k(x) = \\frac{1}{1 + \\exp[-a_k(x - \\theta_k)]} - \\frac{1}{1 + \\exp(a_k \\theta_k)}",
+      "lhsUnit": "dimensionless",
+      "rhsUnit": "dimensionless",
+      "variables": [
+        {
+          "symbol": "a_k",
+          "meaning": "Gain slope",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "theta_k",
+          "meaning": "Threshold offset",
+          "unit": "dimensionless"
+        }
+      ],
+      "description": "Population response function shifted so zero net input produces zero baseline rate.",
+      "relatedModelIds": [
+        "MODEL-017"
+      ],
+      "references": [
+        "REF-WILSON-COWAN-1972"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-054",
+      "name": "2D Dynamical System Jacobian Trace-Determinant Stability",
+      "domain": "Population Models",
+      "latex": "\\lambda_{1,2} = \\frac{\\mathrm{Tr}(\\mathbf{J}) \\pm \\sqrt{\\mathrm{Tr}(\\mathbf{J})^2 - 4\\det(\\mathbf{J})}}{2}",
+      "lhsUnit": "1/ms",
+      "rhsUnit": "1/ms",
+      "variables": [
+        {
+          "symbol": "lambda",
+          "meaning": "Eigenvalues at fixed point",
+          "unit": "1/ms"
+        },
+        {
+          "symbol": "J",
+          "meaning": "2x2 Jacobian matrix",
+          "unit": "1/ms"
+        }
+      ],
+      "description": "Classifies fixed points as stable/unstable nodes, spirals, saddles, or Hopf bifurcations.",
+      "relatedModelIds": [
+        "MODEL-002",
+        "MODEL-004",
+        "MODEL-017"
+      ],
+      "references": [
+        "REF-GERSTNER-2014"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-055",
+      "name": "Jansen-Rit Postsynaptic Potential Second-Order ODE Operator",
+      "domain": "Neural Mass",
+      "latex": "\\ddot{y}_k(t) + 2a\\dot{y}_k(t) + a^2 y_k(t) = A a\\,\\mathrm{Sigm}(v_k(t))",
+      "lhsUnit": "mV/s^2",
+      "rhsUnit": "mV/s^2",
+      "variables": [
+        {
+          "symbol": "y_k",
+          "meaning": "Postsynaptic membrane potential",
+          "unit": "mV"
+        },
+        {
+          "symbol": "A",
+          "meaning": "Max EPSP/IPSP amplitude",
+          "unit": "mV"
+        },
+        {
+          "symbol": "a",
+          "meaning": "Inverse synaptic time constant",
+          "unit": "1/s"
+        }
+      ],
+      "description": "Second-order linear differential operator converting firing rates into alpha-kernel PSPs.",
+      "relatedModelIds": [
+        "MODEL-018"
+      ],
+      "references": [
+        "REF-JANSEN-RIT-1995"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-056",
+      "name": "Jansen-Rit Population Firing-Rate Sigmoid",
+      "domain": "Neural Mass",
+      "latex": "\\mathrm{Sigm}(v) = \\frac{2e_0}{1 + \\exp[r(v_0 - v)]}",
+      "lhsUnit": "Hz",
+      "rhsUnit": "Hz",
+      "variables": [
+        {
+          "symbol": "2e_0",
+          "meaning": "Maximum firing rate (5 Hz)",
+          "unit": "Hz"
+        },
+        {
+          "symbol": "v_0",
+          "meaning": "PSP at half-max rate (6 mV)",
+          "unit": "mV"
+        },
+        {
+          "symbol": "r",
+          "meaning": "Steepness (0.56 mV^-1)",
+          "unit": "1/mV"
+        }
+      ],
+      "description": "Converts net somatic membrane depolarization into mean population spike rate.",
+      "relatedModelIds": [
+        "MODEL-018"
+      ],
+      "references": [
+        "REF-JANSEN-RIT-1995"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-057",
+      "name": "Jansen-Rit Pyramidal EEG Dipole Proxy Signal",
+      "domain": "Neural Mass",
+      "latex": "V_{\\mathrm{EEG}}(t) = y_1(t) - y_2(t)",
+      "lhsUnit": "mV",
+      "rhsUnit": "mV",
+      "variables": [
+        {
+          "symbol": "y_1",
+          "meaning": "Excitatory interneuron PSP on pyramidal cells",
+          "unit": "mV"
+        },
+        {
+          "symbol": "y_2",
+          "meaning": "Inhibitory interneuron PSP on pyramidal cells",
+          "unit": "mV"
+        }
+      ],
+      "description": "Net pyramidal apical-soma transmembrane potential proxy proportional to local EEG/VEP.",
+      "relatedModelIds": [
+        "MODEL-018"
+      ],
+      "references": [
+        "REF-JANSEN-RIT-1995",
+        "REF-BUZSAKI-2012"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-058",
+      "name": "Wong-Wang Competing NMDA Decision Attractor SDE",
+      "domain": "Population Models",
+      "latex": "\\frac{dS_i}{dt} = -\\frac{S_i}{\\tau_S} + (1 - S_i)\\gamma H(x_i), \\qquad i \\in \\{1, 2\\}",
+      "lhsUnit": "1/ms",
+      "rhsUnit": "1/ms",
+      "variables": [
+        {
+          "symbol": "S_i",
+          "meaning": "NMDA synaptic gating variable",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "tau_S",
+          "meaning": "NMDA decay constant (100 ms)",
+          "unit": "ms"
+        },
+        {
+          "symbol": "gamma",
+          "meaning": "Saturation factor",
+          "unit": "dimensionless"
+        }
+      ],
+      "description": "Slow NMDA-mediated recurrent reverberation underlying perceptual decision accumulation.",
+      "relatedModelIds": [
+        "MODEL-019"
+      ],
+      "references": [
+        "REF-GERSTNER-2014"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-059",
+      "name": "Abbott-Chance Gain-Modulated Population Input-Output Function",
+      "domain": "Population Models",
+      "latex": "H(x_i) = \\frac{a x_i - b}{1 - \\exp[-d(a x_i - b)]}",
+      "lhsUnit": "Hz",
+      "rhsUnit": "Hz",
+      "variables": [
+        {
+          "symbol": "x_i",
+          "meaning": "Total synaptic current to pool i",
+          "unit": "nA"
+        },
+        {
+          "symbol": "a",
+          "meaning": "Linear gain",
+          "unit": "Hz/nA"
+        },
+        {
+          "symbol": "b",
+          "meaning": "Threshold shift",
+          "unit": "Hz"
+        },
+        {
+          "symbol": "d",
+          "meaning": "Curvature",
+          "unit": "s"
+        }
+      ],
+      "description": "Smooth threshold-linear transfer function approximating a noisy LIF neuron population.",
+      "relatedModelIds": [
+        "MODEL-019"
+      ],
+      "references": [
+        "REF-GERSTNER-2014"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-060",
+      "name": "Kuramoto Coupled Phase Oscillator Network Equation",
+      "domain": "Oscillators",
+      "latex": "\\frac{d\\theta_i}{dt} = \\omega_i + \\frac{K}{N}\\sum_{j=1}^{N} A_{ij} \\sin\\left(\\theta_j(t - \\tau_{ij}) - \\theta_i(t)\\right) + \\sigma\\xi_i(t)",
+      "lhsUnit": "rad/s",
+      "rhsUnit": "rad/s",
+      "variables": [
+        {
+          "symbol": "theta_i",
+          "meaning": "Oscillator phase",
+          "unit": "rad"
+        },
+        {
+          "symbol": "omega_i",
+          "meaning": "Natural angular frequency",
+          "unit": "rad/s"
+        },
+        {
+          "symbol": "K",
+          "meaning": "Global coupling strength",
+          "unit": "rad/s"
+        },
+        {
+          "symbol": "tau_ij",
+          "meaning": "Conduction delay",
+          "unit": "ms"
+        }
+      ],
+      "description": "Weakly coupled limit-cycle oscillators interacting via sinusoidal phase differences and tract delays.",
+      "relatedModelIds": [
+        "MODEL-027"
+      ],
+      "references": [
+        "REF-KURAMOTO-1984",
+        "REF-BREAKSPEAR-2017"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-061",
+      "name": "Kuramoto Complex Macroscopic Order Parameter",
+      "domain": "Oscillators",
+      "latex": "R(t)\\,e^{i\\Psi(t)} = \\frac{1}{N}\\sum_{j=1}^{N} e^{i\\theta_j(t)}",
+      "lhsUnit": "dimensionless",
+      "rhsUnit": "dimensionless",
+      "variables": [
+        {
+          "symbol": "R(t)",
+          "meaning": "Phase coherence magnitude in [0,1]",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "Psi(t)",
+          "meaning": "Mean collective phase angle",
+          "unit": "rad"
+        }
+      ],
+      "description": "Centroid of phases on the complex unit circle quantifying global network synchronization.",
+      "relatedModelIds": [
+        "MODEL-027"
+      ],
+      "references": [
+        "REF-KURAMOTO-1984"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-062",
+      "name": "Kuramoto Critical Coupling and Order Parameter Bifurcation",
+      "domain": "Oscillators",
+      "latex": "K_c = 2\\gamma, \\qquad R_{\\infty}(K) = \\sqrt{1 - \\frac{K_c}{K}} \\quad (K \\ge K_c)",
+      "lhsUnit": "dimensionless",
+      "rhsUnit": "dimensionless",
+      "variables": [
+        {
+          "symbol": "K_c",
+          "meaning": "Critical coupling threshold",
+          "unit": "rad/s"
+        },
+        {
+          "symbol": "gamma",
+          "meaning": "Lorentzian frequency half-width",
+          "unit": "rad/s"
+        }
+      ],
+      "description": "Exact analytical pitchfork bifurcation of macroscopic synchrony for Lorentzian frequency spread.",
+      "relatedModelIds": [
+        "MODEL-027"
+      ],
+      "references": [
+        "REF-KURAMOTO-1984"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-063",
+      "name": "Brunel Balanced Recurrent E/I Network Synaptic Drive",
+      "domain": "Spiking Networks",
+      "latex": "R I_{\\mathrm{syn}, i}(t) = \\tau_m J_E \\sum_{j \\in \\mathcal{E}_i}\\sum_f \\delta(t - t_j^{(f)} - D) - \\tau_m g J_E \\sum_{k \\in \\mathcal{I}_i}\\sum_f \\delta(t - t_k^{(f)} - D)",
+      "lhsUnit": "mV*ms",
+      "rhsUnit": "mV*ms",
+      "variables": [
+        {
+          "symbol": "J_E",
+          "meaning": "Excitatory EPSP jump",
+          "unit": "mV"
+        },
+        {
+          "symbol": "g",
+          "meaning": "Relative inhibitory strength J_I/J_E",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "D",
+          "meaning": "Synaptic transmission delay",
+          "unit": "ms"
+        }
+      ],
+      "description": "Sparse recurrent excitatory and inhibitory delta-current drive controlling AI vs SR network states.",
+      "relatedModelIds": [
+        "MODEL-021"
+      ],
+      "references": [
+        "REF-BRUNEL-2000"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-064",
+      "name": "Balanced Network Mean and Variance of Synaptic Input",
+      "domain": "Spiking Networks",
+      "latex": "\\mu_V = \\tau_m J_E (C_E \\nu_E - g C_I \\nu_I + C_{\\mathrm{ext}}\\nu_{\\mathrm{ext}}), \\qquad \\sigma_V^2 = \\tau_m J_E^2 (C_E \\nu_E + g^2 C_I \\nu_I + C_{\\mathrm{ext}}\\nu_{\\mathrm{ext}})",
+      "lhsUnit": "mV",
+      "rhsUnit": "mV",
+      "variables": [
+        {
+          "symbol": "mu_V",
+          "meaning": "Mean free membrane potential",
+          "unit": "mV"
+        },
+        {
+          "symbol": "sigma_V^2",
+          "meaning": "Voltage variance",
+          "unit": "mV^2"
+        }
+      ],
+      "description": "Diffusion approximation showing how g > 4 cancels mean drift while maintaining large fluctuations.",
+      "relatedModelIds": [
+        "MODEL-021"
+      ],
+      "references": [
+        "REF-BRUNEL-2000",
+        "REF-VANVREESWIJK-1996"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-065",
+      "name": "Vogels Symmetric Inhibitory STDP (iSTDP) Weight Update",
+      "domain": "Plasticity",
+      "latex": "\\Delta w_{ij}^{IE}(\\Delta t) = \\eta_{\\mathrm{iSTDP}}\\left(\\exp\\left(-\\frac{|\\Delta t|}{\\tau_{\\mathrm{STDP}}}\\right) - \\alpha\\right), \\qquad \\alpha = 2\\rho_0 \\tau_{\\mathrm{STDP}}",
+      "lhsUnit": "dimensionless",
+      "rhsUnit": "dimensionless",
+      "variables": [
+        {
+          "symbol": "rho_0",
+          "meaning": "Target postsynaptic firing rate",
+          "unit": "Hz"
+        },
+        {
+          "symbol": "tau_STDP",
+          "meaning": "Plasticity window (20 ms)",
+          "unit": "ms"
+        },
+        {
+          "symbol": "eta_iSTDP",
+          "meaning": "Learning rate",
+          "unit": "dimensionless"
+        }
+      ],
+      "description": "Potentiates inhibition for near-coincident E/I spikes and depresses inhibition when E firing drops below rho_0.",
+      "relatedModelIds": [
+        "MODEL-022"
+      ],
+      "references": [
+        "REF-VOGELS-2011"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-066",
+      "name": "Basic Rate-Based Correlation Hebbian Learning Rule",
+      "domain": "Plasticity",
+      "latex": "\\tau_w \\frac{dw_{ij}}{dt} = x_j y_i",
+      "lhsUnit": "1/ms",
+      "rhsUnit": "1/ms",
+      "variables": [
+        {
+          "symbol": "w_ij",
+          "meaning": "Synaptic weight",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "x_j",
+          "meaning": "Presynaptic rate",
+          "unit": "Hz"
+        },
+        {
+          "symbol": "y_i",
+          "meaning": "Postsynaptic rate",
+          "unit": "Hz"
+        }
+      ],
+      "description": "Synaptic weight grows proportionally to correlated pre- and postsynaptic firing.",
+      "relatedModelIds": [
+        "MODEL-023"
+      ],
+      "references": [
+        "REF-DAYAN-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-067",
+      "name": "Oja Multiplicatively Normalized Hebbian PCA Rule",
+      "domain": "Plasticity",
+      "latex": "\\tau_w \\frac{d\\mathbf{w}}{dt} = y\\,\\mathbf{x} - \\alpha y^2 \\mathbf{w}",
+      "lhsUnit": "1/ms",
+      "rhsUnit": "1/ms",
+      "variables": [
+        {
+          "symbol": "w",
+          "meaning": "Synaptic weight vector",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "x",
+          "meaning": "Input rate vector",
+          "unit": "Hz"
+        },
+        {
+          "symbol": "y",
+          "meaning": "Output w^T x",
+          "unit": "Hz"
+        }
+      ],
+      "description": "Stabilizes Hebbian learning so weight vector norm converges to 1/sqrt(alpha) along the first principal component.",
+      "relatedModelIds": [
+        "MODEL-023"
+      ],
+      "references": [
+        "REF-OJA-1982"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-068",
+      "name": "Bienenstock-Cooper-Munro (BCM) Sliding-Threshold Plasticity Rule",
+      "domain": "Plasticity",
+      "latex": "\\tau_w \\frac{d\\mathbf{w}}{dt} = y(y - \\theta_M)\\mathbf{x}, \\qquad \\tau_\\theta \\frac{d\\theta_M}{dt} = y^2 - \\theta_M",
+      "lhsUnit": "1/ms",
+      "rhsUnit": "1/ms",
+      "variables": [
+        {
+          "symbol": "theta_M",
+          "meaning": "Modification threshold",
+          "unit": "Hz^2"
+        },
+        {
+          "symbol": "tau_theta",
+          "meaning": "Threshold sliding time constant",
+          "unit": "ms"
+        }
+      ],
+      "description": "Activity-dependent crossover threshold theta_M between LTD (y < theta_M) and LTP (y > theta_M).",
+      "relatedModelIds": [
+        "MODEL-023"
+      ],
+      "references": [
+        "REF-BCM-1982"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-069",
+      "name": "Bi & Poo Pair-Based STDP Exponential Timing Window",
+      "domain": "Plasticity",
+      "latex": "\\Delta w(\\Delta t) = \\begin{cases} +A_+(w)\\exp(-\\Delta t/\\tau_+), & \\Delta t = t_{\\mathrm{post}} - t_{\\mathrm{pre}} > 0 \\\\ -A_-(w)\\exp(+\\Delta t/\\tau_-), & \\Delta t < 0 \\end{cases}",
+      "lhsUnit": "dimensionless",
+      "rhsUnit": "dimensionless",
+      "variables": [
+        {
+          "symbol": "Delta_t",
+          "meaning": "Post minus pre spike time",
+          "unit": "ms"
+        },
+        {
+          "symbol": "tau_+",
+          "meaning": "LTP time constant (16.8 ms)",
+          "unit": "ms"
+        },
+        {
+          "symbol": "tau_-",
+          "meaning": "LTD time constant (33.7 ms)",
+          "unit": "ms"
+        }
+      ],
+      "description": "Causal pre-before-post spiking induces exponential LTP; anti-causal post-before-pre induces LTD.",
+      "relatedModelIds": [
+        "MODEL-024"
+      ],
+      "references": [
+        "REF-BI-POO-1998"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-070",
+      "name": "Online Local Eligibility Trace ODEs for Pair STDP",
+      "domain": "Plasticity",
+      "latex": "\\frac{dx_{\\mathrm{pre}}}{dt} = -\\frac{x_{\\mathrm{pre}}}{\\tau_+} + \\sum_f \\delta(t - t_{\\mathrm{pre}}^{(f)}), \\qquad \\frac{dy_{\\mathrm{post}}}{dt} = -\\frac{y_{\\mathrm{post}}}{\\tau_-} + \\sum_f \\delta(t - t_{\\mathrm{post}}^{(f)})",
+      "lhsUnit": "1/ms",
+      "rhsUnit": "1/ms",
+      "variables": [
+        {
+          "symbol": "x_pre",
+          "meaning": "Presynaptic trace",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "y_post",
+          "meaning": "Postsynaptic trace",
+          "unit": "dimensionless"
+        }
+      ],
+      "description": "Local synaptic traces enabling O(1) event-driven STDP weight updates without storing spike histories.",
+      "relatedModelIds": [
+        "MODEL-024"
+      ],
+      "references": [
+        "REF-GERSTNER-2014"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-071",
+      "name": "Multiplicative Soft-Bound STDP Weight Dependence",
+      "domain": "Plasticity",
+      "latex": "A_+(w) = \\eta_+(w_{\\max} - w), \\qquad A_-(w) = \\eta_-(w - w_{\\min})",
+      "lhsUnit": "dimensionless",
+      "rhsUnit": "dimensionless",
+      "variables": [
+        {
+          "symbol": "w_max",
+          "meaning": "Upper weight bound",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "w_min",
+          "meaning": "Lower weight bound",
+          "unit": "dimensionless"
+        }
+      ],
+      "description": "State-dependent scaling that smoothly bounds synaptic weights and produces unimodal weight distributions.",
+      "relatedModelIds": [
+        "MODEL-024"
+      ],
+      "references": [
+        "REF-GERSTNER-2014"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-072",
+      "name": "Pfister-Gerstner Triplet STDP Postsynaptic Slow Trace Rule",
+      "domain": "Plasticity",
+      "latex": "\\Delta w_+^{\\mathrm{triplet}} = x_{\\mathrm{pre}}(t)\\left(A_2^+ + A_3^+ y_{\\mathrm{slow}}(t^-)\\right)",
+      "lhsUnit": "dimensionless",
+      "rhsUnit": "dimensionless",
+      "variables": [
+        {
+          "symbol": "y_slow",
+          "meaning": "Slow postsynaptic trace (tau_y=114 ms)",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "A_3^+",
+          "meaning": "Triplet potentiation amplitude",
+          "unit": "dimensionless"
+        }
+      ],
+      "description": "Captures firing-rate dependence of STDP where high-frequency post-pre-post triplets favor LTP.",
+      "relatedModelIds": [
+        "MODEL-024"
+      ],
+      "references": [
+        "REF-GERSTNER-2014"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-073",
+      "name": "Turrigiano Multiplicative Homeostatic Synaptic Scaling",
+      "domain": "Plasticity",
+      "latex": "\\tau_r \\frac{d\\bar{r}_i}{dt} = -\\bar{r}_i + S_i(t), \\qquad \\tau_H \\frac{dw_{ij}}{dt} = \\gamma_H(r_{\\mathrm{target}} - \\bar{r}_i)w_{ij}",
+      "lhsUnit": "1/ms",
+      "rhsUnit": "1/ms",
+      "variables": [
+        {
+          "symbol": "r_bar_i",
+          "meaning": "Filtered postsynaptic firing rate",
+          "unit": "Hz"
+        },
+        {
+          "symbol": "r_target",
+          "meaning": "Homeostatic set-point rate",
+          "unit": "Hz"
+        }
+      ],
+      "description": "Globally scales all incoming excitatory synapses multiplicatively to maintain target firing rate.",
+      "relatedModelIds": [
+        "MODEL-025"
+      ],
+      "references": [
+        "REF-TURRIGIANO-2008"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-074",
+      "name": "Temporal-Difference (TD) Reward Prediction Error (Dopamine RPE)",
+      "domain": "Reinforcement Learning",
+      "latex": "\\delta_t = r_t + \\gamma V(s_{t+1}) - V(s_t)",
+      "lhsUnit": "reward_unit",
+      "rhsUnit": "reward_unit",
+      "variables": [
+        {
+          "symbol": "delta_t",
+          "meaning": "Phasic dopamine prediction error",
+          "unit": "reward_unit"
+        },
+        {
+          "symbol": "r_t",
+          "meaning": "Immediate reward",
+          "unit": "reward_unit"
+        },
+        {
+          "symbol": "gamma",
+          "meaning": "Temporal discount factor",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "V(s)",
+          "meaning": "State value estimate",
+          "unit": "reward_unit"
+        }
+      ],
+      "description": "Difference between received plus discounted future value and expected value encoded by VTA dopamine bursts/pauses.",
+      "relatedModelIds": [
+        "MODEL-026"
+      ],
+      "references": [
+        "REF-SCHULTZ-1997",
+        "REF-SUTTON-BARTO-2018"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-075",
+      "name": "Three-Factor Dopamine-Modulated Eligibility Trace Plasticity",
+      "domain": "Reinforcement Learning",
+      "latex": "\\frac{de_{ij}}{dt} = -\\frac{e_{ij}}{\\tau_e} + \\mathrm{Hebb}(r_j, r_i), \\qquad \\frac{dw_{ij}}{dt} = \\eta_{\\mathrm{DA}}\\,\\delta_{\\mathrm{DA}}(t)\\,e_{ij}(t)",
+      "lhsUnit": "1/ms",
+      "rhsUnit": "1/ms",
+      "variables": [
+        {
+          "symbol": "e_ij",
+          "meaning": "Synaptic eligibility flag",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "delta_DA",
+          "meaning": "Dopamine RPE signal",
+          "unit": "reward_unit"
+        }
+      ],
+      "description": "Bridges millisecond Hebbian spike coincidence with delayed behavioral reward via decaying eligibility traces.",
+      "relatedModelIds": [
+        "MODEL-026"
+      ],
+      "references": [
+        "REF-SCHULTZ-1997",
+        "REF-GERSTNER-2014"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-076",
+      "name": "Classical Fourth-Order Runge-Kutta (RK4) Step Update",
+      "domain": "Numerical Solvers",
+      "latex": "\\mathbf{y}_{n+1} = \\mathbf{y}_n + \\frac{h}{6}(\\mathbf{k}_1 + 2\\mathbf{k}_2 + 2\\mathbf{k}_3 + \\mathbf{k}_4)",
+      "lhsUnit": "state_unit",
+      "rhsUnit": "state_unit",
+      "variables": [
+        {
+          "symbol": "h",
+          "meaning": "Time step dt",
+          "unit": "ms"
+        },
+        {
+          "symbol": "k_1..4",
+          "meaning": "Stage derivatives",
+          "unit": "state_unit/ms"
+        }
+      ],
+      "description": "Fourth-order accurate explicit ODE integrator with local truncation error O(h^5) and global error O(h^4).",
+      "relatedModelIds": [
+        "MODEL-001",
+        "MODEL-002",
+        "MODEL-017"
+      ],
+      "references": [
+        "REF-DAYAN-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-077",
+      "name": "Rush-Larsen Exponential Euler Gating Update",
+      "domain": "Numerical Solvers",
+      "latex": "x_{n+1} = x_\\infty(V_n) + (x_n - x_\\infty(V_n))\\exp\\left(-\\frac{h}{\\tau_x(V_n)}\\right)",
+      "lhsUnit": "dimensionless",
+      "rhsUnit": "dimensionless",
+      "variables": [
+        {
+          "symbol": "x_n",
+          "meaning": "Gating variable at step n",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "h",
+          "meaning": "Time step dt",
+          "unit": "ms"
+        }
+      ],
+      "description": "Analytically integrates stiff linear gating equations over step h while holding voltage constant.",
+      "relatedModelIds": [
+        "MODEL-001"
+      ],
+      "references": [
+        "REF-HH-1952"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-078",
+      "name": "Euler-Maruyama Stochastic Differential Equation Update",
+      "domain": "Numerical Solvers",
+      "latex": "\\mathbf{y}_{n+1} = \\mathbf{y}_n + \\mathbf{f}(t_n, \\mathbf{y}_n)h + \\mathbf{G}(t_n, \\mathbf{y}_n)\\sqrt{h}\\,\\boldsymbol{\\xi}_n, \\qquad \\boldsymbol{\\xi}_n \\sim \\mathcal{N}(\\mathbf{0}, \\mathbf{I})",
+      "lhsUnit": "state_unit",
+      "rhsUnit": "state_unit",
+      "variables": [
+        {
+          "symbol": "h",
+          "meaning": "Time step",
+          "unit": "ms"
+        },
+        {
+          "symbol": "xi_n",
+          "meaning": "Standard normal variate",
+          "unit": "dimensionless"
+        }
+      ],
+      "description": "First-order Ito stochastic integrator scaling Wiener increments by sqrt(h).",
+      "relatedModelIds": [
+        "MODEL-019",
+        "MODEL-027"
+      ],
+      "references": [
+        "REF-GERSTNER-2014"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-079",
+      "name": "Normalized Symmetric Graph Laplacian Matrix",
+      "domain": "Network Science",
+      "latex": "\\mathbf{L}_{\\mathrm{sym}} = \\mathbf{I} - \\mathbf{D}^{-1/2}\\mathbf{W}\\mathbf{D}^{-1/2}, \\qquad D_{ii} = \\sum_{j=1}^N W_{ij}",
+      "lhsUnit": "dimensionless",
+      "rhsUnit": "dimensionless",
+      "variables": [
+        {
+          "symbol": "L_sym",
+          "meaning": "Normalized Laplacian",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "W",
+          "meaning": "Adjacency weight matrix",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "D",
+          "meaning": "Degree matrix",
+          "unit": "dimensionless"
+        }
+      ],
+      "description": "Operator governing diffusive eigenmodes and heat propagation across a structural connectome.",
+      "relatedModelIds": [
+        "MODEL-028"
+      ],
+      "references": [
+        "REF-BULLMORE-2009"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-080",
+      "name": "Linearized Connectome Ornstein-Uhlenbeck Spatial Autoregressive Covariance",
+      "domain": "Network Science",
+      "latex": "\\mathbf{C} = \\frac{\\sigma^2 \\tau_x}{2}(\\mathbf{I} - G\\tilde{\\mathbf{W}})^{-1}(\\mathbf{I} - G\\tilde{\\mathbf{W}}^\\top)^{-1}",
+      "lhsUnit": "activity^2",
+      "rhsUnit": "activity^2",
+      "variables": [
+        {
+          "symbol": "C",
+          "meaning": "Stationary covariance matrix",
+          "unit": "activity^2"
+        },
+        {
+          "symbol": "G",
+          "meaning": "Global coupling gain",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "W_tilde",
+          "meaning": "Normalized structural connectome",
+          "unit": "dimensionless"
+        }
+      ],
+      "description": "Predicts functional covariance and correlation matrix analytically from structural connectivity W.",
+      "relatedModelIds": [
+        "MODEL-028"
+      ],
+      "references": [
+        "REF-BREAKSPEAR-2017",
+        "REF-SANZ-LEON-2013"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-081",
+      "name": "Node Degree and Weighted Node Strength",
+      "domain": "Network Science",
+      "latex": "k_i = \\sum_{j=1}^N A_{ij}, \\qquad s_i^{\\mathrm{out}} = \\sum_{j=1}^N W_{ij}, \\qquad s_i^{\\mathrm{in}} = \\sum_{j=1}^N W_{ji}",
+      "lhsUnit": "dimensionless",
+      "rhsUnit": "dimensionless",
+      "variables": [
+        {
+          "symbol": "k_i",
+          "meaning": "Binary degree",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "s_i",
+          "meaning": "Weighted strength",
+          "unit": "dimensionless"
+        }
+      ],
+      "description": "Fundamental local connectivity centrality of brain network node i.",
+      "relatedModelIds": [
+        "MODEL-028"
+      ],
+      "references": [
+        "REF-RUBINOV-2010"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-082",
+      "name": "Watts-Strogatz Local and Global Clustering Coefficient",
+      "domain": "Network Science",
+      "latex": "C_i = \\frac{2t_i}{k_i(k_i - 1)}, \\qquad t_i = \\frac{1}{2}\\sum_{j,h} A_{ij}A_{ih}A_{jh}, \\qquad C = \\frac{1}{N}\\sum_{i=1}^N C_i",
+      "lhsUnit": "dimensionless",
+      "rhsUnit": "dimensionless",
+      "variables": [
+        {
+          "symbol": "C_i",
+          "meaning": "Local clustering coefficient",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "t_i",
+          "meaning": "Number of triangles around node i",
+          "unit": "dimensionless"
+        }
+      ],
+      "description": "Fraction of a node's neighbors that are also directly connected to each other (cliquishness).",
+      "relatedModelIds": [
+        "MODEL-028"
+      ],
+      "references": [
+        "REF-WATTS-STROGATZ-1998",
+        "REF-RUBINOV-2010"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-083",
+      "name": "Characteristic Path Length and Global Efficiency",
+      "domain": "Network Science",
+      "latex": "L = \\frac{1}{N(N-1)}\\sum_{i \\neq j} d_{ij}, \\qquad E_{\\mathrm{glob}} = \\frac{1}{N(N-1)}\\sum_{i \\neq j} \\frac{1}{d_{ij}}",
+      "lhsUnit": "steps",
+      "rhsUnit": "steps",
+      "variables": [
+        {
+          "symbol": "d_ij",
+          "meaning": "Shortest path distance between i and j",
+          "unit": "steps"
+        },
+        {
+          "symbol": "E_glob",
+          "meaning": "Global efficiency",
+          "unit": "1/steps"
+        }
+      ],
+      "description": "Quantifies global functional integration capacity across connected and disconnected graphs.",
+      "relatedModelIds": [
+        "MODEL-028"
+      ],
+      "references": [
+        "REF-RUBINOV-2010"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-084",
+      "name": "Node Betweenness Centrality",
+      "domain": "Network Science",
+      "latex": "b_i = \\frac{1}{(N-1)(N-2)}\\sum_{\\substack{s \\neq i \\neq t \\\\ s \\neq t}} \\frac{\\sigma_{st}(i)}{\\sigma_{st}}",
+      "lhsUnit": "dimensionless",
+      "rhsUnit": "dimensionless",
+      "variables": [
+        {
+          "symbol": "sigma_st",
+          "meaning": "Total shortest paths from s to t",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "sigma_st(i)",
+          "meaning": "Shortest paths passing through i",
+          "unit": "dimensionless"
+        }
+      ],
+      "description": "Identifies connector hubs acting as bridges along shortest communication paths.",
+      "relatedModelIds": [
+        "MODEL-028"
+      ],
+      "references": [
+        "REF-RUBINOV-2010"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-085",
+      "name": "Newman-Girvan Network Modularity Q",
+      "domain": "Network Science",
+      "latex": "Q = \\frac{1}{2m}\\sum_{i,j}\\left[W_{ij} - \\gamma_{\\mathrm{res}}\\frac{s_i s_j}{2m}\\right]\\delta(c_i, c_j)",
+      "lhsUnit": "dimensionless",
+      "rhsUnit": "dimensionless",
+      "variables": [
+        {
+          "symbol": "Q",
+          "meaning": "Modularity quality index",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "c_i",
+          "meaning": "Community assignment of node i",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "2m",
+          "meaning": "Total edge weight",
+          "unit": "dimensionless"
+        }
+      ],
+      "description": "Measures segregation of a brain network into densely intra-connected modules relative to a null model.",
+      "relatedModelIds": [
+        "MODEL-028"
+      ],
+      "references": [
+        "REF-NEWMAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-086",
+      "name": "Humphries-Gurney Small-Worldness Index (sigma_SW)",
+      "domain": "Network Science",
+      "latex": "\\sigma_{\\mathrm{SW}} = \\frac{C / C_{\\mathrm{rand}}}{L / L_{\\mathrm{rand}}}",
+      "lhsUnit": "dimensionless",
+      "rhsUnit": "dimensionless",
+      "variables": [
+        {
+          "symbol": "sigma_SW",
+          "meaning": "Small-world scalar (>1 for small-world)",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "C_rand",
+          "meaning": "Null-model clustering",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "L_rand",
+          "meaning": "Null-model path length",
+          "unit": "steps"
+        }
+      ],
+      "description": "Ratio of normalized clustering to normalized path length benchmarked against degree-preserving random graphs.",
+      "relatedModelIds": [
+        "MODEL-028"
+      ],
+      "references": [
+        "REF-WATTS-STROGATZ-1998",
+        "REF-BULLMORE-2009"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-087",
+      "name": "Squared Magnitude Response of Nth-Order Butterworth Filter",
+      "domain": "Signal Processing",
+      "latex": "|H(j\\omega)|^2 = \\frac{1}{1 + (\\omega / \\omega_c)^{2N}}",
+      "lhsUnit": "dimensionless",
+      "rhsUnit": "dimensionless",
+      "variables": [
+        {
+          "symbol": "omega",
+          "meaning": "Angular frequency",
+          "unit": "rad/s"
+        },
+        {
+          "symbol": "omega_c",
+          "meaning": "Cutoff frequency",
+          "unit": "rad/s"
+        },
+        {
+          "symbol": "N",
+          "meaning": "Filter order",
+          "unit": "dimensionless"
+        }
+      ],
+      "description": "Maximally flat passband IIR filter response applied zero-phase via forward-backward filtering.",
+      "relatedModelIds": [
+        "MODEL-018"
+      ],
+      "references": [
+        "REF-WELCH-1967"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-088",
+      "name": "Linear-Phase Windowed-Sinc FIR Filter Convolution",
+      "domain": "Signal Processing",
+      "latex": "y[n] = \\sum_{k=0}^{M} b_k x[n - k]",
+      "lhsUnit": "uV",
+      "rhsUnit": "uV",
+      "variables": [
+        {
+          "symbol": "y[n]",
+          "meaning": "Filtered output sample",
+          "unit": "uV"
+        },
+        {
+          "symbol": "b_k",
+          "meaning": "Symmetric FIR tap coefficients",
+          "unit": "dimensionless"
+        }
+      ],
+      "description": "Finite impulse response convolution guaranteeing constant group delay across all frequencies.",
+      "relatedModelIds": [
+        "MODEL-018"
+      ],
+      "references": [
+        "REF-WELCH-1967"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-089",
+      "name": "Discrete Fourier Transform (DFT)",
+      "domain": "Signal Processing",
+      "latex": "X[k] = \\sum_{n=0}^{N-1} w[n]\\,x[n]\\,\\exp\\left(-j\\frac{2\\pi kn}{N}\\right), \\qquad f_k = \\frac{k f_s}{N}",
+      "lhsUnit": "uV",
+      "rhsUnit": "uV",
+      "variables": [
+        {
+          "symbol": "X[k]",
+          "meaning": "Complex Fourier coefficient",
+          "unit": "uV"
+        },
+        {
+          "symbol": "w[n]",
+          "meaning": "Taper window",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "f_s",
+          "meaning": "Sampling rate",
+          "unit": "Hz"
+        }
+      ],
+      "description": "Decomposes a finite discrete-time neural signal into orthogonal complex sinusoids.",
+      "relatedModelIds": [
+        "MODEL-018"
+      ],
+      "references": [
+        "REF-WELCH-1967"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-090",
+      "name": "Welch Averaged Modified Periodogram Power Spectral Density (PSD)",
+      "domain": "Signal Processing",
+      "latex": "\\hat{P}_{xx}(f_k) = \\frac{1}{K f_s L U}\\sum_{m=1}^{K}\\left|\\sum_{n=0}^{L-1} w[n]\\,x_m[n]\\,e^{-j2\\pi kn/L}\\right|^2",
+      "lhsUnit": "uV^2/Hz",
+      "rhsUnit": "uV^2/Hz",
+      "variables": [
+        {
+          "symbol": "P_xx",
+          "meaning": "Power spectral density",
+          "unit": "uV^2/Hz"
+        },
+        {
+          "symbol": "K",
+          "meaning": "Number of overlapped segments",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "U",
+          "meaning": "Window energy normalization",
+          "unit": "dimensionless"
+        }
+      ],
+      "description": "Variance-reduced spectral power estimator averaging windowed periodograms across overlapped segments.",
+      "relatedModelIds": [
+        "MODEL-018"
+      ],
+      "references": [
+        "REF-WELCH-1967"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-091",
+      "name": "Short-Time Fourier Transform (STFT) Spectrogram",
+      "domain": "Signal Processing",
+      "latex": "S_{xx}(m, f_k) = \\left|\\sum_{n=0}^{L-1} x[n + mH]\\,w[n]\\,e^{-j2\\pi kn/L}\\right|^2",
+      "lhsUnit": "uV^2",
+      "rhsUnit": "uV^2",
+      "variables": [
+        {
+          "symbol": "m",
+          "meaning": "Time frame index",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "H",
+          "meaning": "Hop size in samples",
+          "unit": "samples"
+        }
+      ],
+      "description": "Sliding-window time-frequency power distribution subject to the Gabor-Heisenberg uncertainty limit.",
+      "relatedModelIds": [
+        "MODEL-018"
+      ],
+      "references": [
+        "REF-WELCH-1967"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-092",
+      "name": "Complex Morlet Wavelet Kernel and Time-Frequency Transform",
+      "domain": "Signal Processing",
+      "latex": "\\psi(t, f_0) = A \\exp\\left(-\\frac{t^2}{2\\sigma_t^2}\\right)\\exp(j2\\pi f_0 t), \\qquad \\sigma_t = \\frac{n_{\\mathrm{cycles}}}{2\\pi f_0}",
+      "lhsUnit": "1/sqrt(s)",
+      "rhsUnit": "1/sqrt(s)",
+      "variables": [
+        {
+          "symbol": "f_0",
+          "meaning": "Center frequency",
+          "unit": "Hz"
+        },
+        {
+          "symbol": "n_cycles",
+          "meaning": "Wavelet cycle number (~7)",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "sigma_t",
+          "meaning": "Temporal Gaussian SD",
+          "unit": "s"
+        }
+      ],
+      "description": "Multi-resolution wavelet scaling temporal bandwidth inversely with frequency f_0.",
+      "relatedModelIds": [
+        "MODEL-018"
+      ],
+      "references": [
+        "REF-TALLON-BAUDRY-1996"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-093",
+      "name": "Event-Related Potential (ERP) Trial Average and SEM",
+      "domain": "Signal Processing",
+      "latex": "\\bar{v}_{\\mathrm{ERP}}(\\tau) = \\frac{1}{M}\\sum_{m=1}^{M}\\left(v_m(t_m^{\\mathrm{trig}} + \\tau) - \\mu_{\\mathrm{base}, m}\\right), \\qquad \\mathrm{SEM}(\\tau) = \\frac{s(\\tau)}{\\sqrt{M}}",
+      "lhsUnit": "uV",
+      "rhsUnit": "uV",
+      "variables": [
+        {
+          "symbol": "v_ERP",
+          "meaning": "Time-locked average waveform",
+          "unit": "uV"
+        },
+        {
+          "symbol": "M",
+          "meaning": "Trial count",
+          "unit": "dimensionless"
+        }
+      ],
+      "description": "Extracts phase-locked evoked neural responses while suppressing background noise by 1/sqrt(M).",
+      "relatedModelIds": [
+        "MODEL-018"
+      ],
+      "references": [
+        "REF-BUZSAKI-2012"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-094",
+      "name": "Mean Firing Rate and Gaussian-Smoothed Population Rate",
+      "domain": "Spike Analytics",
+      "latex": "r_i = \\frac{N_{\\mathrm{sp}, i}}{T}, \\qquad R_{\\mathrm{pop}}(t) = \\frac{1}{N}\\sum_{i=1}^{N}\\sum_{f} \\frac{1}{\\sqrt{2\\pi}\\sigma_K}\\exp\\left(-\\frac{(t - t_i^{(f)})^2}{2\\sigma_K^2}\\right)",
+      "lhsUnit": "Hz",
+      "rhsUnit": "Hz",
+      "variables": [
+        {
+          "symbol": "r_i",
+          "meaning": "Single-neuron firing rate",
+          "unit": "Hz"
+        },
+        {
+          "symbol": "R_pop",
+          "meaning": "Instantaneous population firing rate",
+          "unit": "Hz"
+        },
+        {
+          "symbol": "sigma_K",
+          "meaning": "Gaussian kernel width",
+          "unit": "ms"
+        }
+      ],
+      "description": "Converts discrete point-process spike times into continuous firing-rate trajectories.",
+      "relatedModelIds": [
+        "MODEL-005",
+        "MODEL-021"
+      ],
+      "references": [
+        "REF-DAYAN-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-095",
+      "name": "Inter-Spike Interval Coefficient of Variation (CV_ISI and Local CV2)",
+      "domain": "Spike Analytics",
+      "latex": "\\mathrm{CV}_{\\mathrm{ISI}} = \\frac{\\sigma_{\\mathrm{ISI}}}{\\mu_{\\mathrm{ISI}}}, \\qquad \\mathrm{CV}_2 = \\frac{2|\\Delta t_{k+1} - \\Delta t_k|}{\\Delta t_{k+1} + \\Delta t_k}",
+      "lhsUnit": "dimensionless",
+      "rhsUnit": "dimensionless",
+      "variables": [
+        {
+          "symbol": "CV_ISI",
+          "meaning": "Global ISI variability",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "CV_2",
+          "meaning": "Local rate-modulation-robust variability",
+          "unit": "dimensionless"
+        }
+      ],
+      "description": "Distinguishes regular pacemaker firing (CV -> 0) from irregular Poisson-like spiking (CV -> 1).",
+      "relatedModelIds": [
+        "MODEL-021"
+      ],
+      "references": [
+        "REF-DAYAN-2001",
+        "REF-BRUNEL-2000"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-096",
+      "name": "Fano Factor of Spike-Count Variability",
+      "domain": "Spike Analytics",
+      "latex": "F(W) = \\frac{\\mathrm{Var}(N_{\\mathrm{sp}}(W))}{\\mathbb{E}[N_{\\mathrm{sp}}(W)]}",
+      "lhsUnit": "dimensionless",
+      "rhsUnit": "dimensionless",
+      "variables": [
+        {
+          "symbol": "F(W)",
+          "meaning": "Fano factor in counting window W",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "N_sp(W)",
+          "meaning": "Spike count in window W",
+          "unit": "spikes"
+        }
+      ],
+      "description": "Ratio of spike-count variance to mean across trials or non-overlapping windows (F = 1 for homogeneous Poisson).",
+      "relatedModelIds": [
+        "MODEL-021"
+      ],
+      "references": [
+        "REF-DAYAN-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-097",
+      "name": "Peri-Stimulus Time Histogram (PSTH)",
+      "domain": "Spike Analytics",
+      "latex": "r_{\\mathrm{PSTH}}(k\\Delta_{\\mathrm{bin}}) = \\frac{n_k}{M_{\\mathrm{trials}}\\,\\Delta_{\\mathrm{bin}}}",
+      "lhsUnit": "Hz",
+      "rhsUnit": "Hz",
+      "variables": [
+        {
+          "symbol": "n_k",
+          "meaning": "Total spikes in bin k across M trials",
+          "unit": "spikes"
+        },
+        {
+          "symbol": "Delta_bin",
+          "meaning": "Histogram bin width",
+          "unit": "s"
+        }
+      ],
+      "description": "Empirical trial-averaged firing rate time-locked to stimulus onset.",
+      "relatedModelIds": [
+        "MODEL-005",
+        "MODEL-021"
+      ],
+      "references": [
+        "REF-DAYAN-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-098",
+      "name": "Spike-Triggered Average (STA) Reverse Correlation",
+      "domain": "Spike Analytics",
+      "latex": "\\mathrm{STA}(\\tau) = \\frac{1}{N_{\\mathrm{sp}}}\\sum_{f=1}^{N_{\\mathrm{sp}}} s(t^{(f)} - \\tau)",
+      "lhsUnit": "stimulus_unit",
+      "rhsUnit": "stimulus_unit",
+      "variables": [
+        {
+          "symbol": "STA(tau)",
+          "meaning": "Average stimulus preceding a spike by lag tau",
+          "unit": "stimulus_unit"
+        },
+        {
+          "symbol": "s(t)",
+          "meaning": "Zero-mean stimulus waveform",
+          "unit": "stimulus_unit"
+        }
+      ],
+      "description": "Estimates the linear receptive-field filter of a spiking neuron under white-noise stimulation.",
+      "relatedModelIds": [
+        "MODEL-005"
+      ],
+      "references": [
+        "REF-DAYAN-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-099",
+      "name": "Normalized Spike-Train Cross-Correlogram (CCG)",
+      "domain": "Spike Analytics",
+      "latex": "C_{ij}(\\tau) = \\frac{1}{T\\sqrt{r_i r_j}}\\sum_{f,g} \\mathbb{I}\\!\\left(\\tau - \\frac{\\Delta}{2} \\le t_i^{(f)} - t_j^{(g)} < \\tau + \\frac{\\Delta}{2}\\right)",
+      "lhsUnit": "dimensionless",
+      "rhsUnit": "dimensionless",
+      "variables": [
+        {
+          "symbol": "C_ij(tau)",
+          "meaning": "Normalized coincidence density at lag tau",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "Delta",
+          "meaning": "Coincidence bin width",
+          "unit": "ms"
+        }
+      ],
+      "description": "Measures millisecond spike timing correlation and putative monosynaptic delay peaks between neuron pairs.",
+      "relatedModelIds": [
+        "MODEL-021"
+      ],
+      "references": [
+        "REF-DAYAN-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-100",
+      "name": "Golomb-Rinzel Population Voltage Synchrony Index (chi)",
+      "domain": "Spike Analytics",
+      "latex": "\\chi = \\sqrt{\\frac{\\sigma_{V_{\\mathrm{pop}}}^2}{\\frac{1}{N}\\sum_{i=1}^{N}\\sigma_{V_i}^2}} \\in [0, 1]",
+      "lhsUnit": "dimensionless",
+      "rhsUnit": "dimensionless",
+      "variables": [
+        {
+          "symbol": "chi",
+          "meaning": "Synchrony index",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "sigma_V_pop^2",
+          "meaning": "Variance of population-mean voltage",
+          "unit": "mV^2"
+        }
+      ],
+      "description": "Zero-lag network synchrony index scaling from O(N^-1/2) in asynchronous states to 1 in full synchrony.",
+      "relatedModelIds": [
+        "MODEL-021"
+      ],
+      "references": [
+        "REF-BRUNEL-2000"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-101",
+      "name": "Phase-Locking Value (PLV)",
+      "domain": "Signal Processing",
+      "latex": "\\mathrm{PLV}_{xy} = \\left|\\frac{1}{N_t}\\sum_{n=1}^{N_t} \\exp\\left(j(\\phi_x[n] - \\phi_y[n])\\right)\\right| \\in [0, 1]",
+      "lhsUnit": "dimensionless",
+      "rhsUnit": "dimensionless",
+      "variables": [
+        {
+          "symbol": "PLV_xy",
+          "meaning": "Phase-locking value",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "phi_x, phi_y",
+          "meaning": "Instantaneous Hilbert/wavelet phases",
+          "unit": "rad"
+        }
+      ],
+      "description": "Amplitude-independent measure of inter-site phase synchronization.",
+      "relatedModelIds": [
+        "MODEL-027",
+        "MODEL-028"
+      ],
+      "references": [
+        "REF-LACHAUX-1999"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-102",
+      "name": "Magnitude-Squared Spectral Coherence",
+      "domain": "Signal Processing",
+      "latex": "C_{xy}(f) = \\frac{|P_{xy}(f)|^2}{P_{xx}(f)\\,P_{yy}(f)} \\in [0, 1]",
+      "lhsUnit": "dimensionless",
+      "rhsUnit": "dimensionless",
+      "variables": [
+        {
+          "symbol": "P_xy(f)",
+          "meaning": "Cross-spectral density",
+          "unit": "uV^2/Hz"
+        },
+        {
+          "symbol": "P_xx, P_yy",
+          "meaning": "Auto-spectral densities",
+          "unit": "uV^2/Hz"
+        }
+      ],
+      "description": "Frequency-resolved linear phase and amplitude coupling between two neural signals.",
+      "relatedModelIds": [
+        "MODEL-018",
+        "MODEL-028"
+      ],
+      "references": [
+        "REF-WELCH-1967"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-103",
+      "name": "Pearson Sample Linear Correlation Coefficient",
+      "domain": "Statistics",
+      "latex": "r_{xy} = \\frac{\\sum_{i=1}^n (x_i - \\bar{x})(y_i - \\bar{y})}{\\sqrt{\\sum_{i=1}^n (x_i - \\bar{x})^2 \\sum_{i=1}^n (y_i - \\bar{y})^2}} \\in [-1, 1]",
+      "lhsUnit": "dimensionless",
+      "rhsUnit": "dimensionless",
+      "variables": [
+        {
+          "symbol": "r_xy",
+          "meaning": "Pearson correlation",
+          "unit": "dimensionless"
+        }
+      ],
+      "description": "Normalized covariance measuring linear association (explicitly non-causal).",
+      "relatedModelIds": [
+        "MODEL-028"
+      ],
+      "references": [
+        "REF-RUBINOV-2010"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-104",
+      "name": "Ordinary Least Squares (OLS) Linear Regression Estimator",
+      "domain": "Statistics",
+      "latex": "\\hat{\\boldsymbol{\\beta}} = (\\mathbf{X}^\\top\\mathbf{X})^{-1}\\mathbf{X}^\\top\\mathbf{y}, \\qquad R^2 = 1 - \\frac{\\sum_i (y_i - \\hat{y}_i)^2}{\\sum_i (y_i - \\bar{y})^2}",
+      "lhsUnit": "parameter_unit",
+      "rhsUnit": "parameter_unit",
+      "variables": [
+        {
+          "symbol": "beta_hat",
+          "meaning": "Least-squares coefficient vector",
+          "unit": "parameter_unit"
+        },
+        {
+          "symbol": "R^2",
+          "meaning": "Coefficient of determination",
+          "unit": "dimensionless"
+        }
+      ],
+      "description": "Linear model fit and explained variance fraction accompanied by residual diagnostics.",
+      "relatedModelIds": [
+        "MODEL-028"
+      ],
+      "references": [
+        "REF-EFRON-1979"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-105",
+      "name": "Efron Nonparametric Bootstrap Standard Error and Percentile CI",
+      "domain": "Statistics",
+      "latex": "\\widehat{\\mathrm{SE}}_{\\mathrm{boot}} = \\sqrt{\\frac{1}{B-1}\\sum_{b=1}^{B}\\left(\\hat{\\theta}^{*(b)} - \\bar{\\theta}^*\\right)^2}",
+      "lhsUnit": "metric_unit",
+      "rhsUnit": "metric_unit",
+      "variables": [
+        {
+          "symbol": "B",
+          "meaning": "Bootstrap resample count (1000-5000)",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "theta^*",
+          "meaning": "Statistic on resample b",
+          "unit": "metric_unit"
+        }
+      ],
+      "description": "Distribution-free standard error and confidence interval estimation via resampling with replacement.",
+      "relatedModelIds": [
+        "MODEL-028"
+      ],
+      "references": [
+        "REF-EFRON-1979"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-106",
+      "name": "Benjamini-Hochberg False Discovery Rate (FDR) Step-Up Threshold",
+      "domain": "Statistics",
+      "latex": "k_{\\max} = \\max\\left\\{k \\in \\{1,\\dots,m\\} : p_{(k)} \\le \\frac{k}{m}\\,q_{\\mathrm{FDR}}\\right\\}",
+      "lhsUnit": "dimensionless",
+      "rhsUnit": "dimensionless",
+      "variables": [
+        {
+          "symbol": "p_(k)",
+          "meaning": "k-th smallest p-value",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "m",
+          "meaning": "Total hypothesis tests",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "q_FDR",
+          "meaning": "Target FDR level (e.g. 0.05)",
+          "unit": "dimensionless"
+        }
+      ],
+      "description": "Controls expected proportion of false positives across multichannel or multi-edge connectome comparisons.",
+      "relatedModelIds": [
+        "MODEL-028"
+      ],
+      "references": [
+        "REF-BENJAMINI-HOCHBERG-1995"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-107",
+      "name": "Normalized Local Parameter Sensitivity Index",
+      "domain": "Statistics",
+      "latex": "S_{p_k}^{M} = \\frac{p_{k,0}}{M(\\mathbf{p}_0)} \\cdot \\frac{M(p_{k,0} + \\Delta p_k) - M(p_{k,0} - \\Delta p_k)}{2\\Delta p_k}",
+      "lhsUnit": "dimensionless",
+      "rhsUnit": "dimensionless",
+      "variables": [
+        {
+          "symbol": "S_pk^M",
+          "meaning": "Dimensionless elasticity of metric M to parameter p_k",
+          "unit": "dimensionless"
+        }
+      ],
+      "description": "Quantifies relative percentage change in model output metric per percentage change in parameter p_k.",
+      "relatedModelIds": [
+        "MODEL-001",
+        "MODEL-017"
+      ],
+      "references": [
+        "REF-DAYAN-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "EQ-108",
+      "name": "Akaike and Bayesian Information Criteria (AIC & BIC)",
+      "domain": "Statistics",
+      "latex": "\\mathrm{AIC} = 2k - 2\\ln(\\hat{L}), \\qquad \\mathrm{BIC} = k\\ln(n) - 2\\ln(\\hat{L})",
+      "lhsUnit": "nats",
+      "rhsUnit": "nats",
+      "variables": [
+        {
+          "symbol": "k",
+          "meaning": "Number of free model parameters",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "n",
+          "meaning": "Sample size",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "L_hat",
+          "meaning": "Maximized likelihood",
+          "unit": "dimensionless"
+        }
+      ],
+      "description": "Penalized log-likelihood criteria balancing goodness-of-fit against model complexity.",
+      "relatedModelIds": [
+        "MODEL-028"
+      ],
+      "references": [
+        "REF-EFRON-1979"
+      ],
+      "schemaVersion": "1.0.0"
+    }
+  ]
+}

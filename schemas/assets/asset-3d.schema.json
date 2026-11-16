@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cortexia.science/schemas/assets/asset-3d.schema.json",
+  "title": "Asset3DSpecification",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "studio",
+    "format",
+    "sourceMethod",
+    "license",
+    "mappedEntityIds",
+    "accuracyClassification",
+    "simplificationDisclosure",
+    "spatialScaleUnit",
+    "lodTriangleBudgets",
+    "version",
+    "references",
+    "schemaVersion"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^ASSET-[A-Z0-9-]+$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 3
+    },
+    "studio": {
+      "type": "string",
+      "enum": [
+        "STUDIO_A_WHOLE_BRAIN",
+        "STUDIO_B_CELLULAR",
+        "STUDIO_C_SYNAPTIC_MOLECULAR",
+        "STUDIO_D_NETWORK"
+      ]
+    },
+    "format": {
+      "type": "string",
+      "enum": [
+        "GLB_DRACO",
+        "SWC_TUBE_GEOMETRY",
+        "PROCEDURAL_INSTANCED_MESH"
+      ]
+    },
+    "sourceMethod": {
+      "type": "string",
+      "minLength": 5
+    },
+    "license": {
+      "type": "string",
+      "minLength": 3
+    },
+    "mappedEntityIds": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "accuracyClassification": {
+      "type": "string",
+      "enum": [
+        "ATLAS_REFERENCE_MESH",
+        "RECONSTRUCTED_MORPHOLOGY_SWC",
+        "BIOPHYSICAL_SCHEMATIC_3D",
+        "PROCEDURAL_NETWORK_GRAPH"
+      ]
+    },
+    "simplificationDisclosure": {
+      "type": "string",
+      "minLength": 30
+    },
+    "spatialScaleUnit": {
+      "type": "string",
+      "enum": [
+        "mm",
+        "um",
+        "nm",
+        "topological"
+      ]
+    },
+    "lodTriangleBudgets": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lod0",
+        "lod1",
+        "lod2"
+      ],
+      "properties": {
+        "lod0": {
+          "type": "integer",
+          "minimum": 10
+        },
+        "lod1": {
+          "type": "integer",
+          "minimum": 10
+        },
+        "lod2": {
+          "type": "integer",
+          "minimum": 10
+        }
+      }
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "references": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "pattern": "^REF-[A-Z0-9-]+$"
+      }
+    },
+    "schemaVersion": {
+      "type": "string",
+      "const": "1.0.0"
+    }
+  }
+}

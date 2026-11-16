@@ -1,0 +1,1085 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "MECH-001",
+      "canonicalName": "Resting Membrane Potential Generation",
+      "mechanismDomain": "MEMBRANE_BIOPHYSICS",
+      "primaryScale": "L2",
+      "timescaleRange": "Continuous steady state",
+      "shortDefinition": "Establishment of negative intracellular potential (-65 to -75 mV) via K2P leak channels and Na+/K+-ATPase gradients.",
+      "detailedMechanism": "Establishment of negative intracellular potential (-65 to -75 mV) via K2P leak channels and Na+/K+-ATPase gradients. This process operates at biological scale L2 over Continuous steady state and is quantitatively represented by EQ-001, EQ-002 in MODEL-001, MODEL-005.",
+      "governingEquationIds": [
+        "EQ-001",
+        "EQ-002"
+      ],
+      "associatedModelIds": [
+        "MODEL-001",
+        "MODEL-005"
+      ],
+      "references": [
+        "REF-HILLE-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-002",
+      "canonicalName": "Nernst Electrochemical Equilibrium Balance",
+      "mechanismDomain": "MEMBRANE_BIOPHYSICS",
+      "primaryScale": "L1",
+      "timescaleRange": "Microseconds to steady state",
+      "shortDefinition": "Thermodynamic balance between concentration gradient diffusion and electrical drift across a selective pore.",
+      "detailedMechanism": "Thermodynamic balance between concentration gradient diffusion and electrical drift across a selective pore. This process operates at biological scale L1 over Microseconds to steady state and is quantitatively represented by EQ-001 in MODEL-001.",
+      "governingEquationIds": [
+        "EQ-001"
+      ],
+      "associatedModelIds": [
+        "MODEL-001"
+      ],
+      "references": [
+        "REF-HILLE-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-003",
+      "canonicalName": "Electrogenic Na+/K+-ATPase Active Ion Pumping",
+      "mechanismDomain": "MEMBRANE_BIOPHYSICS",
+      "primaryScale": "L1",
+      "timescaleRange": "Milliseconds to minutes",
+      "shortDefinition": "ATP-hydrolyzing extrusion of 3 Na+ for 2 K+ imported, maintaining ionic driving forces after spike trains.",
+      "detailedMechanism": "ATP-hydrolyzing extrusion of 3 Na+ for 2 K+ imported, maintaining ionic driving forces after spike trains. This process operates at biological scale L1 over Milliseconds to minutes and is quantitatively represented by EQ-001, EQ-002 in MODEL-001.",
+      "governingEquationIds": [
+        "EQ-001",
+        "EQ-002"
+      ],
+      "associatedModelIds": [
+        "MODEL-001"
+      ],
+      "references": [
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-004",
+      "canonicalName": "Chloride Homeostasis & Developmental GABA Polarity Shift (NKCC1 to KCC2)",
+      "mechanismDomain": "MEMBRANE_BIOPHYSICS",
+      "primaryScale": "L1",
+      "timescaleRange": "Days to developmental stages",
+      "shortDefinition": "Upregulation of KCC2 chloride extrusion lowers internal [Cl-], converting GABA_A responses from depolarizing to hyperpolarizing.",
+      "detailedMechanism": "Upregulation of KCC2 chloride extrusion lowers internal [Cl-], converting GABA_A responses from depolarizing to hyperpolarizing. This process operates at biological scale L1 over Days to developmental stages and is quantitatively represented by EQ-001, EQ-042 in MODEL-013.",
+      "governingEquationIds": [
+        "EQ-001",
+        "EQ-042"
+      ],
+      "associatedModelIds": [
+        "MODEL-013"
+      ],
+      "references": [
+        "REF-SIGEL-2012"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-005",
+      "canonicalName": "Membrane Capacitive Charging & RC Low-Pass Filtering",
+      "mechanismDomain": "MEMBRANE_BIOPHYSICS",
+      "primaryScale": "L2",
+      "timescaleRange": "1 to 50 ms",
+      "shortDefinition": "Lipid bilayer capacitance integrates current inputs with characteristic time constant tau_m = R_m * C_m.",
+      "detailedMechanism": "Lipid bilayer capacitance integrates current inputs with characteristic time constant tau_m = R_m * C_m. This process operates at biological scale L2 over 1 to 50 ms and is quantitatively represented by EQ-004, EQ-006 in MODEL-005, MODEL-010.",
+      "governingEquationIds": [
+        "EQ-004",
+        "EQ-006"
+      ],
+      "associatedModelIds": [
+        "MODEL-005",
+        "MODEL-010"
+      ],
+      "references": [
+        "REF-DAYAN-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-006",
+      "canonicalName": "Voltage-Sensor S4 Helix Translocation",
+      "mechanismDomain": "MEMBRANE_BIOPHYSICS",
+      "primaryScale": "L1",
+      "timescaleRange": "0.05 to 1 ms",
+      "shortDefinition": "Outward movement of positively charged arginine residues in S4 segments upon depolarization opens voltage-gated channel pores.",
+      "detailedMechanism": "Outward movement of positively charged arginine residues in S4 segments upon depolarization opens voltage-gated channel pores. This process operates at biological scale L1 over 0.05 to 1 ms and is quantitatively represented by EQ-015, EQ-016 in MODEL-001.",
+      "governingEquationIds": [
+        "EQ-015",
+        "EQ-016"
+      ],
+      "associatedModelIds": [
+        "MODEL-001"
+      ],
+      "references": [
+        "REF-CATTERALL-2012"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-007",
+      "canonicalName": "Action Potential Threshold & Regenerative Na+ Upstroke",
+      "mechanismDomain": "ACTION_POTENTIAL_CONDUCTION",
+      "primaryScale": "L3",
+      "timescaleRange": "0.1 to 0.5 ms",
+      "shortDefinition": "Positive Hodgkin cycle where depolarization opens NaV m-gates, driving rapid inward I_Na toward E_Na.",
+      "detailedMechanism": "Positive Hodgkin cycle where depolarization opens NaV m-gates, driving rapid inward I_Na toward E_Na. This process operates at biological scale L3 over 0.1 to 0.5 ms and is quantitatively represented by EQ-011, EQ-012, EQ-017 in MODEL-001, MODEL-008.",
+      "governingEquationIds": [
+        "EQ-011",
+        "EQ-012",
+        "EQ-017"
+      ],
+      "associatedModelIds": [
+        "MODEL-001",
+        "MODEL-008"
+      ],
+      "references": [
+        "REF-HH-1952"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-008",
+      "canonicalName": "Fast Sodium Channel Inactivation (Ball-and-Chain h-Gate)",
+      "mechanismDomain": "ACTION_POTENTIAL_CONDUCTION",
+      "primaryScale": "L1",
+      "timescaleRange": "0.5 to 2 ms",
+      "shortDefinition": "Intracellular III-IV linker IFM motif occludes the inner NaV pore shortly after activation, terminating the AP peak.",
+      "detailedMechanism": "Intracellular III-IV linker IFM motif occludes the inner NaV pore shortly after activation, terminating the AP peak. This process operates at biological scale L1 over 0.5 to 2 ms and is quantitatively represented by EQ-012, EQ-018 in MODEL-001.",
+      "governingEquationIds": [
+        "EQ-012",
+        "EQ-018"
+      ],
+      "associatedModelIds": [
+        "MODEL-001"
+      ],
+      "references": [
+        "REF-HH-1952",
+        "REF-CATTERALL-2012"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-009",
+      "canonicalName": "Delayed-Rectifier Potassium Repolarization & Afterhyperpolarization",
+      "mechanismDomain": "ACTION_POTENTIAL_CONDUCTION",
+      "primaryScale": "L3",
+      "timescaleRange": "1 to 10 ms",
+      "shortDefinition": "Slowly activating Kv channels (n^4) conduct outward K+ current to restore resting potential and produce an undershoot toward E_K.",
+      "detailedMechanism": "Slowly activating Kv channels (n^4) conduct outward K+ current to restore resting potential and produce an undershoot toward E_K. This process operates at biological scale L3 over 1 to 10 ms and is quantitatively represented by EQ-013, EQ-019 in MODEL-001.",
+      "governingEquationIds": [
+        "EQ-013",
+        "EQ-019"
+      ],
+      "associatedModelIds": [
+        "MODEL-001"
+      ],
+      "references": [
+        "REF-HH-1952"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-010",
+      "canonicalName": "Absolute and Relative Refractory Periods",
+      "mechanismDomain": "ACTION_POTENTIAL_CONDUCTION",
+      "primaryScale": "L3",
+      "timescaleRange": "1 to 15 ms",
+      "shortDefinition": "NaV inactivation prevents immediate re-excitation (absolute), while residual elevated g_K elevates threshold (relative).",
+      "detailedMechanism": "NaV inactivation prevents immediate re-excitation (absolute), while residual elevated g_K elevates threshold (relative). This process operates at biological scale L3 over 1 to 15 ms and is quantitatively represented by EQ-011, EQ-028 in MODEL-001, MODEL-005.",
+      "governingEquationIds": [
+        "EQ-011",
+        "EQ-028"
+      ],
+      "associatedModelIds": [
+        "MODEL-001",
+        "MODEL-005"
+      ],
+      "references": [
+        "REF-HH-1952"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-011",
+      "canonicalName": "Anodal Break (Post-Inhibitory Rebound) Excitation",
+      "mechanismDomain": "ACTION_POTENTIAL_CONDUCTION",
+      "primaryScale": "L3",
+      "timescaleRange": "5 to 50 ms",
+      "shortDefinition": "Prolonged hyperpolarization removes baseline NaV inactivation (increases h) and lowers Kv activation (n), triggering a rebound spike upon release.",
+      "detailedMechanism": "Prolonged hyperpolarization removes baseline NaV inactivation (increases h) and lowers Kv activation (n), triggering a rebound spike upon release. This process operates at biological scale L3 over 5 to 50 ms and is quantitatively represented by EQ-011, EQ-018 in MODEL-001, MODEL-002.",
+      "governingEquationIds": [
+        "EQ-011",
+        "EQ-018"
+      ],
+      "associatedModelIds": [
+        "MODEL-001",
+        "MODEL-002"
+      ],
+      "references": [
+        "REF-HH-1952"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-012",
+      "canonicalName": "Axon Initial Segment (AIS) Spike Initiation",
+      "mechanismDomain": "ACTION_POTENTIAL_CONDUCTION",
+      "primaryScale": "L2",
+      "timescaleRange": "0.1 to 1 ms",
+      "shortDefinition": "High NaV1.6 density and electrical isolation at the distal AIS make it the lowest-threshold site for action potential initiation.",
+      "detailedMechanism": "High NaV1.6 density and electrical isolation at the distal AIS make it the lowest-threshold site for action potential initiation. This process operates at biological scale L2 over 0.1 to 1 ms and is quantitatively represented by EQ-010, EQ-011 in MODEL-001, MODEL-010.",
+      "governingEquationIds": [
+        "EQ-010",
+        "EQ-011"
+      ],
+      "associatedModelIds": [
+        "MODEL-001",
+        "MODEL-010"
+      ],
+      "references": [
+        "REF-CATTERALL-2012"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-013",
+      "canonicalName": "Unmyelinated Continuous Cable Conduction",
+      "mechanismDomain": "ACTION_POTENTIAL_CONDUCTION",
+      "primaryScale": "L3",
+      "timescaleRange": "Velocity 0.5 to 2 m/s",
+      "shortDefinition": "Local circuit axial currents continuously depolarize adjacent unmyelinated membrane segments with velocity proportional to sqrt(diameter).",
+      "detailedMechanism": "Local circuit axial currents continuously depolarize adjacent unmyelinated membrane segments with velocity proportional to sqrt(diameter). This process operates at biological scale L3 over Velocity 0.5 to 2 m/s and is quantitatively represented by EQ-008, EQ-011 in MODEL-010.",
+      "governingEquationIds": [
+        "EQ-008",
+        "EQ-011"
+      ],
+      "associatedModelIds": [
+        "MODEL-010"
+      ],
+      "references": [
+        "REF-RALL-1962"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-014",
+      "canonicalName": "Myelinated Saltatory Conduction Across Nodes of Ranvier",
+      "mechanismDomain": "ACTION_POTENTIAL_CONDUCTION",
+      "primaryScale": "L3",
+      "timescaleRange": "Velocity 10 to 120 m/s",
+      "shortDefinition": "Low-capacitance myelin internodes guide fast electrotonic current between NaV1.6-dense Nodes of Ranvier, saving metabolic energy.",
+      "detailedMechanism": "Low-capacitance myelin internodes guide fast electrotonic current between NaV1.6-dense Nodes of Ranvier, saving metabolic energy. This process operates at biological scale L3 over Velocity 10 to 120 m/s and is quantitatively represented by EQ-008, EQ-010 in MODEL-010.",
+      "governingEquationIds": [
+        "EQ-008",
+        "EQ-010"
+      ],
+      "associatedModelIds": [
+        "MODEL-010"
+      ],
+      "references": [
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-015",
+      "canonicalName": "Action Potential Backpropagation into Dendrites (bAP)",
+      "mechanismDomain": "ACTION_POTENTIAL_CONDUCTION",
+      "primaryScale": "L2",
+      "timescaleRange": "1 to 5 ms",
+      "shortDefinition": "Somatic spikes actively propagate retrogradely into apical/basal dendrites via NaV1.2 channels to provide the postsynaptic timing signal for STDP.",
+      "detailedMechanism": "Somatic spikes actively propagate retrogradely into apical/basal dendrites via NaV1.2 channels to provide the postsynaptic timing signal for STDP. This process operates at biological scale L2 over 1 to 5 ms and is quantitatively represented by EQ-010, EQ-069 in MODEL-010, MODEL-024.",
+      "governingEquationIds": [
+        "EQ-010",
+        "EQ-069"
+      ],
+      "associatedModelIds": [
+        "MODEL-010",
+        "MODEL-024"
+      ],
+      "references": [
+        "REF-BI-POO-1998"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-016",
+      "canonicalName": "Type I (SNIC) vs Type II (Hopf) Neuronal Excitability",
+      "mechanismDomain": "ACTION_POTENTIAL_CONDUCTION",
+      "primaryScale": "L3",
+      "timescaleRange": "10 to 1000 ms",
+      "shortDefinition": "Dynamical bifurcation mechanism distinguishing continuous zero-frequency onset (integrators) from discontinuous finite-frequency onset (resonators).",
+      "detailedMechanism": "Dynamical bifurcation mechanism distinguishing continuous zero-frequency onset (integrators) from discontinuous finite-frequency onset (resonators). This process operates at biological scale L3 over 10 to 1000 ms and is quantitatively represented by EQ-021, EQ-032, EQ-054 in MODEL-002, MODEL-003, MODEL-007.",
+      "governingEquationIds": [
+        "EQ-021",
+        "EQ-032",
+        "EQ-054"
+      ],
+      "associatedModelIds": [
+        "MODEL-002",
+        "MODEL-003",
+        "MODEL-007"
+      ],
+      "references": [
+        "REF-MORRIS-LECAR-1981",
+        "REF-GERSTNER-2014"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-017",
+      "canonicalName": "Spike-Frequency Adaptation (M-Current & AHP Channels)",
+      "mechanismDomain": "ACTION_POTENTIAL_CONDUCTION",
+      "primaryScale": "L3",
+      "timescaleRange": "50 to 500 ms",
+      "shortDefinition": "Gradual slowing of firing rate during sustained current injection mediated by Kv7 (I_M) and Ca2+-activated SK/BK potassium currents.",
+      "detailedMechanism": "Gradual slowing of firing rate during sustained current injection mediated by Kv7 (I_M) and Ca2+-activated SK/BK potassium currents. This process operates at biological scale L3 over 50 to 500 ms and is quantitatively represented by EQ-034, EQ-035 in MODEL-008, MODEL-009.",
+      "governingEquationIds": [
+        "EQ-034",
+        "EQ-035"
+      ],
+      "associatedModelIds": [
+        "MODEL-008",
+        "MODEL-009"
+      ],
+      "references": [
+        "REF-BRETTE-GERSTNER-2005"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-018",
+      "canonicalName": "Thalamocortical Low-Threshold CaV3.1 T-Current Bursting",
+      "mechanismDomain": "ACTION_POTENTIAL_CONDUCTION",
+      "primaryScale": "L3",
+      "timescaleRange": "20 to 200 ms",
+      "shortDefinition": "Hyperpolarization de-inactivates T-type Ca2+ channels, generating a slow Ca2+ crown capped by a high-frequency burst of Na+/K+ spikes.",
+      "detailedMechanism": "Hyperpolarization de-inactivates T-type Ca2+ channels, generating a slow Ca2+ crown capped by a high-frequency burst of Na+/K+ spikes. This process operates at biological scale L3 over 20 to 200 ms and is quantitatively represented by EQ-021, EQ-037 in MODEL-002, MODEL-009.",
+      "governingEquationIds": [
+        "EQ-021",
+        "EQ-037"
+      ],
+      "associatedModelIds": [
+        "MODEL-002",
+        "MODEL-009"
+      ],
+      "references": [
+        "REF-IZHIKEVICH-2003"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-019",
+      "canonicalName": "Presynaptic CaV2.1/2.2 Microdomain Calcium Influx",
+      "mechanismDomain": "SYNAPTIC_TRANSMISSION",
+      "primaryScale": "L2",
+      "timescaleRange": "0.2 to 1 ms",
+      "shortDefinition": "Arriving action potential opens active-zone P/Q- and N-type Ca2+ channels, creating a localized 10\u2013100 uM Ca2+ nanodomain.",
+      "detailedMechanism": "Arriving action potential opens active-zone P/Q- and N-type Ca2+ channels, creating a localized 10\u2013100 uM Ca2+ nanodomain. This process operates at biological scale L2 over 0.2 to 1 ms and is quantitatively represented by EQ-003, EQ-048 in MODEL-016.",
+      "governingEquationIds": [
+        "EQ-003",
+        "EQ-048"
+      ],
+      "associatedModelIds": [
+        "MODEL-016"
+      ],
+      "references": [
+        "REF-SUDHOF-2013"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-020",
+      "canonicalName": "SNARE Complex Zippering & Synaptotagmin-1 Vesicle Exocytosis",
+      "mechanismDomain": "SYNAPTIC_TRANSMISSION",
+      "primaryScale": "L1",
+      "timescaleRange": "0.1 to 0.5 ms",
+      "shortDefinition": "Ca2+ binding to Synaptotagmin-1 C2 domains triggers full trans-SNARE zippering and fusion pore opening within a fraction of a millisecond.",
+      "detailedMechanism": "Ca2+ binding to Synaptotagmin-1 C2 domains triggers full trans-SNARE zippering and fusion pore opening within a fraction of a millisecond. This process operates at biological scale L1 over 0.1 to 0.5 ms and is quantitatively represented by EQ-048 in MODEL-016.",
+      "governingEquationIds": [
+        "EQ-048"
+      ],
+      "associatedModelIds": [
+        "MODEL-016"
+      ],
+      "references": [
+        "REF-SUDHOF-2013"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-021",
+      "canonicalName": "Vesicular Endocytosis, Re-acidification & Neurotransmitter Refilling",
+      "mechanismDomain": "SYNAPTIC_TRANSMISSION",
+      "primaryScale": "L2",
+      "timescaleRange": "100 ms to 20 s",
+      "shortDefinition": "Clathrin/dynamin membrane retrieval followed by V-ATPase proton pumping and VGLUT/VGAT vesicular reloading.",
+      "detailedMechanism": "Clathrin/dynamin membrane retrieval followed by V-ATPase proton pumping and VGLUT/VGAT vesicular reloading. This process operates at biological scale L2 over 100 ms to 20 s and is quantitatively represented by EQ-047 in MODEL-016.",
+      "governingEquationIds": [
+        "EQ-047"
+      ],
+      "associatedModelIds": [
+        "MODEL-016"
+      ],
+      "references": [
+        "REF-SUDHOF-2013",
+        "REF-TSODYKS-1997"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-022",
+      "canonicalName": "Fast AMPA-Mediated Excitatory Postsynaptic Transmission (EPSP)",
+      "mechanismDomain": "SYNAPTIC_TRANSMISSION",
+      "primaryScale": "L4",
+      "timescaleRange": "0.4 to 10 ms",
+      "shortDefinition": "Glutamate binding to postsynaptic AMPA receptors opens Na+/K+ channels (E_rev ~ 0 mV), generating rapid depolarizing EPSCs.",
+      "detailedMechanism": "Glutamate binding to postsynaptic AMPA receptors opens Na+/K+ channels (E_rev ~ 0 mV), generating rapid depolarizing EPSCs. This process operates at biological scale L4 over 0.4 to 10 ms and is quantitatively represented by EQ-042, EQ-043 in MODEL-012, MODEL-013.",
+      "governingEquationIds": [
+        "EQ-042",
+        "EQ-043"
+      ],
+      "associatedModelIds": [
+        "MODEL-012",
+        "MODEL-013"
+      ],
+      "references": [
+        "REF-TRAYNELIS-2010",
+        "REF-DESTEXHE-1994"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-023",
+      "canonicalName": "NMDA Receptor Coincidence Detection & Mg2+ Unblock",
+      "mechanismDomain": "SYNAPTIC_TRANSMISSION",
+      "primaryScale": "L4",
+      "timescaleRange": "2 to 150 ms",
+      "shortDefinition": "Requires concurrent presynaptic glutamate and postsynaptic depolarization to expel Mg2+ and admit Ca2+ into the dendritic spine.",
+      "detailedMechanism": "Requires concurrent presynaptic glutamate and postsynaptic depolarization to expel Mg2+ and admit Ca2+ into the dendritic spine. This process operates at biological scale L4 over 2 to 150 ms and is quantitatively represented by EQ-044, EQ-045 in MODEL-014.",
+      "governingEquationIds": [
+        "EQ-044",
+        "EQ-045"
+      ],
+      "associatedModelIds": [
+        "MODEL-014"
+      ],
+      "references": [
+        "REF-TRAYNELIS-2010"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-024",
+      "canonicalName": "Fast GABA_A Hyperpolarizing and Shunting Inhibition (IPSP)",
+      "mechanismDomain": "SYNAPTIC_TRANSMISSION",
+      "primaryScale": "L4",
+      "timescaleRange": "0.5 to 20 ms",
+      "shortDefinition": "GABA opens Cl-/HCO3- channels (E_GABA ~ -75 mV), hyperpolarizing the membrane and dividing excitatory input resistance (shunting).",
+      "detailedMechanism": "GABA opens Cl-/HCO3- channels (E_GABA ~ -75 mV), hyperpolarizing the membrane and dividing excitatory input resistance (shunting). This process operates at biological scale L4 over 0.5 to 20 ms and is quantitatively represented by EQ-030, EQ-031, EQ-042 in MODEL-006, MODEL-013.",
+      "governingEquationIds": [
+        "EQ-030",
+        "EQ-031",
+        "EQ-042"
+      ],
+      "associatedModelIds": [
+        "MODEL-006",
+        "MODEL-013"
+      ],
+      "references": [
+        "REF-SIGEL-2012",
+        "REF-DESTEXHE-1994"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-025",
+      "canonicalName": "Slow Metabotropic GABA_B & GIRK Potassium Inhibition",
+      "mechanismDomain": "SYNAPTIC_TRANSMISSION",
+      "primaryScale": "L4",
+      "timescaleRange": "100 to 500 ms",
+      "shortDefinition": "GABA_B Gi/o beta-gamma subunits activate inwardly rectifying GIRK K+ channels and inhibit presynaptic CaV channels.",
+      "detailedMechanism": "GABA_B Gi/o beta-gamma subunits activate inwardly rectifying GIRK K+ channels and inhibit presynaptic CaV channels. This process operates at biological scale L4 over 100 to 500 ms and is quantitatively represented by EQ-042 in MODEL-013.",
+      "governingEquationIds": [
+        "EQ-042"
+      ],
+      "associatedModelIds": [
+        "MODEL-013"
+      ],
+      "references": [
+        "REF-DESTEXHE-1994"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-026",
+      "canonicalName": "Electrical Gap-Junction Electrotonic Synchronization",
+      "mechanismDomain": "SYNAPTIC_TRANSMISSION",
+      "primaryScale": "L4",
+      "timescaleRange": "< 0.1 ms",
+      "shortDefinition": "Direct ohmic current flow through Connexin-36 gap junctions phase-locks subthreshold potentials and spikes across coupled interneurons.",
+      "detailedMechanism": "Direct ohmic current flow through Connexin-36 gap junctions phase-locks subthreshold potentials and spikes across coupled interneurons. This process operates at biological scale L4 over < 0.1 ms and is quantitatively represented by EQ-046 in MODEL-015.",
+      "governingEquationIds": [
+        "EQ-046"
+      ],
+      "associatedModelIds": [
+        "MODEL-015"
+      ],
+      "references": [
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-027",
+      "canonicalName": "Dendritic Spatial and Temporal Synaptic Integration",
+      "mechanismDomain": "SYNAPTIC_TRANSMISSION",
+      "primaryScale": "L3",
+      "timescaleRange": "2 to 50 ms",
+      "shortDefinition": "Summation of asynchronous/synchronous EPSPs and IPSPs along passive and active dendritic cable compartments.",
+      "detailedMechanism": "Summation of asynchronous/synchronous EPSPs and IPSPs along passive and active dendritic cable compartments. This process operates at biological scale L3 over 2 to 50 ms and is quantitatively represented by EQ-007, EQ-008, EQ-010 in MODEL-010.",
+      "governingEquationIds": [
+        "EQ-007",
+        "EQ-008",
+        "EQ-010"
+      ],
+      "associatedModelIds": [
+        "MODEL-010"
+      ],
+      "references": [
+        "REF-RALL-1962"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-028",
+      "canonicalName": "Dendritic NMDA and Calcium Plateau Potentials",
+      "mechanismDomain": "SYNAPTIC_TRANSMISSION",
+      "primaryScale": "L2",
+      "timescaleRange": "20 to 100 ms",
+      "shortDefinition": "Clustered synaptic input on a dendritic branch triggers regenerative local NMDA/CaV1.2 spikes that amplify somatic burst output.",
+      "detailedMechanism": "Clustered synaptic input on a dendritic branch triggers regenerative local NMDA/CaV1.2 spikes that amplify somatic burst output. This process operates at biological scale L2 over 20 to 100 ms and is quantitatively represented by EQ-010, EQ-045 in MODEL-010, MODEL-014.",
+      "governingEquationIds": [
+        "EQ-010",
+        "EQ-045"
+      ],
+      "associatedModelIds": [
+        "MODEL-010",
+        "MODEL-014"
+      ],
+      "references": [
+        "REF-TRAYNELIS-2010"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-029",
+      "canonicalName": "Short-Term Synaptic Facilitation (Residual Ca2+ Accumulation)",
+      "mechanismDomain": "SHORT_TERM_PLASTICITY",
+      "primaryScale": "L4",
+      "timescaleRange": "10 to 1000 ms",
+      "shortDefinition": "Closely spaced presynaptic spikes elevate residual terminal Ca2+, transiently boosting release probability u(t).",
+      "detailedMechanism": "Closely spaced presynaptic spikes elevate residual terminal Ca2+, transiently boosting release probability u(t). This process operates at biological scale L4 over 10 to 1000 ms and is quantitatively represented by EQ-047, EQ-048 in MODEL-016.",
+      "governingEquationIds": [
+        "EQ-047",
+        "EQ-048"
+      ],
+      "associatedModelIds": [
+        "MODEL-016"
+      ],
+      "references": [
+        "REF-TSODYKS-1997"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-030",
+      "canonicalName": "Short-Term Synaptic Depression (Readily Releasable Pool Depletion)",
+      "mechanismDomain": "SHORT_TERM_PLASTICITY",
+      "primaryScale": "L4",
+      "timescaleRange": "100 to 2000 ms",
+      "shortDefinition": "High-frequency stimulation exhausts docked vesicles faster than tau_rec replenishment, reducing postsynaptic EPSC amplitude.",
+      "detailedMechanism": "High-frequency stimulation exhausts docked vesicles faster than tau_rec replenishment, reducing postsynaptic EPSC amplitude. This process operates at biological scale L4 over 100 to 2000 ms and is quantitatively represented by EQ-047, EQ-048, EQ-049 in MODEL-016.",
+      "governingEquationIds": [
+        "EQ-047",
+        "EQ-048",
+        "EQ-049"
+      ],
+      "associatedModelIds": [
+        "MODEL-016"
+      ],
+      "references": [
+        "REF-TSODYKS-1997"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-031",
+      "canonicalName": "Retrograde Endocannabinoid Suppression of Synaptic Transmission (DSI/DSE)",
+      "mechanismDomain": "SHORT_TERM_PLASTICITY",
+      "primaryScale": "L4",
+      "timescaleRange": "1 to 60 s",
+      "shortDefinition": "Postsynaptic Ca2+ or mGluR1/5 activation synthesizes 2-AG, which diffuses retrogradely to presynaptic CB1 receptors to suppress transmitter release.",
+      "detailedMechanism": "Postsynaptic Ca2+ or mGluR1/5 activation synthesizes 2-AG, which diffuses retrogradely to presynaptic CB1 receptors to suppress transmitter release. This process operates at biological scale L4 over 1 to 60 s and is quantitatively represented by EQ-047 in MODEL-016.",
+      "governingEquationIds": [
+        "EQ-047"
+      ],
+      "associatedModelIds": [
+        "MODEL-016"
+      ],
+      "references": [
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-032",
+      "canonicalName": "Early Long-Term Potentiation (E-LTP via CaMKII & AMPAR Insertion)",
+      "mechanismDomain": "LONG_TERM_PLASTICITY",
+      "primaryScale": "L4",
+      "timescaleRange": "Minutes to 2 hours",
+      "shortDefinition": "NMDAR Ca2+ influx activates CaMKII Thr286 autophosphorylation, phosphorylating TARPs and inserting GluA1/GluA2 AMPARs into the PSD.",
+      "detailedMechanism": "NMDAR Ca2+ influx activates CaMKII Thr286 autophosphorylation, phosphorylating TARPs and inserting GluA1/GluA2 AMPARs into the PSD. This process operates at biological scale L4 over Minutes to 2 hours and is quantitatively represented by EQ-045, EQ-068 in MODEL-014, MODEL-023, MODEL-024.",
+      "governingEquationIds": [
+        "EQ-045",
+        "EQ-068"
+      ],
+      "associatedModelIds": [
+        "MODEL-014",
+        "MODEL-023",
+        "MODEL-024"
+      ],
+      "references": [
+        "REF-BLISS-LOMO-1973",
+        "REF-TRAYNELIS-2010"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-033",
+      "canonicalName": "Late Long-Term Potentiation (L-LTP via PKA/MAPK/CREB Transcription)",
+      "mechanismDomain": "LONG_TERM_PLASTICITY",
+      "primaryScale": "L4",
+      "timescaleRange": "Hours to lifetime",
+      "shortDefinition": "Sustained synaptic stimulation recruits PKA/ERK nuclear signaling and CREB-mediated synthesis of plasticity proteins (Arc, BDNF, PSD-95).",
+      "detailedMechanism": "Sustained synaptic stimulation recruits PKA/ERK nuclear signaling and CREB-mediated synthesis of plasticity proteins (Arc, BDNF, PSD-95). This process operates at biological scale L4 over Hours to lifetime and is quantitatively represented by EQ-068 in MODEL-023, MODEL-024.",
+      "governingEquationIds": [
+        "EQ-068"
+      ],
+      "associatedModelIds": [
+        "MODEL-023",
+        "MODEL-024"
+      ],
+      "references": [
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-034",
+      "canonicalName": "NMDA- and mGluR-Dependent Long-Term Depression (LTD)",
+      "mechanismDomain": "LONG_TERM_PLASTICITY",
+      "primaryScale": "L4",
+      "timescaleRange": "Minutes to days",
+      "shortDefinition": "Modest prolonged Ca2+ influx activates calcineurin (PP2B) and PP1, dephosphorylating AMPARs and driving clathrin-mediated endocytosis.",
+      "detailedMechanism": "Modest prolonged Ca2+ influx activates calcineurin (PP2B) and PP1, dephosphorylating AMPARs and driving clathrin-mediated endocytosis. This process operates at biological scale L4 over Minutes to days and is quantitatively represented by EQ-068, EQ-069 in MODEL-023, MODEL-024.",
+      "governingEquationIds": [
+        "EQ-068",
+        "EQ-069"
+      ],
+      "associatedModelIds": [
+        "MODEL-023",
+        "MODEL-024"
+      ],
+      "references": [
+        "REF-BCM-1982",
+        "REF-BI-POO-1998"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-035",
+      "canonicalName": "Pair-Based & Triplet Spike-Timing-Dependent Plasticity (STDP)",
+      "mechanismDomain": "LONG_TERM_PLASTICITY",
+      "primaryScale": "L4",
+      "timescaleRange": "5 to 50 ms window",
+      "shortDefinition": "Bidirectional synapse modification governed by the millisecond order and interval between presynaptic spike arrival and postsynaptic bAP.",
+      "detailedMechanism": "Bidirectional synapse modification governed by the millisecond order and interval between presynaptic spike arrival and postsynaptic bAP. This process operates at biological scale L4 over 5 to 50 ms window and is quantitatively represented by EQ-069, EQ-070, EQ-071, EQ-072 in MODEL-024.",
+      "governingEquationIds": [
+        "EQ-069",
+        "EQ-070",
+        "EQ-071",
+        "EQ-072"
+      ],
+      "associatedModelIds": [
+        "MODEL-024"
+      ],
+      "references": [
+        "REF-BI-POO-1998",
+        "REF-GERSTNER-2014"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-036",
+      "canonicalName": "Inhibitory Spike-Timing-Dependent Plasticity (iSTDP)",
+      "mechanismDomain": "LONG_TERM_PLASTICITY",
+      "primaryScale": "L4",
+      "timescaleRange": "10 to 100 ms",
+      "shortDefinition": "Activity-dependent modification of GABAergic I-to-E synapses that equalizes excitatory and inhibitory currents across cortical neurons.",
+      "detailedMechanism": "Activity-dependent modification of GABAergic I-to-E synapses that equalizes excitatory and inhibitory currents across cortical neurons. This process operates at biological scale L4 over 10 to 100 ms and is quantitatively represented by EQ-065 in MODEL-022.",
+      "governingEquationIds": [
+        "EQ-065"
+      ],
+      "associatedModelIds": [
+        "MODEL-022"
+      ],
+      "references": [
+        "REF-VOGELS-2011"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-037",
+      "canonicalName": "Dopamine-Modulated Three-Factor Corticostriatal Plasticity",
+      "mechanismDomain": "LONG_TERM_PLASTICITY",
+      "primaryScale": "L4",
+      "timescaleRange": "0.5 to 5 s eligibility",
+      "shortDefinition": "Coincident pre/post activity sets a decaying synaptic eligibility flag that converts into LTP or LTD only when gated by phasic dopamine RPE.",
+      "detailedMechanism": "Coincident pre/post activity sets a decaying synaptic eligibility flag that converts into LTP or LTD only when gated by phasic dopamine RPE. This process operates at biological scale L4 over 0.5 to 5 s eligibility and is quantitatively represented by EQ-074, EQ-075 in MODEL-026.",
+      "governingEquationIds": [
+        "EQ-074",
+        "EQ-075"
+      ],
+      "associatedModelIds": [
+        "MODEL-026"
+      ],
+      "references": [
+        "REF-SCHULTZ-1997",
+        "REF-GERSTNER-2014"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-038",
+      "canonicalName": "Multiplicative Homeostatic Synaptic Scaling",
+      "mechanismDomain": "HOMEOSTATIC_STRUCTURAL_PLASTICITY",
+      "primaryScale": "L3",
+      "timescaleRange": "Hours to days",
+      "shortDefinition": "Cell-wide negative feedback scaling all excitatory PSD receptor weights up or down proportionally to stabilize mean firing rate.",
+      "detailedMechanism": "Cell-wide negative feedback scaling all excitatory PSD receptor weights up or down proportionally to stabilize mean firing rate. This process operates at biological scale L3 over Hours to days and is quantitatively represented by EQ-073 in MODEL-025.",
+      "governingEquationIds": [
+        "EQ-073"
+      ],
+      "associatedModelIds": [
+        "MODEL-025"
+      ],
+      "references": [
+        "REF-TURRIGIANO-2008"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-039",
+      "canonicalName": "Intrinsic Homeostatic Plasticity & AIS Relocation",
+      "mechanismDomain": "HOMEOSTATIC_STRUCTURAL_PLASTICITY",
+      "primaryScale": "L2",
+      "timescaleRange": "Hours to days",
+      "shortDefinition": "Chronic activity perturbation adjusts voltage-gated Na+/K+ channel expression and shifts AIS position/length to tune intrinsic rheobase.",
+      "detailedMechanism": "Chronic activity perturbation adjusts voltage-gated Na+/K+ channel expression and shifts AIS position/length to tune intrinsic rheobase. This process operates at biological scale L2 over Hours to days and is quantitatively represented by EQ-073 in MODEL-025.",
+      "governingEquationIds": [
+        "EQ-073"
+      ],
+      "associatedModelIds": [
+        "MODEL-025"
+      ],
+      "references": [
+        "REF-TURRIGIANO-2008"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-040",
+      "canonicalName": "Structural Dendritic Spine Morphogenesis & Turnover",
+      "mechanismDomain": "HOMEOSTATIC_STRUCTURAL_PLASTICITY",
+      "primaryScale": "L2",
+      "timescaleRange": "Minutes to weeks",
+      "shortDefinition": "Actin polymerization expands thin spines into stable mushroom spines during LTP, whereas LTD shrinks or eliminates weak spines.",
+      "detailedMechanism": "Actin polymerization expands thin spines into stable mushroom spines during LTP, whereas LTD shrinks or eliminates weak spines. This process operates at biological scale L2 over Minutes to weeks and is quantitatively represented by EQ-069, EQ-073 in MODEL-024, MODEL-025.",
+      "governingEquationIds": [
+        "EQ-069",
+        "EQ-073"
+      ],
+      "associatedModelIds": [
+        "MODEL-024",
+        "MODEL-025"
+      ],
+      "references": [
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-041",
+      "canonicalName": "Microglial Complement-Mediated Synaptic Pruning",
+      "mechanismDomain": "HOMEOSTATIC_STRUCTURAL_PLASTICITY",
+      "primaryScale": "L3",
+      "timescaleRange": "Developmental days to weeks",
+      "shortDefinition": "Less-active synapses tagged with classical complement proteins C1q and C3 are engulfed by microglial CR3 receptors to refine circuits.",
+      "detailedMechanism": "Less-active synapses tagged with classical complement proteins C1q and C3 are engulfed by microglial CR3 receptors to refine circuits. This process operates at biological scale L3 over Developmental days to weeks and is quantitatively represented by EQ-073 in MODEL-025.",
+      "governingEquationIds": [
+        "EQ-073"
+      ],
+      "associatedModelIds": [
+        "MODEL-025"
+      ],
+      "references": [
+        "REF-RANSOHOFF-2016"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-042",
+      "canonicalName": "Excitatory-Inhibitory (E/I) Fluctuation-Driven Balanced State",
+      "mechanismDomain": "OSCILLATIONS_AND_SYNCHRONY",
+      "primaryScale": "L5",
+      "timescaleRange": "Milliseconds",
+      "shortDefinition": "Strong recurrent excitation and inhibition cancel in the mean so membrane voltage hovers near threshold, driven by stochastic fluctuations.",
+      "detailedMechanism": "Strong recurrent excitation and inhibition cancel in the mean so membrane voltage hovers near threshold, driven by stochastic fluctuations. This process operates at biological scale L5 over Milliseconds and is quantitatively represented by EQ-063, EQ-064 in MODEL-021, MODEL-022.",
+      "governingEquationIds": [
+        "EQ-063",
+        "EQ-064"
+      ],
+      "associatedModelIds": [
+        "MODEL-021",
+        "MODEL-022"
+      ],
+      "references": [
+        "REF-VANVREESWIJK-1996",
+        "REF-BRUNEL-2000"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-043",
+      "canonicalName": "Pyramidal-Interneuron Network Gamma (PING) Rhythm Generation",
+      "mechanismDomain": "OSCILLATIONS_AND_SYNCHRONY",
+      "primaryScale": "L5",
+      "timescaleRange": "12 to 33 ms period (30\u201380 Hz)",
+      "shortDefinition": "Pyramidal volley recruits fast-spiking PV+ basket cells whose GABA_A decay (~8\u201315 ms) paces the next window of pyramidal firing.",
+      "detailedMechanism": "Pyramidal volley recruits fast-spiking PV+ basket cells whose GABA_A decay (~8\u201315 ms) paces the next window of pyramidal firing. This process operates at biological scale L5 over 12 to 33 ms period (30\u201380 Hz) and is quantitatively represented by EQ-051, EQ-052, EQ-063 in MODEL-017, MODEL-021.",
+      "governingEquationIds": [
+        "EQ-051",
+        "EQ-052",
+        "EQ-063"
+      ],
+      "associatedModelIds": [
+        "MODEL-017",
+        "MODEL-021"
+      ],
+      "references": [
+        "REF-BUZSAKI-2012",
+        "REF-WILSON-COWAN-1972"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-044",
+      "canonicalName": "Thalamocortical Alpha (8\u201312 Hz) & Sleep Spindle (11\u201316 Hz) Generation",
+      "mechanismDomain": "OSCILLATIONS_AND_SYNCHRONY",
+      "primaryScale": "L6",
+      "timescaleRange": "60 to 125 ms period",
+      "shortDefinition": "Reciprocal loop between thalamocortical relay neurons, GABAergic TRN neurons, and cortical Layer 4/6 columns.",
+      "detailedMechanism": "Reciprocal loop between thalamocortical relay neurons, GABAergic TRN neurons, and cortical Layer 4/6 columns. This process operates at biological scale L6 over 60 to 125 ms period and is quantitatively represented by EQ-055, EQ-056, EQ-057 in MODEL-018.",
+      "governingEquationIds": [
+        "EQ-055",
+        "EQ-056",
+        "EQ-057"
+      ],
+      "associatedModelIds": [
+        "MODEL-018"
+      ],
+      "references": [
+        "REF-JANSEN-RIT-1995",
+        "REF-BUZSAKI-2012"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-045",
+      "canonicalName": "Hippocampal Theta-Gamma Phase-Amplitude Coupling & Sharp-Wave Ripples",
+      "mechanismDomain": "OSCILLATIONS_AND_SYNCHRONY",
+      "primaryScale": "L6",
+      "timescaleRange": "Theta 4\u20138 Hz / Ripple 150\u2013250 Hz",
+      "shortDefinition": "Medial septal theta phase modulates local gamma bursts during active encoding; CA3 recurrent bursts drive high-frequency ripples during offline consolidation.",
+      "detailedMechanism": "Medial septal theta phase modulates local gamma bursts during active encoding; CA3 recurrent bursts drive high-frequency ripples during offline consolidation. This process operates at biological scale L6 over Theta 4\u20138 Hz / Ripple 150\u2013250 Hz and is quantitatively represented by EQ-060, EQ-063 in MODEL-021, MODEL-027.",
+      "governingEquationIds": [
+        "EQ-060",
+        "EQ-063"
+      ],
+      "associatedModelIds": [
+        "MODEL-021",
+        "MODEL-027"
+      ],
+      "references": [
+        "REF-BUZSAKI-2012",
+        "REF-SQUIRE-2004"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-046",
+      "canonicalName": "Collective Phase Synchronization of Coupled Neural Oscillators",
+      "mechanismDomain": "OSCILLATIONS_AND_SYNCHRONY",
+      "primaryScale": "L8",
+      "timescaleRange": "10 ms to seconds",
+      "shortDefinition": "Transition from incoherent phase drift to macroscopic phase locking when coupling strength K exceeds frequency dispersion 2*gamma.",
+      "detailedMechanism": "Transition from incoherent phase drift to macroscopic phase locking when coupling strength K exceeds frequency dispersion 2*gamma. This process operates at biological scale L8 over 10 ms to seconds and is quantitatively represented by EQ-060, EQ-061, EQ-062 in MODEL-027.",
+      "governingEquationIds": [
+        "EQ-060",
+        "EQ-061",
+        "EQ-062"
+      ],
+      "associatedModelIds": [
+        "MODEL-027"
+      ],
+      "references": [
+        "REF-KURAMOTO-1984",
+        "REF-BREAKSPEAR-2017"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-047",
+      "canonicalName": "Astrocytic Tripartite Glutamate Clearance & K+ Spatial Buffering",
+      "mechanismDomain": "GLIAL_METABOLIC_VASCULAR",
+      "primaryScale": "L3",
+      "timescaleRange": "1 to 100 ms",
+      "shortDefinition": "Perisynaptic astrocyte leaflets rapidly clear cleft glutamate via EAAT1/2 and redistribute excess extracellular K+ through Kir4.1 and Cx43 gap junctions.",
+      "detailedMechanism": "Perisynaptic astrocyte leaflets rapidly clear cleft glutamate via EAAT1/2 and redistribute excess extracellular K+ through Kir4.1 and Cx43 gap junctions. This process operates at biological scale L3 over 1 to 100 ms and is quantitatively represented by EQ-001, EQ-042 in MODEL-013.",
+      "governingEquationIds": [
+        "EQ-001",
+        "EQ-042"
+      ],
+      "associatedModelIds": [
+        "MODEL-013"
+      ],
+      "references": [
+        "REF-ARAQUE-1999"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-048",
+      "canonicalName": "Astrocyte-Neuron Lactate Shuttle (ANLS) Metabolic Coupling",
+      "mechanismDomain": "GLIAL_METABOLIC_VASCULAR",
+      "primaryScale": "L3",
+      "timescaleRange": "Seconds to minutes",
+      "shortDefinition": "Synaptic glutamate uptake stimulates astrocytic aerobic glycolysis, exporting L-lactate via MCT1/4 to fuel neuronal MCT2 oxidative phosphorylation.",
+      "detailedMechanism": "Synaptic glutamate uptake stimulates astrocytic aerobic glycolysis, exporting L-lactate via MCT1/4 to fuel neuronal MCT2 oxidative phosphorylation. This process operates at biological scale L3 over Seconds to minutes and is quantitatively represented by EQ-001 in MODEL-001.",
+      "governingEquationIds": [
+        "EQ-001"
+      ],
+      "associatedModelIds": [
+        "MODEL-001"
+      ],
+      "references": [
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-049",
+      "canonicalName": "Neurovascular Coupling & Hemodynamic BOLD Response",
+      "mechanismDomain": "GLIAL_METABOLIC_VASCULAR",
+      "primaryScale": "L6",
+      "timescaleRange": "2 to 15 s",
+      "shortDefinition": "Synaptic and astrocytic signaling (NO, PGE2, EETs, K+) dilates local arterioles, increasing oxygenated blood flow (fMRI BOLD peak ~4\u20136 s lag).",
+      "detailedMechanism": "Synaptic and astrocytic signaling (NO, PGE2, EETs, K+) dilates local arterioles, increasing oxygenated blood flow (fMRI BOLD peak ~4\u20136 s lag). This process operates at biological scale L6 over 2 to 15 s and is quantitatively represented by EQ-057 in MODEL-018, MODEL-028.",
+      "governingEquationIds": [
+        "EQ-057"
+      ],
+      "associatedModelIds": [
+        "MODEL-018",
+        "MODEL-028"
+      ],
+      "references": [
+        "REF-IADECOLA-2017",
+        "REF-BUZSAKI-2012"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-050",
+      "canonicalName": "Ascending Monoaminergic & Cholinergic Gain Modulation",
+      "mechanismDomain": "NEUROMODULATION_SIGNALING",
+      "primaryScale": "L8",
+      "timescaleRange": "100 ms to minutes",
+      "shortDefinition": "Volume transmission of NE (LC), ACh (basal forebrain), DA (VTA), and 5-HT (raphe) shifts neuronal f-I gain, M-current adaptation, and E/I ratio.",
+      "detailedMechanism": "Volume transmission of NE (LC), ACh (basal forebrain), DA (VTA), and 5-HT (raphe) shifts neuronal f-I gain, M-current adaptation, and E/I ratio. This process operates at biological scale L8 over 100 ms to minutes and is quantitatively represented by EQ-034, EQ-053 in MODEL-008, MODEL-017.",
+      "governingEquationIds": [
+        "EQ-034",
+        "EQ-053"
+      ],
+      "associatedModelIds": [
+        "MODEL-008",
+        "MODEL-017"
+      ],
+      "references": [
+        "REF-MILLER-COHEN-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-051",
+      "canonicalName": "SCN Molecular Circadian TTFL & Sleep-Wake Flip-Flop Switching",
+      "mechanismDomain": "NEUROMODULATION_SIGNALING",
+      "primaryScale": "L6",
+      "timescaleRange": "Minutes to 24 hours",
+      "shortDefinition": "24-hour CLOCK:BMAL1/PER:CRY transcriptional oscillations in SCN bias the mutually inhibitory VLPO sleep vs monoaminergic/orexin wake switch.",
+      "detailedMechanism": "24-hour CLOCK:BMAL1/PER:CRY transcriptional oscillations in SCN bias the mutually inhibitory VLPO sleep vs monoaminergic/orexin wake switch. This process operates at biological scale L6 over Minutes to 24 hours and is quantitatively represented by EQ-051, EQ-052, EQ-060 in MODEL-017, MODEL-027.",
+      "governingEquationIds": [
+        "EQ-051",
+        "EQ-052",
+        "EQ-060"
+      ],
+      "associatedModelIds": [
+        "MODEL-017",
+        "MODEL-027"
+      ],
+      "references": [
+        "REF-TAKAHASHI-2017",
+        "REF-SCAMMELL-2017"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MECH-052",
+      "canonicalName": "Persistent NMDA Reverberation & Attractor Decision Competition",
+      "mechanismDomain": "OSCILLATIONS_AND_SYNCHRONY",
+      "primaryScale": "L6",
+      "timescaleRange": "100 ms to 5 s",
+      "shortDefinition": "Slow NMDA decay (100 ms) sustains delay-period firing while shared interneuron inhibition forces winner-take-all choice commitment.",
+      "detailedMechanism": "Slow NMDA decay (100 ms) sustains delay-period firing while shared interneuron inhibition forces winner-take-all choice commitment. This process operates at biological scale L6 over 100 ms to 5 s and is quantitatively represented by EQ-058, EQ-059 in MODEL-019.",
+      "governingEquationIds": [
+        "EQ-058",
+        "EQ-059"
+      ],
+      "associatedModelIds": [
+        "MODEL-019"
+      ],
+      "references": [
+        "REF-GERSTNER-2014",
+        "REF-MILLER-COHEN-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    }
+  ]
+}

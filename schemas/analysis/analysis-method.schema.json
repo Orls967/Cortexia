@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cortexia.science/schemas/analysis/analysis-method.schema.json",
+  "title": "ScientificAnalysisMethod",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "category",
+    "governingEquationId",
+    "inputSpecification",
+    "outputSpecification",
+    "assumptions",
+    "limitations",
+    "causalInferenceWarning",
+    "references",
+    "schemaVersion"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^ANALYTIC-[0-9]{3}$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 3
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "SIGNAL_PROCESSING",
+        "SPIKE_TRAIN_ANALYTICS",
+        "NETWORK_SCIENCE",
+        "STATISTICAL_INFERENCE"
+      ]
+    },
+    "governingEquationId": {
+      "type": "string",
+      "pattern": "^EQ-[A-Z0-9-]+$"
+    },
+    "inputSpecification": {
+      "type": "string",
+      "minLength": 15
+    },
+    "outputSpecification": {
+      "type": "string",
+      "minLength": 15
+    },
+    "assumptions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "causalInferenceWarning": {
+      "type": "string",
+      "minLength": 20
+    },
+    "references": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "pattern": "^REF-[A-Z0-9-]+$"
+      }
+    },
+    "schemaVersion": {
+      "type": "string",
+      "const": "1.0.0"
+    }
+  }
+}

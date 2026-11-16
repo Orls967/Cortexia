@@ -1,0 +1,1349 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "PARAM-001",
+      "symbol": "C_m",
+      "name": "Specific Membrane Capacitance",
+      "modelId": "MODEL-001",
+      "unit": "uF/cm^2",
+      "defaultValue": 1.0,
+      "minValue": 0.5,
+      "maxValue": 5.0,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Bilayer specific capacitance of squid giant axon membrane.",
+      "references": [
+        "REF-HH-1952"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-002",
+      "symbol": "g_Na_max",
+      "name": "Maximum Sodium Conductance",
+      "modelId": "MODEL-001",
+      "unit": "mS/cm^2",
+      "defaultValue": 120.0,
+      "minValue": 0.0,
+      "maxValue": 250.0,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Peak voltage-gated Na+ channel conductance driving AP upstroke.",
+      "references": [
+        "REF-HH-1952"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-003",
+      "symbol": "g_K_max",
+      "name": "Maximum Delayed-Rectifier Potassium Conductance",
+      "modelId": "MODEL-001",
+      "unit": "mS/cm^2",
+      "defaultValue": 36.0,
+      "minValue": 0.0,
+      "maxValue": 120.0,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Peak voltage-gated K+ channel conductance driving AP repolarization.",
+      "references": [
+        "REF-HH-1952"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-004",
+      "symbol": "g_L",
+      "name": "Membrane Leak Conductance",
+      "modelId": "MODEL-001",
+      "unit": "mS/cm^2",
+      "defaultValue": 0.3,
+      "minValue": 0.05,
+      "maxValue": 5.0,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Background voltage-independent leak conductance.",
+      "references": [
+        "REF-HH-1952"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-005",
+      "symbol": "E_Na",
+      "name": "Sodium Reversal Potential",
+      "modelId": "MODEL-001",
+      "unit": "mV",
+      "defaultValue": 50.0,
+      "minValue": 30.0,
+      "maxValue": 70.0,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Nernst equilibrium potential for Na+ ions.",
+      "references": [
+        "REF-HH-1952"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-006",
+      "symbol": "E_K",
+      "name": "Potassium Reversal Potential",
+      "modelId": "MODEL-001",
+      "unit": "mV",
+      "defaultValue": -77.0,
+      "minValue": -95.0,
+      "maxValue": -60.0,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Nernst equilibrium potential for K+ ions.",
+      "references": [
+        "REF-HH-1952"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-007",
+      "symbol": "E_L",
+      "name": "Leak Reversal Potential",
+      "modelId": "MODEL-001",
+      "unit": "mV",
+      "defaultValue": -54.387,
+      "minValue": -75.0,
+      "maxValue": -45.0,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Effective leak reversal potential stabilizing V_rest at -65 mV.",
+      "references": [
+        "REF-HH-1952"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-008",
+      "symbol": "T_celsius",
+      "name": "Operating Temperature",
+      "modelId": "MODEL-001",
+      "unit": "degC",
+      "defaultValue": 6.3,
+      "minValue": 2.0,
+      "maxValue": 37.0,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Temperature governing Q10 gating rate acceleration.",
+      "references": [
+        "REF-HH-1952"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-009",
+      "symbol": "C_m_ML",
+      "name": "Morris-Lecar Membrane Capacitance",
+      "modelId": "MODEL-002",
+      "unit": "uF/cm^2",
+      "defaultValue": 20.0,
+      "minValue": 5.0,
+      "maxValue": 50.0,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Specific capacitance of barnacle muscle fiber.",
+      "references": [
+        "REF-MORRIS-LECAR-1981"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-010",
+      "symbol": "g_Ca_ML",
+      "name": "Morris-Lecar Calcium Conductance",
+      "modelId": "MODEL-002",
+      "unit": "mS/cm^2",
+      "defaultValue": 4.4,
+      "minValue": 1.0,
+      "maxValue": 12.0,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Maximum inward Ca2+ conductance in Morris-Lecar model.",
+      "references": [
+        "REF-MORRIS-LECAR-1981"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-011",
+      "symbol": "g_K_ML",
+      "name": "Morris-Lecar Potassium Conductance",
+      "modelId": "MODEL-002",
+      "unit": "mS/cm^2",
+      "defaultValue": 8.0,
+      "minValue": 1.0,
+      "maxValue": 20.0,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Maximum outward K+ conductance in Morris-Lecar model.",
+      "references": [
+        "REF-MORRIS-LECAR-1981"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-012",
+      "symbol": "phi_ML",
+      "name": "Morris-Lecar Recovery Rate Scale",
+      "modelId": "MODEL-002",
+      "unit": "1/ms",
+      "defaultValue": 0.04,
+      "minValue": 0.01,
+      "maxValue": 0.2,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Temperature/kinetic scaling factor for slow recovery variable W.",
+      "references": [
+        "REF-MORRIS-LECAR-1981"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-013",
+      "symbol": "g_A_max",
+      "name": "Connor-Stevens A-Current Conductance",
+      "modelId": "MODEL-003",
+      "unit": "mS/cm^2",
+      "defaultValue": 47.7,
+      "minValue": 0.0,
+      "maxValue": 100.0,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Maximal transient inactivating K+ conductance enabling Type I low firing rates.",
+      "references": [
+        "REF-DAYAN-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-014",
+      "symbol": "E_A",
+      "name": "A-Current Reversal Potential",
+      "modelId": "MODEL-003",
+      "unit": "mV",
+      "defaultValue": -75.0,
+      "minValue": -90.0,
+      "maxValue": -60.0,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Reversal potential of the transient A-type K+ channel.",
+      "references": [
+        "REF-DAYAN-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-015",
+      "symbol": "a_FHN",
+      "name": "FitzHugh-Nagumo Offset Parameter a",
+      "modelId": "MODEL-004",
+      "unit": "dimensionless",
+      "defaultValue": 0.7,
+      "minValue": 0.1,
+      "maxValue": 1.5,
+      "valueProvenance": "CANONICAL_BENCHMARK_DEFAULT",
+      "biologicalMeaning": "Shifts the linear w-nullcline to control excitable fixed-point stability.",
+      "references": [
+        "REF-FITZHUGH-1961"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-016",
+      "symbol": "b_FHN",
+      "name": "FitzHugh-Nagumo Slope Parameter b",
+      "modelId": "MODEL-004",
+      "unit": "dimensionless",
+      "defaultValue": 0.8,
+      "minValue": 0.1,
+      "maxValue": 2.0,
+      "valueProvenance": "CANONICAL_BENCHMARK_DEFAULT",
+      "biologicalMeaning": "Inverse slope of the recovery variable nullcline.",
+      "references": [
+        "REF-FITZHUGH-1961"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-017",
+      "symbol": "eps_FHN",
+      "name": "FitzHugh-Nagumo Timescale Ratio epsilon",
+      "modelId": "MODEL-004",
+      "unit": "dimensionless",
+      "defaultValue": 0.08,
+      "minValue": 0.01,
+      "maxValue": 0.5,
+      "valueProvenance": "CANONICAL_BENCHMARK_DEFAULT",
+      "biologicalMeaning": "Ratio of slow recovery timescale to fast voltage activation.",
+      "references": [
+        "REF-FITZHUGH-1961"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-018",
+      "symbol": "tau_m_LIF",
+      "name": "LIF Membrane Time Constant",
+      "modelId": "MODEL-005",
+      "unit": "ms",
+      "defaultValue": 20.0,
+      "minValue": 2.0,
+      "maxValue": 100.0,
+      "valueProvenance": "CANONICAL_BENCHMARK_DEFAULT",
+      "biologicalMeaning": "Passive RC time constant governing subthreshold leaky integration.",
+      "references": [
+        "REF-DAYAN-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-019",
+      "symbol": "R_m_LIF",
+      "name": "LIF Membrane Input Resistance",
+      "modelId": "MODEL-005",
+      "unit": "MOhm",
+      "defaultValue": 100.0,
+      "minValue": 10.0,
+      "maxValue": 500.0,
+      "valueProvenance": "CANONICAL_BENCHMARK_DEFAULT",
+      "biologicalMeaning": "Total cell input resistance converting injected pA current into mV depolarization.",
+      "references": [
+        "REF-DAYAN-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-020",
+      "symbol": "V_th_LIF",
+      "name": "LIF Spike Threshold Potential",
+      "modelId": "MODEL-005",
+      "unit": "mV",
+      "defaultValue": -50.0,
+      "minValue": -60.0,
+      "maxValue": -35.0,
+      "valueProvenance": "CANONICAL_BENCHMARK_DEFAULT",
+      "biologicalMeaning": "Voltage threshold triggering instantaneous action potential emission.",
+      "references": [
+        "REF-DAYAN-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-021",
+      "symbol": "V_reset_LIF",
+      "name": "LIF Post-Spike Reset Potential",
+      "modelId": "MODEL-005",
+      "unit": "mV",
+      "defaultValue": -65.0,
+      "minValue": -80.0,
+      "maxValue": -52.0,
+      "valueProvenance": "CANONICAL_BENCHMARK_DEFAULT",
+      "biologicalMeaning": "Membrane potential immediately following spike emission.",
+      "references": [
+        "REF-DAYAN-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-022",
+      "symbol": "tau_ref_LIF",
+      "name": "LIF Absolute Refractory Period",
+      "modelId": "MODEL-005",
+      "unit": "ms",
+      "defaultValue": 2.0,
+      "minValue": 0.5,
+      "maxValue": 10.0,
+      "valueProvenance": "CANONICAL_BENCHMARK_DEFAULT",
+      "biologicalMeaning": "Duration for which voltage is clamped at V_reset after a spike.",
+      "references": [
+        "REF-DAYAN-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-023",
+      "symbol": "C_m_COBA",
+      "name": "COBA-LIF Total Membrane Capacitance",
+      "modelId": "MODEL-006",
+      "unit": "pF",
+      "defaultValue": 200.0,
+      "minValue": 50.0,
+      "maxValue": 600.0,
+      "valueProvenance": "CANONICAL_BENCHMARK_DEFAULT",
+      "biologicalMeaning": "Whole-cell capacitance of point-neuron conductance-based LIF model.",
+      "references": [
+        "REF-GERSTNER-2014"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-024",
+      "symbol": "g_L_COBA",
+      "name": "COBA-LIF Leak Conductance",
+      "modelId": "MODEL-006",
+      "unit": "nS",
+      "defaultValue": 10.0,
+      "minValue": 1.0,
+      "maxValue": 50.0,
+      "valueProvenance": "CANONICAL_BENCHMARK_DEFAULT",
+      "biologicalMeaning": "Resting whole-cell leak conductance.",
+      "references": [
+        "REF-GERSTNER-2014"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-025",
+      "symbol": "a0_QIF",
+      "name": "QIF Quadratic Curvature Coefficient",
+      "modelId": "MODEL-007",
+      "unit": "1/mV",
+      "defaultValue": 0.08,
+      "minValue": 0.01,
+      "maxValue": 0.5,
+      "valueProvenance": "CANONICAL_BENCHMARK_DEFAULT",
+      "biologicalMeaning": "Quadratic voltage-growth curvature near SNIC threshold.",
+      "references": [
+        "REF-GERSTNER-2014"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-026",
+      "symbol": "V_c_QIF",
+      "name": "QIF Critical Unstable Threshold",
+      "modelId": "MODEL-007",
+      "unit": "mV",
+      "defaultValue": -55.0,
+      "minValue": -62.0,
+      "maxValue": -45.0,
+      "valueProvenance": "CANONICAL_BENCHMARK_DEFAULT",
+      "biologicalMeaning": "Unstable repeller voltage above which regenerative spike runaway occurs.",
+      "references": [
+        "REF-GERSTNER-2014"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-027",
+      "symbol": "Delta_T_AdEx",
+      "name": "AdEx Exponential Slope Factor",
+      "modelId": "MODEL-008",
+      "unit": "mV",
+      "defaultValue": 2.0,
+      "minValue": 0.5,
+      "maxValue": 6.0,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Sharpness of exponential Na+ channel activation near threshold.",
+      "references": [
+        "REF-BRETTE-GERSTNER-2005"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-028",
+      "symbol": "V_T_AdEx",
+      "name": "AdEx Effective Rheobase Threshold",
+      "modelId": "MODEL-008",
+      "unit": "mV",
+      "defaultValue": -50.4,
+      "minValue": -60.0,
+      "maxValue": -40.0,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Voltage at which exponential sodium current begins to dominate leak.",
+      "references": [
+        "REF-BRETTE-GERSTNER-2005"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-029",
+      "symbol": "a_AdEx",
+      "name": "AdEx Subthreshold Adaptation Conductance",
+      "modelId": "MODEL-008",
+      "unit": "nS",
+      "defaultValue": 4.0,
+      "minValue": -2.0,
+      "maxValue": 20.0,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Coupling strength of adaptation current w to subthreshold membrane voltage.",
+      "references": [
+        "REF-BRETTE-GERSTNER-2005"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-030",
+      "symbol": "b_AdEx",
+      "name": "AdEx Spike-Triggered Adaptation Increment",
+      "modelId": "MODEL-008",
+      "unit": "pA",
+      "defaultValue": 80.5,
+      "minValue": 0.0,
+      "maxValue": 300.0,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Discrete jump in outward adaptation current w after each action potential.",
+      "references": [
+        "REF-BRETTE-GERSTNER-2005"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-031",
+      "symbol": "tau_w_AdEx",
+      "name": "AdEx Adaptation Time Constant",
+      "modelId": "MODEL-008",
+      "unit": "ms",
+      "defaultValue": 144.0,
+      "minValue": 10.0,
+      "maxValue": 500.0,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Decay time constant of slow spike-frequency adaptation current.",
+      "references": [
+        "REF-BRETTE-GERSTNER-2005"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-032",
+      "symbol": "a_Izh",
+      "name": "Izhikevich Recovery Rate Parameter a",
+      "modelId": "MODEL-009",
+      "unit": "1/ms",
+      "defaultValue": 0.02,
+      "minValue": 0.01,
+      "maxValue": 0.2,
+      "valueProvenance": "CANONICAL_BENCHMARK_DEFAULT",
+      "biologicalMeaning": "Timescale of recovery variable u (0.02 RS/IB, 0.1 FS).",
+      "references": [
+        "REF-IZHIKEVICH-2003"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-033",
+      "symbol": "b_Izh",
+      "name": "Izhikevich Subthreshold Sensitivity b",
+      "modelId": "MODEL-009",
+      "unit": "dimensionless",
+      "defaultValue": 0.2,
+      "minValue": 0.05,
+      "maxValue": 0.3,
+      "valueProvenance": "CANONICAL_BENCHMARK_DEFAULT",
+      "biologicalMeaning": "Sensitivity of recovery variable u to subthreshold fluctuations.",
+      "references": [
+        "REF-IZHIKEVICH-2003"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-034",
+      "symbol": "c_Izh",
+      "name": "Izhikevich Post-Spike Voltage Reset c",
+      "modelId": "MODEL-009",
+      "unit": "mV",
+      "defaultValue": -65.0,
+      "minValue": -70.0,
+      "maxValue": -45.0,
+      "valueProvenance": "CANONICAL_BENCHMARK_DEFAULT",
+      "biologicalMeaning": "After-spike reset value of membrane voltage (-65 RS, -55 IB, -50 CH).",
+      "references": [
+        "REF-IZHIKEVICH-2003"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-035",
+      "symbol": "d_Izh",
+      "name": "Izhikevich Post-Spike Recovery Jump d",
+      "modelId": "MODEL-009",
+      "unit": "dimensionless",
+      "defaultValue": 8.0,
+      "minValue": 0.5,
+      "maxValue": 16.0,
+      "valueProvenance": "CANONICAL_BENCHMARK_DEFAULT",
+      "biologicalMeaning": "After-spike reset increment of recovery variable u (8 RS, 4 IB, 2 FS).",
+      "references": [
+        "REF-IZHIKEVICH-2003"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-036",
+      "symbol": "lambda_cable",
+      "name": "Dendritic Electrotonic Length Constant",
+      "modelId": "MODEL-010",
+      "unit": "um",
+      "defaultValue": 250.0,
+      "minValue": 50.0,
+      "maxValue": 1000.0,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Characteristic spatial decay length along passive dendritic cable.",
+      "references": [
+        "REF-RALL-1962"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-037",
+      "symbol": "N_comp_cable",
+      "name": "Number of Dendritic Cable Compartments",
+      "modelId": "MODEL-010",
+      "unit": "dimensionless",
+      "defaultValue": 20.0,
+      "minValue": 3.0,
+      "maxValue": 50.0,
+      "valueProvenance": "CANONICAL_BENCHMARK_DEFAULT",
+      "biologicalMeaning": "Spatial discretization segment count along the dendritic arbor.",
+      "references": [
+        "REF-RALL-1962"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-038",
+      "symbol": "tau_syn_cuba",
+      "name": "Current-Synapse Exponential Decay Constant",
+      "modelId": "MODEL-011",
+      "unit": "ms",
+      "defaultValue": 5.0,
+      "minValue": 0.5,
+      "maxValue": 50.0,
+      "valueProvenance": "CANONICAL_BENCHMARK_DEFAULT",
+      "biologicalMeaning": "Single-exponential synaptic current decay time constant.",
+      "references": [
+        "REF-DAYAN-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-039",
+      "symbol": "w_syn_cuba",
+      "name": "Current-Synapse Postsynaptic Amplitude",
+      "modelId": "MODEL-011",
+      "unit": "pA",
+      "defaultValue": 50.0,
+      "minValue": -200.0,
+      "maxValue": 200.0,
+      "valueProvenance": "CANONICAL_BENCHMARK_DEFAULT",
+      "biologicalMeaning": "Peak postsynaptic current increment per presynaptic spike.",
+      "references": [
+        "REF-DAYAN-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-040",
+      "symbol": "g_max_alpha",
+      "name": "Alpha-Synapse Peak Conductance",
+      "modelId": "MODEL-012",
+      "unit": "nS",
+      "defaultValue": 2.0,
+      "minValue": 0.1,
+      "maxValue": 20.0,
+      "valueProvenance": "CANONICAL_BENCHMARK_DEFAULT",
+      "biologicalMeaning": "Peak conductance achieved at t = tau_alpha after a presynaptic spike.",
+      "references": [
+        "REF-DAYAN-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-041",
+      "symbol": "tau_alpha",
+      "name": "Alpha-Synapse Time-to-Peak Constant",
+      "modelId": "MODEL-012",
+      "unit": "ms",
+      "defaultValue": 2.0,
+      "minValue": 0.2,
+      "maxValue": 20.0,
+      "valueProvenance": "CANONICAL_BENCHMARK_DEFAULT",
+      "biologicalMeaning": "Characteristic rise and decay time constant of an alpha-function synapse.",
+      "references": [
+        "REF-DAYAN-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-042",
+      "symbol": "tau_r_AMPA",
+      "name": "AMPA Receptor Conductance Rise Time",
+      "modelId": "MODEL-013",
+      "unit": "ms",
+      "defaultValue": 0.4,
+      "minValue": 0.1,
+      "maxValue": 2.0,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Fast glutamate binding and channel opening rise constant of AMPA receptors.",
+      "references": [
+        "REF-DESTEXHE-1994"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-043",
+      "symbol": "tau_d_AMPA",
+      "name": "AMPA Receptor Conductance Decay Time",
+      "modelId": "MODEL-013",
+      "unit": "ms",
+      "defaultValue": 2.0,
+      "minValue": 0.5,
+      "maxValue": 10.0,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Deactivation and desensitization decay constant of AMPA receptors.",
+      "references": [
+        "REF-DESTEXHE-1994"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-044",
+      "symbol": "tau_d_GABAA",
+      "name": "GABA_A Receptor Conductance Decay Time",
+      "modelId": "MODEL-013",
+      "unit": "ms",
+      "defaultValue": 8.0,
+      "minValue": 2.0,
+      "maxValue": 30.0,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Fast chloride-mediated inhibitory postsynaptic conductance decay constant.",
+      "references": [
+        "REF-DESTEXHE-1994"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-045",
+      "symbol": "E_GABAA",
+      "name": "GABA_A Chloride Reversal Potential",
+      "modelId": "MODEL-013",
+      "unit": "mV",
+      "defaultValue": -75.0,
+      "minValue": -90.0,
+      "maxValue": -55.0,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Inhibitory Cl-/HCO3- reversal potential set by KCC2 activity.",
+      "references": [
+        "REF-SIGEL-2012"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-046",
+      "symbol": "tau_d_NMDA",
+      "name": "NMDA Receptor Slow Decay Time Constant",
+      "modelId": "MODEL-014",
+      "unit": "ms",
+      "defaultValue": 100.0,
+      "minValue": 20.0,
+      "maxValue": 300.0,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Slow glutamate unbinding decay constant of NMDA receptors.",
+      "references": [
+        "REF-TRAYNELIS-2010"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-047",
+      "symbol": "Mg_out_NMDA",
+      "name": "Extracellular Magnesium Concentration [Mg2+]_o",
+      "modelId": "MODEL-014",
+      "unit": "mM",
+      "defaultValue": 1.0,
+      "minValue": 0.0,
+      "maxValue": 4.0,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Extracellular Mg2+ concentration governing voltage-dependent NMDAR pore block.",
+      "references": [
+        "REF-TRAYNELIS-2010"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-048",
+      "symbol": "g_gap",
+      "name": "Electrical Gap-Junction Conductance",
+      "modelId": "MODEL-015",
+      "unit": "nS",
+      "defaultValue": 1.5,
+      "minValue": 0.0,
+      "maxValue": 10.0,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Ohmic electrotonic coupling conductance across Cx36 gap junctions.",
+      "references": [
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-049",
+      "symbol": "U0_STP",
+      "name": "Tsodyks-Markram Baseline Release Probability U0",
+      "modelId": "MODEL-016",
+      "unit": "dimensionless",
+      "defaultValue": 0.5,
+      "minValue": 0.02,
+      "maxValue": 0.95,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Fraction of available vesicles released by a solitary action potential.",
+      "references": [
+        "REF-TSODYKS-1997"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-050",
+      "symbol": "tau_rec_STP",
+      "name": "Tsodyks-Markram Vesicle Recovery Time Constant",
+      "modelId": "MODEL-016",
+      "unit": "ms",
+      "defaultValue": 800.0,
+      "minValue": 20.0,
+      "maxValue": 2000.0,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Time constant for replenishing depleted readily releasable vesicles.",
+      "references": [
+        "REF-TSODYKS-1997"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-051",
+      "symbol": "tau_facil_STP",
+      "name": "Tsodyks-Markram Facilitation Time Constant",
+      "modelId": "MODEL-016",
+      "unit": "ms",
+      "defaultValue": 20.0,
+      "minValue": 1.0,
+      "maxValue": 1500.0,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Time constant for residual presynaptic Ca2+ facilitation decay.",
+      "references": [
+        "REF-TSODYKS-1997"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-052",
+      "symbol": "w_EE_WC",
+      "name": "Wilson-Cowan Recurrent Excitatory Weight w_EE",
+      "modelId": "MODEL-017",
+      "unit": "dimensionless",
+      "defaultValue": 16.0,
+      "minValue": 0.0,
+      "maxValue": 30.0,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Self-excitation coupling gain within the excitatory population.",
+      "references": [
+        "REF-WILSON-COWAN-1972"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-053",
+      "symbol": "w_EI_WC",
+      "name": "Wilson-Cowan Inhibitory-to-Excitatory Weight w_EI",
+      "modelId": "MODEL-017",
+      "unit": "dimensionless",
+      "defaultValue": 12.0,
+      "minValue": 0.0,
+      "maxValue": 30.0,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Feedback inhibition strength from I population onto E population.",
+      "references": [
+        "REF-WILSON-COWAN-1972"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-054",
+      "symbol": "w_IE_WC",
+      "name": "Wilson-Cowan Excitatory-to-Inhibitory Weight w_IE",
+      "modelId": "MODEL-017",
+      "unit": "dimensionless",
+      "defaultValue": 15.0,
+      "minValue": 0.0,
+      "maxValue": 30.0,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Drive from E population onto I population.",
+      "references": [
+        "REF-WILSON-COWAN-1972"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-055",
+      "symbol": "P_ext_WC",
+      "name": "Wilson-Cowan External Excitatory Drive P_ext",
+      "modelId": "MODEL-017",
+      "unit": "dimensionless",
+      "defaultValue": 1.25,
+      "minValue": -2.0,
+      "maxValue": 5.0,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Tonic afferent input driving the excitatory population into limit-cycle oscillation.",
+      "references": [
+        "REF-WILSON-COWAN-1972"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-056",
+      "symbol": "A_JR",
+      "name": "Jansen-Rit Excitatory Synaptic Gain A",
+      "modelId": "MODEL-018",
+      "unit": "mV",
+      "defaultValue": 3.25,
+      "minValue": 1.0,
+      "maxValue": 10.0,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Maximum amplitude of excitatory postsynaptic potentials in cortical column.",
+      "references": [
+        "REF-JANSEN-RIT-1995"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-057",
+      "symbol": "B_JR",
+      "name": "Jansen-Rit Inhibitory Synaptic Gain B",
+      "modelId": "MODEL-018",
+      "unit": "mV",
+      "defaultValue": 22.0,
+      "minValue": 5.0,
+      "maxValue": 50.0,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Maximum amplitude of slow inhibitory postsynaptic potentials.",
+      "references": [
+        "REF-JANSEN-RIT-1995"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-058",
+      "symbol": "C_JR",
+      "name": "Jansen-Rit Global Connectivity Constant C",
+      "modelId": "MODEL-018",
+      "unit": "dimensionless",
+      "defaultValue": 135.0,
+      "minValue": 50.0,
+      "maxValue": 300.0,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Base synapse count scaling C1..C4 intracolumnar feedback loops (~10 Hz alpha at C=135).",
+      "references": [
+        "REF-JANSEN-RIT-1995"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-059",
+      "symbol": "J_self_WW",
+      "name": "Wong-Wang Recurrent NMDA Self-Excitation J_11",
+      "modelId": "MODEL-019",
+      "unit": "nA",
+      "defaultValue": 0.2609,
+      "minValue": 0.1,
+      "maxValue": 0.5,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Recurrent NMDA reverberation strength within each competing decision pool.",
+      "references": [
+        "REF-GERSTNER-2014"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-060",
+      "symbol": "J_cross_WW",
+      "name": "Wong-Wang Mutual Cross-Inhibition J_12",
+      "modelId": "MODEL-019",
+      "unit": "nA",
+      "defaultValue": 0.0497,
+      "minValue": 0.0,
+      "maxValue": 0.2,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Effective shared-interneuron cross-inhibition driving winner-take-all competition.",
+      "references": [
+        "REF-GERSTNER-2014"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-061",
+      "symbol": "p_ff_SNN",
+      "name": "Feedforward SNN Inter-Layer Connection Probability",
+      "modelId": "MODEL-020",
+      "unit": "dimensionless",
+      "defaultValue": 0.25,
+      "minValue": 0.05,
+      "maxValue": 1.0,
+      "valueProvenance": "CANONICAL_BENCHMARK_DEFAULT",
+      "biologicalMeaning": "Probability of synaptic projection from a neuron in layer k to layer k+1.",
+      "references": [
+        "REF-DAYAN-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-062",
+      "symbol": "J_ff_SNN",
+      "name": "Feedforward Synaptic Weight J_ff",
+      "modelId": "MODEL-020",
+      "unit": "mV",
+      "defaultValue": 0.4,
+      "minValue": 0.05,
+      "maxValue": 2.0,
+      "valueProvenance": "CANONICAL_BENCHMARK_DEFAULT",
+      "biologicalMeaning": "Postsynaptic voltage jump per arriving feedforward spike.",
+      "references": [
+        "REF-DAYAN-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-063",
+      "symbol": "g_Brunel",
+      "name": "Brunel Relative Inhibitory Synaptic Strength g = J_I/J_E",
+      "modelId": "MODEL-021",
+      "unit": "dimensionless",
+      "defaultValue": 5.0,
+      "minValue": 1.0,
+      "maxValue": 10.0,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Ratio of IPSP to EPSP amplitude; g > 4 enters balanced inhibition-dominated regime.",
+      "references": [
+        "REF-BRUNEL-2000"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-064",
+      "symbol": "eta_Brunel",
+      "name": "Brunel External Poisson Drive Ratio nu_ext/nu_thr",
+      "modelId": "MODEL-021",
+      "unit": "dimensionless",
+      "defaultValue": 2.0,
+      "minValue": 0.5,
+      "maxValue": 6.0,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "External background firing rate normalized by threshold rate.",
+      "references": [
+        "REF-BRUNEL-2000"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-065",
+      "symbol": "D_Brunel",
+      "name": "Brunel Recurrent Axonal Transmission Delay D",
+      "modelId": "MODEL-021",
+      "unit": "ms",
+      "defaultValue": 1.5,
+      "minValue": 0.2,
+      "maxValue": 5.0,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Uniform synaptic transmission delay governing fast SI oscillation frequency.",
+      "references": [
+        "REF-BRUNEL-2000"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-066",
+      "symbol": "rho0_Vogels",
+      "name": "Vogels Target Postsynaptic Firing Rate rho_0",
+      "modelId": "MODEL-022",
+      "unit": "Hz",
+      "defaultValue": 5.0,
+      "minValue": 1.0,
+      "maxValue": 20.0,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Homeostatic firing-rate set-point enforced by inhibitory STDP.",
+      "references": [
+        "REF-VOGELS-2011"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-067",
+      "symbol": "eta_Vogels",
+      "name": "Vogels Inhibitory Plasticity Learning Rate",
+      "modelId": "MODEL-022",
+      "unit": "dimensionless",
+      "defaultValue": 0.001,
+      "minValue": 0.0001,
+      "maxValue": 0.05,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Step size of inhibitory synaptic weight modification per spike.",
+      "references": [
+        "REF-VOGELS-2011"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-068",
+      "symbol": "alpha_Oja",
+      "name": "Oja Weight Normalization Decay Factor",
+      "modelId": "MODEL-023",
+      "unit": "dimensionless",
+      "defaultValue": 1.0,
+      "minValue": 0.1,
+      "maxValue": 5.0,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Multiplicative normalization coefficient fixing asymptotic weight norm to 1/sqrt(alpha).",
+      "references": [
+        "REF-OJA-1982"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-069",
+      "symbol": "tau_theta_BCM",
+      "name": "BCM Modification Threshold Sliding Time Constant",
+      "modelId": "MODEL-023",
+      "unit": "ms",
+      "defaultValue": 1000.0,
+      "minValue": 100.0,
+      "maxValue": 10000.0,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Integration window over which squared postsynaptic rate updates theta_M.",
+      "references": [
+        "REF-BCM-1982"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-070",
+      "symbol": "tau_plus_STDP",
+      "name": "STDP Potentiation Time Constant tau_+",
+      "modelId": "MODEL-024",
+      "unit": "ms",
+      "defaultValue": 16.8,
+      "minValue": 5.0,
+      "maxValue": 50.0,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Decay window for causal pre-before-post LTP induction.",
+      "references": [
+        "REF-BI-POO-1998"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-071",
+      "symbol": "tau_minus_STDP",
+      "name": "STDP Depression Time Constant tau_-",
+      "modelId": "MODEL-024",
+      "unit": "ms",
+      "defaultValue": 33.7,
+      "minValue": 5.0,
+      "maxValue": 100.0,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Decay window for anti-causal post-before-pre LTD induction.",
+      "references": [
+        "REF-BI-POO-1998"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-072",
+      "symbol": "A_plus_STDP",
+      "name": "STDP Maximum LTP Amplitude A_+",
+      "modelId": "MODEL-024",
+      "unit": "dimensionless",
+      "defaultValue": 0.01,
+      "minValue": 0.001,
+      "maxValue": 0.1,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Fractional synaptic weight increase at near-zero positive spike timing.",
+      "references": [
+        "REF-BI-POO-1998"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-073",
+      "symbol": "A_minus_STDP",
+      "name": "STDP Maximum LTD Amplitude A_-",
+      "modelId": "MODEL-024",
+      "unit": "dimensionless",
+      "defaultValue": 0.0105,
+      "minValue": 0.001,
+      "maxValue": 0.1,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Fractional synaptic weight decrease at near-zero negative spike timing.",
+      "references": [
+        "REF-BI-POO-1998"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-074",
+      "symbol": "r_target_Homeo",
+      "name": "Homeostatic Scaling Target Firing Rate",
+      "modelId": "MODEL-025",
+      "unit": "Hz",
+      "defaultValue": 5.0,
+      "minValue": 0.5,
+      "maxValue": 30.0,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Target mean firing rate maintained by multiplicative synaptic scaling.",
+      "references": [
+        "REF-TURRIGIANO-2008"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-075",
+      "symbol": "tau_H_Homeo",
+      "name": "Homeostatic Scaling Time Constant (Accelerated)",
+      "modelId": "MODEL-025",
+      "unit": "ms",
+      "defaultValue": 5000.0,
+      "minValue": 500.0,
+      "maxValue": 50000.0,
+      "valueProvenance": "ILLUSTRATIVE_TUNED",
+      "biologicalMeaning": "Educational accelerated scaling time constant (biological timescale is hours-days).",
+      "references": [
+        "REF-TURRIGIANO-2008"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-076",
+      "symbol": "alpha_TDRL",
+      "name": "Temporal-Difference Learning Rate alpha",
+      "modelId": "MODEL-026",
+      "unit": "dimensionless",
+      "defaultValue": 0.15,
+      "minValue": 0.01,
+      "maxValue": 0.8,
+      "valueProvenance": "CANONICAL_BENCHMARK_DEFAULT",
+      "biologicalMeaning": "Step size updating state value predictions from dopamine RPE delta_t.",
+      "references": [
+        "REF-SUTTON-BARTO-2018"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-077",
+      "symbol": "gamma_TDRL",
+      "name": "Temporal Discount Factor gamma",
+      "modelId": "MODEL-026",
+      "unit": "dimensionless",
+      "defaultValue": 0.95,
+      "minValue": 0.5,
+      "maxValue": 0.999,
+      "valueProvenance": "CANONICAL_BENCHMARK_DEFAULT",
+      "biologicalMeaning": "Discounting weight applied to future expected rewards.",
+      "references": [
+        "REF-SUTTON-BARTO-2018"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-078",
+      "symbol": "tau_e_TDRL",
+      "name": "Synaptic Eligibility Trace Decay Constant",
+      "modelId": "MODEL-026",
+      "unit": "ms",
+      "defaultValue": 1000.0,
+      "minValue": 100.0,
+      "maxValue": 5000.0,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "Duration over which corticostriatal synapses remain eligible for dopamine reinforcement.",
+      "references": [
+        "REF-SCHULTZ-1997"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-079",
+      "symbol": "K_Kuramoto",
+      "name": "Kuramoto Global Coupling Strength K",
+      "modelId": "MODEL-027",
+      "unit": "rad/s",
+      "defaultValue": 4.0,
+      "minValue": 0.0,
+      "maxValue": 20.0,
+      "valueProvenance": "CANONICAL_BENCHMARK_DEFAULT",
+      "biologicalMeaning": "Global phase-interaction strength across coupled oscillators.",
+      "references": [
+        "REF-KURAMOTO-1984"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-080",
+      "symbol": "f0_Kuramoto",
+      "name": "Mean Intrinsic Oscillator Frequency f_0",
+      "modelId": "MODEL-027",
+      "unit": "Hz",
+      "defaultValue": 10.0,
+      "minValue": 1.0,
+      "maxValue": 80.0,
+      "valueProvenance": "CANONICAL_BENCHMARK_DEFAULT",
+      "biologicalMeaning": "Center frequency of the neural oscillator population (e.g. 10 Hz alpha or 40 Hz gamma).",
+      "references": [
+        "REF-KURAMOTO-1984"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-081",
+      "symbol": "gamma_Kuramoto",
+      "name": "Lorentzian Frequency Dispersion Half-Width gamma",
+      "modelId": "MODEL-027",
+      "unit": "rad/s",
+      "defaultValue": 1.0,
+      "minValue": 0.1,
+      "maxValue": 10.0,
+      "valueProvenance": "CANONICAL_BENCHMARK_DEFAULT",
+      "biologicalMeaning": "Spread of natural oscillator frequencies setting critical threshold K_c = 2*gamma.",
+      "references": [
+        "REF-KURAMOTO-1984"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-082",
+      "symbol": "G_Connectome",
+      "name": "Connectome Global Structural Coupling Gain G",
+      "modelId": "MODEL-028",
+      "unit": "dimensionless",
+      "defaultValue": 0.65,
+      "minValue": 0.0,
+      "maxValue": 0.98,
+      "valueProvenance": "CANONICAL_BENCHMARK_DEFAULT",
+      "biologicalMeaning": "Global scaling multiplier applied to normalized structural connectivity matrix W.",
+      "references": [
+        "REF-BREAKSPEAR-2017"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-083",
+      "symbol": "v_cond_Connectome",
+      "name": "Axonal Tract Conduction Velocity v",
+      "modelId": "MODEL-028",
+      "unit": "m/s",
+      "defaultValue": 6.0,
+      "minValue": 1.0,
+      "maxValue": 20.0,
+      "valueProvenance": "LITERATURE_MEASURED",
+      "biologicalMeaning": "White-matter myelinated conduction velocity converting tract length into delay tau_ij.",
+      "references": [
+        "REF-SANZ-LEON-2013"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "PARAM-084",
+      "symbol": "sigma_Connectome",
+      "name": "Regional Background Noise Amplitude sigma",
+      "modelId": "MODEL-028",
+      "unit": "dimensionless",
+      "defaultValue": 0.1,
+      "minValue": 0.01,
+      "maxValue": 1.0,
+      "valueProvenance": "CANONICAL_BENCHMARK_DEFAULT",
+      "biologicalMeaning": "Amplitude of independent Gaussian fluctuations driving regional connectome nodes.",
+      "references": [
+        "REF-BREAKSPEAR-2017"
+      ],
+      "schemaVersion": "1.0.0"
+    }
+  ]
+}

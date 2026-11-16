@@ -1,0 +1,36 @@
+{
+  "$schemaRef": "models/scientific-model.schema.json",
+  "expectedErrorReason": "Negative dtMs and empty governingEquationIds array",
+  "payload": {
+    "id": "MODEL-999",
+    "name": "Broken Model",
+    "modelFamilyId": "FAM-01",
+    "modelFamilyName": "Biophysical",
+    "primaryScale": "L99",
+    "abstractionLevel": "Bad",
+    "biologicalInterpretation": "Too short",
+    "governingEquationIds": [],
+    "stateVariables": [],
+    "parameterIds": [],
+    "initialConditions": {},
+    "numericalMethod": {
+      "defaultSolver": "BAD",
+      "supportedSolvers": [],
+      "defaultDtMs": -0.1,
+      "minDtMs": 0,
+      "maxSafeDtMs": 0
+    },
+    "computeEnvelope": {
+      "maxUnitsInBrowser": 0,
+      "maxDurationMs": 0,
+      "workerMemoryBudgetMb": 0
+    },
+    "assumptions": [],
+    "limitations": [],
+    "validityDomain": [],
+    "validationCaseIds": [],
+    "references": [],
+    "version": "bad",
+    "schemaVersion": "2.0.0"
+  }
+}

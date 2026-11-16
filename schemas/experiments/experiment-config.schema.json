@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cortexia.science/schemas/experiments/experiment-config.schema.json",
+  "title": "ExperimentConfiguration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "title",
+    "experimentType",
+    "modelId",
+    "primaryScale",
+    "hypothesis",
+    "independentVariables",
+    "dependentMetrics",
+    "solverId",
+    "dtMs",
+    "durationMs",
+    "randomSeed",
+    "validationCaseId",
+    "references",
+    "schemaVersion"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^EXP-[A-Z0-9-]+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 5
+    },
+    "experimentType": {
+      "type": "string",
+      "enum": [
+        "EXP_SINGLE_PARAM",
+        "EXP_MULTI_PARAM",
+        "EXP_PARAM_SWEEP",
+        "EXP_SENSITIVITY",
+        "EXP_BASELINE_INTERVENTION",
+        "EXP_MODEL_COMPARISON",
+        "EXP_STOCHASTIC_REPEAT",
+        "EXP_NETWORK_TOPOLOGY",
+        "EXP_TIME_SERIES",
+        "EXP_DIGITAL_TWIN"
+      ]
+    },
+    "modelId": {
+      "type": "string",
+      "pattern": "^MODEL-[0-9]{3}$"
+    },
+    "primaryScale": {
+      "type": "string",
+      "enum": [
+        "L1",
+        "L2",
+        "L3",
+        "L4",
+        "L5",
+        "L6",
+        "L7",
+        "L8",
+        "L9"
+      ]
+    },
+    "hypothesis": {
+      "type": "string",
+      "minLength": 30
+    },
+    "independentVariables": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "dependentMetrics": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "solverId": {
+      "type": "string",
+      "pattern": "^SOLVER-"
+    },
+    "dtMs": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "durationMs": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "randomSeed": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "digitalTwinCouplingMode": {
+      "type": "string",
+      "enum": [
+        "SINGLE_SCALE_MECHANISTIC",
+        "MULTI_STAGE_MECHANISTIC_AND_CONCEPTUAL"
+      ]
+    },
+    "validationCaseId": {
+      "type": "string",
+      "pattern": "^VAL-[A-Z0-9-]+$"
+    },
+    "references": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "pattern": "^REF-[A-Z0-9-]+$"
+      }
+    },
+    "schemaVersion": {
+      "type": "string",
+      "const": "1.0.0"
+    }
+  }
+}

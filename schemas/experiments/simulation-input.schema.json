@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cortexia.science/schemas/experiments/simulation-input.schema.json",
+  "title": "SimulationInputPayload",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "jobId",
+    "modelId",
+    "solverId",
+    "dtMs",
+    "durationMs",
+    "randomSeed",
+    "parameters",
+    "initialConditions",
+    "stimulus",
+    "schemaVersion"
+  ],
+  "properties": {
+    "jobId": {
+      "type": "string",
+      "minLength": 4
+    },
+    "modelId": {
+      "type": "string",
+      "pattern": "^MODEL-[0-9]{3}$"
+    },
+    "solverId": {
+      "type": "string",
+      "pattern": "^SOLVER-[A-Z0-9-]+$"
+    },
+    "dtMs": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "durationMs": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "randomSeed": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "parameters": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "initialConditions": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "stimulus": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "waveformType",
+        "amplitude",
+        "unit",
+        "onsetMs",
+        "offsetMs"
+      ],
+      "properties": {
+        "waveformType": {
+          "type": "string",
+          "enum": [
+            "STEP",
+            "PULSE_TRAIN",
+            "RAMP",
+            "SINE",
+            "ORNSTEIN_UHLENBECK"
+          ]
+        },
+        "amplitude": {
+          "type": "number"
+        },
+        "unit": {
+          "type": "string"
+        },
+        "onsetMs": {
+          "type": "number",
+          "minimum": 0
+        },
+        "offsetMs": {
+          "type": "number",
+          "minimum": 0
+        },
+        "frequencyHz": {
+          "type": "number",
+          "minimum": 0
+        },
+        "noiseSigma": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    },
+    "schemaVersion": {
+      "type": "string",
+      "const": "1.0.0"
+    }
+  }
+}

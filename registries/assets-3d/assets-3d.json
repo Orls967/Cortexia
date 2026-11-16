@@ -1,0 +1,1054 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "ASSET-BRAIN-WHOLE",
+      "name": "Whole Human Brain Pial & White-Matter Reference Assembly",
+      "studio": "STUDIO_A_WHOLE_BRAIN",
+      "format": "GLB_DRACO",
+      "sourceMethod": "Derived from ICBM152 / fsaverage population template surface meshes",
+      "license": "CC-BY-4.0",
+      "mappedEntityIds": [
+        "ANAT-NERVOUS-SYSTEM",
+        "ANAT-CNS",
+        "ANAT-ENCEPHALON",
+        "ANAT-FOREBRAIN",
+        "ANAT-TELENCEPHALON"
+      ],
+      "accuracyClassification": "ATLAS_REFERENCE_MESH",
+      "simplificationDisclosure": "Population-average cortical surface decimated to 45k triangles (LOD0) for real-time 60 fps browser inspection; not an individual clinical MRI.",
+      "spatialScaleUnit": "mm",
+      "lodTriangleBudgets": {
+        "lod0": 45000,
+        "lod1": 15000,
+        "lod2": 4000
+      },
+      "version": "1.0.0",
+      "references": [
+        "REF-DESIKAN-2006",
+        "REF-TNA-FIPAT"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ASSET-HEMISPHERES-3D",
+      "name": "Left & Right Cerebral Hemispheres with Split Sagittal Seam",
+      "studio": "STUDIO_A_WHOLE_BRAIN",
+      "format": "GLB_DRACO",
+      "sourceMethod": "Symmetric/asymmetric hemisphere meshes from fsaverage template",
+      "license": "CC-BY-4.0",
+      "mappedEntityIds": [
+        "ANAT-LEFT-HEMISPHERE",
+        "ANAT-RIGHT-HEMISPHERE"
+      ],
+      "accuracyClassification": "ATLAS_REFERENCE_MESH",
+      "simplificationDisclosure": "Hemispheric surfaces simplified with vertex-color parcellation IDs for fast BVH raycasting.",
+      "spatialScaleUnit": "mm",
+      "lodTriangleBudgets": {
+        "lod0": 36000,
+        "lod1": 12000,
+        "lod2": 3200
+      },
+      "version": "1.0.0",
+      "references": [
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ASSET-LOBES-CORTEX-3D",
+      "name": "Six Cerebral Lobes (Frontal, Parietal, Temporal, Occipital, Insular, Limbic)",
+      "studio": "STUDIO_A_WHOLE_BRAIN",
+      "format": "GLB_DRACO",
+      "sourceMethod": "Sub-mesh segmented cortical lobe group supporting exploded view and opacity fade",
+      "license": "CC-BY-4.0",
+      "mappedEntityIds": [
+        "ANAT-FRONTAL-LOBE",
+        "ANAT-PARIETAL-LOBE",
+        "ANAT-TEMPORAL-LOBE",
+        "ANAT-OCCIPITAL-LOBE",
+        "ANAT-INSULAR-LOBE",
+        "ANAT-LIMBIC-LOBE"
+      ],
+      "accuracyClassification": "ATLAS_REFERENCE_MESH",
+      "simplificationDisclosure": "Color-coded lobar sub-meshes derived from Desikan-Killiany lobar groupings.",
+      "spatialScaleUnit": "mm",
+      "lodTriangleBudgets": {
+        "lod0": 32000,
+        "lod1": 10000,
+        "lod2": 2800
+      },
+      "version": "1.0.0",
+      "references": [
+        "REF-DESIKAN-2006",
+        "REF-TNA-FIPAT"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ASSET-CORTICAL-GYRI-3D",
+      "name": "Major Cortical Gyri, Sulci & Functional Landmarks (M1, S1, V1, A1, Broca, dlPFC)",
+      "studio": "STUDIO_A_WHOLE_BRAIN",
+      "format": "GLB_DRACO",
+      "sourceMethod": "Parcellated gyral and sulcal ROI sub-meshes",
+      "license": "CC-BY-4.0",
+      "mappedEntityIds": [
+        "ANAT-PRECENTRAL-GYRUS",
+        "ANAT-POSTCENTRAL-GYRUS",
+        "ANAT-SUPERIOR-FRONTAL-GYRUS",
+        "ANAT-DLPFC",
+        "ANAT-IFG-BROCA",
+        "ANAT-OFC-VMPFC",
+        "ANAT-SUPERIOR-TEMPORAL-GYRUS",
+        "ANAT-FUSIFORM-GYRUS",
+        "ANAT-ANGULAR-SUPRAMARGINAL",
+        "ANAT-CENTRAL-SULCUS",
+        "ANAT-LATERAL-SULCUS",
+        "ANAT-CALCARINE-SULCUS",
+        "ANAT-VISUAL-MT-V5",
+        "ANAT-FEF-IPS"
+      ],
+      "accuracyClassification": "ATLAS_REFERENCE_MESH",
+      "simplificationDisclosure": "Gyral ROIs smoothed for visual clarity; sulcal fundi represented via normal-map shading and label anchors.",
+      "spatialScaleUnit": "mm",
+      "lodTriangleBudgets": {
+        "lod0": 40000,
+        "lod1": 14000,
+        "lod2": 3500
+      },
+      "version": "1.0.0",
+      "references": [
+        "REF-DESIKAN-2006",
+        "REF-DESTRIEUX-2010",
+        "REF-GLASSER-2016"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ASSET-HIPPOCAMPUS-3D",
+      "name": "Hippocampal Formation & Subfield Complex (DG, CA3, CA2, CA1, Subiculum, EC)",
+      "studio": "STUDIO_A_WHOLE_BRAIN",
+      "format": "GLB_DRACO",
+      "sourceMethod": "High-detail medial temporal subfield segmentation mesh",
+      "license": "CC-BY-4.0",
+      "mappedEntityIds": [
+        "ANAT-HIPPOCAMPAL-FORMATION",
+        "ANAT-HIPPOCAMPUS",
+        "ANAT-DENTATE-GYRUS",
+        "ANAT-HIPPOCAMPUS-CA3",
+        "ANAT-HIPPOCAMPUS-CA2",
+        "ANAT-HIPPOCAMPUS-CA1",
+        "ANAT-SUBICULUM",
+        "ANAT-ENTORHINAL-CORTEX"
+      ],
+      "accuracyClassification": "ATLAS_REFERENCE_MESH",
+      "simplificationDisclosure": "Subfield boundaries (CA1-CA3, DG) smoothed from probabilistic cytoarchitectonic maps for interactive cross-sectional slicing.",
+      "spatialScaleUnit": "mm",
+      "lodTriangleBudgets": {
+        "lod0": 18000,
+        "lod1": 6000,
+        "lod2": 1800
+      },
+      "version": "1.0.0",
+      "references": [
+        "REF-AMUNTS-2020",
+        "REF-SQUIRE-2004"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ASSET-AMYGDALA-3D",
+      "name": "Amygdaloid Nuclear Complex (BLA, CeA & Corticomedial Divisions)",
+      "studio": "STUDIO_A_WHOLE_BRAIN",
+      "format": "GLB_DRACO",
+      "sourceMethod": "Subcortical nuclear mesh derived from Julich-Brain / FreeSurfer subfields",
+      "license": "CC-BY-4.0",
+      "mappedEntityIds": [
+        "ANAT-AMYGDALA",
+        "ANAT-AMYGDALA-BLA",
+        "ANAT-AMYGDALA-CEA"
+      ],
+      "accuracyClassification": "ATLAS_REFERENCE_MESH",
+      "simplificationDisclosure": "Subnuclei represented as smooth convex hull sub-meshes anchored in anterior temporal MNI space.",
+      "spatialScaleUnit": "mm",
+      "lodTriangleBudgets": {
+        "lod0": 8000,
+        "lod1": 3000,
+        "lod2": 900
+      },
+      "version": "1.0.0",
+      "references": [
+        "REF-AMUNTS-2020",
+        "REF-TNA-FIPAT"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ASSET-LIMBIC-SYSTEM-3D",
+      "name": "Extended Limbic Ring (Cingulate, Parahippocampal, Fornix, Septum, Basal Forebrain)",
+      "studio": "STUDIO_A_WHOLE_BRAIN",
+      "format": "GLB_DRACO",
+      "sourceMethod": "Composite limbic anatomical assembly",
+      "license": "CC-BY-4.0",
+      "mappedEntityIds": [
+        "ANAT-CINGULATE-GYRUS",
+        "ANAT-ACC",
+        "ANAT-PCC",
+        "ANAT-PARAHIPPOCAMPAL-GYRUS",
+        "ANAT-SEPTAL-NUCLEI",
+        "ANAT-FORNIX",
+        "ANAT-NUCLEUS-BASALIS"
+      ],
+      "accuracyClassification": "ATLAS_REFERENCE_MESH",
+      "simplificationDisclosure": "Combines cortical cingulate/parahippocampal meshes with tubular fornix tract geometry.",
+      "spatialScaleUnit": "mm",
+      "lodTriangleBudgets": {
+        "lod0": 22000,
+        "lod1": 7500,
+        "lod2": 2200
+      },
+      "version": "1.0.0",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-RAICHLE-2015"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ASSET-BASAL-GANGLIA-3D",
+      "name": "Basal Ganglia Nuclei (Caudate, Putamen, NAc, GPe, GPi, STN, Substantia Nigra)",
+      "studio": "STUDIO_A_WHOLE_BRAIN",
+      "format": "GLB_DRACO",
+      "sourceMethod": "Subcortical nuclei segmented from MNI152 subcortical atlas",
+      "license": "CC-BY-4.0",
+      "mappedEntityIds": [
+        "ANAT-BASAL-GANGLIA",
+        "ANAT-STRIATUM",
+        "ANAT-CAUDATE-NUCLEUS",
+        "ANAT-PUTAMEN",
+        "ANAT-NUCLEUS-ACCUMBENS",
+        "ANAT-GPE",
+        "ANAT-GPI",
+        "ANAT-STN",
+        "ANAT-SUBSTANTIA-NIGRA"
+      ],
+      "accuracyClassification": "ATLAS_REFERENCE_MESH",
+      "simplificationDisclosure": "Distinct sub-meshes for striatal, pallidal, subthalamic, and nigral nuclei with direct/indirect pathway vector overlays.",
+      "spatialScaleUnit": "mm",
+      "lodTriangleBudgets": {
+        "lod0": 20000,
+        "lod1": 7000,
+        "lod2": 2000
+      },
+      "version": "1.0.0",
+      "references": [
+        "REF-ALEXANDER-1986",
+        "REF-TNA-FIPAT"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ASSET-THALAMUS-HYPO-3D",
+      "name": "Diencephalon: Thalamic Nuclei (VPL, VPM, VL, LGN, MGN, MD, Pulvinar, TRN) & Hypothalamus",
+      "studio": "STUDIO_A_WHOLE_BRAIN",
+      "format": "GLB_DRACO",
+      "sourceMethod": "Segmented thalamic and hypothalamic nuclear group",
+      "license": "CC-BY-4.0",
+      "mappedEntityIds": [
+        "ANAT-DIENCEPHALON",
+        "ANAT-THALAMUS",
+        "ANAT-THALAMUS-VPL",
+        "ANAT-THALAMUS-VPM",
+        "ANAT-THALAMUS-VL",
+        "ANAT-LGN",
+        "ANAT-MGN",
+        "ANAT-THALAMUS-MD",
+        "ANAT-PULVINAR",
+        "ANAT-TRN",
+        "ANAT-HYPOTHALAMUS",
+        "ANAT-SCN",
+        "ANAT-PVN-HYPO",
+        "ANAT-PITUITARY-GLAND",
+        "ANAT-MAMMILLARY-BODIES",
+        "ANAT-EPITHALAMUS-HABENULA"
+      ],
+      "accuracyClassification": "ATLAS_REFERENCE_MESH",
+      "simplificationDisclosure": "Thalamic and hypothalamic subnuclei represented as smooth parcellated sub-volumes enclosed by the translucent TRN shell.",
+      "spatialScaleUnit": "mm",
+      "lodTriangleBudgets": {
+        "lod0": 24000,
+        "lod1": 8000,
+        "lod2": 2400
+      },
+      "version": "1.0.0",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-AMUNTS-2020"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ASSET-CEREBELLUM-3D",
+      "name": "Cerebellum (Cortex, Vermis, Flocculonodular Lobe, Deep Nuclei & Peduncles)",
+      "studio": "STUDIO_A_WHOLE_BRAIN",
+      "format": "GLB_DRACO",
+      "sourceMethod": "Foliar cerebellar surface and deep dentate/interposed/fastigial nuclei",
+      "license": "CC-BY-4.0",
+      "mappedEntityIds": [
+        "ANAT-CEREBELLUM",
+        "ANAT-CEREBELLAR-CORTEX",
+        "ANAT-CEREBELLAR-VERMIS",
+        "ANAT-FLOCCULONODULAR-LOBE",
+        "ANAT-DENTATE-NUCLEUS",
+        "ANAT-SUPERIOR-CEREBELLAR-PEDUNCLE"
+      ],
+      "accuracyClassification": "ATLAS_REFERENCE_MESH",
+      "simplificationDisclosure": "Outer cerebellar folia simplified via normal maps; deep nuclei modeled as inspectable interior meshes.",
+      "spatialScaleUnit": "mm",
+      "lodTriangleBudgets": {
+        "lod0": 25000,
+        "lod1": 8500,
+        "lod2": 2500
+      },
+      "version": "1.0.0",
+      "references": [
+        "REF-TNA-FIPAT"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ASSET-BRAINSTEM-3D",
+      "name": "Brainstem (Midbrain, Pons, Medulla) & Deep Neuromodulatory/Relay Nuclei",
+      "studio": "STUDIO_A_WHOLE_BRAIN",
+      "format": "GLB_DRACO",
+      "sourceMethod": "Segmented brainstem shell with interior collicular, VTA, PAG, LC, Raphe, NTS, Olivary & Vestibular nuclei",
+      "license": "CC-BY-4.0",
+      "mappedEntityIds": [
+        "ANAT-HINDBRAIN",
+        "ANAT-MIDBRAIN",
+        "ANAT-SUPERIOR-COLLICULUS",
+        "ANAT-INFERIOR-COLLICULUS",
+        "ANAT-VTA",
+        "ANAT-PAG",
+        "ANAT-PONS",
+        "ANAT-LOCUS-COERULEUS",
+        "ANAT-RAPHE-NUCLEI",
+        "ANAT-MEDULLA-OBLONGATA",
+        "ANAT-NTS",
+        "ANAT-VESTIBULAR-NUCLEI",
+        "ANAT-RED-NUCLEUS",
+        "ANAT-INFERIOR-OLIVE",
+        "ANAT-POSTERIOR-COMMISSURE"
+      ],
+      "accuracyClassification": "ATLAS_REFERENCE_MESH",
+      "simplificationDisclosure": "Translucent outer brainstem surface revealing color-coded interior cranial and neuromodulatory nuclei.",
+      "spatialScaleUnit": "mm",
+      "lodTriangleBudgets": {
+        "lod0": 20000,
+        "lod1": 6800,
+        "lod2": 2000
+      },
+      "version": "1.0.0",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-SCAMMELL-2017"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ASSET-VENTRICLES-3D",
+      "name": "Ventricular System (Lateral, Third, Fourth Ventricles, Choroid Plexus & Meninges)",
+      "studio": "STUDIO_A_WHOLE_BRAIN",
+      "format": "GLB_DRACO",
+      "sourceMethod": "Ventricular cast mesh with animated CSF flow streamlines",
+      "license": "CC-BY-4.0",
+      "mappedEntityIds": [
+        "ANAT-VENTRICULAR-SYSTEM",
+        "ANAT-LATERAL-VENTRICLES",
+        "ANAT-THIRD-VENTRICLE",
+        "ANAT-FOURTH-VENTRICLE",
+        "ANAT-MENINGES-BBB"
+      ],
+      "accuracyClassification": "ATLAS_REFERENCE_MESH",
+      "simplificationDisclosure": "3D ventricular lumen cast derived from T2 MRI template with schematic meningeal and BBB cutaway layers.",
+      "spatialScaleUnit": "mm",
+      "lodTriangleBudgets": {
+        "lod0": 14000,
+        "lod1": 4800,
+        "lod2": 1400
+      },
+      "version": "1.0.0",
+      "references": [
+        "REF-TNA-FIPAT"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ASSET-SPINAL-CORD-3D",
+      "name": "Spinal Cord Cross-Section & Longitudinal Tract Assembly",
+      "studio": "STUDIO_A_WHOLE_BRAIN",
+      "format": "GLB_DRACO",
+      "sourceMethod": "Segmented gray-matter butterfly horns (Laminae I-IX) and ascending/descending white-matter funiculi",
+      "license": "CC-BY-4.0",
+      "mappedEntityIds": [
+        "ANAT-SPINAL-CORD",
+        "ANAT-SPINAL-DORSAL-HORN",
+        "ANAT-SPINAL-VENTRAL-HORN",
+        "ANAT-CORTICOSPINAL-TRACT",
+        "ANAT-SPINOTHALAMIC-TRACT"
+      ],
+      "accuracyClassification": "ATLAS_REFERENCE_MESH",
+      "simplificationDisclosure": "Combines cervical/lumbar cross-sectional gray-horn geometry with longitudinal tract ribbons.",
+      "spatialScaleUnit": "mm",
+      "lodTriangleBudgets": {
+        "lod0": 15000,
+        "lod1": 5000,
+        "lod2": 1500
+      },
+      "version": "1.0.0",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ASSET-CRANIAL-NERVES-3D",
+      "name": "Twelve Cranial Nerves (CN I\u2013XII), Retina & Cochlea Sensory Organs",
+      "studio": "STUDIO_A_WHOLE_BRAIN",
+      "format": "GLB_DRACO",
+      "sourceMethod": "Tubular cranial nerve exit trajectories paired with schematic retina and cochlea models",
+      "license": "CC-BY-4.0",
+      "mappedEntityIds": [
+        "ANAT-CN-I",
+        "ANAT-CN-II",
+        "ANAT-CN-III",
+        "ANAT-CN-IV",
+        "ANAT-CN-V",
+        "ANAT-CN-VI",
+        "ANAT-CN-VII",
+        "ANAT-CN-VIII",
+        "ANAT-CN-IX",
+        "ANAT-CN-X",
+        "ANAT-CN-XI",
+        "ANAT-CN-XII",
+        "ANAT-RETINA",
+        "ANAT-COCHLEA-ORGAN-CORTI"
+      ],
+      "accuracyClassification": "BIOPHYSICAL_SCHEMATIC_3D",
+      "simplificationDisclosure": "Illustrative 3D tubular trajectories of CN I\u2013XII from brainstem nuclei to cranial foramina; non-surgical schematic.",
+      "spatialScaleUnit": "mm",
+      "lodTriangleBudgets": {
+        "lod0": 18000,
+        "lod1": 6000,
+        "lod2": 1800
+      },
+      "version": "1.0.0",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ASSET-PNS-OVERVIEW",
+      "name": "Peripheral Nervous System (DRG, Sympathetic Chain & Parasympathetic/Enteric Plexuses)",
+      "studio": "STUDIO_A_WHOLE_BRAIN",
+      "format": "GLB_DRACO",
+      "sourceMethod": "Schematic 3D paravertebral DRG, sympathetic trunk, and vagal/enteric visceral network",
+      "license": "CC-BY-4.0",
+      "mappedEntityIds": [
+        "ANAT-PNS",
+        "ANAT-DRG",
+        "ANAT-SYMPATHETIC-CHAIN",
+        "ANAT-PARASYMPATHETIC-ENTERIC"
+      ],
+      "accuracyClassification": "BIOPHYSICAL_SCHEMATIC_3D",
+      "simplificationDisclosure": "Proportionally guided anatomical schematic of spinal nerve roots, DRGs, and autonomic ganglia.",
+      "spatialScaleUnit": "mm",
+      "lodTriangleBudgets": {
+        "lod0": 12000,
+        "lod1": 4000,
+        "lod2": 1200
+      },
+      "version": "1.0.0",
+      "references": [
+        "REF-TNA-FIPAT",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ASSET-WHITE-MATTER-TRACTS",
+      "name": "Major Association, Commissural & Projection White-Matter Tracts",
+      "studio": "STUDIO_A_WHOLE_BRAIN",
+      "format": "GLB_DRACO",
+      "sourceMethod": "Streamline tube bundles for Corpus Callosum, Internal Capsule, Arcuate, Uncinate, and Cingulum",
+      "license": "CC-BY-4.0",
+      "mappedEntityIds": [
+        "ANAT-CORPUS-CALLOSUM",
+        "ANAT-ANTERIOR-COMMISSURE",
+        "ANAT-INTERNAL-CAPSULE",
+        "ANAT-ARCUATE-FASCICULUS",
+        "ANAT-UNCINATE-FASCICULUS",
+        "ANAT-CINGULUM-BUNDLE"
+      ],
+      "accuracyClassification": "ATLAS_REFERENCE_MESH",
+      "simplificationDisclosure": "Representative tractography streamline bundles clustered into 3D tubular meshes.",
+      "spatialScaleUnit": "mm",
+      "lodTriangleBudgets": {
+        "lod0": 24000,
+        "lod1": 8000,
+        "lod2": 2400
+      },
+      "version": "1.0.0",
+      "references": [
+        "REF-SPORNS-2005",
+        "REF-HICKOK-POEPPEL-2007"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ASSET-CORTICAL-COLUMN-3D",
+      "name": "Six-Layered Neocortical Column Mesoscopic Cutaway (L1\u2013L6)",
+      "studio": "STUDIO_A_WHOLE_BRAIN",
+      "format": "GLB_DRACO",
+      "sourceMethod": "Mesoscopic 3D laminar prism showing L1\u2013L6 cell densities and canonical thalamocortical/intracortical arrows",
+      "license": "CC-BY-4.0",
+      "mappedEntityIds": [
+        "ANAT-NEOCORTEX-L23",
+        "ANAT-NEOCORTEX-L456",
+        "CIRC-001"
+      ],
+      "accuracyClassification": "BIOPHYSICAL_SCHEMATIC_3D",
+      "simplificationDisclosure": "Mesoscopic schematic prism bridging Studio A macroanatomy to Studio B/D laminar microcircuits.",
+      "spatialScaleUnit": "um",
+      "lodTriangleBudgets": {
+        "lod0": 16000,
+        "lod1": 5500,
+        "lod2": 1600
+      },
+      "version": "1.0.0",
+      "references": [
+        "REF-DOUGLAS-MARTIN-2004",
+        "REF-AMUNTS-2020"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ASSET-NEURON-PYRAMIDAL-3D",
+      "name": "Reconstructed Cortical L5 & Hippocampal CA1 Pyramidal Neurons (SWC Tube Mesh)",
+      "studio": "STUDIO_B_CELLULAR",
+      "format": "SWC_TUBE_GEOMETRY",
+      "sourceMethod": "Generated from curated NeuroMorpho.Org SWC reconstructions (DSET-006, DSET-007)",
+      "license": "CC-BY-4.0",
+      "mappedEntityIds": [
+        "CELL-PYRAMIDAL-L23",
+        "CELL-PYRAMIDAL-L5",
+        "CELL-PYRAMIDAL-CA1",
+        "CELL-PYRAMIDAL-CA3",
+        "CELL-STELLATE-L4",
+        "CELL-PYRAMIDAL-L6",
+        "CELL-GRANULE-DG"
+      ],
+      "accuracyClassification": "RECONSTRUCTED_MORPHOLOGY_SWC",
+      "simplificationDisclosure": "Tubular frustum segments generated from 7-column SWC coordinates with compartment-mapped voltage shader attributes.",
+      "spatialScaleUnit": "um",
+      "lodTriangleBudgets": {
+        "lod0": 28000,
+        "lod1": 9500,
+        "lod2": 2500
+      },
+      "version": "1.0.0",
+      "references": [
+        "REF-NEUROMORPHO-2007",
+        "REF-RALL-1962"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ASSET-NEURON-INTERNEURON-3D",
+      "name": "Cortical GABAergic Interneuron Trio (PV+ Basket, PV+ Chandelier, SST+ Martinotti, VIP+)",
+      "studio": "STUDIO_B_CELLULAR",
+      "format": "SWC_TUBE_GEOMETRY",
+      "sourceMethod": "Generated from NeuroMorpho.Org SWC interneuron reconstructions (DSET-008)",
+      "license": "CC-BY-4.0",
+      "mappedEntityIds": [
+        "CELL-INTERNEURON-PV-BASKET",
+        "CELL-INTERNEURON-PV-CHANDELIER",
+        "CELL-INTERNEURON-SST",
+        "CELL-INTERNEURON-VIP"
+      ],
+      "accuracyClassification": "RECONSTRUCTED_MORPHOLOGY_SWC",
+      "simplificationDisclosure": "SWC-derived dendritic and axonal arbors highlighting perisomatic basket, AIS cartridge, and L1 tuft targeting.",
+      "spatialScaleUnit": "um",
+      "lodTriangleBudgets": {
+        "lod0": 24000,
+        "lod1": 8000,
+        "lod2": 2200
+      },
+      "version": "1.0.0",
+      "references": [
+        "REF-NEUROMORPHO-2007",
+        "REF-DOUGLAS-MARTIN-2004"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ASSET-NEURON-CEREBELLAR-3D",
+      "name": "Cerebellar Purkinje, Granule & Golgi Cellular Assembly",
+      "studio": "STUDIO_B_CELLULAR",
+      "format": "SWC_TUBE_GEOMETRY",
+      "sourceMethod": "SWC Purkinje planar fan (DSET-009) paired with parallel and climbing fiber geometry",
+      "license": "CC-BY-4.0",
+      "mappedEntityIds": [
+        "CELL-PURKINJE",
+        "CELL-GRANULE-CEREB",
+        "CELL-GOLGI-CEREB"
+      ],
+      "accuracyClassification": "RECONSTRUCTED_MORPHOLOGY_SWC",
+      "simplificationDisclosure": "Planar Purkinje dendritic arbor paired with schematic parallel-fiber intersections and climbing-fiber wrap.",
+      "spatialScaleUnit": "um",
+      "lodTriangleBudgets": {
+        "lod0": 30000,
+        "lod1": 10000,
+        "lod2": 2800
+      },
+      "version": "1.0.0",
+      "references": [
+        "REF-NEUROMORPHO-2007",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ASSET-NEURON-SUBCORTICAL-3D",
+      "name": "Subcortical & Peripheral Neuron Classes (MSN D1/D2, Thalamocortical, Dopamine, Motor, DRG, RGC)",
+      "studio": "STUDIO_B_CELLULAR",
+      "format": "SWC_TUBE_GEOMETRY",
+      "sourceMethod": "Curated SWC and compartmental morphologies",
+      "license": "CC-BY-4.0",
+      "mappedEntityIds": [
+        "CELL-MSN-D1",
+        "CELL-MSN-D2",
+        "CELL-MOTOR-ALPHA",
+        "CELL-SENSORY-DRG",
+        "CELL-RETINAL-GANGLION",
+        "CELL-THALAMOCORTICAL-RELAY",
+        "CELL-TRN-GABA",
+        "CELL-DOPAMINE-VTA-SNC"
+      ],
+      "accuracyClassification": "RECONSTRUCTED_MORPHOLOGY_SWC",
+      "simplificationDisclosure": "Representative 3D arbors for striatal spiny, pseudounipolar DRG, multipolar spinal motor, and bushy thalamic cells.",
+      "spatialScaleUnit": "um",
+      "lodTriangleBudgets": {
+        "lod0": 22000,
+        "lod1": 7500,
+        "lod2": 2000
+      },
+      "version": "1.0.0",
+      "references": [
+        "REF-NEUROMORPHO-2007"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ASSET-GLIA-MICROENV-3D",
+      "name": "Glial Architecture & Neurovascular Unit (Astrocyte, Oligodendrocyte, Schwann, Microglia, Ependymal)",
+      "studio": "STUDIO_B_CELLULAR",
+      "format": "GLB_DRACO",
+      "sourceMethod": "SWC-guided glial arbors (DSET-010) + 3D myelin internode wraps and capillary endfeet",
+      "license": "CC-BY-4.0",
+      "mappedEntityIds": [
+        "CELL-ASTROCYTE-PROTOPLASMIC",
+        "CELL-ASTROCYTE-FIBROUS",
+        "CELL-OLIGODENDROCYTE",
+        "CELL-SCHWANN",
+        "CELL-MICROGLIA",
+        "CELL-EPENDYMAL"
+      ],
+      "accuracyClassification": "BIOPHYSICAL_SCHEMATIC_3D",
+      "simplificationDisclosure": "Illustrative 3D cellular microenvironment showing oligodendrocyte multi-axon myelination and astrocytic vascular endfeet.",
+      "spatialScaleUnit": "um",
+      "lodTriangleBudgets": {
+        "lod0": 26000,
+        "lod1": 9000,
+        "lod2": 2400
+      },
+      "version": "1.0.0",
+      "references": [
+        "REF-ARAQUE-1999",
+        "REF-IADECOLA-2017",
+        "REF-RANSOHOFF-2016"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ASSET-AIS-NODE-RANVIER-3D",
+      "name": "Axon Initial Segment (AIS), Myelin Internode & Node of Ranvier Cutaway",
+      "studio": "STUDIO_B_CELLULAR",
+      "format": "GLB_DRACO",
+      "sourceMethod": "Subcellular cutaway showing Ankyrin-G scaffold, NaV1.6 nodal ring, paranodal loops, and Kv1 juxtaparanode",
+      "license": "CC-BY-4.0",
+      "mappedEntityIds": [
+        "CELL-COMP-AIS",
+        "MECH-012",
+        "MECH-014",
+        "MOL-CH-NAV1-6"
+      ],
+      "accuracyClassification": "BIOPHYSICAL_SCHEMATIC_3D",
+      "simplificationDisclosure": "Biophysical 3D cutaway schematic illustrating saltatory current loops and channel clustering.",
+      "spatialScaleUnit": "um",
+      "lodTriangleBudgets": {
+        "lod0": 14000,
+        "lod1": 4500,
+        "lod2": 1200
+      },
+      "version": "1.0.0",
+      "references": [
+        "REF-CATTERALL-2012",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ASSET-DENDRITIC-SPINE-3D",
+      "name": "Dendritic Spine & Postsynaptic Density (PSD-95 / Actin / Spine Apparatus) Cutaway",
+      "studio": "STUDIO_B_CELLULAR",
+      "format": "GLB_DRACO",
+      "sourceMethod": "Subcellular 3D model of mushroom, thin, and stubby dendritic spines with spine neck resistance",
+      "license": "CC-BY-4.0",
+      "mappedEntityIds": [
+        "CELL-COMP-DENDRITIC-SPINE",
+        "MOL-SIG-PSD95",
+        "MECH-040"
+      ],
+      "accuracyClassification": "BIOPHYSICAL_SCHEMATIC_3D",
+      "simplificationDisclosure": "Schematic nanoscale/sub-micrometer spine geometry illustrating Ca2+ compartmentalization and LTP spine head enlargement.",
+      "spatialScaleUnit": "nm",
+      "lodTriangleBudgets": {
+        "lod0": 12000,
+        "lod1": 4000,
+        "lod2": 1000
+      },
+      "version": "1.0.0",
+      "references": [
+        "REF-TRAYNELIS-2010",
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ASSET-AXONAL-TRANSPORT-3D",
+      "name": "Microtubule Track with Kinesin (Anterograde) & Dynein (Retrograde) Cargo Transport",
+      "studio": "STUDIO_B_CELLULAR",
+      "format": "GLB_DRACO",
+      "sourceMethod": "Animated subcellular axonal cytoskeleton with mitochondria and synaptic vesicle precursors",
+      "license": "CC-BY-4.0",
+      "mappedEntityIds": [
+        "CELL-PYRAMIDAL-L5",
+        "MOL-TRANS-VESICULAR"
+      ],
+      "accuracyClassification": "BIOPHYSICAL_SCHEMATIC_3D",
+      "simplificationDisclosure": "Illustrative biophysical schematic of fast anterograde kinesin and retrograde dynein transport along polarized microtubules.",
+      "spatialScaleUnit": "nm",
+      "lodTriangleBudgets": {
+        "lod0": 10000,
+        "lod1": 3500,
+        "lod2": 900
+      },
+      "version": "1.0.0",
+      "references": [
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ASSET-CHEMICAL-SYNAPSE-3D",
+      "name": "Tripartite Chemical Synapse (Presynaptic Active Zone, 20nm Cleft, Postsynaptic PSD & Astrocyte Leaflet)",
+      "studio": "STUDIO_C_SYNAPTIC_MOLECULAR",
+      "format": "GLB_DRACO",
+      "sourceMethod": "Nanoscale 3D synaptic scene with InstancedMesh vesicles, SNARE complexes, cleft neurotransmitters, and PSD receptors",
+      "license": "CC-BY-4.0",
+      "mappedEntityIds": [
+        "MECH-019",
+        "MECH-020",
+        "MECH-022",
+        "MECH-023",
+        "MECH-024",
+        "MECH-047",
+        "MOL-VES-SNARE",
+        "MOL-VES-SYT1",
+        "MOL-TRANS-EAAT2"
+      ],
+      "accuracyClassification": "BIOPHYSICAL_SCHEMATIC_3D",
+      "simplificationDisclosure": "Proportionally scaled biophysical schematic (not raw PDB atomic coordinates) synchronized with live synaptic conductance simulations.",
+      "spatialScaleUnit": "nm",
+      "lodTriangleBudgets": {
+        "lod0": 25000,
+        "lod1": 8500,
+        "lod2": 2200
+      },
+      "version": "1.0.0",
+      "references": [
+        "REF-SUDHOF-2013",
+        "REF-TRAYNELIS-2010",
+        "REF-ARAQUE-1999"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ASSET-ELECTRICAL-GAP-3D",
+      "name": "Electrical Synapse Connexon (Cx36) Gap-Junction Plaque",
+      "studio": "STUDIO_C_SYNAPTIC_MOLECULAR",
+      "format": "GLB_DRACO",
+      "sourceMethod": "Hexameric hemichannel pore pairs bridging a 3.5 nm intercellular gap with bidirectional ion flux arrows",
+      "license": "CC-BY-4.0",
+      "mappedEntityIds": [
+        "MECH-026",
+        "MODEL-015",
+        "MOL-CH-K2P-LEAK"
+      ],
+      "accuracyClassification": "BIOPHYSICAL_SCHEMATIC_3D",
+      "simplificationDisclosure": "Schematic hexameric connexon channel assembly illustrating bidirectional ohmic current flow.",
+      "spatialScaleUnit": "nm",
+      "lodTriangleBudgets": {
+        "lod0": 8000,
+        "lod1": 2800,
+        "lod2": 800
+      },
+      "version": "1.0.0",
+      "references": [
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ASSET-ION-CHANNELS-GATING-3D",
+      "name": "Voltage-Gated Ion Channel Family Cutaway (NaV m3h, KV n4, CaV, HCN, K2P)",
+      "studio": "STUDIO_C_SYNAPTIC_MOLECULAR",
+      "format": "GLB_DRACO",
+      "sourceMethod": "Four-domain transmembrane pore cutaway with animated S4 voltage sensors and IFM inactivation gate",
+      "license": "CC-BY-4.0",
+      "mappedEntityIds": [
+        "MOL-CH-NAV1-1",
+        "MOL-CH-NAV1-2",
+        "MOL-CH-NAV1-6",
+        "MOL-CH-NAV1-7",
+        "MOL-CH-KV1-1",
+        "MOL-CH-KV2-1",
+        "MOL-CH-KV3-1",
+        "MOL-CH-KV4-2",
+        "MOL-CH-KV7-2",
+        "MOL-CH-CAV1-2",
+        "MOL-CH-CAV2-1",
+        "MOL-CH-CAV2-2",
+        "MOL-CH-CAV3-1",
+        "MOL-CH-HCN1",
+        "MOL-CH-K2P-LEAK"
+      ],
+      "accuracyClassification": "BIOPHYSICAL_SCHEMATIC_3D",
+      "simplificationDisclosure": "Functional domain schematic driven in real time by Hodgkin-Huxley (m, h, n) state variables; non-crystallographic.",
+      "spatialScaleUnit": "nm",
+      "lodTriangleBudgets": {
+        "lod0": 16000,
+        "lod1": 5500,
+        "lod2": 1500
+      },
+      "version": "1.0.0",
+      "references": [
+        "REF-CATTERALL-2012",
+        "REF-HILLE-2001",
+        "REF-HH-1952"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ASSET-RECEPTORS-NMDAR-AMPAR-3D",
+      "name": "Ionotropic & Metabotropic Receptor Complex (AMPAR, NMDAR with Mg2+ Block, GABA_A, GPCR)",
+      "studio": "STUDIO_C_SYNAPTIC_MOLECULAR",
+      "format": "GLB_DRACO",
+      "sourceMethod": "Tetrameric GluA/GluN and pentameric GABA_A receptor schematics with visible extracellular Mg2+ pore ion",
+      "license": "CC-BY-4.0",
+      "mappedEntityIds": [
+        "MOL-REC-AMPAR",
+        "MOL-REC-NMDAR",
+        "MOL-REC-KAINATE",
+        "MOL-REC-GABAA",
+        "MOL-REC-NACHR-A7",
+        "MOL-REC-5HT3",
+        "MOL-REC-GLYCINE",
+        "MOL-REC-P2X7",
+        "MOL-REC-MGLUR1-5",
+        "MOL-REC-GABAB",
+        "MOL-REC-DRD1",
+        "MOL-REC-DRD2"
+      ],
+      "accuracyClassification": "BIOPHYSICAL_SCHEMATIC_3D",
+      "simplificationDisclosure": "Illustrates glutamate/glycine binding, depolarization-induced Mg2+ expulsion, and GPCR G-protein dissociation.",
+      "spatialScaleUnit": "nm",
+      "lodTriangleBudgets": {
+        "lod0": 18000,
+        "lod1": 6000,
+        "lod2": 1600
+      },
+      "version": "1.0.0",
+      "references": [
+        "REF-TRAYNELIS-2010",
+        "REF-SIGEL-2012"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ASSET-INTRACELLULAR-CASCADE-3D",
+      "name": "Postsynaptic Ca2+ / Calmodulin / CaMKII vs Calcineurin & cAMP/PKA/CREB Signaling Scene",
+      "studio": "STUDIO_C_SYNAPTIC_MOLECULAR",
+      "format": "GLB_DRACO",
+      "sourceMethod": "3D molecular signaling pathway inside spine head and soma nucleus",
+      "license": "CC-BY-4.0",
+      "mappedEntityIds": [
+        "MOL-SIG-CALMODULIN",
+        "MOL-SIG-CAMKII",
+        "MOL-SIG-CALCINEURIN",
+        "MOL-SIG-CAMP-PKA",
+        "MOL-SIG-PLC-IP3-PKC",
+        "MOL-SIG-CREB",
+        "MECH-032",
+        "MECH-033",
+        "MECH-034"
+      ],
+      "accuracyClassification": "BIOPHYSICAL_SCHEMATIC_3D",
+      "simplificationDisclosure": "Conceptual 3D molecular cascade visualizing CaMKII dodecamer Thr286 autophosphorylation and AMPAR slot trapping.",
+      "spatialScaleUnit": "nm",
+      "lodTriangleBudgets": {
+        "lod0": 14000,
+        "lod1": 4600,
+        "lod2": 1200
+      },
+      "version": "1.0.0",
+      "references": [
+        "REF-KANDEL-2021",
+        "REF-TRAYNELIS-2010"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ASSET-NET-MICROCIRCUIT-EI",
+      "name": "3D Recurrent Excitatory-Inhibitory Spiking Microcircuit Graph (N<=4,000)",
+      "studio": "STUDIO_D_NETWORK",
+      "format": "PROCEDURAL_INSTANCED_MESH",
+      "sourceMethod": "GPU InstancedMesh of pyramidal (cyan cones) and interneuron (violet spheres) somata with dynamic spike edges",
+      "license": "MIT_PROCEDURAL",
+      "mappedEntityIds": [
+        "CIRC-001",
+        "CIRC-002",
+        "CIRC-003",
+        "CIRC-004",
+        "CIRC-005",
+        "MODEL-020",
+        "MODEL-021",
+        "MODEL-022"
+      ],
+      "accuracyClassification": "PROCEDURAL_NETWORK_GRAPH",
+      "simplificationDisclosure": "Procedural spatial graph layout driven by live Web Worker spike and membrane-potential buffers.",
+      "spatialScaleUnit": "topological",
+      "lodTriangleBudgets": {
+        "lod0": 40000,
+        "lod1": 16000,
+        "lod2": 4000
+      },
+      "version": "1.0.0",
+      "references": [
+        "REF-BRUNEL-2000",
+        "REF-DOUGLAS-MARTIN-2004"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ASSET-NET-HIPP-TRISYNAPTIC",
+      "name": "3D Hippocampal Trisynaptic & CA3 Attractor Circuit Graph",
+      "studio": "STUDIO_D_NETWORK",
+      "format": "PROCEDURAL_INSTANCED_MESH",
+      "sourceMethod": "Layered 3D circuit graph of EC -> DG -> CA3 (recurrent) -> CA1 -> Subiculum",
+      "license": "MIT_PROCEDURAL",
+      "mappedEntityIds": [
+        "CIRC-007",
+        "CIRC-008",
+        "MODEL-024"
+      ],
+      "accuracyClassification": "PROCEDURAL_NETWORK_GRAPH",
+      "simplificationDisclosure": "Anatomically arranged 3D node-edge graph visualizing STDP weight evolution and pattern completion.",
+      "spatialScaleUnit": "topological",
+      "lodTriangleBudgets": {
+        "lod0": 24000,
+        "lod1": 8000,
+        "lod2": 2400
+      },
+      "version": "1.0.0",
+      "references": [
+        "REF-SQUIRE-2004",
+        "REF-BI-POO-1998"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ASSET-NET-CONNECTOME-68",
+      "name": "Whole-Brain 68-Region Structural & Functional Connectome 3D Graph",
+      "studio": "STUDIO_D_NETWORK",
+      "format": "PROCEDURAL_INSTANCED_MESH",
+      "sourceMethod": "68 MNI-anchored regional spheres inside translucent brain hull with weighted SC/FC/Synthetic edges",
+      "license": "CC0-1.0",
+      "mappedEntityIds": [
+        "CIRC-029",
+        "CIRC-030",
+        "CIRC-031",
+        "CIRC-032",
+        "CIRC-033",
+        "MODEL-027",
+        "MODEL-028"
+      ],
+      "accuracyClassification": "PROCEDURAL_NETWORK_GRAPH",
+      "simplificationDisclosure": "Nodes positioned at exact Desikan-Killiany MNI152 centroids; edges styled by mandatory SC/FC/Synthetic provenance.",
+      "spatialScaleUnit": "mm",
+      "lodTriangleBudgets": {
+        "lod0": 30000,
+        "lod1": 10000,
+        "lod2": 3000
+      },
+      "version": "1.0.0",
+      "references": [
+        "REF-DESIKAN-2006",
+        "REF-BULLMORE-2009",
+        "REF-RUBINOV-2010"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "ASSET-NET-SYNTHETIC-BENCHMARK",
+      "name": "Synthetic Watts-Strogatz Small-World & Modular Graph Inspector",
+      "studio": "STUDIO_D_NETWORK",
+      "format": "PROCEDURAL_INSTANCED_MESH",
+      "sourceMethod": "Ring-lattice, small-world, and modular community 3D/2D graph generator",
+      "license": "MIT_PROCEDURAL",
+      "mappedEntityIds": [
+        "CIRC-034",
+        "MODEL-027",
+        "MODEL-028"
+      ],
+      "accuracyClassification": "PROCEDURAL_NETWORK_GRAPH",
+      "simplificationDisclosure": "Explicitly tagged synthetic network topology for rewiring, synchrony, and targeted hub-lesion experiments.",
+      "spatialScaleUnit": "topological",
+      "lodTriangleBudgets": {
+        "lod0": 18000,
+        "lod1": 6000,
+        "lod2": 1800
+      },
+      "version": "1.0.0",
+      "references": [
+        "REF-WATTS-STROGATZ-1998",
+        "REF-NEWMAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    }
+  ]
+}

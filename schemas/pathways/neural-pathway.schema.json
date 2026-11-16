@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cortexia.science/schemas/pathways/neural-pathway.schema.json",
+  "title": "NeuralPathwayOrCircuit",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "canonicalName",
+    "circuitCategory",
+    "primaryScale",
+    "connectivityProvenance",
+    "orderedNodeIds",
+    "dominantNeurotransmitters",
+    "functionalSummary",
+    "associatedModelIds",
+    "references",
+    "schemaVersion"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^CIRC-[A-Z0-9-]+$"
+    },
+    "canonicalName": {
+      "type": "string",
+      "minLength": 3
+    },
+    "circuitCategory": {
+      "type": "string",
+      "enum": [
+        "LOCAL_MICROCIRCUIT_MOTIF",
+        "REGIONAL_CANONICAL_CIRCUIT",
+        "LONG_RANGE_WHITE_MATTER_TRACT",
+        "LARGE_SCALE_BRAIN_NETWORK"
+      ]
+    },
+    "primaryScale": {
+      "type": "string",
+      "enum": [
+        "L5",
+        "L6",
+        "L7",
+        "L8"
+      ]
+    },
+    "connectivityProvenance": {
+      "type": "string",
+      "enum": [
+        "EMPIRICAL_STRUCTURAL",
+        "ESTIMATED_FUNCTIONAL",
+        "SYNTHETIC_SIMULATION"
+      ]
+    },
+    "orderedNodeIds": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "string"
+      }
+    },
+    "dominantNeurotransmitters": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "functionalSummary": {
+      "type": "string",
+      "minLength": 40
+    },
+    "associatedModelIds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^MODEL-[0-9]{3}$"
+      }
+    },
+    "references": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "pattern": "^REF-[A-Z0-9-]+$"
+      }
+    },
+    "schemaVersion": {
+      "type": "string",
+      "const": "1.0.0"
+    }
+  }
+}

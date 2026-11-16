@@ -1,0 +1,24 @@
+{
+  "$schemaRef": "experiments/simulation-output.schema.json",
+  "payload": {
+    "jobId": "JOB-20261116-01",
+    "modelId": "MODEL-001",
+    "sampleCount": 5001,
+    "timeRangeMs": [
+      0.0,
+      50.0
+    ],
+    "recordedVariables": [
+      {
+        "symbol": "V",
+        "unit": "mV",
+        "minObserved": -74.2,
+        "maxObserved": 38.6
+      }
+    ],
+    "spikeEventsCount": 4,
+    "executionTimeMs": 6.4,
+    "numericalStatus": "CONVERGED",
+    "schemaVersion": "1.0.0"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cortexia.science/schemas/ui/ui-entity-mapping.schema.json",
+  "title": "UIEntityExplanationMapping",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "uiEntityClass",
+    "hoverSupported",
+    "clickInspectorSupported",
+    "dedicatedPageSupported",
+    "touchAdaptationRule",
+    "targetRegistryPrefix",
+    "schemaVersion"
+  ],
+  "properties": {
+    "uiEntityClass": {
+      "type": "string",
+      "minLength": 3
+    },
+    "hoverSupported": {
+      "type": "string",
+      "enum": [
+        "YES",
+        "CONTEXTUAL"
+      ]
+    },
+    "clickInspectorSupported": {
+      "type": "string",
+      "const": "YES"
+    },
+    "dedicatedPageSupported": {
+      "type": "string",
+      "enum": [
+        "YES",
+        "CONTEXTUAL"
+      ]
+    },
+    "touchAdaptationRule": {
+      "type": "string",
+      "minLength": 15
+    },
+    "targetRegistryPrefix": {
+      "type": "string",
+      "minLength": 2
+    },
+    "schemaVersion": {
+      "type": "string",
+      "const": "1.0.0"
+    }
+  }
+}

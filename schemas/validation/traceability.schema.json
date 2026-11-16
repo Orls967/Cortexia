@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cortexia.science/schemas/validation/traceability.schema.json",
+  "title": "RequirementsTraceabilityEntry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "description",
+    "category",
+    "priority",
+    "source",
+    "relatedModule",
+    "relatedDomain",
+    "relatedDocument",
+    "relatedSchemaOrRegistry",
+    "validationMethod",
+    "acceptanceCriteria",
+    "implementationPhase",
+    "status",
+    "schemaVersion"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^REQ-[A-Z0-9-]+$"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 15
+    },
+    "category": {
+      "type": "string",
+      "minLength": 2
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "P0",
+        "P1",
+        "P2"
+      ]
+    },
+    "source": {
+      "type": "string",
+      "minLength": 3
+    },
+    "relatedModule": {
+      "type": "string",
+      "minLength": 3
+    },
+    "relatedDomain": {
+      "type": "string",
+      "minLength": 2
+    },
+    "relatedDocument": {
+      "type": "string",
+      "minLength": 5
+    },
+    "relatedSchemaOrRegistry": {
+      "type": "string",
+      "minLength": 5
+    },
+    "validationMethod": {
+      "type": "string",
+      "minLength": 5
+    },
+    "acceptanceCriteria": {
+      "type": "string",
+      "minLength": 5
+    },
+    "implementationPhase": {
+      "type": "string",
+      "minLength": 4
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "SPECIFIED",
+        "IMPLEMENTED",
+        "VERIFIED"
+      ]
+    },
+    "schemaVersion": {
+      "type": "string",
+      "const": "1.0.0"
+    }
+  }
+}

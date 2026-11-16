@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cortexia.science/schemas/knowledge-graph/kg-edge.schema.json",
+  "title": "KnowledgeGraphEdge",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "sourceId",
+    "targetId",
+    "relationType",
+    "schemaVersion"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^EDGE-[0-9]{4,5}$"
+    },
+    "sourceId": {
+      "type": "string",
+      "minLength": 3
+    },
+    "targetId": {
+      "type": "string",
+      "minLength": 3
+    },
+    "relationType": {
+      "type": "string",
+      "enum": [
+        "CONTAINS",
+        "PART_OF",
+        "ANATOMICAL_CONNECTION",
+        "FUNCTIONALLY_ASSOCIATED_WITH",
+        "EXPRESSES",
+        "RELEASES",
+        "BINDS_TO",
+        "MODULATES",
+        "PARTICIPATES_IN",
+        "MODELED_BY",
+        "GOVERNED_BY_EQUATION",
+        "PARAMETERIZED_BY",
+        "VISUALIZED_BY",
+        "EVALUATED_BY_EXPERIMENT",
+        "EXPERIMENTALLY_SUPPORTED_BY",
+        "DOCUMENTED_BY"
+      ]
+    },
+    "abstractionNote": {
+      "type": "string"
+    },
+    "schemaVersion": {
+      "type": "string",
+      "const": "1.0.0"
+    }
+  }
+}

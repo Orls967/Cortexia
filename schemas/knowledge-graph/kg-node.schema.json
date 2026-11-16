@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cortexia.science/schemas/knowledge-graph/kg-node.schema.json",
+  "title": "KnowledgeGraphNode",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "label",
+    "nodeCategory",
+    "primaryScale",
+    "sourceRegistry",
+    "schemaVersion"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 3
+    },
+    "label": {
+      "type": "string",
+      "minLength": 2
+    },
+    "nodeCategory": {
+      "type": "string",
+      "enum": [
+        "ANATOMICAL_STRUCTURE",
+        "CELL_TYPE",
+        "CELLULAR_COMPONENT",
+        "MOLECULE",
+        "NEUROTRANSMITTER",
+        "RECEPTOR",
+        "ION_CHANNEL",
+        "PHYSIOLOGICAL_MECHANISM",
+        "NEURAL_PATHWAY",
+        "NEURAL_CIRCUIT",
+        "BRAIN_NETWORK",
+        "FUNCTIONAL_SYSTEM",
+        "COGNITIVE_CONCEPT",
+        "MATHEMATICAL_MODEL",
+        "EQUATION",
+        "PARAMETER",
+        "EXPERIMENT",
+        "DATASET",
+        "SCIENTIFIC_REFERENCE",
+        "ASSET_3D"
+      ]
+    },
+    "primaryScale": {
+      "type": "string",
+      "enum": [
+        "L1",
+        "L2",
+        "L3",
+        "L4",
+        "L5",
+        "L6",
+        "L7",
+        "L8",
+        "L9"
+      ]
+    },
+    "sourceRegistry": {
+      "type": "string",
+      "minLength": 3
+    },
+    "schemaVersion": {
+      "type": "string",
+      "const": "1.0.0"
+    }
+  }
+}

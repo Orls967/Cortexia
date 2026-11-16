@@ -1,0 +1,25 @@
+{
+  "$schemaRef": "datasets/dataset-metadata.schema.json",
+  "payload": {
+    "datasetId": "DSET-015",
+    "samplingFrequencyHz": 256.0,
+    "powerLineFrequencyHz": 50,
+    "referenceScheme": "Common Average Reference",
+    "channels": [
+      {
+        "name": "O1",
+        "type": "EEG",
+        "unit": "uV",
+        "status": "good"
+      },
+      {
+        "name": "O2",
+        "type": "EEG",
+        "unit": "uV",
+        "status": "good"
+      }
+    ],
+    "deidentifiedHumanOrAnimal": true,
+    "schemaVersion": "1.0.0"
+  }
+}

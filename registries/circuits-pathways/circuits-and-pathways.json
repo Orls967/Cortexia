@@ -1,0 +1,896 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "CIRC-001",
+      "canonicalName": "Canonical Neocortical Laminar Microcircuit (L4 -> L2/3 -> L5 -> L6)",
+      "circuitCategory": "LOCAL_MICROCIRCUIT_MOTIF",
+      "primaryScale": "L5",
+      "connectivityProvenance": "EMPIRICAL_STRUCTURAL",
+      "orderedNodeIds": [
+        "ANAT-THALAMUS",
+        "ANAT-NEOCORTEX-L456",
+        "ANAT-NEOCORTEX-L23"
+      ],
+      "dominantNeurotransmitters": [
+        "Glutamate",
+        "GABA"
+      ],
+      "functionalSummary": "Canonical vertical and recurrent processing loop across the six layers of mammalian neocortex.",
+      "associatedModelIds": [
+        "MODEL-018",
+        "MODEL-021"
+      ],
+      "references": [
+        "REF-DOUGLAS-MARTIN-2004"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CIRC-002",
+      "canonicalName": "Feedforward Perisomatic Inhibition Motif (Thalamus/Cortex -> PV+ Basket -> Pyramidal)",
+      "circuitCategory": "LOCAL_MICROCIRCUIT_MOTIF",
+      "primaryScale": "L5",
+      "connectivityProvenance": "EMPIRICAL_STRUCTURAL",
+      "orderedNodeIds": [
+        "ANAT-THALAMUS",
+        "CELL-INTERNEURON-PV-BASKET",
+        "CELL-PYRAMIDAL-L23"
+      ],
+      "dominantNeurotransmitters": [
+        "Glutamate",
+        "GABA"
+      ],
+      "functionalSummary": "Enforces millisecond coincidence detection by cutting off excitation within 1\u20133 ms of afferent arrival.",
+      "associatedModelIds": [
+        "MODEL-020",
+        "MODEL-021"
+      ],
+      "references": [
+        "REF-DOUGLAS-MARTIN-2004"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CIRC-003",
+      "canonicalName": "Feedback (Recurrent) PING Gamma Microcircuit (Pyramidal <-> PV+ Basket)",
+      "circuitCategory": "LOCAL_MICROCIRCUIT_MOTIF",
+      "primaryScale": "L5",
+      "connectivityProvenance": "EMPIRICAL_STRUCTURAL",
+      "orderedNodeIds": [
+        "CELL-PYRAMIDAL-L23",
+        "CELL-INTERNEURON-PV-BASKET"
+      ],
+      "dominantNeurotransmitters": [
+        "Glutamate",
+        "GABA"
+      ],
+      "functionalSummary": "Reciprocal excitation-inhibition loop generating 30\u201380 Hz gamma oscillations.",
+      "associatedModelIds": [
+        "MODEL-017",
+        "MODEL-021"
+      ],
+      "references": [
+        "REF-BUZSAKI-2012",
+        "REF-WILSON-COWAN-1972"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CIRC-004",
+      "canonicalName": "Apical Dendritic Feedback Inhibition Motif (Pyramidal -> SST+ Martinotti -> L1 Tuft)",
+      "circuitCategory": "LOCAL_MICROCIRCUIT_MOTIF",
+      "primaryScale": "L5",
+      "connectivityProvenance": "EMPIRICAL_STRUCTURAL",
+      "orderedNodeIds": [
+        "CELL-PYRAMIDAL-L5",
+        "CELL-INTERNEURON-SST",
+        "ANAT-NEOCORTEX-L23"
+      ],
+      "dominantNeurotransmitters": [
+        "Glutamate",
+        "GABA"
+      ],
+      "functionalSummary": "Frequency-dependent facilitating inhibition gating distal dendritic Ca2+ and NMDA plateau spikes.",
+      "associatedModelIds": [
+        "MODEL-016",
+        "MODEL-021"
+      ],
+      "references": [
+        "REF-TSODYKS-1997"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CIRC-005",
+      "canonicalName": "Cortical Disinhibitory Motif (VIP+ -> SST+ -> Pyramidal Dendrite)",
+      "circuitCategory": "LOCAL_MICROCIRCUIT_MOTIF",
+      "primaryScale": "L5",
+      "connectivityProvenance": "EMPIRICAL_STRUCTURAL",
+      "orderedNodeIds": [
+        "CELL-INTERNEURON-VIP",
+        "CELL-INTERNEURON-SST",
+        "CELL-PYRAMIDAL-L23"
+      ],
+      "dominantNeurotransmitters": [
+        "GABA",
+        "Acetylcholine"
+      ],
+      "functionalSummary": "Releases pyramidal apical dendrites from SST+ inhibition during attentional and behavioral engagement.",
+      "associatedModelIds": [
+        "MODEL-021"
+      ],
+      "references": [
+        "REF-DOUGLAS-MARTIN-2004"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CIRC-006",
+      "canonicalName": "Lateral Surround Inhibition Motif",
+      "circuitCategory": "LOCAL_MICROCIRCUIT_MOTIF",
+      "primaryScale": "L5",
+      "connectivityProvenance": "EMPIRICAL_STRUCTURAL",
+      "orderedNodeIds": [
+        "CELL-PYRAMIDAL-L23",
+        "CELL-INTERNEURON-PV-BASKET",
+        "ANAT-POSTCENTRAL-GYRUS"
+      ],
+      "dominantNeurotransmitters": [
+        "Glutamate",
+        "GABA"
+      ],
+      "functionalSummary": "Active cortical column suppresses adjacent columns to sharpen spatial and feature tuning.",
+      "associatedModelIds": [
+        "MODEL-017",
+        "MODEL-021"
+      ],
+      "references": [
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CIRC-007",
+      "canonicalName": "Hippocampal Trisynaptic Circuit (EC -> DG -> CA3 -> CA1 -> Subiculum)",
+      "circuitCategory": "REGIONAL_CANONICAL_CIRCUIT",
+      "primaryScale": "L6",
+      "connectivityProvenance": "EMPIRICAL_STRUCTURAL",
+      "orderedNodeIds": [
+        "ANAT-ENTORHINAL-CORTEX",
+        "ANAT-DENTATE-GYRUS",
+        "ANAT-HIPPOCAMPUS-CA3",
+        "ANAT-HIPPOCAMPUS-CA1",
+        "ANAT-SUBICULUM"
+      ],
+      "dominantNeurotransmitters": [
+        "Glutamate",
+        "GABA"
+      ],
+      "functionalSummary": "Sequential perforant path, mossy fiber, and Schaffer collateral loop mediating episodic pattern separation and completion.",
+      "associatedModelIds": [
+        "MODEL-021",
+        "MODEL-024"
+      ],
+      "references": [
+        "REF-SQUIRE-2004",
+        "REF-BLISS-LOMO-1973"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CIRC-008",
+      "canonicalName": "Temporoammonic Direct Entorhinal-CA1 Pathway (EC L3 -> CA1 Distal Tuft)",
+      "circuitCategory": "REGIONAL_CANONICAL_CIRCUIT",
+      "primaryScale": "L6",
+      "connectivityProvenance": "EMPIRICAL_STRUCTURAL",
+      "orderedNodeIds": [
+        "ANAT-ENTORHINAL-CORTEX",
+        "ANAT-HIPPOCAMPUS-CA1"
+      ],
+      "dominantNeurotransmitters": [
+        "Glutamate"
+      ],
+      "functionalSummary": "Direct monosynaptic projection from entorhinal Layer 3 to CA1 stratum lacunosum-moleculare for sensory-memory comparator gating.",
+      "associatedModelIds": [
+        "MODEL-014",
+        "MODEL-024"
+      ],
+      "references": [
+        "REF-SQUIRE-2004"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CIRC-009",
+      "canonicalName": "Papez Extended Episodic Memory Circuit (Hippocampus -> Fornix -> Mammillary -> Anterior Thalamus -> Cingulate -> EC)",
+      "circuitCategory": "REGIONAL_CANONICAL_CIRCUIT",
+      "primaryScale": "L7",
+      "connectivityProvenance": "EMPIRICAL_STRUCTURAL",
+      "orderedNodeIds": [
+        "ANAT-SUBICULUM",
+        "ANAT-FORNIX",
+        "ANAT-MAMMILLARY-BODIES",
+        "ANAT-THALAMUS",
+        "ANAT-CINGULATE-GYRUS",
+        "ANAT-ENTORHINAL-CORTEX"
+      ],
+      "dominantNeurotransmitters": [
+        "Glutamate"
+      ],
+      "functionalSummary": "Medial limbic loop linking hippocampal output through diencephalon and cingulate cortex back to parahippocampal cortex.",
+      "associatedModelIds": [
+        "MODEL-027",
+        "MODEL-028"
+      ],
+      "references": [
+        "REF-SQUIRE-2004"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CIRC-010",
+      "canonicalName": "Thalamocortical-Reticular (TC \u2013 TRN \u2013 Cortex) Loop",
+      "circuitCategory": "REGIONAL_CANONICAL_CIRCUIT",
+      "primaryScale": "L6",
+      "connectivityProvenance": "EMPIRICAL_STRUCTURAL",
+      "orderedNodeIds": [
+        "ANAT-THALAMUS",
+        "ANAT-TRN",
+        "ANAT-NEOCORTEX-L456"
+      ],
+      "dominantNeurotransmitters": [
+        "Glutamate",
+        "GABA"
+      ],
+      "functionalSummary": "Reciprocal glutamatergic thalamocortical and corticothalamic projections gated by the GABAergic TRN shell.",
+      "associatedModelIds": [
+        "MODEL-018",
+        "MODEL-002"
+      ],
+      "references": [
+        "REF-JANSEN-RIT-1995"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CIRC-011",
+      "canonicalName": "Basal Ganglia Direct ('Go') Motor Loop",
+      "circuitCategory": "REGIONAL_CANONICAL_CIRCUIT",
+      "primaryScale": "L6",
+      "connectivityProvenance": "EMPIRICAL_STRUCTURAL",
+      "orderedNodeIds": [
+        "ANAT-PRECENTRAL-GYRUS",
+        "ANAT-PUTAMEN",
+        "ANAT-GPI",
+        "ANAT-THALAMUS-VL"
+      ],
+      "dominantNeurotransmitters": [
+        "Glutamate",
+        "GABA",
+        "Dopamine"
+      ],
+      "functionalSummary": "Striatal D1 dMSNs inhibit GPi/SNr, transiently disinhibiting VL/VA motor thalamus to initiate selected actions.",
+      "associatedModelIds": [
+        "MODEL-026",
+        "MODEL-017"
+      ],
+      "references": [
+        "REF-ALEXANDER-1986"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CIRC-012",
+      "canonicalName": "Basal Ganglia Indirect ('No-Go') Suppressor Loop",
+      "circuitCategory": "REGIONAL_CANONICAL_CIRCUIT",
+      "primaryScale": "L6",
+      "connectivityProvenance": "EMPIRICAL_STRUCTURAL",
+      "orderedNodeIds": [
+        "ANAT-PRECENTRAL-GYRUS",
+        "ANAT-PUTAMEN",
+        "ANAT-GPE",
+        "ANAT-STN",
+        "ANAT-GPI",
+        "ANAT-THALAMUS-VL"
+      ],
+      "dominantNeurotransmitters": [
+        "Glutamate",
+        "GABA",
+        "Dopamine"
+      ],
+      "functionalSummary": "Striatal D2 iMSNs inhibit GPe, disinhibiting glutamatergic STN to boost GPi/SNr inhibition of thalamus.",
+      "associatedModelIds": [
+        "MODEL-026",
+        "MODEL-017"
+      ],
+      "references": [
+        "REF-ALEXANDER-1986"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CIRC-013",
+      "canonicalName": "Basal Ganglia Hyperdirect ('Global Stop') Cortico-Subthalamic Pathway",
+      "circuitCategory": "REGIONAL_CANONICAL_CIRCUIT",
+      "primaryScale": "L6",
+      "connectivityProvenance": "EMPIRICAL_STRUCTURAL",
+      "orderedNodeIds": [
+        "ANAT-IFG-BROCA",
+        "ANAT-STN",
+        "ANAT-GPI",
+        "ANAT-THALAMUS-VL"
+      ],
+      "dominantNeurotransmitters": [
+        "Glutamate",
+        "GABA"
+      ],
+      "functionalSummary": "Fast monosynaptic prefrontal/premotor projection to STN that rapidly elevates GPi output to cancel ongoing responses.",
+      "associatedModelIds": [
+        "MODEL-019"
+      ],
+      "references": [
+        "REF-ALEXANDER-1986"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CIRC-014",
+      "canonicalName": "Cerebellar Cortico-Nuclear-Olivary Microzone Loop",
+      "circuitCategory": "REGIONAL_CANONICAL_CIRCUIT",
+      "primaryScale": "L6",
+      "connectivityProvenance": "EMPIRICAL_STRUCTURAL",
+      "orderedNodeIds": [
+        "ANAT-PONS",
+        "ANAT-CEREBELLAR-CORTEX",
+        "ANAT-DENTATE-NUCLEUS",
+        "ANAT-RED-NUCLEUS",
+        "ANAT-INFERIOR-OLIVE"
+      ],
+      "dominantNeurotransmitters": [
+        "Glutamate",
+        "GABA"
+      ],
+      "functionalSummary": "Parallel fibers and olivary climbing fibers converge on Purkinje cells to sculpt deep cerebellar nuclear output.",
+      "associatedModelIds": [
+        "MODEL-023"
+      ],
+      "references": [
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CIRC-015",
+      "canonicalName": "Amygdala Fear Conditioning & Prefrontal Extinction Circuit (BLA -> CeA / vmPFC)",
+      "circuitCategory": "REGIONAL_CANONICAL_CIRCUIT",
+      "primaryScale": "L6",
+      "connectivityProvenance": "EMPIRICAL_STRUCTURAL",
+      "orderedNodeIds": [
+        "ANAT-THALAMUS",
+        "ANAT-AMYGDALA-BLA",
+        "ANAT-OFC-VMPFC",
+        "ANAT-AMYGDALA-CEA",
+        "ANAT-PAG"
+      ],
+      "dominantNeurotransmitters": [
+        "Glutamate",
+        "GABA"
+      ],
+      "functionalSummary": "BLA associates sensory cues with threat to drive CeA-PAG defensive outputs; vmPFC recruits intercalated GABA cells for extinction.",
+      "associatedModelIds": [
+        "MODEL-017",
+        "MODEL-024"
+      ],
+      "references": [
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CIRC-016",
+      "canonicalName": "Mesocorticolimbic Dopamine Reward Pathway (VTA -> NAc & PFC)",
+      "circuitCategory": "REGIONAL_CANONICAL_CIRCUIT",
+      "primaryScale": "L7",
+      "connectivityProvenance": "EMPIRICAL_STRUCTURAL",
+      "orderedNodeIds": [
+        "ANAT-VTA",
+        "ANAT-NUCLEUS-ACCUMBENS",
+        "ANAT-OFC-VMPFC",
+        "ANAT-DLPFC"
+      ],
+      "dominantNeurotransmitters": [
+        "Dopamine",
+        "Glutamate",
+        "GABA"
+      ],
+      "functionalSummary": "Broadcasts dopaminergic reward prediction errors from VTA to ventral striatum and prefrontal cortex.",
+      "associatedModelIds": [
+        "MODEL-026"
+      ],
+      "references": [
+        "REF-SCHULTZ-1997"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CIRC-017",
+      "canonicalName": "Nigrostriatal Dopaminergic Motor Pathway (SNc -> Dorsal Striatum)",
+      "circuitCategory": "REGIONAL_CANONICAL_CIRCUIT",
+      "primaryScale": "L7",
+      "connectivityProvenance": "EMPIRICAL_STRUCTURAL",
+      "orderedNodeIds": [
+        "ANAT-SUBSTANTIA-NIGRA",
+        "ANAT-PUTAMEN",
+        "ANAT-CAUDATE-NUCLEUS"
+      ],
+      "dominantNeurotransmitters": [
+        "Dopamine"
+      ],
+      "functionalSummary": "Modulates dorsal striatal D1 and D2 medium spiny neuron excitability to invigorate movement.",
+      "associatedModelIds": [
+        "MODEL-026"
+      ],
+      "references": [
+        "REF-ALEXANDER-1986"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CIRC-018",
+      "canonicalName": "Hypothalamic Sleep-Wake Flip-Flop Switch (VLPO <-> Monoaminergic Nuclei + Orexin)",
+      "circuitCategory": "REGIONAL_CANONICAL_CIRCUIT",
+      "primaryScale": "L6",
+      "connectivityProvenance": "EMPIRICAL_STRUCTURAL",
+      "orderedNodeIds": [
+        "ANAT-HYPOTHALAMUS",
+        "ANAT-LOCUS-COERULEUS",
+        "ANAT-RAPHE-NUCLEI"
+      ],
+      "dominantNeurotransmitters": [
+        "GABA",
+        "Norepinephrine",
+        "Serotonin",
+        "Histamine",
+        "Orexin"
+      ],
+      "functionalSummary": "Mutually inhibitory bistable circuit between sleep-active VLPO and wake-active monoaminergic/orexinergic nuclei.",
+      "associatedModelIds": [
+        "MODEL-017"
+      ],
+      "references": [
+        "REF-SCAMMELL-2017"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CIRC-019",
+      "canonicalName": "Retinogeniculate-Striate Visual Pathway (Retina -> CN II -> LGN -> V1)",
+      "circuitCategory": "LONG_RANGE_WHITE_MATTER_TRACT",
+      "primaryScale": "L7",
+      "connectivityProvenance": "EMPIRICAL_STRUCTURAL",
+      "orderedNodeIds": [
+        "ANAT-RETINA",
+        "ANAT-CN-II",
+        "ANAT-LGN",
+        "ANAT-CALCARINE-SULCUS"
+      ],
+      "dominantNeurotransmitters": [
+        "Glutamate"
+      ],
+      "functionalSummary": "Primary retinotopic visual pathway conveying magnocellular, parvocellular, and koniocellular channels to primary visual cortex.",
+      "associatedModelIds": [
+        "MODEL-018",
+        "MODEL-020"
+      ],
+      "references": [
+        "REF-FELLEMAN-VANESSEN-1991"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CIRC-020",
+      "canonicalName": "Dorsal ('Where/How') Visuomotor Stream (V1 -> V2 -> MT/V5 -> Parietal IPS/FEF)",
+      "circuitCategory": "LONG_RANGE_WHITE_MATTER_TRACT",
+      "primaryScale": "L7",
+      "connectivityProvenance": "EMPIRICAL_STRUCTURAL",
+      "orderedNodeIds": [
+        "ANAT-CALCARINE-SULCUS",
+        "ANAT-VISUAL-MT-V5",
+        "ANAT-PARIETAL-LOBE",
+        "ANAT-FEF-IPS"
+      ],
+      "dominantNeurotransmitters": [
+        "Glutamate"
+      ],
+      "functionalSummary": "Processes spatial location, optic flow motion, and visually guided reaching/saccadic actions.",
+      "associatedModelIds": [
+        "MODEL-019",
+        "MODEL-020"
+      ],
+      "references": [
+        "REF-FELLEMAN-VANESSEN-1991"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CIRC-021",
+      "canonicalName": "Ventral ('What') Object Recognition Stream (V1 -> V2 -> V4 -> Fusiform/IT)",
+      "circuitCategory": "LONG_RANGE_WHITE_MATTER_TRACT",
+      "primaryScale": "L7",
+      "connectivityProvenance": "EMPIRICAL_STRUCTURAL",
+      "orderedNodeIds": [
+        "ANAT-CALCARINE-SULCUS",
+        "ANAT-OCCIPITAL-LOBE",
+        "ANAT-FUSIFORM-GYRUS",
+        "ANAT-TEMPORAL-LOBE"
+      ],
+      "dominantNeurotransmitters": [
+        "Glutamate"
+      ],
+      "functionalSummary": "Hierarchical form, color, face, and invariant object recognition pathway along occipitotemporal cortex.",
+      "associatedModelIds": [
+        "MODEL-020",
+        "MODEL-023"
+      ],
+      "references": [
+        "REF-FELLEMAN-VANESSEN-1991"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CIRC-022",
+      "canonicalName": "Ascending Binaural Auditory Pathway (Cochlea -> CN VIII -> SOC -> IC -> MGN -> A1)",
+      "circuitCategory": "LONG_RANGE_WHITE_MATTER_TRACT",
+      "primaryScale": "L7",
+      "connectivityProvenance": "EMPIRICAL_STRUCTURAL",
+      "orderedNodeIds": [
+        "ANAT-COCHLEA-ORGAN-CORTI",
+        "ANAT-CN-VIII",
+        "ANAT-INFERIOR-COLLICULUS",
+        "ANAT-MGN",
+        "ANAT-SUPERIOR-TEMPORAL-GYRUS"
+      ],
+      "dominantNeurotransmitters": [
+        "Glutamate",
+        "Glycine",
+        "GABA"
+      ],
+      "functionalSummary": "Tonotopic brainstem and thalamic relay computing interaural time/level differences and spectral representations.",
+      "associatedModelIds": [
+        "MODEL-005",
+        "MODEL-027"
+      ],
+      "references": [
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CIRC-023",
+      "canonicalName": "Dorsal Column-Medial Lemniscus (DCML) Fine Touch & Proprioceptive Pathway",
+      "circuitCategory": "LONG_RANGE_WHITE_MATTER_TRACT",
+      "primaryScale": "L7",
+      "connectivityProvenance": "EMPIRICAL_STRUCTURAL",
+      "orderedNodeIds": [
+        "ANAT-DRG",
+        "ANAT-SPINAL-CORD",
+        "ANAT-MEDULLA-OBLONGATA",
+        "ANAT-THALAMUS-VPL",
+        "ANAT-POSTCENTRAL-GYRUS"
+      ],
+      "dominantNeurotransmitters": [
+        "Glutamate"
+      ],
+      "functionalSummary": "Three-neuron ascending pathway for discriminative touch, vibration, and conscious proprioception.",
+      "associatedModelIds": [
+        "MODEL-001",
+        "MODEL-021"
+      ],
+      "references": [
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CIRC-024",
+      "canonicalName": "Anterolateral Spinothalamic Pain & Temperature Pathway",
+      "circuitCategory": "LONG_RANGE_WHITE_MATTER_TRACT",
+      "primaryScale": "L7",
+      "connectivityProvenance": "EMPIRICAL_STRUCTURAL",
+      "orderedNodeIds": [
+        "ANAT-DRG",
+        "ANAT-SPINAL-DORSAL-HORN",
+        "ANAT-SPINOTHALAMIC-TRACT",
+        "ANAT-THALAMUS-VPL",
+        "ANAT-POSTCENTRAL-GYRUS",
+        "ANAT-INSULAR-LOBE",
+        "ANAT-ACC"
+      ],
+      "dominantNeurotransmitters": [
+        "Glutamate",
+        "Substance P"
+      ],
+      "functionalSummary": "Segmentally decussating spinal tract conveying nociceptive and thermal signals to lateral sensory and medial affective pain networks.",
+      "associatedModelIds": [
+        "MODEL-014"
+      ],
+      "references": [
+        "REF-BASBAUM-2009"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CIRC-025",
+      "canonicalName": "Descending PAG-RVM-Dorsal Horn Endogenous Analgesia Pathway",
+      "circuitCategory": "LONG_RANGE_WHITE_MATTER_TRACT",
+      "primaryScale": "L7",
+      "connectivityProvenance": "EMPIRICAL_STRUCTURAL",
+      "orderedNodeIds": [
+        "ANAT-ACC",
+        "ANAT-PAG",
+        "ANAT-RAPHE-NUCLEI",
+        "ANAT-LOCUS-COERULEUS",
+        "ANAT-SPINAL-DORSAL-HORN"
+      ],
+      "dominantNeurotransmitters": [
+        "Endorphins",
+        "Serotonin",
+        "Norepinephrine",
+        "GABA"
+      ],
+      "functionalSummary": "Top-down opioidergic and monoaminergic pain-gating circuit inhibiting nociceptive transmission in Rexed Laminae I/II.",
+      "associatedModelIds": [
+        "MODEL-017"
+      ],
+      "references": [
+        "REF-BASBAUM-2009"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CIRC-026",
+      "canonicalName": "Lateral Corticospinal (Pyramidal) Voluntary Motor Tract",
+      "circuitCategory": "LONG_RANGE_WHITE_MATTER_TRACT",
+      "primaryScale": "L7",
+      "connectivityProvenance": "EMPIRICAL_STRUCTURAL",
+      "orderedNodeIds": [
+        "ANAT-PRECENTRAL-GYRUS",
+        "ANAT-INTERNAL-CAPSULE",
+        "ANAT-MIDBRAIN",
+        "ANAT-MEDULLA-OBLONGATA",
+        "ANAT-CORTICOSPINAL-TRACT",
+        "ANAT-SPINAL-VENTRAL-HORN",
+        "CELL-MOTOR-ALPHA"
+      ],
+      "dominantNeurotransmitters": [
+        "Glutamate",
+        "Acetylcholine"
+      ],
+      "functionalSummary": "Direct descending cortical projection through the internal capsule and medullary pyramidal decussation to spinal motor pools.",
+      "associatedModelIds": [
+        "MODEL-001",
+        "MODEL-010"
+      ],
+      "references": [
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CIRC-027",
+      "canonicalName": "Vestibulo-Ocular Reflex (VOR) Three-Neuron Arc & Floccular Loop",
+      "circuitCategory": "REGIONAL_CANONICAL_CIRCUIT",
+      "primaryScale": "L6",
+      "connectivityProvenance": "EMPIRICAL_STRUCTURAL",
+      "orderedNodeIds": [
+        "ANAT-CN-VIII",
+        "ANAT-VESTIBULAR-NUCLEI",
+        "ANAT-CN-VI",
+        "ANAT-CN-III",
+        "ANAT-FLOCCULONODULAR-LOBE"
+      ],
+      "dominantNeurotransmitters": [
+        "Glutamate",
+        "GABA",
+        "Acetylcholine"
+      ],
+      "functionalSummary": "Stabilizes retinal images during head rotation via <10 ms counter-rotation of the eyes, calibrated by cerebellar Purkinje plasticity.",
+      "associatedModelIds": [
+        "MODEL-023"
+      ],
+      "references": [
+        "REF-KANDEL-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CIRC-028",
+      "canonicalName": "Dorsal & Ventral Dual-Stream Language Network (STG <-> Arcuate/Uncinate <-> IFG)",
+      "circuitCategory": "LARGE_SCALE_BRAIN_NETWORK",
+      "primaryScale": "L8",
+      "connectivityProvenance": "EMPIRICAL_STRUCTURAL",
+      "orderedNodeIds": [
+        "ANAT-SUPERIOR-TEMPORAL-GYRUS",
+        "ANAT-ARCUATE-FASCICULUS",
+        "ANAT-ANGULAR-SUPRAMARGINAL",
+        "ANAT-IFG-BROCA",
+        "ANAT-UNCINATE-FASCICULUS"
+      ],
+      "dominantNeurotransmitters": [
+        "Glutamate",
+        "GABA"
+      ],
+      "functionalSummary": "Couples ventral lexical-semantic comprehension streams with dorsal phonological-articulatory production streams.",
+      "associatedModelIds": [
+        "MODEL-028"
+      ],
+      "references": [
+        "REF-HICKOK-POEPPEL-2007"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CIRC-029",
+      "canonicalName": "Default Mode Network (DMN: PCC/Precuneus, vmPFC, Angular Gyrus, Hippocampus)",
+      "circuitCategory": "LARGE_SCALE_BRAIN_NETWORK",
+      "primaryScale": "L8",
+      "connectivityProvenance": "ESTIMATED_FUNCTIONAL",
+      "orderedNodeIds": [
+        "ANAT-PCC",
+        "ANAT-OFC-VMPFC",
+        "ANAT-ANGULAR-SUPRAMARGINAL",
+        "ANAT-HIPPOCAMPAL-FORMATION"
+      ],
+      "dominantNeurotransmitters": [
+        "Glutamate",
+        "GABA"
+      ],
+      "functionalSummary": "Intrinsic large-scale functional network active during autobiographical memory, prospection, and internal mentation.",
+      "associatedModelIds": [
+        "MODEL-027",
+        "MODEL-028"
+      ],
+      "references": [
+        "REF-RAICHLE-2015"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CIRC-030",
+      "canonicalName": "Frontoparietal Executive Control Network (dlPFC, IPS, Mediodorsal Thalamus, Caudate)",
+      "circuitCategory": "LARGE_SCALE_BRAIN_NETWORK",
+      "primaryScale": "L8",
+      "connectivityProvenance": "ESTIMATED_FUNCTIONAL",
+      "orderedNodeIds": [
+        "ANAT-DLPFC",
+        "ANAT-FEF-IPS",
+        "ANAT-THALAMUS-MD",
+        "ANAT-CAUDATE-NUCLEUS"
+      ],
+      "dominantNeurotransmitters": [
+        "Glutamate",
+        "GABA",
+        "Dopamine"
+      ],
+      "functionalSummary": "Distributed cognitive control and working-memory network dynamically reconfiguring task rules.",
+      "associatedModelIds": [
+        "MODEL-017",
+        "MODEL-019",
+        "MODEL-028"
+      ],
+      "references": [
+        "REF-MILLER-COHEN-2001",
+        "REF-PETERSEN-POSNER-2012"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CIRC-031",
+      "canonicalName": "Dorsal and Ventral Attention Networks (FEF-IPS vs TPJ-VFC-Insula)",
+      "circuitCategory": "LARGE_SCALE_BRAIN_NETWORK",
+      "primaryScale": "L8",
+      "connectivityProvenance": "ESTIMATED_FUNCTIONAL",
+      "orderedNodeIds": [
+        "ANAT-FEF-IPS",
+        "ANAT-PARIETAL-LOBE",
+        "ANAT-ANGULAR-SUPRAMARGINAL",
+        "ANAT-INSULAR-LOBE"
+      ],
+      "dominantNeurotransmitters": [
+        "Glutamate",
+        "Acetylcholine",
+        "Norepinephrine"
+      ],
+      "functionalSummary": "Coordinates top-down goal-directed spatial orienting (dorsal) with stimulus-driven circuit-breaking reorienting (ventral).",
+      "associatedModelIds": [
+        "MODEL-019",
+        "MODEL-021"
+      ],
+      "references": [
+        "REF-CORBETTA-SHULMAN-2002"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CIRC-032",
+      "canonicalName": "Cingulo-Opercular / Salience Network (dACC, Anterior Insula, Amygdala, PAG)",
+      "circuitCategory": "LARGE_SCALE_BRAIN_NETWORK",
+      "primaryScale": "L8",
+      "connectivityProvenance": "ESTIMATED_FUNCTIONAL",
+      "orderedNodeIds": [
+        "ANAT-ACC",
+        "ANAT-INSULAR-LOBE",
+        "ANAT-AMYGDALA",
+        "ANAT-PAG"
+      ],
+      "dominantNeurotransmitters": [
+        "Glutamate",
+        "Norepinephrine"
+      ],
+      "functionalSummary": "Detects homeostatically and behaviorally salient events and switches engagement between DMN and Frontoparietal Control Network.",
+      "associatedModelIds": [
+        "MODEL-017",
+        "MODEL-028"
+      ],
+      "references": [
+        "REF-PETERSEN-POSNER-2012"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CIRC-033",
+      "canonicalName": "Whole-Brain Parcellated Structural Connectome Graph (68-Region Desikan-Killiany Benchmark)",
+      "circuitCategory": "LARGE_SCALE_BRAIN_NETWORK",
+      "primaryScale": "L8",
+      "connectivityProvenance": "EMPIRICAL_STRUCTURAL",
+      "orderedNodeIds": [
+        "ANAT-LEFT-HEMISPHERE",
+        "ANAT-RIGHT-HEMISPHERE",
+        "ANAT-CORPUS-CALLOSUM",
+        "ANAT-PCC",
+        "ANAT-DLPFC"
+      ],
+      "dominantNeurotransmitters": [
+        "Glutamate"
+      ],
+      "functionalSummary": "Macroscopic anatomical white-matter graph exhibiting small-world clustering, modular communities, and rich-club connector hubs.",
+      "associatedModelIds": [
+        "MODEL-027",
+        "MODEL-028"
+      ],
+      "references": [
+        "REF-SPORNS-2005",
+        "REF-BULLMORE-2009",
+        "REF-DESIKAN-2006"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CIRC-034",
+      "canonicalName": "Synthetic Watts-Strogatz & Brunel In-Silico Benchmark Topology",
+      "circuitCategory": "LARGE_SCALE_BRAIN_NETWORK",
+      "primaryScale": "L8",
+      "connectivityProvenance": "SYNTHETIC_SIMULATION",
+      "orderedNodeIds": [
+        "ANAT-NEOCORTEX-L23",
+        "ANAT-NEOCORTEX-L456"
+      ],
+      "dominantNeurotransmitters": [
+        "Glutamate",
+        "GABA"
+      ],
+      "functionalSummary": "Explicitly labeled synthetic simulation graph used for controlled rewiring, synchronization, and hub-lesion experiments.",
+      "associatedModelIds": [
+        "MODEL-021",
+        "MODEL-027",
+        "MODEL-028"
+      ],
+      "references": [
+        "REF-WATTS-STROGATZ-1998",
+        "REF-BRUNEL-2000"
+      ],
+      "schemaVersion": "1.0.0"
+    }
+  ]
+}

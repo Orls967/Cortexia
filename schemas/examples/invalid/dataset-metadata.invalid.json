@@ -1,0 +1,13 @@
+{
+  "$schemaRef": "datasets/dataset-metadata.schema.json",
+  "expectedErrorReason": "deidentifiedHumanOrAnimal is False (violates const True)",
+  "payload": {
+    "datasetId": "BAD",
+    "samplingFrequencyHz": 0,
+    "powerLineFrequencyHz": 99,
+    "referenceScheme": "",
+    "channels": [],
+    "deidentifiedHumanOrAnimal": false,
+    "schemaVersion": "1.0.0"
+  }
+}

@@ -1,0 +1,230 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cortexia.science/schemas/explanations/scientific-explanation.schema.json",
+  "title": "ScientificEntityDocumentation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "canonicalName",
+    "aliases",
+    "entityType",
+    "scientificDomain",
+    "primaryScale",
+    "abstractionLevel",
+    "epistemicStatus",
+    "shortDefinition",
+    "overview",
+    "biologicalContext",
+    "detailedMechanism",
+    "functionalSignificance",
+    "relationships",
+    "assumptions",
+    "limitations",
+    "references",
+    "dedicatedPageRoute",
+    "explanationCompleteness",
+    "schemaVersion"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^(ANAT|CELL|MOL|MECH|CIRC|SYS|COG|MODEL|EQ|PARAM|ANALYTIC|DSET|DOM)-[A-Z0-9-]+$"
+    },
+    "canonicalName": {
+      "type": "string",
+      "minLength": 2
+    },
+    "aliases": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "entityType": {
+      "type": "string",
+      "minLength": 3
+    },
+    "scientificDomain": {
+      "type": "string",
+      "minLength": 3
+    },
+    "primaryScale": {
+      "type": "string",
+      "enum": [
+        "L1",
+        "L2",
+        "L3",
+        "L4",
+        "L5",
+        "L6",
+        "L7",
+        "L8",
+        "L9"
+      ]
+    },
+    "secondaryScales": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "L1",
+          "L2",
+          "L3",
+          "L4",
+          "L5",
+          "L6",
+          "L7",
+          "L8",
+          "L9"
+        ]
+      }
+    },
+    "abstractionLevel": {
+      "type": "string",
+      "minLength": 3
+    },
+    "epistemicStatus": {
+      "type": "string",
+      "enum": [
+        "ESTABLISHED",
+        "ACTIVE_RESEARCH",
+        "THEORETICAL_MODEL",
+        "SYNTHETIC_ILLUSTRATIVE"
+      ]
+    },
+    "shortDefinition": {
+      "type": "string",
+      "minLength": 40,
+      "maxLength": 320
+    },
+    "overview": {
+      "type": "string",
+      "minLength": 60
+    },
+    "biologicalContext": {
+      "type": "string",
+      "minLength": 30
+    },
+    "anatomicalContext": {
+      "type": "string"
+    },
+    "detailedMechanism": {
+      "type": "string",
+      "minLength": 80
+    },
+    "functionalSignificance": {
+      "type": "string",
+      "minLength": 30
+    },
+    "components": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "relationships": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "relationType",
+          "targetId"
+        ],
+        "properties": {
+          "relationType": {
+            "type": "string"
+          },
+          "targetId": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "equations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^EQ-[A-Z0-9-]+$"
+      }
+    },
+    "parameters": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^PARAM-[A-Z0-9-]+$"
+      }
+    },
+    "associatedModels": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^MODEL-[0-9]{3}$"
+      }
+    },
+    "associatedExperiments": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^EXP-[A-Z0-9-]+$"
+      }
+    },
+    "associatedDatasets": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^DSET-[A-Z0-9-]+$"
+      }
+    },
+    "associatedAssets": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^ASSET-[A-Z0-9-]+$"
+      }
+    },
+    "assumptions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "references": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "pattern": "^REF-[A-Z0-9-]+$"
+      }
+    },
+    "dedicatedPageRoute": {
+      "type": "string",
+      "pattern": "^/knowledge/"
+    },
+    "explanationCompleteness": {
+      "type": "string",
+      "enum": [
+        "COMPLETE",
+        "PARTIAL_REVIEW",
+        "INCOMPLETE"
+      ]
+    },
+    "schemaVersion": {
+      "type": "string",
+      "const": "1.0.0"
+    }
+  }
+}

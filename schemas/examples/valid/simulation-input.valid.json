@@ -1,0 +1,27 @@
+{
+  "$schemaRef": "experiments/simulation-input.schema.json",
+  "payload": {
+    "jobId": "JOB-20261116-01",
+    "modelId": "MODEL-001",
+    "solverId": "SOLVER-RK4",
+    "dtMs": 0.01,
+    "durationMs": 50.0,
+    "randomSeed": 42,
+    "parameters": {
+      "C_m": 1.0,
+      "g_Na_max": 120.0
+    },
+    "initialConditions": {
+      "V": -65.0,
+      "m": 0.0529
+    },
+    "stimulus": {
+      "waveformType": "STEP",
+      "amplitude": 10.0,
+      "unit": "uA/cm^2",
+      "onsetMs": 5.0,
+      "offsetMs": 45.0
+    },
+    "schemaVersion": "1.0.0"
+  }
+}

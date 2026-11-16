@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cortexia.science/schemas/experiments/experiment-result.schema.json",
+  "title": "ExperimentResultManifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "experimentRunId",
+    "experimentPresetId",
+    "modelId",
+    "modelVersion",
+    "solver",
+    "timeStepMs",
+    "durationMs",
+    "randomSeed",
+    "parameterSnapshot",
+    "initialConditions",
+    "summaryMetrics",
+    "validationStatus",
+    "createdAt",
+    "schemaVersion"
+  ],
+  "properties": {
+    "experimentRunId": {
+      "type": "string",
+      "pattern": "^RUN-[0-9]{8}-[0-9]{4}$"
+    },
+    "experimentPresetId": {
+      "type": "string",
+      "pattern": "^EXP-[A-Z0-9-]+$"
+    },
+    "modelId": {
+      "type": "string",
+      "pattern": "^MODEL-[0-9]{3}$"
+    },
+    "modelVersion": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "solver": {
+      "type": "string",
+      "pattern": "^SOLVER-"
+    },
+    "timeStepMs": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "durationMs": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "randomSeed": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "parameterSnapshot": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "initialConditions": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "summaryMetrics": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "validationStatus": {
+      "type": "string",
+      "enum": [
+        "PASSED",
+        "FAILED",
+        "UNVERIFIED_CUSTOM"
+      ]
+    },
+    "createdAt": {
+      "type": "string",
+      "minLength": 10
+    },
+    "schemaVersion": {
+      "type": "string",
+      "const": "1.0.0"
+    }
+  }
+}

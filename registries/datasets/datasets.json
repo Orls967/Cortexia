@@ -1,0 +1,438 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "DSET-001",
+      "title": "Desikan-Killiany 68-Region Cortical Parcellation Reference Atlas",
+      "category": "ANATOMICAL_ATLAS",
+      "sourceRepository": "OPENNEURO",
+      "provenanceType": "EMPIRICAL_CURATED_SUBSET",
+      "format": "JSON_PARCELLATION",
+      "license": "CC0-1.0",
+      "attributionText": "Desikan et al. (2006) NeuroImage; FreeSurfer / OpenNeuro BIDS parcellation metadata.",
+      "primaryScale": "L7",
+      "samplingRateHz": null,
+      "channelCount": 68,
+      "units": "mm (MNI152)",
+      "description": "34 gyral cortical regions per hemisphere with MNI152 centroids, surface areas, and TNA mappings.",
+      "references": [
+        "REF-DESIKAN-2006",
+        "REF-MARKIEWICZ-2021"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "DSET-002",
+      "title": "Destrieux 148-Region Sulcal-Gyral Cortical Atlas Metadata",
+      "category": "ANATOMICAL_ATLAS",
+      "sourceRepository": "OPENNEURO",
+      "provenanceType": "EMPIRICAL_CURATED_SUBSET",
+      "format": "JSON_PARCELLATION",
+      "license": "CC0-1.0",
+      "attributionText": "Destrieux et al. (2010) NeuroImage; FreeSurfer a2009s parcellation table.",
+      "primaryScale": "L7",
+      "samplingRateHz": null,
+      "channelCount": 148,
+      "units": "mm (MNI152)",
+      "description": "74 sulcal and gyral cortical subdivisions per hemisphere following standard anatomical nomenclature.",
+      "references": [
+        "REF-DESTRIEUX-2010"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "DSET-003",
+      "title": "HCP-MMP1.0 360-Area Multimodal Cortical Parcellation Index",
+      "category": "ANATOMICAL_ATLAS",
+      "sourceRepository": "EBRAINS",
+      "provenanceType": "EMPIRICAL_CURATED_SUBSET",
+      "format": "JSON_PARCELLATION",
+      "license": "CC-BY-4.0",
+      "attributionText": "Glasser et al. (2016) Nature; Human Connectome Project multimodal parcellation taxonomy.",
+      "primaryScale": "L7",
+      "samplingRateHz": null,
+      "channelCount": 360,
+      "units": "grayordinates",
+      "description": "180 multimodal cortical areas per hemisphere defined by architecture, function, connectivity, and topography.",
+      "references": [
+        "REF-GLASSER-2016"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "DSET-004",
+      "title": "Julich-Brain Probabilistic Cytoarchitectonic Region Summary",
+      "category": "ANATOMICAL_ATLAS",
+      "sourceRepository": "EBRAINS",
+      "provenanceType": "EMPIRICAL_CURATED_SUBSET",
+      "format": "JSON_PARCELLATION",
+      "license": "CC-BY-4.0",
+      "attributionText": "Amunts et al. (2020) Science; EBRAINS Julich-Brain Cytoarchitectonic Atlas (CC BY 4.0).",
+      "primaryScale": "L6",
+      "samplingRateHz": null,
+      "channelCount": 120,
+      "units": "mm (MNI Colin27/ICBM152)",
+      "description": "Cytoarchitectonic laminar density profiles and probabilistic stereotaxic bounds across cortical and subcortical areas.",
+      "references": [
+        "REF-AMUNTS-2020"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "DSET-005",
+      "title": "Allen Human Brain Atlas Anatomical Ontology & Ion-Channel Gene Expression Summary",
+      "category": "ANATOMICAL_ATLAS",
+      "sourceRepository": "ALLEN_BRAIN_ATLAS",
+      "provenanceType": "EMPIRICAL_CURATED_SUBSET",
+      "format": "JSON_PARCELLATION",
+      "license": "ALLEN_NONCOMMERCIAL",
+      "attributionText": "Allen Institute for Brain Science; Hawrylycz et al. (2012) Nature. Non-commercial educational citation required on same page.",
+      "primaryScale": "L1",
+      "samplingRateHz": null,
+      "channelCount": 90,
+      "units": "z-score log2 expression",
+      "description": "Regionally aggregated transcriptomic expression profiles for major NaV, KV, CaV, AMPA, NMDA, and GABA receptor subunits.",
+      "references": [
+        "REF-HAWRYLYCZ-2012"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "DSET-006",
+      "title": "NeuroMorpho Reconstructed Hippocampal CA1 Pyramidal Neuron (SWC)",
+      "category": "MICROSCOPIC_MORPHOLOGY",
+      "sourceRepository": "NEUROMORPHO_ORG",
+      "provenanceType": "EMPIRICAL_CURATED_SUBSET",
+      "format": "SWC_ASCII",
+      "license": "CC-BY-4.0",
+      "attributionText": "NeuroMorpho.Org (Ascoli et al., 2007); canonical CA1 pyramidal reconstruction.",
+      "primaryScale": "L3",
+      "samplingRateHz": null,
+      "channelCount": 1,
+      "units": "um",
+      "description": "3D 7-column SWC morphological tree of a mammalian hippocampal CA1 pyramidal cell (soma, basal skirt, apical trunk, tuft).",
+      "references": [
+        "REF-NEUROMORPHO-2007"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "DSET-007",
+      "title": "NeuroMorpho Reconstructed Neocortical Layer 5 Thick-Tufted Pyramidal Cell (SWC)",
+      "category": "MICROSCOPIC_MORPHOLOGY",
+      "sourceRepository": "NEUROMORPHO_ORG",
+      "provenanceType": "EMPIRICAL_CURATED_SUBSET",
+      "format": "SWC_ASCII",
+      "license": "CC-BY-4.0",
+      "attributionText": "NeuroMorpho.Org (Ascoli et al., 2007); neocortical Layer 5B pyramidal reconstruction.",
+      "primaryScale": "L3",
+      "samplingRateHz": null,
+      "channelCount": 1,
+      "units": "um",
+      "description": "3D SWC morphology of a Layer 5 thick-tufted pyramidal neuron used in Studio B and multi-compartment cable simulations.",
+      "references": [
+        "REF-NEUROMORPHO-2007"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "DSET-008",
+      "title": "NeuroMorpho Reconstructed Parvalbumin Fast-Spiking Basket Interneuron (SWC)",
+      "category": "MICROSCOPIC_MORPHOLOGY",
+      "sourceRepository": "NEUROMORPHO_ORG",
+      "provenanceType": "EMPIRICAL_CURATED_SUBSET",
+      "format": "SWC_ASCII",
+      "license": "CC-BY-4.0",
+      "attributionText": "NeuroMorpho.Org (Ascoli et al., 2007); cortical PV+ basket interneuron SWC reconstruction.",
+      "primaryScale": "L3",
+      "samplingRateHz": null,
+      "channelCount": 1,
+      "units": "um",
+      "description": "Multipolar aspiny dendritic tree and dense local perisomatic axonal arbor of a cortical PV+ basket cell.",
+      "references": [
+        "REF-NEUROMORPHO-2007"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "DSET-009",
+      "title": "NeuroMorpho Reconstructed Cerebellar Purkinje Neuron (SWC)",
+      "category": "MICROSCOPIC_MORPHOLOGY",
+      "sourceRepository": "NEUROMORPHO_ORG",
+      "provenanceType": "EMPIRICAL_CURATED_SUBSET",
+      "format": "SWC_ASCII",
+      "license": "CC-BY-4.0",
+      "attributionText": "NeuroMorpho.Org (Ascoli et al., 2007); planar cerebellar Purkinje cell arbor.",
+      "primaryScale": "L3",
+      "samplingRateHz": null,
+      "channelCount": 1,
+      "units": "um",
+      "description": "Planar high-branching dendritic fan of a cerebellar Purkinje neuron demonstrating Rall branching geometry.",
+      "references": [
+        "REF-NEUROMORPHO-2007"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "DSET-010",
+      "title": "NeuroMorpho Protoplasmic Astrocyte & Microglia Glial Reconstructions (SWC)",
+      "category": "MICROSCOPIC_MORPHOLOGY",
+      "sourceRepository": "NEUROMORPHO_ORG",
+      "provenanceType": "EMPIRICAL_CURATED_SUBSET",
+      "format": "SWC_ASCII",
+      "license": "CC-BY-4.0",
+      "attributionText": "NeuroMorpho.Org (Ascoli et al., 2007); CNS glial morphology reconstructions.",
+      "primaryScale": "L3",
+      "samplingRateHz": null,
+      "channelCount": 2,
+      "units": "um",
+      "description": "3D morphological skeletons of a gray-matter protoplasmic astrocyte and a ramified parenchymal microglial cell.",
+      "references": [
+        "REF-NEUROMORPHO-2007",
+        "REF-ARAQUE-1999"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "DSET-011",
+      "title": "Hodgkin-Huxley (1952) Squid Giant Axon Reference Action Potential Benchmark",
+      "category": "ELECTROPHYSIOLOGY_TRACE",
+      "sourceRepository": "MODELDB",
+      "provenanceType": "EMPIRICAL_CURATED_SUBSET",
+      "format": "NWB_EXTRACTED_JSON",
+      "license": "CC-BY-4.0",
+      "attributionText": "Hodgkin & Huxley (1952) J. Physiol. / ModelDB reference benchmark trace (McDougal et al., 2017).",
+      "primaryScale": "L3",
+      "samplingRateHz": 100000.0,
+      "channelCount": 4,
+      "units": "mV, uA/cm^2, mS/cm^2",
+      "description": "High-precision reference traces of V(t), m(t), h(t), n(t), I_Na(t), and I_K(t) at 6.3 C for solver verification.",
+      "references": [
+        "REF-HH-1952",
+        "REF-MCDOUGAL-2017"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "DSET-012",
+      "title": "Allen Cell Types Human Cortical L2/3 & L5 Patch-Clamp Step Responses",
+      "category": "ELECTROPHYSIOLOGY_TRACE",
+      "sourceRepository": "ALLEN_BRAIN_ATLAS",
+      "provenanceType": "EMPIRICAL_CURATED_SUBSET",
+      "format": "NWB_EXTRACTED_JSON",
+      "license": "ALLEN_NONCOMMERCIAL",
+      "attributionText": "Allen Cell Types Database (brain-map.org); de-identified human surgical tissue whole-cell patch-clamp recordings.",
+      "primaryScale": "L3",
+      "samplingRateHz": 20000.0,
+      "channelCount": 2,
+      "units": "mV, pA",
+      "description": "Subthreshold and suprathreshold current-clamp voltage traces illustrating human pyramidal spike-frequency adaptation and sag.",
+      "references": [
+        "REF-HAWRYLYCZ-2012",
+        "REF-TEETERS-2015"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "DSET-013",
+      "title": "DANDI Extracellular Multi-Unit Hippocampal CA1 Theta & Place-Spiking Epoch",
+      "category": "ELECTROPHYSIOLOGY_TRACE",
+      "sourceRepository": "DANDI_ARCHIVE",
+      "provenanceType": "EMPIRICAL_CURATED_SUBSET",
+      "format": "NWB_EXTRACTED_JSON",
+      "license": "CC-BY-4.0",
+      "attributionText": "DANDI Archive open NWB neurophysiology subset (R\u00fcbel et al., 2022).",
+      "primaryScale": "L6",
+      "samplingRateHz": 1250.0,
+      "channelCount": 8,
+      "units": "uV, spike_timestamps_ms",
+      "description": "Simultaneous CA1 local field potential (theta 6\u20138 Hz) and sorted pyramidal/interneuron spike trains.",
+      "references": [
+        "REF-RUBEL-2022",
+        "REF-BUZSAKI-2012"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "DSET-014",
+      "title": "ModelDB Bi & Poo (1998) Hippocampal STDP Timing-Window Reference Points",
+      "category": "ELECTROPHYSIOLOGY_TRACE",
+      "sourceRepository": "MODELDB",
+      "provenanceType": "EMPIRICAL_CURATED_SUBSET",
+      "format": "NWB_EXTRACTED_JSON",
+      "license": "CC-BY-4.0",
+      "attributionText": "Bi & Poo (1998) J. Neurosci. / ModelDB reference synaptic modification dataset.",
+      "primaryScale": "L4",
+      "samplingRateHz": null,
+      "channelCount": 2,
+      "units": "ms, percent_weight_change",
+      "description": "Paired pre/post spike timing intervals Delta_t (-100 to +100 ms) and resulting percentage EPSC potentiation/depression.",
+      "references": [
+        "REF-BI-POO-1998",
+        "REF-MCDOUGAL-2017"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "DSET-015",
+      "title": "OpenNeuro BIDS Eyes-Closed vs Eyes-Open Occipital Alpha EEG Subset",
+      "category": "FUNCTIONAL_AND_NETWORK",
+      "sourceRepository": "OPENNEURO",
+      "provenanceType": "EMPIRICAL_CURATED_SUBSET",
+      "format": "BIDS_EEG_CSV",
+      "license": "CC0-1.0",
+      "attributionText": "OpenNeuro BIDS resting-state EEG educational subset (Markiewicz et al., 2021; Gorgolewski et al., 2016; CC0 1.0).",
+      "primaryScale": "L8",
+      "samplingRateHz": 256.0,
+      "channelCount": 16,
+      "units": "uV",
+      "description": "16-channel 10-20 scalp EEG epoch showing strong posterior 8\u201312 Hz alpha rhythm during eyes-closed relaxation vs Berger suppression on eye opening.",
+      "references": [
+        "REF-MARKIEWICZ-2021",
+        "REF-GORGOLEWSKI-2016"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "DSET-016",
+      "title": "OpenNeuro BIDS Visual Evoked Potential (P100 / N170) Trial-Ensemble Subset",
+      "category": "FUNCTIONAL_AND_NETWORK",
+      "sourceRepository": "OPENNEURO",
+      "provenanceType": "EMPIRICAL_CURATED_SUBSET",
+      "format": "BIDS_EEG_CSV",
+      "license": "CC0-1.0",
+      "attributionText": "OpenNeuro BIDS visual ERP educational subset (CC0 1.0).",
+      "primaryScale": "L8",
+      "samplingRateHz": 256.0,
+      "channelCount": 8,
+      "units": "uV",
+      "description": "40 stimulus-locked EEG trials (-200 to +600 ms) demonstrating single-trial noise reduction and P100/N170 ERP extraction.",
+      "references": [
+        "REF-MARKIEWICZ-2021",
+        "REF-BUZSAKI-2012"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "DSET-017",
+      "title": "Human 68-Region Structural Connectome & Tract-Length Matrix Benchmark",
+      "category": "FUNCTIONAL_AND_NETWORK",
+      "sourceRepository": "OPENNEURO",
+      "provenanceType": "EMPIRICAL_CURATED_SUBSET",
+      "format": "CONNECTOME_MATRIX_JSON",
+      "license": "CC0-1.0",
+      "attributionText": "Consensus group-average 68-region Desikan-Killiany structural connectivity weight and tract-length matrices.",
+      "primaryScale": "L8",
+      "samplingRateHz": null,
+      "channelCount": 68,
+      "units": "normalized_streamline_weight, mm",
+      "description": "68x68 symmetric structural connectivity weight matrix W_ij and fiber distance matrix d_ij (mm) for whole-brain modeling.",
+      "references": [
+        "REF-DESIKAN-2006",
+        "REF-SANZ-LEON-2013",
+        "REF-SPORNS-2005"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "DSET-018",
+      "title": "Human 68-Region Empirical Resting-State Functional Connectivity Matrix",
+      "category": "FUNCTIONAL_AND_NETWORK",
+      "sourceRepository": "OPENNEURO",
+      "provenanceType": "EMPIRICAL_CURATED_SUBSET",
+      "format": "CONNECTOME_MATRIX_JSON",
+      "license": "CC0-1.0",
+      "attributionText": "Group-average 68-region resting-state functional correlation matrix paired with DSET-017.",
+      "primaryScale": "L8",
+      "samplingRateHz": null,
+      "channelCount": 68,
+      "units": "Pearson_r",
+      "description": "68x68 empirical functional connectivity matrix highlighting Default Mode, Frontoparietal, Visual, and Somatomotor modules.",
+      "references": [
+        "REF-RAICHLE-2015",
+        "REF-BULLMORE-2009"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "DSET-019",
+      "title": "CORTEXIA Synthetic Ground-Truth Multi-Sine, Chirp & 50/60 Hz Line-Noise Benchmark",
+      "category": "FUNCTIONAL_AND_NETWORK",
+      "sourceRepository": "CORTEXIA_SYNTHETIC_BENCHMARK",
+      "provenanceType": "SYNTHETIC_BENCHMARK",
+      "format": "BIDS_EEG_CSV",
+      "license": "SYNTHETIC_INTERNAL",
+      "attributionText": "CORTEXIA deterministic DSP verification generator (Seed 42).",
+      "primaryScale": "L6",
+      "samplingRateHz": 512.0,
+      "channelCount": 4,
+      "units": "uV",
+      "description": "Exact mathematical test signal containing 10 Hz alpha, 40 Hz gamma bursts, linear chirp, and 50 Hz artifact for validating filters, Welch PSD, and Morlet wavelets.",
+      "references": [
+        "REF-WELCH-1967",
+        "REF-TALLON-BAUDRY-1996"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "DSET-020",
+      "title": "CORTEXIA Synthetic Ground-Truth Poisson, Refractory & Gamma-Modulated Spike Trains",
+      "category": "ELECTROPHYSIOLOGY_TRACE",
+      "sourceRepository": "CORTEXIA_SYNTHETIC_BENCHMARK",
+      "provenanceType": "SYNTHETIC_BENCHMARK",
+      "format": "NWB_EXTRACTED_JSON",
+      "license": "SYNTHETIC_INTERNAL",
+      "attributionText": "CORTEXIA deterministic spike-train verification generator (Seed 42).",
+      "primaryScale": "L5",
+      "samplingRateHz": 10000.0,
+      "channelCount": 50,
+      "units": "ms",
+      "description": "50 synthetic spike trains with known analytical firing rates, CV_ISI=1.0 vs 0.2, Fano factor, and 2.0 ms monosynaptic cross-correlation peaks.",
+      "references": [
+        "REF-DAYAN-2001",
+        "REF-BRUNEL-2000"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "DSET-021",
+      "title": "CORTEXIA Synthetic White-Noise Stimulus & LIF Spike-Triggered Average (STA) Benchmark",
+      "category": "ELECTROPHYSIOLOGY_TRACE",
+      "sourceRepository": "CORTEXIA_SYNTHETIC_BENCHMARK",
+      "provenanceType": "SYNTHETIC_BENCHMARK",
+      "format": "NWB_EXTRACTED_JSON",
+      "license": "SYNTHETIC_INTERNAL",
+      "attributionText": "CORTEXIA deterministic reverse-correlation benchmark (Seed 42).",
+      "primaryScale": "L3",
+      "samplingRateHz": 1000.0,
+      "channelCount": 2,
+      "units": "pA, ms",
+      "description": "Gaussian white-noise current trace and resulting LIF spike times with known exponential integration kernel for STA validation.",
+      "references": [
+        "REF-DAYAN-2001"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "DSET-022",
+      "title": "CORTEXIA Synthetic Canonical Graph Topologies (Ring Lattice, Watts-Strogatz, Modular & Scale-Free)",
+      "category": "FUNCTIONAL_AND_NETWORK",
+      "sourceRepository": "CORTEXIA_SYNTHETIC_BENCHMARK",
+      "provenanceType": "SYNTHETIC_BENCHMARK",
+      "format": "CONNECTOME_MATRIX_JSON",
+      "license": "SYNTHETIC_INTERNAL",
+      "attributionText": "CORTEXIA deterministic graph-theory test suite (Seed 42).",
+      "primaryScale": "L8",
+      "samplingRateHz": null,
+      "channelCount": 60,
+      "units": "dimensionless",
+      "description": "Four reference adjacency matrices with exact analytical clustering C, path length L, modularity Q, and hub centrality for verifying MOD-06/MOD-11 graph algorithms.",
+      "references": [
+        "REF-WATTS-STROGATZ-1998",
+        "REF-NEWMAN-2006",
+        "REF-RUBINOV-2010"
+      ],
+      "schemaVersion": "1.0.0"
+    }
+  ]
+}

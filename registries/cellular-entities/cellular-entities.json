@@ -1,0 +1,923 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "CELL-PYRAMIDAL-L23",
+      "canonicalName": "Neocortical Layer 2/3 Pyramidal Neuron",
+      "aliases": [
+        "Neocortical Layer 2/3 Pyramidal Neuron"
+      ],
+      "cellCategory": "EXCITATORY_NEURON",
+      "primaryScale": "L3",
+      "primaryNeurotransmitter": "Glutamate",
+      "morphologySummary": "Triangular soma with apical tuft in Layer 1, basal dendritic skirt, and dense horizontal/associative cortico-cortical axon collaterals.",
+      "physiologicalRole": "Integrates local L4 feedforward and L1 top-down inputs; exhibits regular spiking with Ca2+-activated K+ adaptation.",
+      "characteristicMarkers": [
+        "CAMK2A",
+        "SLC17A7 (VGLUT1)",
+        "CUX2"
+      ],
+      "locatedInIds": [
+        "ANAT-NEOCORTEX-L23",
+        "ANAT-DLPFC"
+      ],
+      "associatedModelIds": [
+        "MODEL-008",
+        "MODEL-021"
+      ],
+      "assetId": "ASSET-NEURON-PYRAMIDAL-3D",
+      "references": [
+        "REF-KANDEL-2021",
+        "REF-NEUROMORPHO-2007"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CELL-PYRAMIDAL-L5",
+      "canonicalName": "Neocortical Layer 5 Thick-Tufted Pyramidal Neuron",
+      "aliases": [
+        "Neocortical Layer 5 Thick-Tufted Pyramidal Neuron"
+      ],
+      "cellCategory": "EXCITATORY_NEURON",
+      "primaryScale": "L3",
+      "primaryNeurotransmitter": "Glutamate",
+      "morphologySummary": "Large pyramidal soma in Layer 5B with thick apical trunk reaching Layer 1 (Ca2+ spike initiation zone) and long subcortical axon.",
+      "physiologicalRole": "Principal cortical output neuron projecting to spinal cord, brainstem, striatum, and thalamus; supports burst and regular firing.",
+      "characteristicMarkers": [
+        "FEZF2",
+        "BCL11B (CTIP2)",
+        "VGLUT1"
+      ],
+      "locatedInIds": [
+        "ANAT-NEOCORTEX-L456",
+        "ANAT-PRECENTRAL-GYRUS"
+      ],
+      "associatedModelIds": [
+        "MODEL-008",
+        "MODEL-009",
+        "MODEL-010"
+      ],
+      "assetId": "ASSET-NEURON-PYRAMIDAL-3D",
+      "references": [
+        "REF-KANDEL-2021",
+        "REF-NEUROMORPHO-2007"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CELL-STELLATE-L4",
+      "canonicalName": "Neocortical Layer 4 Spiny Stellate Neuron",
+      "aliases": [
+        "Neocortical Layer 4 Spiny Stellate Neuron"
+      ],
+      "cellCategory": "EXCITATORY_NEURON",
+      "primaryScale": "L3",
+      "primaryNeurotransmitter": "Glutamate",
+      "morphologySummary": "Compact multipolar star-shaped spiny dendrite arbor lacking a tall apical trunk, confined largely within Layer 4 barrels/columns.",
+      "physiologicalRole": "Primary recipient of core thalamocortical relay axons (VPL, LGN, MGN), amplifying and distributing sensory drive to Layer 2/3.",
+      "characteristicMarkers": [
+        "RORB",
+        "VGLUT1"
+      ],
+      "locatedInIds": [
+        "ANAT-NEOCORTEX-L456",
+        "ANAT-CALCARINE-SULCUS",
+        "ANAT-POSTCENTRAL-GYRUS"
+      ],
+      "associatedModelIds": [
+        "MODEL-005",
+        "MODEL-021"
+      ],
+      "assetId": "ASSET-NEURON-PYRAMIDAL-3D",
+      "references": [
+        "REF-KANDEL-2021",
+        "REF-NEUROMORPHO-2007"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CELL-PYRAMIDAL-L6",
+      "canonicalName": "Neocortical Layer 6 Corticothalamic Pyramidal Neuron",
+      "aliases": [
+        "Neocortical Layer 6 Corticothalamic Pyramidal Neuron"
+      ],
+      "cellCategory": "EXCITATORY_NEURON",
+      "primaryScale": "L3",
+      "primaryNeurotransmitter": "Glutamate",
+      "morphologySummary": "Deep cortical pyramidal neuron with apical dendrite terminating in Layer 4 and axon projecting back to thalamic relay and TRN nuclei.",
+      "physiologicalRole": "Provides massive modulatory feedback to thalamus and TRN to tune sensory gain and thalamocortical oscillations.",
+      "characteristicMarkers": [
+        "FOXP2",
+        "NTSR1",
+        "VGLUT1"
+      ],
+      "locatedInIds": [
+        "ANAT-NEOCORTEX-L456",
+        "ANAT-THALAMUS"
+      ],
+      "associatedModelIds": [
+        "MODEL-018",
+        "MODEL-021"
+      ],
+      "assetId": "ASSET-NEURON-PYRAMIDAL-3D",
+      "references": [
+        "REF-KANDEL-2021",
+        "REF-NEUROMORPHO-2007"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CELL-PYRAMIDAL-CA1",
+      "canonicalName": "Hippocampal CA1 Pyramidal Neuron",
+      "aliases": [
+        "Hippocampal CA1 Pyramidal Neuron"
+      ],
+      "cellCategory": "EXCITATORY_NEURON",
+      "primaryScale": "L3",
+      "primaryNeurotransmitter": "Glutamate",
+      "morphologySummary": "Bipolar-like pyramidal cell with basal dendrites in stratum oriens and stratified apical oblique/tuft dendrites in stratum radiatum and lacunosum-moleculare.",
+      "physiologicalRole": "Integrates CA3 Schaffer collaterals with direct entorhinal Layer 3 inputs; canonical cellular model for NMDA-dependent LTP and place coding.",
+      "characteristicMarkers": [
+        "CAMK2A",
+        "WFS1",
+        "VGLUT1"
+      ],
+      "locatedInIds": [
+        "ANAT-HIPPOCAMPUS-CA1"
+      ],
+      "associatedModelIds": [
+        "MODEL-001",
+        "MODEL-010",
+        "MODEL-014",
+        "MODEL-024"
+      ],
+      "assetId": "ASSET-NEURON-PYRAMIDAL-3D",
+      "references": [
+        "REF-KANDEL-2021",
+        "REF-NEUROMORPHO-2007"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CELL-PYRAMIDAL-CA3",
+      "canonicalName": "Hippocampal CA3 Pyramidal Neuron",
+      "aliases": [
+        "Hippocampal CA3 Pyramidal Neuron"
+      ],
+      "cellCategory": "EXCITATORY_NEURON",
+      "primaryScale": "L3",
+      "primaryNeurotransmitter": "Glutamate",
+      "morphologySummary": "Large pyramidal neuron bearing proximal thorny excrescences (mossy fiber targets) and extensive longitudinal recurrent collateral axons.",
+      "physiologicalRole": "Drives auto-associative attractor pattern completion and initiates hippocampal sharp-wave ripples.",
+      "characteristicMarkers": [
+        "KA1 (GRIK4)",
+        "VGLUT1"
+      ],
+      "locatedInIds": [
+        "ANAT-HIPPOCAMPUS-CA3"
+      ],
+      "associatedModelIds": [
+        "MODEL-021",
+        "MODEL-024"
+      ],
+      "assetId": "ASSET-NEURON-PYRAMIDAL-3D",
+      "references": [
+        "REF-KANDEL-2021",
+        "REF-NEUROMORPHO-2007"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CELL-GRANULE-DG",
+      "canonicalName": "Dentate Gyrus Granule Neuron",
+      "aliases": [
+        "Dentate Gyrus Granule Neuron"
+      ],
+      "cellCategory": "EXCITATORY_NEURON",
+      "primaryScale": "L3",
+      "primaryNeurotransmitter": "Glutamate",
+      "morphologySummary": "Compact elliptical soma with cone-shaped spiny dendritic tree in the molecular layer and unmyelinated mossy fiber axon with giant boutons.",
+      "physiologicalRole": "Maintains hyperpolarized resting potential and sparse firing to orthogonalize overlapping entorhinal inputs (pattern separation).",
+      "characteristicMarkers": [
+        "PROX1",
+        "CALB1",
+        "VGLUT1"
+      ],
+      "locatedInIds": [
+        "ANAT-DENTATE-GYRUS"
+      ],
+      "associatedModelIds": [
+        "MODEL-005",
+        "MODEL-021"
+      ],
+      "assetId": "ASSET-NEURON-PYRAMIDAL-3D",
+      "references": [
+        "REF-KANDEL-2021",
+        "REF-NEUROMORPHO-2007"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CELL-INTERNEURON-PV-BASKET",
+      "canonicalName": "Parvalbumin (PV+) Fast-Spiking Basket Interneuron",
+      "aliases": [
+        "Parvalbumin (PV+) Fast-Spiking Basket Interneuron"
+      ],
+      "cellCategory": "INHIBITORY_INTERNEURON",
+      "primaryScale": "L3",
+      "primaryNeurotransmitter": "GABA",
+      "morphologySummary": "Multipolar aspiny dendrites and dense perisomatic axonal basket terminals enveloping pyramidal cell bodies and proximal dendrites.",
+      "physiologicalRole": "Delivers rapid, powerful perisomatic inhibition; paces 30\u201380 Hz PING gamma oscillations and enforces narrow coincidence windows.",
+      "characteristicMarkers": [
+        "PVALB",
+        "GAD1 (GAD67)",
+        "KCNC1 (Kv3.1)"
+      ],
+      "locatedInIds": [
+        "ANAT-NEOCORTEX-L23",
+        "ANAT-HIPPOCAMPUS-CA1"
+      ],
+      "associatedModelIds": [
+        "MODEL-009",
+        "MODEL-015",
+        "MODEL-021"
+      ],
+      "assetId": "ASSET-NEURON-PYRAMIDAL-3D",
+      "references": [
+        "REF-KANDEL-2021",
+        "REF-NEUROMORPHO-2007"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CELL-INTERNEURON-PV-CHANDELIER",
+      "canonicalName": "Parvalbumin (PV+) Chandelier (Axo-Axonic) Interneuron",
+      "aliases": [
+        "Parvalbumin (PV+) Chandelier (Axo-Axonic) Interneuron"
+      ],
+      "cellCategory": "INHIBITORY_INTERNEURON",
+      "primaryScale": "L3",
+      "primaryNeurotransmitter": "GABA",
+      "morphologySummary": "Distinctive vertical axonal cartridges ('candles') synapsing exclusively onto the Axon Initial Segment (AIS) of pyramidal neurons.",
+      "physiologicalRole": "Directly gates action potential initiation at the AIS across hundreds of neighboring pyramidal cells.",
+      "characteristicMarkers": [
+        "PVALB",
+        "UNC5B",
+        "GAD1"
+      ],
+      "locatedInIds": [
+        "ANAT-NEOCORTEX-L23"
+      ],
+      "associatedModelIds": [
+        "MODEL-021"
+      ],
+      "assetId": "ASSET-NEURON-PYRAMIDAL-3D",
+      "references": [
+        "REF-KANDEL-2021",
+        "REF-NEUROMORPHO-2007"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CELL-INTERNEURON-SST",
+      "canonicalName": "Somatostatin (SST+) Martinotti Interneuron",
+      "aliases": [
+        "Somatostatin (SST+) Martinotti Interneuron"
+      ],
+      "cellCategory": "INHIBITORY_INTERNEURON",
+      "primaryScale": "L3",
+      "primaryNeurotransmitter": "GABA",
+      "morphologySummary": "Ascending axon arborizing densely in Layer 1 to contact distal apical dendritic tufts of pyramidal neurons.",
+      "physiologicalRole": "Mediates frequency-dependent facilitating feedback inhibition (via STP facilitation) gating dendritic Ca2+ spikes.",
+      "characteristicMarkers": [
+        "SST",
+        "GAD1",
+        "CALB2"
+      ],
+      "locatedInIds": [
+        "ANAT-NEOCORTEX-L23",
+        "ANAT-NEOCORTEX-L456"
+      ],
+      "associatedModelIds": [
+        "MODEL-016",
+        "MODEL-021"
+      ],
+      "assetId": "ASSET-NEURON-PYRAMIDAL-3D",
+      "references": [
+        "REF-KANDEL-2021",
+        "REF-NEUROMORPHO-2007"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CELL-INTERNEURON-VIP",
+      "canonicalName": "VIP+ Disinhibitory Interneuron",
+      "aliases": [
+        "VIP+ Disinhibitory Interneuron"
+      ],
+      "cellCategory": "INHIBITORY_INTERNEURON",
+      "primaryScale": "L3",
+      "primaryNeurotransmitter": "GABA",
+      "morphologySummary": "Bipolar vertically oriented interneuron in superficial layers receiving long-range cortical feedback and cholinergic/serotonergic inputs.",
+      "physiologicalRole": "Selectively inhibits SST+ and PV+ interneurons, disinhibiting pyramidal dendrites during active behavior and learning.",
+      "characteristicMarkers": [
+        "VIP",
+        "HTR3A",
+        "GAD2"
+      ],
+      "locatedInIds": [
+        "ANAT-NEOCORTEX-L23"
+      ],
+      "associatedModelIds": [
+        "MODEL-021"
+      ],
+      "assetId": "ASSET-NEURON-PYRAMIDAL-3D",
+      "references": [
+        "REF-KANDEL-2021",
+        "REF-NEUROMORPHO-2007"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CELL-PURKINJE",
+      "canonicalName": "Cerebellar Purkinje Neuron",
+      "aliases": [
+        "Cerebellar Purkinje Neuron"
+      ],
+      "cellCategory": "INHIBITORY_INTERNEURON",
+      "primaryScale": "L3",
+      "primaryNeurotransmitter": "GABA",
+      "morphologySummary": "Pear-shaped soma with a massive planar fan-shaped dendritic arbor (~150,000 parallel fiber spines) and GABAergic axon to deep cerebellar nuclei.",
+      "physiologicalRole": "Fires intrinsic high-frequency simple spikes (~50 Hz) modulated by climbing-fiber complex spikes to sculpt cerebellar motor output.",
+      "characteristicMarkers": [
+        "CALB1",
+        "PCP2",
+        "GAD1"
+      ],
+      "locatedInIds": [
+        "ANAT-CEREBELLAR-CORTEX"
+      ],
+      "associatedModelIds": [
+        "MODEL-001",
+        "MODEL-023"
+      ],
+      "assetId": "ASSET-NEURON-PYRAMIDAL-3D",
+      "references": [
+        "REF-KANDEL-2021",
+        "REF-NEUROMORPHO-2007"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CELL-GRANULE-CEREB",
+      "canonicalName": "Cerebellar Granule Neuron",
+      "aliases": [
+        "Cerebellar Granule Neuron"
+      ],
+      "cellCategory": "EXCITATORY_NEURON",
+      "primaryScale": "L3",
+      "primaryNeurotransmitter": "Glutamate",
+      "morphologySummary": "Tiny soma (5\u20138 \u00b5m) with 3\u20135 claw-like dendrites receiving mossy fiber rosettes and an ascending axon bifurcating into parallel fibers.",
+      "physiologicalRole": "Most numerous neuron type in the human brain (~50 billion), performing high-dimensional expansion recoding of sensorimotor context.",
+      "characteristicMarkers": [
+        "GABRA6",
+        "VGLUT1"
+      ],
+      "locatedInIds": [
+        "ANAT-CEREBELLAR-CORTEX"
+      ],
+      "associatedModelIds": [
+        "MODEL-005",
+        "MODEL-023"
+      ],
+      "assetId": "ASSET-NEURON-PYRAMIDAL-3D",
+      "references": [
+        "REF-KANDEL-2021",
+        "REF-NEUROMORPHO-2007"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CELL-GOLGI-CEREB",
+      "canonicalName": "Cerebellar Golgi Interneuron",
+      "aliases": [
+        "Cerebellar Golgi Interneuron"
+      ],
+      "cellCategory": "INHIBITORY_INTERNEURON",
+      "primaryScale": "L3",
+      "primaryNeurotransmitter": "GABA",
+      "morphologySummary": "Large interneuron in the granular layer with apical dendrites in the molecular layer and dense axonal plexus in cerebellar glomeruli.",
+      "physiologicalRole": "Provides feedforward and feedback GABAergic inhibition onto granule cell dendrites to sharpen mossy-fiber temporal coding.",
+      "characteristicMarkers": [
+        "GRM2 (mGluR2)",
+        "GAD1"
+      ],
+      "locatedInIds": [
+        "ANAT-CEREBELLAR-CORTEX"
+      ],
+      "associatedModelIds": [
+        "MODEL-021"
+      ],
+      "assetId": "ASSET-NEURON-PYRAMIDAL-3D",
+      "references": [
+        "REF-KANDEL-2021",
+        "REF-NEUROMORPHO-2007"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CELL-MSN-D1",
+      "canonicalName": "Striatal Direct-Pathway D1 Medium Spiny Neuron (dMSN)",
+      "aliases": [
+        "Striatal Direct-Pathway D1 Medium Spiny Neuron (dMSN)"
+      ],
+      "cellCategory": "INHIBITORY_INTERNEURON",
+      "primaryScale": "L3",
+      "primaryNeurotransmitter": "GABA",
+      "morphologySummary": "Medium-sized multipolar soma with densely spiny dendrites expressing Gs-coupled Dopamine D1 receptors, projecting to GPi and SNr.",
+      "physiologicalRole": "Inhibits GPi/SNr output nuclei upon corticostriatal and dopaminergic activation to promote ('Go') selected motor and cognitive actions.",
+      "characteristicMarkers": [
+        "DRD1",
+        "TAC1 (Substance P)",
+        "DARPP-32"
+      ],
+      "locatedInIds": [
+        "ANAT-STRIATUM",
+        "ANAT-PUTAMEN",
+        "ANAT-NUCLEUS-ACCUMBENS"
+      ],
+      "associatedModelIds": [
+        "MODEL-026"
+      ],
+      "assetId": "ASSET-NEURON-PYRAMIDAL-3D",
+      "references": [
+        "REF-KANDEL-2021",
+        "REF-NEUROMORPHO-2007"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CELL-MSN-D2",
+      "canonicalName": "Striatal Indirect-Pathway D2 Medium Spiny Neuron (iMSN)",
+      "aliases": [
+        "Striatal Indirect-Pathway D2 Medium Spiny Neuron (iMSN)"
+      ],
+      "cellCategory": "INHIBITORY_INTERNEURON",
+      "primaryScale": "L3",
+      "primaryNeurotransmitter": "GABA",
+      "morphologySummary": "Medium-sized spiny projection neuron expressing Gi-coupled Dopamine D2 receptors and enkephalin, projecting selectively to GPe.",
+      "physiologicalRole": "Engages the indirect GPe-STN-GPi pathway to suppress ('No-Go') competing or unrewarded actions; inhibited by dopamine.",
+      "characteristicMarkers": [
+        "DRD2",
+        "PENK",
+        "ADORA2A"
+      ],
+      "locatedInIds": [
+        "ANAT-STRIATUM",
+        "ANAT-PUTAMEN",
+        "ANAT-NUCLEUS-ACCUMBENS"
+      ],
+      "associatedModelIds": [
+        "MODEL-026"
+      ],
+      "assetId": "ASSET-NEURON-PYRAMIDAL-3D",
+      "references": [
+        "REF-KANDEL-2021",
+        "REF-NEUROMORPHO-2007"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CELL-MOTOR-ALPHA",
+      "canonicalName": "Spinal Alpha Motor Neuron",
+      "aliases": [
+        "Spinal Alpha Motor Neuron"
+      ],
+      "cellCategory": "SENSORY_MOTOR_NEURON",
+      "primaryScale": "L3",
+      "primaryNeurotransmitter": "Acetylcholine",
+      "morphologySummary": "Large multipolar ventral horn soma (Lamina IX) with broad dendritic tree and thick myelinated A-alpha axon terminating at neuromuscular junctions.",
+      "physiologicalRole": "Final common motor output unit recruited according to Henneman's size principle to drive extrafusal skeletal muscle fiber contraction.",
+      "characteristicMarkers": [
+        "CHAT",
+        "ISL1",
+        "MNX1 (HB9)"
+      ],
+      "locatedInIds": [
+        "ANAT-SPINAL-VENTRAL-HORN"
+      ],
+      "associatedModelIds": [
+        "MODEL-001",
+        "MODEL-005"
+      ],
+      "assetId": "ASSET-NEURON-PYRAMIDAL-3D",
+      "references": [
+        "REF-KANDEL-2021",
+        "REF-NEUROMORPHO-2007"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CELL-SENSORY-DRG",
+      "canonicalName": "Dorsal Root Ganglion Pseudounipolar Sensory Neuron",
+      "aliases": [
+        "Dorsal Root Ganglion Pseudounipolar Sensory Neuron"
+      ],
+      "cellCategory": "SENSORY_MOTOR_NEURON",
+      "primaryScale": "L3",
+      "primaryNeurotransmitter": "Glutamate",
+      "morphologySummary": "Spherical soma in the DRG with a single stem axon bifurcating into a peripheral receptor branch and a central dorsal-root branch.",
+      "physiologicalRole": "Transduces peripheral mechanical (A-beta Piezo2) or nociceptive/thermal (A-delta/C TRPV1/NaV1.7) stimuli without somatic synaptic delay.",
+      "characteristicMarkers": [
+        "PIEZO2",
+        "TRPV1",
+        "SCN9A (NaV1.7)"
+      ],
+      "locatedInIds": [
+        "ANAT-DRG",
+        "ANAT-SPINAL-DORSAL-HORN"
+      ],
+      "associatedModelIds": [
+        "MODEL-001"
+      ],
+      "assetId": "ASSET-NEURON-PYRAMIDAL-3D",
+      "references": [
+        "REF-KANDEL-2021",
+        "REF-NEUROMORPHO-2007"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CELL-RETINAL-GANGLION",
+      "canonicalName": "Retinal Ganglion Cell (M, P & Melanopsin ipRGC)",
+      "aliases": [
+        "Retinal Ganglion Cell (M, P & Melanopsin ipRGC)"
+      ],
+      "cellCategory": "SENSORY_MOTOR_NEURON",
+      "primaryScale": "L3",
+      "primaryNeurotransmitter": "Glutamate",
+      "morphologySummary": "Inner retinal output neuron with stratified inner-plexiform dendrites and long optic-nerve axon projecting to LGN, SC, and SCN.",
+      "physiologicalRole": "Encodes ON-center/OFF-surround contrast, motion,chromatic opponency, and ambient circadian irradiance (OPN4 melanopsin).",
+      "characteristicMarkers": [
+        "RBPMS",
+        "OPN4",
+        "VGLUT2"
+      ],
+      "locatedInIds": [
+        "ANAT-RETINA",
+        "ANAT-CN-II"
+      ],
+      "associatedModelIds": [
+        "MODEL-005",
+        "MODEL-020"
+      ],
+      "assetId": "ASSET-NEURON-PYRAMIDAL-3D",
+      "references": [
+        "REF-KANDEL-2021",
+        "REF-NEUROMORPHO-2007"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CELL-THALAMOCORTICAL-RELAY",
+      "canonicalName": "Thalamocortical Relay Neuron",
+      "aliases": [
+        "Thalamocortical Relay Neuron"
+      ],
+      "cellCategory": "EXCITATORY_NEURON",
+      "primaryScale": "L3",
+      "primaryNeurotransmitter": "Glutamate",
+      "morphologySummary": "Bushy radiate dendritic arbor in thalamic relay nuclei expressing prominent low-threshold T-type Ca2+ (CaV3.1) and HCN (Ih) channels.",
+      "physiologicalRole": "Switches between linear tonic single-spike transmission (depolarized wakefulness) and rhythmic low-threshold Ca2+ bursting (hyperpolarized NREM sleep).",
+      "characteristicMarkers": [
+        "SLC17A6 (VGLUT2)",
+        "CACNA1G (CaV3.1)",
+        "HCN2"
+      ],
+      "locatedInIds": [
+        "ANAT-THALAMUS",
+        "ANAT-LGN",
+        "ANAT-THALAMUS-VPL"
+      ],
+      "associatedModelIds": [
+        "MODEL-002",
+        "MODEL-009",
+        "MODEL-018"
+      ],
+      "assetId": "ASSET-NEURON-PYRAMIDAL-3D",
+      "references": [
+        "REF-KANDEL-2021",
+        "REF-NEUROMORPHO-2007"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CELL-TRN-GABA",
+      "canonicalName": "Thalamic Reticular Nucleus (TRN) GABAergic Neuron",
+      "aliases": [
+        "Thalamic Reticular Nucleus (TRN) GABAergic Neuron"
+      ],
+      "cellCategory": "INHIBITORY_INTERNEURON",
+      "primaryScale": "L3",
+      "primaryNeurotransmitter": "GABA",
+      "morphologySummary": "Fusiform GABAergic neuron in the reticular shell with dense intranuclear collateral inhibition and projections into dorsal thalamic nuclei.",
+      "physiologicalRole": "Generates sleep spindle oscillations (11\u201316 Hz) via reciprocal T-current rebound bursts with thalamocortical relay neurons.",
+      "characteristicMarkers": [
+        "PVALB",
+        "GAD1",
+        "CACNA1I (CaV3.3)"
+      ],
+      "locatedInIds": [
+        "ANAT-TRN"
+      ],
+      "associatedModelIds": [
+        "MODEL-002",
+        "MODEL-018"
+      ],
+      "assetId": "ASSET-NEURON-PYRAMIDAL-3D",
+      "references": [
+        "REF-KANDEL-2021",
+        "REF-NEUROMORPHO-2007"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CELL-DOPAMINE-VTA-SNC",
+      "canonicalName": "Midbrain Dopaminergic Neuron (VTA & SNc)",
+      "aliases": [
+        "Midbrain Dopaminergic Neuron (VTA & SNc)"
+      ],
+      "cellCategory": "MODULATORY_NEURON",
+      "primaryScale": "L3",
+      "primaryNeurotransmitter": "Dopamine",
+      "morphologySummary": "Autonomous pacemaker neuron (1\u20135 Hz tonic firing) with massive unmyelinated axonal arbor forming hundreds of thousands of striatal/cortical varicosities.",
+      "physiologicalRole": "Transitions from tonic pacemaking to phasic bursts (+RPE) or pauses (-RPE) to broadcast reward prediction errors and modulate striatal vigor.",
+      "characteristicMarkers": [
+        "TH",
+        "SLC6A3 (DAT)",
+        "DRD2 (Autoreceptor)"
+      ],
+      "locatedInIds": [
+        "ANAT-VTA",
+        "ANAT-SUBSTANTIA-NIGRA"
+      ],
+      "associatedModelIds": [
+        "MODEL-026"
+      ],
+      "assetId": "ASSET-NEURON-PYRAMIDAL-3D",
+      "references": [
+        "REF-KANDEL-2021",
+        "REF-NEUROMORPHO-2007"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CELL-ASTROCYTE-PROTOPLASMIC",
+      "canonicalName": "Protoplasmic Astrocyte (Gray Matter)",
+      "aliases": [
+        "Protoplasmic Astrocyte (Gray Matter)"
+      ],
+      "cellCategory": "CNS_GLIA",
+      "primaryScale": "L3",
+      "primaryNeurotransmitter": "Glutamate / D-Serine / ATP (Gliotransmitters)",
+      "morphologySummary": "Spongiform bush-like glial cell with thousands of fine perisynaptic leaflets (tripartite synapse) and aquaporin-4 vascular endfeet.",
+      "physiologicalRole": "Buffers extracellular K+ (Kir4.1), clears synaptic glutamate (EAAT1/EAAT2), shuttles lactate, and mediates neurovascular coupling.",
+      "characteristicMarkers": [
+        "GFAP",
+        "ALDH1L1",
+        "SLC1A2 (EAAT2)",
+        "AQP4"
+      ],
+      "locatedInIds": [
+        "ANAT-NEOCORTEX-L23",
+        "ANAT-HIPPOCAMPUS-CA1"
+      ],
+      "associatedModelIds": [
+        "MODEL-013"
+      ],
+      "assetId": "ASSET-GLIA-MICROENV-3D",
+      "references": [
+        "REF-ARAQUE-1999",
+        "REF-RANSOHOFF-2016"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CELL-ASTROCYTE-FIBROUS",
+      "canonicalName": "Fibrous Astrocyte (White Matter)",
+      "aliases": [
+        "Fibrous Astrocyte (White Matter)"
+      ],
+      "cellCategory": "CNS_GLIA",
+      "primaryScale": "L3",
+      "primaryNeurotransmitter": "ATP / Homeostatic",
+      "morphologySummary": "Elongated glial cell aligned along myelinated white-matter tracts with long unbranched GFAP-rich processes contacting nodes of Ranvier.",
+      "physiologicalRole": "Supports nodal ionic homeostasis and structural/metabolic integrity along long-range white-matter pathways.",
+      "characteristicMarkers": [
+        "GFAP",
+        "AQP4",
+        "GJA1 (Cx43)"
+      ],
+      "locatedInIds": [
+        "ANAT-CORPUS-CALLOSUM",
+        "ANAT-INTERNAL-CAPSULE"
+      ],
+      "associatedModelIds": [
+        "MODEL-010"
+      ],
+      "assetId": "ASSET-GLIA-MICROENV-3D",
+      "references": [
+        "REF-ARAQUE-1999",
+        "REF-RANSOHOFF-2016"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CELL-OLIGODENDROCYTE",
+      "canonicalName": "Myelinating Oligodendrocyte",
+      "aliases": [
+        "Myelinating Oligodendrocyte"
+      ],
+      "cellCategory": "CNS_GLIA",
+      "primaryScale": "L3",
+      "primaryNeurotransmitter": "Metabolic Lactate Support",
+      "morphologySummary": "CNS glial cell extending multiple processes to wrap 20\u201350 axonal internodal segments in compact lipid-rich myelin membranes.",
+      "physiologicalRole": "Reduces internodal capacitance to enable rapid saltatory action potential conduction and supplies axonal lactate via MCT1.",
+      "characteristicMarkers": [
+        "OLIG2",
+        "MBP",
+        "PLP1",
+        "MOG"
+      ],
+      "locatedInIds": [
+        "ANAT-CORPUS-CALLOSUM",
+        "ANAT-CORTICOSPINAL-TRACT"
+      ],
+      "associatedModelIds": [
+        "MODEL-010"
+      ],
+      "assetId": "ASSET-GLIA-MICROENV-3D",
+      "references": [
+        "REF-ARAQUE-1999",
+        "REF-RANSOHOFF-2016"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CELL-SCHWANN",
+      "canonicalName": "Peripheral Myelinating Schwann Cell",
+      "aliases": [
+        "Peripheral Myelinating Schwann Cell"
+      ],
+      "cellCategory": "PNS_GLIA",
+      "primaryScale": "L3",
+      "primaryNeurotransmitter": "Trophic Support",
+      "morphologySummary": "Neural-crest-derived PNS glial cell wrapping a single axonal internode in compact myelin enclosed by a continuous basal lamina.",
+      "physiologicalRole": "Enables rapid peripheral saltatory conduction and forms Bands of B\u00fcngner to guide peripheral axonal regeneration after injury.",
+      "characteristicMarkers": [
+        "MPZ (P0)",
+        "PMP22",
+        "S100B"
+      ],
+      "locatedInIds": [
+        "ANAT-PNS",
+        "ANAT-DRG",
+        "ANAT-CN-V"
+      ],
+      "associatedModelIds": [
+        "MODEL-001",
+        "MODEL-010"
+      ],
+      "assetId": "ASSET-GLIA-MICROENV-3D",
+      "references": [
+        "REF-ARAQUE-1999",
+        "REF-RANSOHOFF-2016"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CELL-MICROGLIA",
+      "canonicalName": "CNS Parenchymal Microglia",
+      "aliases": [
+        "CNS Parenchymal Microglia"
+      ],
+      "cellCategory": "CNS_GLIA",
+      "primaryScale": "L3",
+      "primaryNeurotransmitter": "Cytokines / Complement / BDNF",
+      "morphologySummary": "Yolk-sac-derived resident myeloid cell with highly motile ramified processes continuously scanning the local synaptic microenvironment.",
+      "physiologicalRole": "Executes immune surveillance, phagocytosis of apoptotic debris, and complement-dependent (C1q/C3) developmental synaptic pruning.",
+      "characteristicMarkers": [
+        "IBA1 (AIF1)",
+        "TMEM119",
+        "P2RY12",
+        "CX3CR1"
+      ],
+      "locatedInIds": [
+        "ANAT-CNS",
+        "ANAT-HIPPOCAMPUS"
+      ],
+      "associatedModelIds": [
+        "MODEL-025"
+      ],
+      "assetId": "ASSET-GLIA-MICROENV-3D",
+      "references": [
+        "REF-ARAQUE-1999",
+        "REF-RANSOHOFF-2016"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CELL-EPENDYMAL",
+      "canonicalName": "Ventricular Ciliated Ependymal Cell",
+      "aliases": [
+        "Ventricular Ciliated Ependymal Cell"
+      ],
+      "cellCategory": "CNS_GLIA",
+      "primaryScale": "L3",
+      "primaryNeurotransmitter": "CSF Transport",
+      "morphologySummary": "Cuboidal/columnar neuroepithelial cell with motile apical kinocilia and microvilli lining the cerebral ventricles and central canal.",
+      "physiologicalRole": "Drives directional near-wall cerebrospinal fluid flow and forms a regulated metabolic interface between CSF and brain parenchyma.",
+      "characteristicMarkers": [
+        "FOXJ1",
+        "S100B"
+      ],
+      "locatedInIds": [
+        "ANAT-VENTRICULAR-SYSTEM",
+        "ANAT-LATERAL-VENTRICLES"
+      ],
+      "associatedModelIds": [
+        "MODEL-010"
+      ],
+      "assetId": "ASSET-GLIA-MICROENV-3D",
+      "references": [
+        "REF-ARAQUE-1999",
+        "REF-RANSOHOFF-2016"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CELL-COMP-DENDRITIC-SPINE",
+      "canonicalName": "Dendritic Spine & Postsynaptic Density (PSD) Compartment",
+      "aliases": [
+        "Dendritic Spine & Postsynaptic Density (PSD) Compartment"
+      ],
+      "cellCategory": "SUBCELLULAR_COMPARTMENT",
+      "primaryScale": "L2",
+      "primaryNeurotransmitter": "Glutamate Target",
+      "morphologySummary": "Micrometer-scale actin-rich protrusion (head 0.5\u20131 \u00b5m + narrow neck) housing the PSD-95 scaffold, AMPA/NMDA receptors, and spine apparatus.",
+      "physiologicalRole": "Biochemically and electrically compartmentalizes postsynaptic Ca2+ signals to enable synapse-specific LTP and LTD.",
+      "characteristicMarkers": [
+        "DLG4 (PSD-95)",
+        "CAMK2A",
+        "ACTB"
+      ],
+      "locatedInIds": [
+        "ANAT-HIPPOCAMPUS-CA1",
+        "ANAT-NEOCORTEX-L23"
+      ],
+      "associatedModelIds": [
+        "MODEL-010",
+        "MODEL-014",
+        "MODEL-024"
+      ],
+      "assetId": "ASSET-NEURON-PYRAMIDAL-3D",
+      "references": [
+        "REF-ARAQUE-1999",
+        "REF-RANSOHOFF-2016"
+      ],
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "CELL-COMP-AIS",
+      "canonicalName": "Axon Initial Segment (AIS) & Node of Ranvier Compartment",
+      "aliases": [
+        "Axon Initial Segment (AIS) & Node of Ranvier Compartment"
+      ],
+      "cellCategory": "SUBCELLULAR_COMPARTMENT",
+      "primaryScale": "L2",
+      "primaryNeurotransmitter": "Action Potential Initiation",
+      "morphologySummary": "Proximal 20\u201360 \u00b5m unmyelinated axonal segment organized by ankyrin-G/beta-IV spectrin clustering high-density NaV1.2/1.6 and Kv7 channels.",
+      "physiologicalRole": "Lowest-threshold trigger zone for action potential initiation and site of homeostatic structural plasticity and chandelier-cell inhibition.",
+      "characteristicMarkers": [
+        "ANK3 (Ankyrin-G)",
+        "SCN8A (NaV1.6)",
+        "KCNQ2 (Kv7.2)"
+      ],
+      "locatedInIds": [
+        "ANAT-NEOCORTEX-L23",
+        "ANAT-HIPPOCAMPUS-CA1"
+      ],
+      "associatedModelIds": [
+        "MODEL-001",
+        "MODEL-010",
+        "MODEL-025"
+      ],
+      "assetId": "ASSET-NEURON-PYRAMIDAL-3D",
+      "references": [
+        "REF-ARAQUE-1999",
+        "REF-RANSOHOFF-2016"
+      ],
+      "schemaVersion": "1.0.0"
+    }
+  ]
+}

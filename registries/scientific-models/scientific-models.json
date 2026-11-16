@@ -1,0 +1,1996 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "MODEL-001",
+      "name": "Hodgkin-Huxley Conductance-Based Membrane Model",
+      "modelFamilyId": "FAM-01",
+      "modelFamilyName": "Biophysical Conductance Membrane",
+      "primaryScale": "L3",
+      "abstractionLevel": "Single-compartment 4-ODE biophysical conductance model",
+      "biologicalInterpretation": "Space-clamped squid giant axon membrane patch with voltage-gated Na+, K+, and leak channels.",
+      "governingEquationIds": [
+        "EQ-011",
+        "EQ-012",
+        "EQ-013",
+        "EQ-015",
+        "EQ-017",
+        "EQ-018",
+        "EQ-019"
+      ],
+      "stateVariables": [
+        {
+          "symbol": "V",
+          "name": "Membrane potential",
+          "unit": "mV"
+        },
+        {
+          "symbol": "m",
+          "name": "Na+ activation gate",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "h",
+          "name": "Na+ inactivation gate",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "n",
+          "name": "K+ activation gate",
+          "unit": "dimensionless"
+        }
+      ],
+      "parameterIds": [
+        "PARAM-001",
+        "PARAM-002",
+        "PARAM-003",
+        "PARAM-004",
+        "PARAM-005",
+        "PARAM-006",
+        "PARAM-007",
+        "PARAM-008"
+      ],
+      "initialConditions": {
+        "V": -65.0,
+        "m": 0.05293,
+        "h": 0.59612,
+        "n": 0.31768
+      },
+      "numericalMethod": {
+        "defaultSolver": "SOLVER-RK4",
+        "supportedSolvers": [
+          "SOLVER-RK4",
+          "SOLVER-RUSH-LARSEN",
+          "SOLVER-RK45",
+          "SOLVER-FE"
+        ],
+        "defaultDtMs": 0.01,
+        "minDtMs": 0.001,
+        "maxSafeDtMs": 0.025
+      },
+      "computeEnvelope": {
+        "maxUnitsInBrowser": 200,
+        "maxDurationMs": 2000,
+        "workerMemoryBudgetMb": 64
+      },
+      "assumptions": [
+        "Operates at Single-compartment 4-ODE biophysical conductance model abstraction scale (L3).",
+        "Parameters represent canonical literature or benchmark defaults with explicit units."
+      ],
+      "limitations": [
+        "Does not represent whole-human-brain cellular complexity or clinical patient variability.",
+        "Browser execution safely bounded to <= 200 units and <= 2000 ms per run."
+      ],
+      "validityDomain": [
+        "Space-clamped squid giant axon membrane patch with voltage-gated Na+, K+, and leak channels."
+      ],
+      "validationCaseIds": [
+        "VAL-HH-001",
+        "VAL-HH-002",
+        "VAL-HH-003"
+      ],
+      "references": [
+        "REF-HH-1952",
+        "REF-DAYAN-2001"
+      ],
+      "version": "1.0.0",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MODEL-002",
+      "name": "Morris-Lecar Ca2+/K+ Conductance Model",
+      "modelFamilyId": "FAM-02",
+      "modelFamilyName": "Reduced Conductance-Based",
+      "primaryScale": "L3",
+      "abstractionLevel": "2D planar conductance-based ODE system",
+      "biologicalInterpretation": "Excitable membrane driven by instantaneous voltage-gated Ca2+ activation and slow K+ recovery.",
+      "governingEquationIds": [
+        "EQ-021",
+        "EQ-022",
+        "EQ-023",
+        "EQ-054"
+      ],
+      "stateVariables": [
+        {
+          "symbol": "V",
+          "name": "Membrane potential",
+          "unit": "mV"
+        },
+        {
+          "symbol": "W",
+          "name": "Slow K+ recovery gate",
+          "unit": "dimensionless"
+        }
+      ],
+      "parameterIds": [
+        "PARAM-009",
+        "PARAM-010",
+        "PARAM-011",
+        "PARAM-012"
+      ],
+      "initialConditions": {
+        "V": -60.0,
+        "W": 0.0149
+      },
+      "numericalMethod": {
+        "defaultSolver": "SOLVER-RK4",
+        "supportedSolvers": [
+          "SOLVER-RK4",
+          "SOLVER-RK45",
+          "SOLVER-FE"
+        ],
+        "defaultDtMs": 0.05,
+        "minDtMs": 0.005,
+        "maxSafeDtMs": 0.2
+      },
+      "computeEnvelope": {
+        "maxUnitsInBrowser": 500,
+        "maxDurationMs": 5000,
+        "workerMemoryBudgetMb": 64
+      },
+      "assumptions": [
+        "Operates at 2D planar conductance-based ODE system abstraction scale (L3).",
+        "Parameters represent canonical literature or benchmark defaults with explicit units."
+      ],
+      "limitations": [
+        "Does not represent whole-human-brain cellular complexity or clinical patient variability.",
+        "Browser execution safely bounded to <= 500 units and <= 5000 ms per run."
+      ],
+      "validityDomain": [
+        "Excitable membrane driven by instantaneous voltage-gated Ca2+ activation and slow K+ recovery."
+      ],
+      "validationCaseIds": [
+        "VAL-ML-001"
+      ],
+      "references": [
+        "REF-MORRIS-LECAR-1981",
+        "REF-GERSTNER-2014"
+      ],
+      "version": "1.0.0",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MODEL-003",
+      "name": "Connor-Stevens Transient A-Current Conductance Model",
+      "modelFamilyId": "FAM-01",
+      "modelFamilyName": "Biophysical Conductance Membrane",
+      "primaryScale": "L3",
+      "abstractionLevel": "6-ODE biophysical conductance model with I_A",
+      "biologicalInterpretation": "Extends Hodgkin-Huxley with fast-inactivating A-type K+ conductance enabling Type I continuous firing onset.",
+      "governingEquationIds": [
+        "EQ-011",
+        "EQ-015",
+        "EQ-024"
+      ],
+      "stateVariables": [
+        {
+          "symbol": "V",
+          "name": "Membrane potential",
+          "unit": "mV"
+        },
+        {
+          "symbol": "m",
+          "name": "Na activation",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "h",
+          "name": "Na inactivation",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "n",
+          "name": "K activation",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "a",
+          "name": "I_A activation",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "b",
+          "name": "I_A inactivation",
+          "unit": "dimensionless"
+        }
+      ],
+      "parameterIds": [
+        "PARAM-013",
+        "PARAM-014"
+      ],
+      "initialConditions": {
+        "V": -68.0,
+        "m": 0.01,
+        "h": 0.96,
+        "n": 0.15,
+        "a": 0.54,
+        "b": 0.29
+      },
+      "numericalMethod": {
+        "defaultSolver": "SOLVER-RK4",
+        "supportedSolvers": [
+          "SOLVER-RK4",
+          "SOLVER-RUSH-LARSEN"
+        ],
+        "defaultDtMs": 0.01,
+        "minDtMs": 0.001,
+        "maxSafeDtMs": 0.025
+      },
+      "computeEnvelope": {
+        "maxUnitsInBrowser": 200,
+        "maxDurationMs": 2000,
+        "workerMemoryBudgetMb": 64
+      },
+      "assumptions": [
+        "Operates at 6-ODE biophysical conductance model with I_A abstraction scale (L3).",
+        "Parameters represent canonical literature or benchmark defaults with explicit units."
+      ],
+      "limitations": [
+        "Does not represent whole-human-brain cellular complexity or clinical patient variability.",
+        "Browser execution safely bounded to <= 200 units and <= 2000 ms per run."
+      ],
+      "validityDomain": [
+        "Extends Hodgkin-Huxley with fast-inactivating A-type K+ conductance enabling Type I continuous firing onset."
+      ],
+      "validationCaseIds": [
+        "VAL-ML-001"
+      ],
+      "references": [
+        "REF-DAYAN-2001"
+      ],
+      "version": "1.0.0",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MODEL-004",
+      "name": "FitzHugh-Nagumo Phase-Plane Excitable Model",
+      "modelFamilyId": "FAM-03",
+      "modelFamilyName": "Phase-Plane Reduced Excitable",
+      "primaryScale": "L3",
+      "abstractionLevel": "2D polynomial dynamical system",
+      "biologicalInterpretation": "Minimal phase-plane reduction capturing cubic fast excitation and linear slow recovery.",
+      "governingEquationIds": [
+        "EQ-025",
+        "EQ-026",
+        "EQ-054"
+      ],
+      "stateVariables": [
+        {
+          "symbol": "v",
+          "name": "Fast activator voltage proxy",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "w",
+          "name": "Slow recovery variable",
+          "unit": "dimensionless"
+        }
+      ],
+      "parameterIds": [
+        "PARAM-015",
+        "PARAM-016",
+        "PARAM-017"
+      ],
+      "initialConditions": {
+        "v": -1.2,
+        "w": -0.625
+      },
+      "numericalMethod": {
+        "defaultSolver": "SOLVER-RK4",
+        "supportedSolvers": [
+          "SOLVER-RK4",
+          "SOLVER-FE"
+        ],
+        "defaultDtMs": 0.05,
+        "minDtMs": 0.005,
+        "maxSafeDtMs": 0.25
+      },
+      "computeEnvelope": {
+        "maxUnitsInBrowser": 1000,
+        "maxDurationMs": 5000,
+        "workerMemoryBudgetMb": 64
+      },
+      "assumptions": [
+        "Operates at 2D polynomial dynamical system abstraction scale (L3).",
+        "Parameters represent canonical literature or benchmark defaults with explicit units."
+      ],
+      "limitations": [
+        "Does not represent whole-human-brain cellular complexity or clinical patient variability.",
+        "Browser execution safely bounded to <= 1000 units and <= 5000 ms per run."
+      ],
+      "validityDomain": [
+        "Minimal phase-plane reduction capturing cubic fast excitation and linear slow recovery."
+      ],
+      "validationCaseIds": [
+        "VAL-FHN-001"
+      ],
+      "references": [
+        "REF-FITZHUGH-1961",
+        "REF-NAGUMO-1962"
+      ],
+      "version": "1.0.0",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MODEL-005",
+      "name": "Current-Based Leaky Integrate-and-Fire (CUBA-LIF)",
+      "modelFamilyId": "FAM-04",
+      "modelFamilyName": "Integrate-and-Fire (LIF)",
+      "primaryScale": "L3",
+      "abstractionLevel": "1D linear leaky integrator with threshold reset",
+      "biologicalInterpretation": "Passive RC membrane integrating current inputs up to a fixed threshold followed by reset and refractory period.",
+      "governingEquationIds": [
+        "EQ-027",
+        "EQ-028",
+        "EQ-029",
+        "EQ-038"
+      ],
+      "stateVariables": [
+        {
+          "symbol": "V",
+          "name": "Membrane potential",
+          "unit": "mV"
+        }
+      ],
+      "parameterIds": [
+        "PARAM-018",
+        "PARAM-019",
+        "PARAM-020",
+        "PARAM-021",
+        "PARAM-022"
+      ],
+      "initialConditions": {
+        "V": -70.0
+      },
+      "numericalMethod": {
+        "defaultSolver": "SOLVER-EXACT-LIF",
+        "supportedSolvers": [
+          "SOLVER-EXACT-LIF",
+          "SOLVER-HYBRID-SPIKE",
+          "SOLVER-FE"
+        ],
+        "defaultDtMs": 0.1,
+        "minDtMs": 0.01,
+        "maxSafeDtMs": 0.5
+      },
+      "computeEnvelope": {
+        "maxUnitsInBrowser": 5000,
+        "maxDurationMs": 10000,
+        "workerMemoryBudgetMb": 64
+      },
+      "assumptions": [
+        "Operates at 1D linear leaky integrator with threshold reset abstraction scale (L3).",
+        "Parameters represent canonical literature or benchmark defaults with explicit units."
+      ],
+      "limitations": [
+        "Does not represent whole-human-brain cellular complexity or clinical patient variability.",
+        "Browser execution safely bounded to <= 5000 units and <= 10000 ms per run."
+      ],
+      "validityDomain": [
+        "Passive RC membrane integrating current inputs up to a fixed threshold followed by reset and refractory period."
+      ],
+      "validationCaseIds": [
+        "VAL-LIF-001"
+      ],
+      "references": [
+        "REF-ABBOTT-1999",
+        "REF-DAYAN-2001"
+      ],
+      "version": "1.0.0",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MODEL-006",
+      "name": "Conductance-Based Leaky Integrate-and-Fire (COBA-LIF)",
+      "modelFamilyId": "FAM-04",
+      "modelFamilyName": "Integrate-and-Fire (LIF)",
+      "primaryScale": "L3",
+      "abstractionLevel": "Point-neuron LIF with reversal-potential synaptic conductances",
+      "biologicalInterpretation": "Integrates excitatory and inhibitory conductances that dynamically modulate effective membrane resistance and time constant.",
+      "governingEquationIds": [
+        "EQ-030",
+        "EQ-031",
+        "EQ-028"
+      ],
+      "stateVariables": [
+        {
+          "symbol": "V",
+          "name": "Membrane potential",
+          "unit": "mV"
+        },
+        {
+          "symbol": "g_E",
+          "name": "Excitatory conductance",
+          "unit": "nS"
+        },
+        {
+          "symbol": "g_I",
+          "name": "Inhibitory conductance",
+          "unit": "nS"
+        }
+      ],
+      "parameterIds": [
+        "PARAM-023",
+        "PARAM-024"
+      ],
+      "initialConditions": {
+        "V": -70.0,
+        "g_E": 0.0,
+        "g_I": 0.0
+      },
+      "numericalMethod": {
+        "defaultSolver": "SOLVER-HYBRID-SPIKE",
+        "supportedSolvers": [
+          "SOLVER-HYBRID-SPIKE",
+          "SOLVER-RK4"
+        ],
+        "defaultDtMs": 0.1,
+        "minDtMs": 0.01,
+        "maxSafeDtMs": 0.25
+      },
+      "computeEnvelope": {
+        "maxUnitsInBrowser": 4000,
+        "maxDurationMs": 10000,
+        "workerMemoryBudgetMb": 64
+      },
+      "assumptions": [
+        "Operates at Point-neuron LIF with reversal-potential synaptic conductances abstraction scale (L3).",
+        "Parameters represent canonical literature or benchmark defaults with explicit units."
+      ],
+      "limitations": [
+        "Does not represent whole-human-brain cellular complexity or clinical patient variability.",
+        "Browser execution safely bounded to <= 4000 units and <= 10000 ms per run."
+      ],
+      "validityDomain": [
+        "Integrates excitatory and inhibitory conductances that dynamically modulate effective membrane resistance and time constant."
+      ],
+      "validationCaseIds": [
+        "VAL-LIF-001"
+      ],
+      "references": [
+        "REF-DESTEXHE-1994",
+        "REF-GERSTNER-2014"
+      ],
+      "version": "1.0.0",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MODEL-007",
+      "name": "Quadratic Integrate-and-Fire (QIF / Theta-Neuron)",
+      "modelFamilyId": "FAM-04",
+      "modelFamilyName": "Integrate-and-Fire (LIF)",
+      "primaryScale": "L3",
+      "abstractionLevel": "1D nonlinear normal-form spiking model",
+      "biologicalInterpretation": "Canonical quadratic normal form of Type I excitability with true action potential upswing.",
+      "governingEquationIds": [
+        "EQ-032",
+        "EQ-033"
+      ],
+      "stateVariables": [
+        {
+          "symbol": "V",
+          "name": "Membrane potential",
+          "unit": "mV"
+        }
+      ],
+      "parameterIds": [
+        "PARAM-025",
+        "PARAM-026"
+      ],
+      "initialConditions": {
+        "V": -65.0
+      },
+      "numericalMethod": {
+        "defaultSolver": "SOLVER-HYBRID-SPIKE",
+        "supportedSolvers": [
+          "SOLVER-HYBRID-SPIKE",
+          "SOLVER-RK4"
+        ],
+        "defaultDtMs": 0.05,
+        "minDtMs": 0.01,
+        "maxSafeDtMs": 0.2
+      },
+      "computeEnvelope": {
+        "maxUnitsInBrowser": 5000,
+        "maxDurationMs": 10000,
+        "workerMemoryBudgetMb": 64
+      },
+      "assumptions": [
+        "Operates at 1D nonlinear normal-form spiking model abstraction scale (L3).",
+        "Parameters represent canonical literature or benchmark defaults with explicit units."
+      ],
+      "limitations": [
+        "Does not represent whole-human-brain cellular complexity or clinical patient variability.",
+        "Browser execution safely bounded to <= 5000 units and <= 10000 ms per run."
+      ],
+      "validityDomain": [
+        "Canonical quadratic normal form of Type I excitability with true action potential upswing."
+      ],
+      "validationCaseIds": [
+        "VAL-LIF-001"
+      ],
+      "references": [
+        "REF-GERSTNER-2014"
+      ],
+      "version": "1.0.0",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MODEL-008",
+      "name": "Adaptive Exponential Integrate-and-Fire (AdEx)",
+      "modelFamilyId": "FAM-05",
+      "modelFamilyName": "Adaptive Spiking Neuron",
+      "primaryScale": "L3",
+      "abstractionLevel": "2D conductance-calibrated spiking neuron model",
+      "biologicalInterpretation": "Captures exponential Na+ spike initiation and subthreshold/spike-triggered adaptation across cortical cell classes.",
+      "governingEquationIds": [
+        "EQ-034",
+        "EQ-035",
+        "EQ-038"
+      ],
+      "stateVariables": [
+        {
+          "symbol": "V",
+          "name": "Membrane potential",
+          "unit": "mV"
+        },
+        {
+          "symbol": "w",
+          "name": "Adaptation current",
+          "unit": "pA"
+        }
+      ],
+      "parameterIds": [
+        "PARAM-027",
+        "PARAM-028",
+        "PARAM-029",
+        "PARAM-030",
+        "PARAM-031"
+      ],
+      "initialConditions": {
+        "V": -70.6,
+        "w": 0.0
+      },
+      "numericalMethod": {
+        "defaultSolver": "SOLVER-HYBRID-SPIKE",
+        "supportedSolvers": [
+          "SOLVER-HYBRID-SPIKE",
+          "SOLVER-RK4"
+        ],
+        "defaultDtMs": 0.05,
+        "minDtMs": 0.005,
+        "maxSafeDtMs": 0.1
+      },
+      "computeEnvelope": {
+        "maxUnitsInBrowser": 4000,
+        "maxDurationMs": 10000,
+        "workerMemoryBudgetMb": 64
+      },
+      "assumptions": [
+        "Operates at 2D conductance-calibrated spiking neuron model abstraction scale (L3).",
+        "Parameters represent canonical literature or benchmark defaults with explicit units."
+      ],
+      "limitations": [
+        "Does not represent whole-human-brain cellular complexity or clinical patient variability.",
+        "Browser execution safely bounded to <= 4000 units and <= 10000 ms per run."
+      ],
+      "validityDomain": [
+        "Captures exponential Na+ spike initiation and subthreshold/spike-triggered adaptation across cortical cell classes."
+      ],
+      "validationCaseIds": [
+        "VAL-ADEX-001"
+      ],
+      "references": [
+        "REF-BRETTE-GERSTNER-2005",
+        "REF-GERSTNER-2014"
+      ],
+      "version": "1.0.0",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MODEL-009",
+      "name": "Izhikevich 2D Phenomenological Spiking Model",
+      "modelFamilyId": "FAM-05",
+      "modelFamilyName": "Adaptive Spiking Neuron",
+      "primaryScale": "L3",
+      "abstractionLevel": "2D quadratic-linear hybrid spiking system",
+      "biologicalInterpretation": "Computationally efficient two-variable model reproducing cortical regular, bursting, chattering, and fast-spiking regimes.",
+      "governingEquationIds": [
+        "EQ-036",
+        "EQ-037"
+      ],
+      "stateVariables": [
+        {
+          "symbol": "v",
+          "name": "Membrane voltage",
+          "unit": "mV"
+        },
+        {
+          "symbol": "u",
+          "name": "Recovery variable",
+          "unit": "dimensionless"
+        }
+      ],
+      "parameterIds": [
+        "PARAM-032",
+        "PARAM-033",
+        "PARAM-034",
+        "PARAM-035"
+      ],
+      "initialConditions": {
+        "v": -65.0,
+        "u": -13.0
+      },
+      "numericalMethod": {
+        "defaultSolver": "SOLVER-HYBRID-SPIKE",
+        "supportedSolvers": [
+          "SOLVER-HYBRID-SPIKE"
+        ],
+        "defaultDtMs": 0.1,
+        "minDtMs": 0.02,
+        "maxSafeDtMs": 0.5
+      },
+      "computeEnvelope": {
+        "maxUnitsInBrowser": 5000,
+        "maxDurationMs": 10000,
+        "workerMemoryBudgetMb": 64
+      },
+      "assumptions": [
+        "Operates at 2D quadratic-linear hybrid spiking system abstraction scale (L3).",
+        "Parameters represent canonical literature or benchmark defaults with explicit units."
+      ],
+      "limitations": [
+        "Does not represent whole-human-brain cellular complexity or clinical patient variability.",
+        "Browser execution safely bounded to <= 5000 units and <= 10000 ms per run."
+      ],
+      "validityDomain": [
+        "Computationally efficient two-variable model reproducing cortical regular, bursting, chattering, and fast-spiking regimes."
+      ],
+      "validationCaseIds": [
+        "VAL-IZH-001"
+      ],
+      "references": [
+        "REF-IZHIKEVICH-2003"
+      ],
+      "version": "1.0.0",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MODEL-010",
+      "name": "Passive Cable & Multi-Compartment Rall Dendritic Model",
+      "modelFamilyId": "FAM-06",
+      "modelFamilyName": "Dendritic & Cable Compartmental",
+      "primaryScale": "L2",
+      "abstractionLevel": "1D spatial PDE / N-compartment coupled ODE system",
+      "biologicalInterpretation": "Models electrotonic distance attenuation, temporal low-pass filtering, and dendritic branch impedance matching.",
+      "governingEquationIds": [
+        "EQ-007",
+        "EQ-008",
+        "EQ-009",
+        "EQ-010"
+      ],
+      "stateVariables": [
+        {
+          "symbol": "V_k",
+          "name": "Compartment voltages (k=1..N)",
+          "unit": "mV"
+        }
+      ],
+      "parameterIds": [
+        "PARAM-036",
+        "PARAM-037"
+      ],
+      "initialConditions": {
+        "V_1": -70.0,
+        "V_N": -70.0
+      },
+      "numericalMethod": {
+        "defaultSolver": "SOLVER-CRANK-NICOLSON",
+        "supportedSolvers": [
+          "SOLVER-CRANK-NICOLSON",
+          "SOLVER-RK4"
+        ],
+        "defaultDtMs": 0.05,
+        "minDtMs": 0.01,
+        "maxSafeDtMs": 0.2
+      },
+      "computeEnvelope": {
+        "maxUnitsInBrowser": 50,
+        "maxDurationMs": 5000,
+        "workerMemoryBudgetMb": 64
+      },
+      "assumptions": [
+        "Operates at 1D spatial PDE / N-compartment coupled ODE system abstraction scale (L2).",
+        "Parameters represent canonical literature or benchmark defaults with explicit units."
+      ],
+      "limitations": [
+        "Does not represent whole-human-brain cellular complexity or clinical patient variability.",
+        "Browser execution safely bounded to <= 50 units and <= 5000 ms per run."
+      ],
+      "validityDomain": [
+        "Models electrotonic distance attenuation, temporal low-pass filtering, and dendritic branch impedance matching."
+      ],
+      "validationCaseIds": [
+        "VAL-CABLE-001"
+      ],
+      "references": [
+        "REF-RALL-1962",
+        "REF-DAYAN-2001"
+      ],
+      "version": "1.0.0",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MODEL-011",
+      "name": "Single-Exponential Current-Based Synapse",
+      "modelFamilyId": "FAM-07",
+      "modelFamilyName": "Current-Based Synaptic Kernels",
+      "primaryScale": "L4",
+      "abstractionLevel": "1D linear exponential synaptic filter",
+      "biologicalInterpretation": "Instantaneous post-spike jump followed by single-exponential current decay independent of postsynaptic voltage.",
+      "governingEquationIds": [
+        "EQ-039"
+      ],
+      "stateVariables": [
+        {
+          "symbol": "s",
+          "name": "Synaptic gating trace",
+          "unit": "dimensionless"
+        }
+      ],
+      "parameterIds": [
+        "PARAM-038",
+        "PARAM-039"
+      ],
+      "initialConditions": {
+        "s": 0.0
+      },
+      "numericalMethod": {
+        "defaultSolver": "SOLVER-EXACT-LIF",
+        "supportedSolvers": [
+          "SOLVER-EXACT-LIF",
+          "SOLVER-RK4"
+        ],
+        "defaultDtMs": 0.1,
+        "minDtMs": 0.01,
+        "maxSafeDtMs": 0.5
+      },
+      "computeEnvelope": {
+        "maxUnitsInBrowser": 5000,
+        "maxDurationMs": 10000,
+        "workerMemoryBudgetMb": 64
+      },
+      "assumptions": [
+        "Operates at 1D linear exponential synaptic filter abstraction scale (L4).",
+        "Parameters represent canonical literature or benchmark defaults with explicit units."
+      ],
+      "limitations": [
+        "Does not represent whole-human-brain cellular complexity or clinical patient variability.",
+        "Browser execution safely bounded to <= 5000 units and <= 10000 ms per run."
+      ],
+      "validityDomain": [
+        "Instantaneous post-spike jump followed by single-exponential current decay independent of postsynaptic voltage."
+      ],
+      "validationCaseIds": [
+        "VAL-SYN-001"
+      ],
+      "references": [
+        "REF-DAYAN-2001"
+      ],
+      "version": "1.0.0",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MODEL-012",
+      "name": "Alpha-Function Postsynaptic Conductance Model",
+      "modelFamilyId": "FAM-08",
+      "modelFamilyName": "Conductance-Based Synapses",
+      "primaryScale": "L4",
+      "abstractionLevel": "2-state linear ODE cascade conductance",
+      "biologicalInterpretation": "Models finite synaptic rise time peaking at t = tau_alpha and voltage-dependent driving force.",
+      "governingEquationIds": [
+        "EQ-040",
+        "EQ-041"
+      ],
+      "stateVariables": [
+        {
+          "symbol": "z",
+          "name": "Cascade auxiliary state",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "g_syn",
+          "name": "Synaptic conductance",
+          "unit": "nS"
+        }
+      ],
+      "parameterIds": [
+        "PARAM-040",
+        "PARAM-041"
+      ],
+      "initialConditions": {
+        "z": 0.0,
+        "g_syn": 0.0
+      },
+      "numericalMethod": {
+        "defaultSolver": "SOLVER-RK4",
+        "supportedSolvers": [
+          "SOLVER-RK4",
+          "SOLVER-FE"
+        ],
+        "defaultDtMs": 0.1,
+        "minDtMs": 0.01,
+        "maxSafeDtMs": 0.25
+      },
+      "computeEnvelope": {
+        "maxUnitsInBrowser": 4000,
+        "maxDurationMs": 10000,
+        "workerMemoryBudgetMb": 64
+      },
+      "assumptions": [
+        "Operates at 2-state linear ODE cascade conductance abstraction scale (L4).",
+        "Parameters represent canonical literature or benchmark defaults with explicit units."
+      ],
+      "limitations": [
+        "Does not represent whole-human-brain cellular complexity or clinical patient variability.",
+        "Browser execution safely bounded to <= 4000 units and <= 10000 ms per run."
+      ],
+      "validityDomain": [
+        "Models finite synaptic rise time peaking at t = tau_alpha and voltage-dependent driving force."
+      ],
+      "validationCaseIds": [
+        "VAL-SYN-001"
+      ],
+      "references": [
+        "REF-DAYAN-2001",
+        "REF-DESTEXHE-1994"
+      ],
+      "version": "1.0.0",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MODEL-013",
+      "name": "Bi-Exponential AMPA & GABA_A Conductance Synapse",
+      "modelFamilyId": "FAM-08",
+      "modelFamilyName": "Conductance-Based Synapses",
+      "primaryScale": "L4",
+      "abstractionLevel": "Dual-exponential receptor kinetic model",
+      "biologicalInterpretation": "Captures distinct transmitter binding rise time (tau_r) and unbinding/desensitization decay time (tau_d) for AMPA and GABA_A.",
+      "governingEquationIds": [
+        "EQ-042",
+        "EQ-043"
+      ],
+      "stateVariables": [
+        {
+          "symbol": "A",
+          "name": "Rise trace",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "B",
+          "name": "Decay trace",
+          "unit": "dimensionless"
+        }
+      ],
+      "parameterIds": [
+        "PARAM-042",
+        "PARAM-043",
+        "PARAM-044",
+        "PARAM-045"
+      ],
+      "initialConditions": {
+        "A": 0.0,
+        "B": 0.0
+      },
+      "numericalMethod": {
+        "defaultSolver": "SOLVER-EXACT-LIF",
+        "supportedSolvers": [
+          "SOLVER-EXACT-LIF",
+          "SOLVER-RK4"
+        ],
+        "defaultDtMs": 0.1,
+        "minDtMs": 0.01,
+        "maxSafeDtMs": 0.25
+      },
+      "computeEnvelope": {
+        "maxUnitsInBrowser": 4000,
+        "maxDurationMs": 10000,
+        "workerMemoryBudgetMb": 64
+      },
+      "assumptions": [
+        "Operates at Dual-exponential receptor kinetic model abstraction scale (L4).",
+        "Parameters represent canonical literature or benchmark defaults with explicit units."
+      ],
+      "limitations": [
+        "Does not represent whole-human-brain cellular complexity or clinical patient variability.",
+        "Browser execution safely bounded to <= 4000 units and <= 10000 ms per run."
+      ],
+      "validityDomain": [
+        "Captures distinct transmitter binding rise time (tau_r) and unbinding/desensitization decay time (tau_d) for AMPA and GABA_A."
+      ],
+      "validationCaseIds": [
+        "VAL-SYN-001"
+      ],
+      "references": [
+        "REF-DESTEXHE-1994",
+        "REF-SIGEL-2012"
+      ],
+      "version": "1.0.0",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MODEL-014",
+      "name": "Voltage-Dependent NMDA Mg2+-Block Coincidence Synapse",
+      "modelFamilyId": "FAM-08",
+      "modelFamilyName": "Conductance-Based Synapses",
+      "primaryScale": "L4",
+      "abstractionLevel": "Bi-exponential conductance with Jahr-Stevens Mg2+ block",
+      "biologicalInterpretation": "Requires simultaneous presynaptic glutamate release and postsynaptic depolarization to expel Mg2+ and pass Ca2+/Na+.",
+      "governingEquationIds": [
+        "EQ-042",
+        "EQ-044",
+        "EQ-045"
+      ],
+      "stateVariables": [
+        {
+          "symbol": "A_NMDA",
+          "name": "NMDA rise state",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "B_NMDA",
+          "name": "NMDA decay state",
+          "unit": "dimensionless"
+        }
+      ],
+      "parameterIds": [
+        "PARAM-046",
+        "PARAM-047"
+      ],
+      "initialConditions": {
+        "A_NMDA": 0.0,
+        "B_NMDA": 0.0
+      },
+      "numericalMethod": {
+        "defaultSolver": "SOLVER-RK4",
+        "supportedSolvers": [
+          "SOLVER-RK4",
+          "SOLVER-HYBRID-SPIKE"
+        ],
+        "defaultDtMs": 0.1,
+        "minDtMs": 0.01,
+        "maxSafeDtMs": 0.25
+      },
+      "computeEnvelope": {
+        "maxUnitsInBrowser": 2000,
+        "maxDurationMs": 10000,
+        "workerMemoryBudgetMb": 64
+      },
+      "assumptions": [
+        "Operates at Bi-exponential conductance with Jahr-Stevens Mg2+ block abstraction scale (L4).",
+        "Parameters represent canonical literature or benchmark defaults with explicit units."
+      ],
+      "limitations": [
+        "Does not represent whole-human-brain cellular complexity or clinical patient variability.",
+        "Browser execution safely bounded to <= 2000 units and <= 10000 ms per run."
+      ],
+      "validityDomain": [
+        "Requires simultaneous presynaptic glutamate release and postsynaptic depolarization to expel Mg2+ and pass Ca2+/Na+."
+      ],
+      "validationCaseIds": [
+        "VAL-SYN-001"
+      ],
+      "references": [
+        "REF-TRAYNELIS-2010",
+        "REF-DESTEXHE-1994"
+      ],
+      "version": "1.0.0",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MODEL-015",
+      "name": "Electrical Gap-Junction Ohmic Coupling Model",
+      "modelFamilyId": "FAM-08",
+      "modelFamilyName": "Conductance-Based Synapses",
+      "primaryScale": "L4",
+      "abstractionLevel": "Symmetric diffusive electrotonic coupling",
+      "biologicalInterpretation": "Direct bidirectional current flow across connexin-36 gap junctions synchronizing interneuron and olivary networks.",
+      "governingEquationIds": [
+        "EQ-046"
+      ],
+      "stateVariables": [
+        {
+          "symbol": "I_gap",
+          "name": "Intercellular coupling current",
+          "unit": "pA"
+        }
+      ],
+      "parameterIds": [
+        "PARAM-048"
+      ],
+      "initialConditions": {
+        "I_gap": 0.0
+      },
+      "numericalMethod": {
+        "defaultSolver": "SOLVER-RK4",
+        "supportedSolvers": [
+          "SOLVER-RK4",
+          "SOLVER-HYBRID-SPIKE"
+        ],
+        "defaultDtMs": 0.05,
+        "minDtMs": 0.01,
+        "maxSafeDtMs": 0.2
+      },
+      "computeEnvelope": {
+        "maxUnitsInBrowser": 2000,
+        "maxDurationMs": 5000,
+        "workerMemoryBudgetMb": 64
+      },
+      "assumptions": [
+        "Operates at Symmetric diffusive electrotonic coupling abstraction scale (L4).",
+        "Parameters represent canonical literature or benchmark defaults with explicit units."
+      ],
+      "limitations": [
+        "Does not represent whole-human-brain cellular complexity or clinical patient variability.",
+        "Browser execution safely bounded to <= 2000 units and <= 5000 ms per run."
+      ],
+      "validityDomain": [
+        "Direct bidirectional current flow across connexin-36 gap junctions synchronizing interneuron and olivary networks."
+      ],
+      "validationCaseIds": [
+        "VAL-SYN-001"
+      ],
+      "references": [
+        "REF-KANDEL-2021"
+      ],
+      "version": "1.0.0",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MODEL-016",
+      "name": "Tsodyks-Markram Short-Term Synaptic Plasticity (STP)",
+      "modelFamilyId": "FAM-09",
+      "modelFamilyName": "Short-Term Synaptic Dynamics",
+      "primaryScale": "L4",
+      "abstractionLevel": "2D continuous-discrete vesicle depletion & facilitation model",
+      "biologicalInterpretation": "Models short-term synaptic depression (vesicle depletion x) and facilitation (residual Ca2+ utilization u).",
+      "governingEquationIds": [
+        "EQ-047",
+        "EQ-048",
+        "EQ-049"
+      ],
+      "stateVariables": [
+        {
+          "symbol": "u",
+          "name": "Release utilization fraction",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "x",
+          "name": "Available vesicle pool fraction",
+          "unit": "dimensionless"
+        }
+      ],
+      "parameterIds": [
+        "PARAM-049",
+        "PARAM-050",
+        "PARAM-051"
+      ],
+      "initialConditions": {
+        "u": 0.5,
+        "x": 1.0
+      },
+      "numericalMethod": {
+        "defaultSolver": "SOLVER-HYBRID-SPIKE",
+        "supportedSolvers": [
+          "SOLVER-HYBRID-SPIKE",
+          "SOLVER-RK4"
+        ],
+        "defaultDtMs": 0.1,
+        "minDtMs": 0.01,
+        "maxSafeDtMs": 0.5
+      },
+      "computeEnvelope": {
+        "maxUnitsInBrowser": 4000,
+        "maxDurationMs": 10000,
+        "workerMemoryBudgetMb": 64
+      },
+      "assumptions": [
+        "Operates at 2D continuous-discrete vesicle depletion & facilitation model abstraction scale (L4).",
+        "Parameters represent canonical literature or benchmark defaults with explicit units."
+      ],
+      "limitations": [
+        "Does not represent whole-human-brain cellular complexity or clinical patient variability.",
+        "Browser execution safely bounded to <= 4000 units and <= 10000 ms per run."
+      ],
+      "validityDomain": [
+        "Models short-term synaptic depression (vesicle depletion x) and facilitation (residual Ca2+ utilization u)."
+      ],
+      "validationCaseIds": [
+        "VAL-STP-001"
+      ],
+      "references": [
+        "REF-TSODYKS-1997"
+      ],
+      "version": "1.0.0",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MODEL-017",
+      "name": "Wilson-Cowan Excitatory-Inhibitory Population Model",
+      "modelFamilyId": "FAM-10",
+      "modelFamilyName": "Neural Population Rate Models",
+      "primaryScale": "L6",
+      "abstractionLevel": "2D nonlinear mean-field population ODE system",
+      "biologicalInterpretation": "Coarse-grained firing rates of interacting excitatory and inhibitory populations exhibiting bistability and limit cycles.",
+      "governingEquationIds": [
+        "EQ-051",
+        "EQ-052",
+        "EQ-053",
+        "EQ-054"
+      ],
+      "stateVariables": [
+        {
+          "symbol": "E",
+          "name": "Excitatory active fraction",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "I",
+          "name": "Inhibitory active fraction",
+          "unit": "dimensionless"
+        }
+      ],
+      "parameterIds": [
+        "PARAM-052",
+        "PARAM-053",
+        "PARAM-054",
+        "PARAM-055"
+      ],
+      "initialConditions": {
+        "E": 0.1,
+        "I": 0.05
+      },
+      "numericalMethod": {
+        "defaultSolver": "SOLVER-RK4",
+        "supportedSolvers": [
+          "SOLVER-RK4",
+          "SOLVER-RK45",
+          "SOLVER-FE"
+        ],
+        "defaultDtMs": 0.1,
+        "minDtMs": 0.01,
+        "maxSafeDtMs": 0.5
+      },
+      "computeEnvelope": {
+        "maxUnitsInBrowser": 200,
+        "maxDurationMs": 20000,
+        "workerMemoryBudgetMb": 64
+      },
+      "assumptions": [
+        "Operates at 2D nonlinear mean-field population ODE system abstraction scale (L6).",
+        "Parameters represent canonical literature or benchmark defaults with explicit units."
+      ],
+      "limitations": [
+        "Does not represent whole-human-brain cellular complexity or clinical patient variability.",
+        "Browser execution safely bounded to <= 200 units and <= 20000 ms per run."
+      ],
+      "validityDomain": [
+        "Coarse-grained firing rates of interacting excitatory and inhibitory populations exhibiting bistability and limit cycles."
+      ],
+      "validationCaseIds": [
+        "VAL-WC-001"
+      ],
+      "references": [
+        "REF-WILSON-COWAN-1972"
+      ],
+      "version": "1.0.0",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MODEL-018",
+      "name": "Jansen-Rit Cortical Column Neural Mass Model",
+      "modelFamilyId": "FAM-11",
+      "modelFamilyName": "Neural Mass & Macroscopic Rhythm",
+      "primaryScale": "L6",
+      "abstractionLevel": "6-ODE three-population cortical column model",
+      "biologicalInterpretation": "Couples pyramidal cells, excitatory stellate cells, and inhibitory interneurons to generate EEG alpha rhythms and VEPs.",
+      "governingEquationIds": [
+        "EQ-055",
+        "EQ-056",
+        "EQ-057"
+      ],
+      "stateVariables": [
+        {
+          "symbol": "y0",
+          "name": "Pyramidal PSP",
+          "unit": "mV"
+        },
+        {
+          "symbol": "y1",
+          "name": "Excitatory input PSP",
+          "unit": "mV"
+        },
+        {
+          "symbol": "y2",
+          "name": "Inhibitory input PSP",
+          "unit": "mV"
+        },
+        {
+          "symbol": "y3",
+          "name": "dy0/dt",
+          "unit": "mV/s"
+        },
+        {
+          "symbol": "y4",
+          "name": "dy1/dt",
+          "unit": "mV/s"
+        },
+        {
+          "symbol": "y5",
+          "name": "dy2/dt",
+          "unit": "mV/s"
+        }
+      ],
+      "parameterIds": [
+        "PARAM-056",
+        "PARAM-057",
+        "PARAM-058"
+      ],
+      "initialConditions": {
+        "y0": 0.0,
+        "y1": 0.0,
+        "y2": 0.0,
+        "y3": 0.0,
+        "y4": 0.0,
+        "y5": 0.0
+      },
+      "numericalMethod": {
+        "defaultSolver": "SOLVER-RK4",
+        "supportedSolvers": [
+          "SOLVER-RK4",
+          "SOLVER-EULER-MARUYAMA"
+        ],
+        "defaultDtMs": 0.5,
+        "minDtMs": 0.05,
+        "maxSafeDtMs": 1.0
+      },
+      "computeEnvelope": {
+        "maxUnitsInBrowser": 100,
+        "maxDurationMs": 30000,
+        "workerMemoryBudgetMb": 64
+      },
+      "assumptions": [
+        "Operates at 6-ODE three-population cortical column model abstraction scale (L6).",
+        "Parameters represent canonical literature or benchmark defaults with explicit units."
+      ],
+      "limitations": [
+        "Does not represent whole-human-brain cellular complexity or clinical patient variability.",
+        "Browser execution safely bounded to <= 100 units and <= 30000 ms per run."
+      ],
+      "validityDomain": [
+        "Couples pyramidal cells, excitatory stellate cells, and inhibitory interneurons to generate EEG alpha rhythms and VEPs."
+      ],
+      "validationCaseIds": [
+        "VAL-JR-001"
+      ],
+      "references": [
+        "REF-JANSEN-RIT-1995",
+        "REF-BUZSAKI-2012"
+      ],
+      "version": "1.0.0",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MODEL-019",
+      "name": "Wong-Wang Two-Population Decision Attractor Model",
+      "modelFamilyId": "FAM-10",
+      "modelFamilyName": "Neural Population Rate Models",
+      "primaryScale": "L6",
+      "abstractionLevel": "2D stochastic NMDA attractor SDE system",
+      "biologicalInterpretation": "Models perceptual evidence accumulation and working memory persistence via slow NMDA recurrent excitation and mutual inhibition.",
+      "governingEquationIds": [
+        "EQ-058",
+        "EQ-059",
+        "EQ-078"
+      ],
+      "stateVariables": [
+        {
+          "symbol": "S_1",
+          "name": "Pool 1 NMDA gating",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "S_2",
+          "name": "Pool 2 NMDA gating",
+          "unit": "dimensionless"
+        }
+      ],
+      "parameterIds": [
+        "PARAM-059",
+        "PARAM-060"
+      ],
+      "initialConditions": {
+        "S_1": 0.1,
+        "S_2": 0.1
+      },
+      "numericalMethod": {
+        "defaultSolver": "SOLVER-EULER-MARUYAMA",
+        "supportedSolvers": [
+          "SOLVER-EULER-MARUYAMA",
+          "SOLVER-RK4"
+        ],
+        "defaultDtMs": 0.5,
+        "minDtMs": 0.05,
+        "maxSafeDtMs": 1.0
+      },
+      "computeEnvelope": {
+        "maxUnitsInBrowser": 50,
+        "maxDurationMs": 10000,
+        "workerMemoryBudgetMb": 64
+      },
+      "assumptions": [
+        "Operates at 2D stochastic NMDA attractor SDE system abstraction scale (L6).",
+        "Parameters represent canonical literature or benchmark defaults with explicit units."
+      ],
+      "limitations": [
+        "Does not represent whole-human-brain cellular complexity or clinical patient variability.",
+        "Browser execution safely bounded to <= 50 units and <= 10000 ms per run."
+      ],
+      "validityDomain": [
+        "Models perceptual evidence accumulation and working memory persistence via slow NMDA recurrent excitation and mutual inhibition."
+      ],
+      "validationCaseIds": [
+        "VAL-WC-001"
+      ],
+      "references": [
+        "REF-GERSTNER-2014"
+      ],
+      "version": "1.0.0",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MODEL-020",
+      "name": "Feedforward Spiking Cascade / Synfire Network",
+      "modelFamilyId": "FAM-12",
+      "modelFamilyName": "Spiking Neural Networks (SNN)",
+      "primaryScale": "L5",
+      "abstractionLevel": "Multi-layer feedforward spiking population network",
+      "biologicalInterpretation": "Investigates synchronous pulse-packet propagation vs asynchronous rate transmission across layered cortical stages.",
+      "governingEquationIds": [
+        "EQ-027",
+        "EQ-039"
+      ],
+      "stateVariables": [
+        {
+          "symbol": "V_i",
+          "name": "Layer neuron voltages",
+          "unit": "mV"
+        }
+      ],
+      "parameterIds": [
+        "PARAM-061",
+        "PARAM-062"
+      ],
+      "initialConditions": {
+        "V_mean": -70.0
+      },
+      "numericalMethod": {
+        "defaultSolver": "SOLVER-HYBRID-SPIKE",
+        "supportedSolvers": [
+          "SOLVER-HYBRID-SPIKE"
+        ],
+        "defaultDtMs": 0.1,
+        "minDtMs": 0.02,
+        "maxSafeDtMs": 0.25
+      },
+      "computeEnvelope": {
+        "maxUnitsInBrowser": 3000,
+        "maxDurationMs": 5000,
+        "workerMemoryBudgetMb": 128
+      },
+      "assumptions": [
+        "Operates at Multi-layer feedforward spiking population network abstraction scale (L5).",
+        "Parameters represent canonical literature or benchmark defaults with explicit units."
+      ],
+      "limitations": [
+        "Does not represent whole-human-brain cellular complexity or clinical patient variability.",
+        "Browser execution safely bounded to <= 3000 units and <= 5000 ms per run."
+      ],
+      "validityDomain": [
+        "Investigates synchronous pulse-packet propagation vs asynchronous rate transmission across layered cortical stages."
+      ],
+      "validationCaseIds": [
+        "VAL-BRUNEL-001"
+      ],
+      "references": [
+        "REF-DAYAN-2001",
+        "REF-GERSTNER-2014"
+      ],
+      "version": "1.0.0",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MODEL-021",
+      "name": "Brunel Sparse Balanced Recurrent E/I Spiking Network",
+      "modelFamilyId": "FAM-12",
+      "modelFamilyName": "Spiking Neural Networks (SNN)",
+      "primaryScale": "L5",
+      "abstractionLevel": "Sparse recurrent 80% E / 20% I LIF network with axonal delays",
+      "biologicalInterpretation": "Reproduces Asynchronous Irregular (AI), Synchronous Regular (SR), and Synchronous Irregular (SI) cortical microcircuit states.",
+      "governingEquationIds": [
+        "EQ-063",
+        "EQ-064",
+        "EQ-100"
+      ],
+      "stateVariables": [
+        {
+          "symbol": "V_i",
+          "name": "Neuron membrane potentials (i=1..N)",
+          "unit": "mV"
+        }
+      ],
+      "parameterIds": [
+        "PARAM-063",
+        "PARAM-064",
+        "PARAM-065"
+      ],
+      "initialConditions": {
+        "V_mean": 0.0
+      },
+      "numericalMethod": {
+        "defaultSolver": "SOLVER-HYBRID-SPIKE",
+        "supportedSolvers": [
+          "SOLVER-HYBRID-SPIKE"
+        ],
+        "defaultDtMs": 0.1,
+        "minDtMs": 0.02,
+        "maxSafeDtMs": 0.2
+      },
+      "computeEnvelope": {
+        "maxUnitsInBrowser": 4000,
+        "maxDurationMs": 5000,
+        "workerMemoryBudgetMb": 192
+      },
+      "assumptions": [
+        "Operates at Sparse recurrent 80% E / 20% I LIF network with axonal delays abstraction scale (L5).",
+        "Parameters represent canonical literature or benchmark defaults with explicit units."
+      ],
+      "limitations": [
+        "Does not represent whole-human-brain cellular complexity or clinical patient variability.",
+        "Browser execution safely bounded to <= 4000 units and <= 5000 ms per run."
+      ],
+      "validityDomain": [
+        "Reproduces Asynchronous Irregular (AI), Synchronous Regular (SR), and Synchronous Irregular (SI) cortical microcircuit states."
+      ],
+      "validationCaseIds": [
+        "VAL-BRUNEL-001"
+      ],
+      "references": [
+        "REF-BRUNEL-2000",
+        "REF-VANVREESWIJK-1996"
+      ],
+      "version": "1.0.0",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MODEL-022",
+      "name": "Vogels Inhibitory-Plasticity Balanced E/I Network",
+      "modelFamilyId": "FAM-12",
+      "modelFamilyName": "Spiking Neural Networks (SNN)",
+      "primaryScale": "L5",
+      "abstractionLevel": "Recurrent spiking network with self-organizing iSTDP",
+      "biologicalInterpretation": "Demonstrates how symmetric inhibitory STDP on I-to-E synapses establishes detailed E/I balance and cortical memory stability.",
+      "governingEquationIds": [
+        "EQ-065",
+        "EQ-063"
+      ],
+      "stateVariables": [
+        {
+          "symbol": "V_i",
+          "name": "Neuron voltages",
+          "unit": "mV"
+        },
+        {
+          "symbol": "w_IE",
+          "name": "Plastic inhibitory weights",
+          "unit": "nS"
+        }
+      ],
+      "parameterIds": [
+        "PARAM-066",
+        "PARAM-067"
+      ],
+      "initialConditions": {
+        "V_mean": -65.0,
+        "w_IE_mean": 1.0
+      },
+      "numericalMethod": {
+        "defaultSolver": "SOLVER-HYBRID-SPIKE",
+        "supportedSolvers": [
+          "SOLVER-HYBRID-SPIKE"
+        ],
+        "defaultDtMs": 0.1,
+        "minDtMs": 0.05,
+        "maxSafeDtMs": 0.2
+      },
+      "computeEnvelope": {
+        "maxUnitsInBrowser": 2500,
+        "maxDurationMs": 10000,
+        "workerMemoryBudgetMb": 192
+      },
+      "assumptions": [
+        "Operates at Recurrent spiking network with self-organizing iSTDP abstraction scale (L5).",
+        "Parameters represent canonical literature or benchmark defaults with explicit units."
+      ],
+      "limitations": [
+        "Does not represent whole-human-brain cellular complexity or clinical patient variability.",
+        "Browser execution safely bounded to <= 2500 units and <= 10000 ms per run."
+      ],
+      "validityDomain": [
+        "Demonstrates how symmetric inhibitory STDP on I-to-E synapses establishes detailed E/I balance and cortical memory stability."
+      ],
+      "validationCaseIds": [
+        "VAL-BRUNEL-001"
+      ],
+      "references": [
+        "REF-VOGELS-2011"
+      ],
+      "version": "1.0.0",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MODEL-023",
+      "name": "Rate-Based Hebbian, Oja PCA & BCM Plasticity Model",
+      "modelFamilyId": "FAM-13",
+      "modelFamilyName": "Rate & Homeostatic Plasticity",
+      "primaryScale": "L4",
+      "abstractionLevel": "Continuous firing-rate synaptic weight ODEs",
+      "biologicalInterpretation": "Compares unstable correlation Hebbian learning against Oja multiplicative normalization (PCA) and BCM sliding-threshold selectivity.",
+      "governingEquationIds": [
+        "EQ-066",
+        "EQ-067",
+        "EQ-068"
+      ],
+      "stateVariables": [
+        {
+          "symbol": "w_i",
+          "name": "Synaptic weight vector",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "theta_M",
+          "name": "BCM sliding threshold",
+          "unit": "Hz^2"
+        }
+      ],
+      "parameterIds": [
+        "PARAM-068",
+        "PARAM-069"
+      ],
+      "initialConditions": {
+        "w_1": 0.5,
+        "w_2": 0.2,
+        "theta_M": 1.0
+      },
+      "numericalMethod": {
+        "defaultSolver": "SOLVER-RK4",
+        "supportedSolvers": [
+          "SOLVER-RK4",
+          "SOLVER-FE"
+        ],
+        "defaultDtMs": 1.0,
+        "minDtMs": 0.1,
+        "maxSafeDtMs": 5.0
+      },
+      "computeEnvelope": {
+        "maxUnitsInBrowser": 1000,
+        "maxDurationMs": 50000,
+        "workerMemoryBudgetMb": 64
+      },
+      "assumptions": [
+        "Operates at Continuous firing-rate synaptic weight ODEs abstraction scale (L4).",
+        "Parameters represent canonical literature or benchmark defaults with explicit units."
+      ],
+      "limitations": [
+        "Does not represent whole-human-brain cellular complexity or clinical patient variability.",
+        "Browser execution safely bounded to <= 1000 units and <= 50000 ms per run."
+      ],
+      "validityDomain": [
+        "Compares unstable correlation Hebbian learning against Oja multiplicative normalization (PCA) and BCM sliding-threshold selectivity."
+      ],
+      "validationCaseIds": [
+        "VAL-OJA-001"
+      ],
+      "references": [
+        "REF-OJA-1982",
+        "REF-BCM-1982",
+        "REF-DAYAN-2001"
+      ],
+      "version": "1.0.0",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MODEL-024",
+      "name": "Pair-Based & Triplet Spike-Timing-Dependent Plasticity (STDP)",
+      "modelFamilyId": "FAM-14",
+      "modelFamilyName": "Spike-Timing Plasticity",
+      "primaryScale": "L4",
+      "abstractionLevel": "Event-driven eligibility-trace synaptic plasticity",
+      "biologicalInterpretation": "Modifies synaptic weights based on millisecond pre- and postsynaptic spike timing differences with additive, multiplicative, or triplet rules.",
+      "governingEquationIds": [
+        "EQ-069",
+        "EQ-070",
+        "EQ-071",
+        "EQ-072"
+      ],
+      "stateVariables": [
+        {
+          "symbol": "w",
+          "name": "Synaptic weight",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "x_pre",
+          "name": "Presynaptic trace",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "y_post",
+          "name": "Postsynaptic trace",
+          "unit": "dimensionless"
+        }
+      ],
+      "parameterIds": [
+        "PARAM-070",
+        "PARAM-071",
+        "PARAM-072",
+        "PARAM-073"
+      ],
+      "initialConditions": {
+        "w": 0.5,
+        "x_pre": 0.0,
+        "y_post": 0.0
+      },
+      "numericalMethod": {
+        "defaultSolver": "SOLVER-HYBRID-SPIKE",
+        "supportedSolvers": [
+          "SOLVER-HYBRID-SPIKE"
+        ],
+        "defaultDtMs": 0.1,
+        "minDtMs": 0.01,
+        "maxSafeDtMs": 0.5
+      },
+      "computeEnvelope": {
+        "maxUnitsInBrowser": 5000,
+        "maxDurationMs": 20000,
+        "workerMemoryBudgetMb": 128
+      },
+      "assumptions": [
+        "Operates at Event-driven eligibility-trace synaptic plasticity abstraction scale (L4).",
+        "Parameters represent canonical literature or benchmark defaults with explicit units."
+      ],
+      "limitations": [
+        "Does not represent whole-human-brain cellular complexity or clinical patient variability.",
+        "Browser execution safely bounded to <= 5000 units and <= 20000 ms per run."
+      ],
+      "validityDomain": [
+        "Modifies synaptic weights based on millisecond pre- and postsynaptic spike timing differences with additive, multiplicative, or triplet rules."
+      ],
+      "validationCaseIds": [
+        "VAL-STDP-001"
+      ],
+      "references": [
+        "REF-BI-POO-1998",
+        "REF-GERSTNER-2014"
+      ],
+      "version": "1.0.0",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MODEL-025",
+      "name": "Multiplicative Homeostatic Synaptic Scaling Model",
+      "modelFamilyId": "FAM-13",
+      "modelFamilyName": "Rate & Homeostatic Plasticity",
+      "primaryScale": "L4",
+      "abstractionLevel": "Slow negative-feedback firing-rate sensor and weight scaling ODE",
+      "biologicalInterpretation": "Stabilizes mean neuronal firing rate around a biological set-point while preserving relative Hebbian weight differences.",
+      "governingEquationIds": [
+        "EQ-073"
+      ],
+      "stateVariables": [
+        {
+          "symbol": "r_bar",
+          "name": "Filtered firing rate sensor",
+          "unit": "Hz"
+        },
+        {
+          "symbol": "w_i",
+          "name": "Excitatory synaptic weights",
+          "unit": "dimensionless"
+        }
+      ],
+      "parameterIds": [
+        "PARAM-074",
+        "PARAM-075"
+      ],
+      "initialConditions": {
+        "r_bar": 5.0,
+        "w_mean": 0.5
+      },
+      "numericalMethod": {
+        "defaultSolver": "SOLVER-RK4",
+        "supportedSolvers": [
+          "SOLVER-RK4",
+          "SOLVER-FE"
+        ],
+        "defaultDtMs": 1.0,
+        "minDtMs": 0.1,
+        "maxSafeDtMs": 5.0
+      },
+      "computeEnvelope": {
+        "maxUnitsInBrowser": 2000,
+        "maxDurationMs": 50000,
+        "workerMemoryBudgetMb": 64
+      },
+      "assumptions": [
+        "Operates at Slow negative-feedback firing-rate sensor and weight scaling ODE abstraction scale (L4).",
+        "Parameters represent canonical literature or benchmark defaults with explicit units."
+      ],
+      "limitations": [
+        "Does not represent whole-human-brain cellular complexity or clinical patient variability.",
+        "Browser execution safely bounded to <= 2000 units and <= 50000 ms per run."
+      ],
+      "validityDomain": [
+        "Stabilizes mean neuronal firing rate around a biological set-point while preserving relative Hebbian weight differences."
+      ],
+      "validationCaseIds": [
+        "VAL-STDP-001"
+      ],
+      "references": [
+        "REF-TURRIGIANO-2008"
+      ],
+      "version": "1.0.0",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MODEL-026",
+      "name": "Dopamine Reward-Prediction-Error (TD-RL) Three-Factor Model",
+      "modelFamilyId": "FAM-15",
+      "modelFamilyName": "Reinforcement & Predictive Learning",
+      "primaryScale": "L9",
+      "abstractionLevel": "Temporal-difference value learning and three-factor eligibility trace model",
+      "biologicalInterpretation": "Models VTA dopaminergic RPE bursts/pauses gating corticostriatal synaptic plasticity during conditioning and decision tasks.",
+      "governingEquationIds": [
+        "EQ-074",
+        "EQ-075"
+      ],
+      "stateVariables": [
+        {
+          "symbol": "V_s",
+          "name": "State value vector",
+          "unit": "reward_unit"
+        },
+        {
+          "symbol": "delta",
+          "name": "Reward prediction error",
+          "unit": "reward_unit"
+        },
+        {
+          "symbol": "e_ij",
+          "name": "Eligibility trace",
+          "unit": "dimensionless"
+        }
+      ],
+      "parameterIds": [
+        "PARAM-076",
+        "PARAM-077",
+        "PARAM-078"
+      ],
+      "initialConditions": {
+        "V_0": 0.0,
+        "delta": 0.0,
+        "e_ij": 0.0
+      },
+      "numericalMethod": {
+        "defaultSolver": "SOLVER-RK4",
+        "supportedSolvers": [
+          "SOLVER-RK4",
+          "SOLVER-FE"
+        ],
+        "defaultDtMs": 1.0,
+        "minDtMs": 0.1,
+        "maxSafeDtMs": 10.0
+      },
+      "computeEnvelope": {
+        "maxUnitsInBrowser": 500,
+        "maxDurationMs": 50000,
+        "workerMemoryBudgetMb": 64
+      },
+      "assumptions": [
+        "Operates at Temporal-difference value learning and three-factor eligibility trace model abstraction scale (L9).",
+        "Parameters represent canonical literature or benchmark defaults with explicit units."
+      ],
+      "limitations": [
+        "Does not represent whole-human-brain cellular complexity or clinical patient variability.",
+        "Browser execution safely bounded to <= 500 units and <= 50000 ms per run."
+      ],
+      "validityDomain": [
+        "Models VTA dopaminergic RPE bursts/pauses gating corticostriatal synaptic plasticity during conditioning and decision tasks."
+      ],
+      "validationCaseIds": [
+        "VAL-TDRL-001"
+      ],
+      "references": [
+        "REF-SCHULTZ-1997",
+        "REF-SUTTON-BARTO-2018"
+      ],
+      "version": "1.0.0",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MODEL-027",
+      "name": "Kuramoto Coupled Phase Oscillator Network",
+      "modelFamilyId": "FAM-16",
+      "modelFamilyName": "Coupled Neural Oscillators & Graphs",
+      "primaryScale": "L8",
+      "abstractionLevel": "N-node delay-coupled phase oscillator ODE/SDE system",
+      "biologicalInterpretation": "Models emergence of macroscopic phase synchronization and metastability across coupled neural oscillators on a graph.",
+      "governingEquationIds": [
+        "EQ-060",
+        "EQ-061",
+        "EQ-062"
+      ],
+      "stateVariables": [
+        {
+          "symbol": "theta_i",
+          "name": "Node phase angles (i=1..N)",
+          "unit": "rad"
+        },
+        {
+          "symbol": "R",
+          "name": "Global order parameter",
+          "unit": "dimensionless"
+        }
+      ],
+      "parameterIds": [
+        "PARAM-079",
+        "PARAM-080",
+        "PARAM-081"
+      ],
+      "initialConditions": {
+        "R": 0.1
+      },
+      "numericalMethod": {
+        "defaultSolver": "SOLVER-RK4",
+        "supportedSolvers": [
+          "SOLVER-RK4",
+          "SOLVER-EULER-MARUYAMA"
+        ],
+        "defaultDtMs": 0.5,
+        "minDtMs": 0.05,
+        "maxSafeDtMs": 2.0
+      },
+      "computeEnvelope": {
+        "maxUnitsInBrowser": 200,
+        "maxDurationMs": 30000,
+        "workerMemoryBudgetMb": 64
+      },
+      "assumptions": [
+        "Operates at N-node delay-coupled phase oscillator ODE/SDE system abstraction scale (L8).",
+        "Parameters represent canonical literature or benchmark defaults with explicit units."
+      ],
+      "limitations": [
+        "Does not represent whole-human-brain cellular complexity or clinical patient variability.",
+        "Browser execution safely bounded to <= 200 units and <= 30000 ms per run."
+      ],
+      "validityDomain": [
+        "Models emergence of macroscopic phase synchronization and metastability across coupled neural oscillators on a graph."
+      ],
+      "validationCaseIds": [
+        "VAL-KURAMOTO-001"
+      ],
+      "references": [
+        "REF-KURAMOTO-1984",
+        "REF-BREAKSPEAR-2017"
+      ],
+      "version": "1.0.0",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "MODEL-028",
+      "name": "Connectome Graph Diffusion & Structural-to-Functional Model",
+      "modelFamilyId": "FAM-16",
+      "modelFamilyName": "Coupled Neural Oscillators & Graphs",
+      "primaryScale": "L8",
+      "abstractionLevel": "Connectome Laplacian diffusion & spatial autoregressive network model",
+      "biologicalInterpretation": "Propagates activity over a parcellated structural connectome W, predicting functional connectivity FC and lesion robustness.",
+      "governingEquationIds": [
+        "EQ-079",
+        "EQ-080",
+        "EQ-081",
+        "EQ-082",
+        "EQ-083",
+        "EQ-084",
+        "EQ-085",
+        "EQ-086"
+      ],
+      "stateVariables": [
+        {
+          "symbol": "x_i",
+          "name": "Regional neural activity (i=1..N)",
+          "unit": "dimensionless"
+        },
+        {
+          "symbol": "FC_ij",
+          "name": "Predicted functional correlation matrix",
+          "unit": "dimensionless"
+        }
+      ],
+      "parameterIds": [
+        "PARAM-082",
+        "PARAM-083",
+        "PARAM-084"
+      ],
+      "initialConditions": {
+        "x_mean": 0.0
+      },
+      "numericalMethod": {
+        "defaultSolver": "SOLVER-RK4",
+        "supportedSolvers": [
+          "SOLVER-RK4",
+          "SOLVER-EULER-MARUYAMA"
+        ],
+        "defaultDtMs": 0.5,
+        "minDtMs": 0.1,
+        "maxSafeDtMs": 2.0
+      },
+      "computeEnvelope": {
+        "maxUnitsInBrowser": 180,
+        "maxDurationMs": 30000,
+        "workerMemoryBudgetMb": 64
+      },
+      "assumptions": [
+        "Operates at Connectome Laplacian diffusion & spatial autoregressive network model abstraction scale (L8).",
+        "Parameters represent canonical literature or benchmark defaults with explicit units."
+      ],
+      "limitations": [
+        "Does not represent whole-human-brain cellular complexity or clinical patient variability.",
+        "Browser execution safely bounded to <= 180 units and <= 30000 ms per run."
+      ],
+      "validityDomain": [
+        "Propagates activity over a parcellated structural connectome W, predicting functional connectivity FC and lesion robustness."
+      ],
+      "validationCaseIds": [
+        "VAL-GRAPH-001"
+      ],
+      "references": [
+        "REF-SANZ-LEON-2013",
+        "REF-RUBINOV-2010",
+        "REF-BREAKSPEAR-2017"
+      ],
+      "version": "1.0.0",
+      "schemaVersion": "1.0.0"
+    }
+  ]
+}

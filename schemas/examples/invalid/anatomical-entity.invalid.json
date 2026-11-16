@@ -1,0 +1,9 @@
+{
+  "$schemaRef": "anatomy/anatomical-entity.schema.json",
+  "expectedErrorReason": "Invalid ID pattern (bad-id) and missing required fields",
+  "payload": {
+    "id": "bad-id",
+    "canonicalName": "H",
+    "schemaVersion": "1.0.0"
+  }
+}

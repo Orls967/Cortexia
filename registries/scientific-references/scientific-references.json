@@ -1,0 +1,1581 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "REF-HH-1952",
+      "title": "A quantitative description of membrane current and its application to conduction and excitation in nerve",
+      "authors": "Hodgkin, A. L., & Huxley, A. F.",
+      "year": 1952,
+      "venue": "The Journal of Physiology",
+      "identifier": "10.1113/jphysiol.1952.sp004764",
+      "doi": "10.1113/jphysiol.1952.sp004764",
+      "url": "https://doi.org/10.1113/jphysiol.1952.sp004764",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Electrophysiology",
+        "Action Potential",
+        "Hodgkin-Huxley"
+      ],
+      "claimsSupported": "Governing membrane current equation, m3h Na+ and n4 K+ gating kinetics, squid giant axon parameters",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-FITZHUGH-1961",
+      "title": "Impulses and physiological states in theoretical models of nerve membrane",
+      "authors": "FitzHugh, R.",
+      "year": 1961,
+      "venue": "Biophysical Journal",
+      "identifier": "10.1016/S0006-3495(61)86902-6",
+      "doi": "10.1016/S0006-3495(61)86902-6",
+      "url": "https://doi.org/10.1016/S0006-3495(61)86902-6",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Dynamical Systems",
+        "Phase Plane",
+        "FitzHugh-Nagumo"
+      ],
+      "claimsSupported": "2D cubic-linear phase-plane reduction of excitable nerve membranes",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-NAGUMO-1962",
+      "title": "An active pulse transmission line simulating nerve axon",
+      "authors": "Nagumo, J., Arimoto, S., & Yoshizawa, S.",
+      "year": 1962,
+      "venue": "Proceedings of the IRE",
+      "identifier": "10.1109/JRPROC.1962.288235",
+      "doi": "10.1109/JRPROC.1962.288235",
+      "url": "https://doi.org/10.1109/JRPROC.1962.288235",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Excitable Media",
+        "FitzHugh-Nagumo"
+      ],
+      "claimsSupported": "Active pulse propagation and circuit realization of the FitzHugh-Nagumo equations",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-MORRIS-LECAR-1981",
+      "title": "Voltage oscillations in the barnacle giant muscle fiber",
+      "authors": "Morris, C., & Lecar, H.",
+      "year": 1981,
+      "venue": "Biophysical Journal",
+      "identifier": "10.1016/S0006-3495(81)84782-0",
+      "doi": "10.1016/S0006-3495(81)84782-0",
+      "url": "https://doi.org/10.1016/S0006-3495(81)84782-0",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Conductance Models",
+        "Bifurcations",
+        "Morris-Lecar"
+      ],
+      "claimsSupported": "2D Ca2+/K+ conductance model and Type I vs Type II oscillatory bifurcations",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-ABBOTT-1999",
+      "title": "Lapicque's introduction of the integrate-and-fire model neuron (1907)",
+      "authors": "Abbott, L. F.",
+      "year": 1999,
+      "venue": "Brain Research Bulletin",
+      "identifier": "10.1016/S0361-9230(99)00161-6",
+      "doi": "10.1016/S0361-9230(99)00161-6",
+      "url": "https://doi.org/10.1016/S0361-9230(99)00161-6",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "LIF",
+        "Spiking Neurons"
+      ],
+      "claimsSupported": "Historical and mathematical formulation of leaky integrate-and-fire models",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-BRETTE-GERSTNER-2005",
+      "title": "Adaptive exponential integrate-and-fire model as an effective description of neuronal activity",
+      "authors": "Brette, R., & Gerstner, W.",
+      "year": 2005,
+      "venue": "Journal of Neurophysiology",
+      "identifier": "10.1152/jn.00686.2005",
+      "doi": "10.1152/jn.00686.2005",
+      "url": "https://doi.org/10.1152/jn.00686.2005",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "AdEx",
+        "Spike Adaptation"
+      ],
+      "claimsSupported": "AdEx exponential spike initiation and subthreshold/spike-triggered adaptation equations",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-IZHIKEVICH-2003",
+      "title": "Simple model of spiking neurons",
+      "authors": "Izhikevich, E. M.",
+      "year": 2003,
+      "venue": "IEEE Transactions on Neural Networks",
+      "identifier": "10.1109/TNN.2003.820440",
+      "doi": "10.1109/TNN.2003.820440",
+      "url": "https://doi.org/10.1109/TNN.2003.820440",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Izhikevich Model",
+        "Firing Patterns"
+      ],
+      "claimsSupported": "2D quadratic spiking model and canonical RS, IB, CH, FS, LTS parameter regimes",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-RALL-1962",
+      "title": "Theory of physiological properties of dendrites",
+      "authors": "Rall, W.",
+      "year": 1962,
+      "venue": "Annals of the New York Academy of Sciences",
+      "identifier": "10.1111/j.1749-6632.1962.tb54120.x",
+      "doi": "10.1111/j.1749-6632.1962.tb54120.x",
+      "url": "https://doi.org/10.1111/j.1749-6632.1962.tb54120.x",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Dendrites",
+        "Cable Theory"
+      ],
+      "claimsSupported": "Passive cable PDE, electrotonic length constant, and 3/2 power law dendritic branching",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-DESTEXHE-1994",
+      "title": "Synthesis of models for excitable membranes, synaptic transmission and neuromodulation using a common kinetic formalism",
+      "authors": "Destexhe, A., Mainen, Z. F., & Sejnowski, T. J.",
+      "year": 1994,
+      "venue": "Journal of Computational Neuroscience",
+      "identifier": "10.1007/BF00961734",
+      "doi": "10.1007/BF00961734",
+      "url": "https://doi.org/10.1007/BF00961734",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Synaptic Models",
+        "AMPA",
+        "NMDA",
+        "GABA"
+      ],
+      "claimsSupported": "Kinetic Markov and bi-exponential conductance formulations for AMPA, NMDA, and GABA synapses",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-TSODYKS-1997",
+      "title": "The neural code between neocortical pyramidal neurons depends on neurotransmitter release probability",
+      "authors": "Tsodyks, M. V., & Markram, H.",
+      "year": 1997,
+      "venue": "Proceedings of the National Academy of Sciences",
+      "identifier": "10.1073/pnas.94.2.719",
+      "doi": "10.1073/pnas.94.2.719",
+      "url": "https://doi.org/10.1073/pnas.94.2.719",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Short-Term Plasticity",
+        "Synaptic Depression"
+      ],
+      "claimsSupported": "Tsodyks-Markram short-term synaptic depression and facilitation equations",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-WILSON-COWAN-1972",
+      "title": "Excitatory and inhibitory interactions in localized populations of model neurons",
+      "authors": "Wilson, H. R., & Cowan, J. D.",
+      "year": 1972,
+      "venue": "Biophysical Journal",
+      "identifier": "10.1016/S0006-3495(72)86068-5",
+      "doi": "10.1016/S0006-3495(72)86068-5",
+      "url": "https://doi.org/10.1016/S0006-3495(72)86068-5",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Population Models",
+        "Wilson-Cowan"
+      ],
+      "claimsSupported": "Coupled excitatory-inhibitory population rate ODEs, nullclines, bistability, and limit cycles",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-JANSEN-RIT-1995",
+      "title": "Electroencephalogram and visual evoked potential generation in a mathematical model of coupled cortical columns",
+      "authors": "Jansen, B. H., & Rit, V. G.",
+      "year": 1995,
+      "venue": "Biological Cybernetics",
+      "identifier": "10.1007/BF00199471",
+      "doi": "10.1007/BF00199471",
+      "url": "https://doi.org/10.1007/BF00199471",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Neural Mass",
+        "EEG Alpha",
+        "Jansen-Rit"
+      ],
+      "claimsSupported": "Three-population cortical column neural mass model generating alpha rhythms and VEPs",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-BRUNEL-2000",
+      "title": "Dynamics of sparsely connected networks of excitatory and inhibitory spiking neurons",
+      "authors": "Brunel, N.",
+      "year": 2000,
+      "venue": "Journal of Computational Neuroscience",
+      "identifier": "10.1023/A:1008925309027",
+      "doi": "10.1023/A:1008925309027",
+      "url": "https://doi.org/10.1023/A:1008925309027",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Spiking Networks",
+        "E/I Balance"
+      ],
+      "claimsSupported": "Phase diagram of sparse recurrent E/I networks (SR, AI, SI-fast, SI-slow regimes)",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-VANVREESWIJK-1996",
+      "title": "Chaos in neuronal networks with balanced excitatory and inhibitory activity",
+      "authors": "van Vreeswijk, C., & Sompolinsky, H.",
+      "year": 1996,
+      "venue": "Science",
+      "identifier": "10.1126/science.274.5293.1724",
+      "doi": "10.1126/science.274.5293.1724",
+      "url": "https://doi.org/10.1126/science.274.5293.1724",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Balanced Networks",
+        "Asynchronous Irregular"
+      ],
+      "claimsSupported": "Theoretical foundation of fluctuation-driven balanced excitatory and inhibitory cortical dynamics",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-VOGELS-2011",
+      "title": "Inhibitory plasticity balances excitation and inhibition in sensory pathways and memory networks",
+      "authors": "Vogels, T. P., Sprekeler, H., Zenke, F., Clopath, C., & Gerstner, W.",
+      "year": 2011,
+      "venue": "Science",
+      "identifier": "10.1126/science.1211095",
+      "doi": "10.1126/science.1211095",
+      "url": "https://doi.org/10.1126/science.1211095",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Inhibitory Plasticity",
+        "E/I Balance"
+      ],
+      "claimsSupported": "Symmetric inhibitory STDP rule stabilizing cortical E/I balance around target firing rate",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-BI-POO-1998",
+      "title": "Synaptic modifications in cultured hippocampal neurons: dependence on spike timing, synaptic strength, and postsynaptic cell type",
+      "authors": "Bi, G. Q., & Poo, M. M.",
+      "year": 1998,
+      "venue": "The Journal of Neuroscience",
+      "identifier": "10.1523/JNEUROSCI.18-24-10464.1998",
+      "doi": "10.1523/JNEUROSCI.18-24-10464.1998",
+      "url": "https://doi.org/10.1523/JNEUROSCI.18-24-10464.1998",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "STDP",
+        "Synaptic Plasticity"
+      ],
+      "claimsSupported": "Asymmetric millisecond timing window for LTP and LTD in pair-based STDP",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-BLISS-LOMO-1973",
+      "title": "Long-lasting potentiation of synaptic transmission in the dentate area of the anaesthetized rabbit following stimulation of the perforant path",
+      "authors": "Bliss, T. V. P., & L\u00f8mo, T.",
+      "year": 1973,
+      "venue": "The Journal of Physiology",
+      "identifier": "10.1113/jphysiol.1973.sp010273",
+      "doi": "10.1113/jphysiol.1973.sp010273",
+      "url": "https://doi.org/10.1113/jphysiol.1973.sp010273",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "LTP",
+        "Hippocampus"
+      ],
+      "claimsSupported": "Discovery and physiological characterization of hippocampal long-term potentiation",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-OJA-1982",
+      "title": "Simplified neuron model as a principal component analyzer",
+      "authors": "Oja, E.",
+      "year": 1982,
+      "venue": "Journal of Mathematical Biology",
+      "identifier": "10.1007/BF00275687",
+      "doi": "10.1007/BF00275687",
+      "url": "https://doi.org/10.1007/BF00275687",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Hebbian Plasticity",
+        "PCA"
+      ],
+      "claimsSupported": "Multiplicatively normalized Hebbian learning rule converging to first principal eigenvector",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-BCM-1982",
+      "title": "Theory for the development of neuron selectivity: orientation specificity and binocular interaction in visual cortex",
+      "authors": "Bienenstock, E. L., Cooper, L. N., & Munro, P. W.",
+      "year": 1982,
+      "venue": "The Journal of Neuroscience",
+      "identifier": "10.1523/JNEUROSCI.02-01-00032.1982",
+      "doi": "10.1523/JNEUROSCI.02-01-00032.1982",
+      "url": "https://doi.org/10.1523/JNEUROSCI.02-01-00032.1982",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "BCM Plasticity",
+        "Visual Cortex"
+      ],
+      "claimsSupported": "Sliding modification threshold rule stabilizing bidirectional LTP/LTD",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-TURRIGIANO-2008",
+      "title": "The self-tuning neuron: synaptic scaling of excitatory synapses",
+      "authors": "Turrigiano, G. G.",
+      "year": 2008,
+      "venue": "Cell",
+      "identifier": "10.1016/j.cell.2008.10.008",
+      "doi": "10.1016/j.cell.2008.10.008",
+      "url": "https://doi.org/10.1016/j.cell.2008.10.008",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Homeostatic Plasticity",
+        "Synaptic Scaling"
+      ],
+      "claimsSupported": "Multiplicative homeostatic synaptic scaling stabilizing firing rates against Hebbian runaway",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-SCHULTZ-1997",
+      "title": "A neural substrate of prediction and reward",
+      "authors": "Schultz, W., Dayan, P., & Montague, P. R.",
+      "year": 1997,
+      "venue": "Science",
+      "identifier": "10.1126/science.275.5306.1593",
+      "doi": "10.1126/science.275.5306.1593",
+      "url": "https://doi.org/10.1126/science.275.5306.1593",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Dopamine",
+        "Reward Prediction Error",
+        "Reinforcement Learning"
+      ],
+      "claimsSupported": "Midbrain dopamine neurons encode temporal-difference reward prediction error",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-KURAMOTO-1984",
+      "title": "Cooperative phenomena in coupled oscillator systems under external fields",
+      "authors": "Kuramoto, Y., & Acebr\u00f3n, J. A. et al.",
+      "year": 2005,
+      "venue": "Reviews of Modern Physics",
+      "identifier": "10.1103/RevModPhys.77.137",
+      "doi": "10.1103/RevModPhys.77.137",
+      "url": "https://doi.org/10.1103/RevModPhys.77.137",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Kuramoto Model",
+        "Synchronization"
+      ],
+      "claimsSupported": "Canonical coupled phase-oscillator equations and order parameter synchronization threshold",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-WATTS-STROGATZ-1998",
+      "title": "Collective dynamics of 'small-world' networks",
+      "authors": "Watts, D. J., & Strogatz, S. H.",
+      "year": 1998,
+      "venue": "Nature",
+      "identifier": "10.1038/30918",
+      "doi": "10.1038/30918",
+      "url": "https://doi.org/10.1038/30918",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Small-World Networks",
+        "Graph Theory"
+      ],
+      "claimsSupported": "Small-world network rewiring model combining high clustering and short path length",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-NEWMAN-2006",
+      "title": "Modularity and community structure in networks",
+      "authors": "Newman, M. E. J.",
+      "year": 2006,
+      "venue": "Proceedings of the National Academy of Sciences",
+      "identifier": "10.1073/pnas.0601602103",
+      "doi": "10.1073/pnas.0601602103",
+      "url": "https://doi.org/10.1073/pnas.0601602103",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Modularity",
+        "Community Detection"
+      ],
+      "claimsSupported": "Modularity quality function Q and spectral/greedy community detection in complex networks",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-BULLMORE-2009",
+      "title": "Complex brain networks: graph theoretical analysis of structural and functional systems",
+      "authors": "Bullmore, E., & Sporns, O.",
+      "year": 2009,
+      "venue": "Nature Reviews Neuroscience",
+      "identifier": "10.1038/nrn2575",
+      "doi": "10.1038/nrn2575",
+      "url": "https://doi.org/10.1038/nrn2575",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Connectomics",
+        "Brain Networks"
+      ],
+      "claimsSupported": "Graph-theoretic principles of structural and functional brain network organization",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-RUBINOV-2010",
+      "title": "Complex network measures of brain connectivity: uses and interpretations",
+      "authors": "Rubinov, M., & Sporns, O.",
+      "year": 2010,
+      "venue": "NeuroImage",
+      "identifier": "10.1016/j.neuroimage.2009.10.003",
+      "doi": "10.1016/j.neuroimage.2009.10.003",
+      "url": "https://doi.org/10.1016/j.neuroimage.2009.10.003",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Graph Metrics",
+        "Connectomics"
+      ],
+      "claimsSupported": "Mathematical definitions of degree, clustering, path length, efficiency, centrality, and modularity",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-SPORNS-2005",
+      "title": "The Human Connectome: a structural description of the human brain",
+      "authors": "Sporns, O., Tononi, G., & K\u00f6tter, R.",
+      "year": 2005,
+      "venue": "PLoS Computational Biology",
+      "identifier": "10.1371/journal.pcbi.0010042",
+      "doi": "10.1371/journal.pcbi.0010042",
+      "url": "https://doi.org/10.1371/journal.pcbi.0010042",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Human Connectome",
+        "Structural Connectivity"
+      ],
+      "claimsSupported": "Foundational definition of the multi-scale structural human connectome",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-SANZ-LEON-2013",
+      "title": "The Virtual Brain: a simulator of primate brain network dynamics",
+      "authors": "Sanz-Leon, P., Knock, S. A., Woodman, M. M., et al.",
+      "year": 2013,
+      "venue": "Frontiers in Neuroinformatics",
+      "identifier": "10.3389/fninf.2013.00010",
+      "doi": "10.3389/fninf.2013.00010",
+      "url": "https://doi.org/10.3389/fninf.2013.00010",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Brain Network Simulation",
+        "Connectome Coupling"
+      ],
+      "claimsSupported": "Connectome-based neural mass coupling with tract delays and forward EEG/fMRI projections",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-BREAKSPEAR-2017",
+      "title": "Dynamic models of large-scale brain activity",
+      "authors": "Breakspear, M.",
+      "year": 2017,
+      "venue": "Nature Neuroscience",
+      "identifier": "10.1038/nn.4497",
+      "doi": "10.1038/nn.4497",
+      "url": "https://doi.org/10.1038/nn.4497",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Multi-Scale Modeling",
+        "Whole-Brain Dynamics"
+      ],
+      "claimsSupported": "Mathematical hierarchy linking microscopic spiking neurons, neural masses, and whole-brain connectomes",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-GOLDMAN-1943",
+      "title": "Potential, impedance, and rectification in membranes",
+      "authors": "Goldman, D. E.",
+      "year": 1943,
+      "venue": "Journal of General Physiology",
+      "identifier": "10.1085/jgp.27.1.37",
+      "doi": "10.1085/jgp.27.1.37",
+      "url": "https://doi.org/10.1085/jgp.27.1.37",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Membrane Potential",
+        "GHK Equation"
+      ],
+      "claimsSupported": "Constant-field electrodiffusion derivation of resting membrane potential",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-HODGKIN-KATZ-1949",
+      "title": "The effect of sodium ions on the electrical activity of the giant axon of the squid",
+      "authors": "Hodgkin, A. L., & Katz, B.",
+      "year": 1949,
+      "venue": "The Journal of Physiology",
+      "identifier": "10.1113/jphysiol.1949.sp004310",
+      "doi": "10.1113/jphysiol.1949.sp004310",
+      "url": "https://doi.org/10.1113/jphysiol.1949.sp004310",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "GHK Equation",
+        "Sodium Hypothesis"
+      ],
+      "claimsSupported": "Goldman-Hodgkin-Katz voltage equation and role of Na+ permeability in action potential overshoot",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-CATTERALL-2012",
+      "title": "Voltage-gated sodium channels at 60: structure, function and pathophysiology",
+      "authors": "Catterall, W. A.",
+      "year": 2012,
+      "venue": "The Journal of Physiology",
+      "identifier": "10.1113/jphysiol.2011.224204",
+      "doi": "10.1113/jphysiol.2011.224204",
+      "url": "https://doi.org/10.1113/jphysiol.2011.224204",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Sodium Channels",
+        "NaV Isoforms"
+      ],
+      "claimsSupported": "Structure, S4 voltage sensor, and fast inactivation mechanism of voltage-gated Na+ channels",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-SUDHOF-2013",
+      "title": "Neurotransmitter release: the last millisecond in the life of a synaptic vesicle",
+      "authors": "S\u00fcdhof, T. C.",
+      "year": 2013,
+      "venue": "Neuron",
+      "identifier": "10.1016/j.neuron.2013.10.022",
+      "doi": "10.1016/j.neuron.2013.10.022",
+      "url": "https://doi.org/10.1016/j.neuron.2013.10.022",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Synaptic Vesicle Cycle",
+        "SNARE",
+        "Synaptotagmin"
+      ],
+      "claimsSupported": "Molecular machinery of active zone docking, SNARE assembly, and Ca2+-triggered synaptotagmin fusion",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-TRAYNELIS-2010",
+      "title": "Glutamate receptor ion channels: structure, regulation, and function",
+      "authors": "Traynelis, S. F., Wollmuth, L. P., McBain, C. J., et al.",
+      "year": 2010,
+      "venue": "Pharmacological Reviews",
+      "identifier": "10.1124/pr.109.002451",
+      "doi": "10.1124/pr.109.002451",
+      "url": "https://doi.org/10.1124/pr.109.002451",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "AMPA",
+        "NMDA",
+        "Kainate",
+        "Glutamate"
+      ],
+      "claimsSupported": "Biophysics, subunit composition, and Mg2+ block of ionotropic glutamate receptors",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-SIGEL-2012",
+      "title": "Structure, function, and modulation of GABAA receptors",
+      "authors": "Sigel, E., & Steinmann, M. E.",
+      "year": 2012,
+      "venue": "Journal of Biological Chemistry",
+      "identifier": "10.1074/jbc.R112.386664",
+      "doi": "10.1074/jbc.R112.386664",
+      "url": "https://doi.org/10.1074/jbc.R112.386664",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "GABA_A Receptor",
+        "Chloride Inhibition"
+      ],
+      "claimsSupported": "Pentameric structure and chloride conductance gating of GABAA receptors",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-ARAQUE-1999",
+      "title": "Tripartite synapses: glia, the unacknowledged partner",
+      "authors": "Araque, A., Parpura, V., Sanzgiri, R. P., & Haydon, P. G.",
+      "year": 1999,
+      "venue": "Trends in Neurosciences",
+      "identifier": "10.1016/S0166-2236(98)01349-6",
+      "doi": "10.1016/S0166-2236(98)01349-6",
+      "url": "https://doi.org/10.1016/S0166-2236(98)01349-6",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Astrocytes",
+        "Tripartite Synapse"
+      ],
+      "claimsSupported": "Bidirectional signaling between presynaptic, postsynaptic, and astrocytic compartments",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-RANSOHOFF-2016",
+      "title": "How neuroinflammation contributes to neurodegeneration",
+      "authors": "Ransohoff, R. M.",
+      "year": 2016,
+      "venue": "Science",
+      "identifier": "10.1126/science.aag2590",
+      "doi": "10.1126/science.aag2590",
+      "url": "https://doi.org/10.1126/science.aag2590",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Microglia",
+        "Neuroimmunology"
+      ],
+      "claimsSupported": "Microglial homeostatic surveillance, inflammatory signaling, and critique of binary polarization",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-IADECOLA-2017",
+      "title": "The Neurovascular Unit Coming of Age: A Journey through Neurovascular Coupling in Health and Disease",
+      "authors": "Iadecola, C.",
+      "year": 2017,
+      "venue": "Neuron",
+      "identifier": "10.1016/j.neuron.2017.07.030",
+      "doi": "10.1016/j.neuron.2017.07.030",
+      "url": "https://doi.org/10.1016/j.neuron.2017.07.030",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Neurovascular Unit",
+        "fMRI BOLD"
+      ],
+      "claimsSupported": "Cellular and molecular mechanisms of neurovascular coupling and hemodynamic responses",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-KIPNIS-2016",
+      "title": "Multifaceted interactions between adaptive immunity and the central nervous system",
+      "authors": "Kipnis, J.",
+      "year": 2016,
+      "venue": "Science",
+      "identifier": "10.1126/science.aag2638",
+      "doi": "10.1126/science.aag2638",
+      "url": "https://doi.org/10.1126/science.aag2638",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Neuroimmunology",
+        "Meningeal Immunity"
+      ],
+      "claimsSupported": "Meningeal lymphatic vessels and adaptive immune-neural interactions",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-SILBEREIS-2016",
+      "title": "The cellular and molecular landscapes of the developing human central nervous system",
+      "authors": "Silbereis, J. C., Pochareddy, S., Zhu, Y., Li, M., & Sestan, N.",
+      "year": 2016,
+      "venue": "Neuron",
+      "identifier": "10.1016/j.neuron.2015.12.008",
+      "doi": "10.1016/j.neuron.2015.12.008",
+      "url": "https://doi.org/10.1016/j.neuron.2015.12.008",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Developmental Neuroscience",
+        "Corticogenesis"
+      ],
+      "claimsSupported": "Spatiotemporal neurogenesis, migration, synaptogenesis, and myelination in human brain development",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-GAGE-2019",
+      "title": "Adult neurogenesis in mammals",
+      "authors": "Gage, F. H.",
+      "year": 2019,
+      "venue": "Science",
+      "identifier": "10.1126/science.aav6885",
+      "doi": "10.1126/science.aav6885",
+      "url": "https://doi.org/10.1126/science.aav6885",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Adult Neurogenesis",
+        "Dentate Gyrus"
+      ],
+      "claimsSupported": "Mechanisms and species comparisons of mammalian adult hippocampal neurogenesis",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-TAKAHASHI-2017",
+      "title": "Transcriptional architecture of the mammalian circadian clock",
+      "authors": "Takahashi, J. S.",
+      "year": 2017,
+      "venue": "Nature Reviews Genetics",
+      "identifier": "10.1038/nrg.2016.150",
+      "doi": "10.1038/nrg.2016.150",
+      "url": "https://doi.org/10.1038/nrg.2016.150",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Circadian Neuroscience",
+        "SCN"
+      ],
+      "claimsSupported": "CLOCK:BMAL1 and PER:CRY transcriptional-translational feedback loops in the suprachiasmatic nucleus",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-SCAMMELL-2017",
+      "title": "Neural circuitry of wakefulness and sleep",
+      "authors": "Scammell, T. E., Arrigoni, E., & Lipton, J. O.",
+      "year": 2017,
+      "venue": "Neuron",
+      "identifier": "10.1016/j.neuron.2017.01.014",
+      "doi": "10.1016/j.neuron.2017.01.014",
+      "url": "https://doi.org/10.1016/j.neuron.2017.01.014",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Sleep and Arousal",
+        "Hypothalamus"
+      ],
+      "claimsSupported": "Mutual inhibition flip-flop circuitry between ascending arousal nuclei, orexin, and VLPO",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-BASBAUM-2009",
+      "title": "Cellular and molecular mechanisms of pain",
+      "authors": "Basbaum, A. I., Bautista, D. M., Scherrer, G., & Julius, D.",
+      "year": 2009,
+      "venue": "Cell",
+      "identifier": "10.1016/j.cell.2009.09.028",
+      "doi": "10.1016/j.cell.2009.09.028",
+      "url": "https://doi.org/10.1016/j.cell.2009.09.028",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Pain Processing",
+        "Nociception"
+      ],
+      "claimsSupported": "Peripheral TRP/NaV nociceptors, dorsal horn sensitization, and descending PAG-RVM pain modulation",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-DOUGLAS-MARTIN-2004",
+      "title": "Neuronal circuits of the neocortex",
+      "authors": "Douglas, R. J., & Martin, K. A. C.",
+      "year": 2004,
+      "venue": "Annual Review of Neuroscience",
+      "identifier": "10.1146/annurev.neuro.27.070203.144152",
+      "doi": "10.1146/annurev.neuro.27.070203.144152",
+      "url": "https://doi.org/10.1146/annurev.neuro.27.070203.144152",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Cortical Microcircuit",
+        "Neocortex"
+      ],
+      "claimsSupported": "Canonical laminar L4-L2/3-L5-L6 excitation-inhibition microcircuit of neocortex",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-ALEXANDER-1986",
+      "title": "Parallel organization of functionally segregated circuits linking basal ganglia and cortex",
+      "authors": "Alexander, G. E., DeLong, M. R., & Strick, P. L.",
+      "year": 1986,
+      "venue": "Annual Review of Neuroscience",
+      "identifier": "10.1146/annurev.ne.09.030186.002041",
+      "doi": "10.1146/annurev.ne.09.030186.002041",
+      "url": "https://doi.org/10.1146/annurev.ne.09.030186.002041",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Basal Ganglia",
+        "Motor/Prefrontal Loops"
+      ],
+      "claimsSupported": "Parallel motor, oculomotor, prefrontal, and limbic cortico-basal ganglia-thalamocortical loops",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-FELLEMAN-VANESSEN-1991",
+      "title": "Distributed hierarchical processing in the primate cerebral cortex",
+      "authors": "Felleman, D. J., & Van Essen, D. C.",
+      "year": 1991,
+      "venue": "Cerebral Cortex",
+      "identifier": "10.1093/cercor/1.1.1",
+      "doi": "10.1093/cercor/1.1.1",
+      "url": "https://doi.org/10.1093/cercor/1.1.1",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Visual System",
+        "Cortical Hierarchy"
+      ],
+      "claimsSupported": "Laminar rules for feedforward vs feedback connections across hierarchical visual areas",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-SQUIRE-2004",
+      "title": "Memory systems of the brain: a brief history and current perspective",
+      "authors": "Squire, L. R.",
+      "year": 2004,
+      "venue": "Neurobiology of Learning and Memory",
+      "identifier": "10.1016/j.nlm.2004.06.005",
+      "doi": "10.1016/j.nlm.2004.06.005",
+      "url": "https://doi.org/10.1016/j.nlm.2004.06.005",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Memory Systems",
+        "Hippocampus",
+        "Striatum"
+      ],
+      "claimsSupported": "Taxonomy of declarative medial temporal vs non-declarative striatal/cerebellar/amygdala memory systems",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-BADDELEY-2003",
+      "title": "Working memory: looking back and looking forward",
+      "authors": "Baddeley, A.",
+      "year": 2003,
+      "venue": "Nature Reviews Neuroscience",
+      "identifier": "10.1038/nrn1201",
+      "doi": "10.1038/nrn1201",
+      "url": "https://doi.org/10.1038/nrn1201",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Working Memory",
+        "Executive Control"
+      ],
+      "claimsSupported": "Multicomponent working memory framework and frontoparietal substrates",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-MILLER-COHEN-2001",
+      "title": "An integrative theory of prefrontal cortex function",
+      "authors": "Miller, E. K., & Cohen, J. D.",
+      "year": 2001,
+      "venue": "Annual Review of Neuroscience",
+      "identifier": "10.1146/annurev.neuro.24.1.167",
+      "doi": "10.1146/annurev.neuro.24.1.167",
+      "url": "https://doi.org/10.1146/annurev.neuro.24.1.167",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Prefrontal Cortex",
+        "Cognitive Control"
+      ],
+      "claimsSupported": "Top-down active maintenance of task rules biasing competition in posterior pathways",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-CORBETTA-SHULMAN-2002",
+      "title": "Control of goal-directed and stimulus-driven attention in the brain",
+      "authors": "Corbetta, M., & Shulman, G. L.",
+      "year": 2002,
+      "venue": "Nature Reviews Neuroscience",
+      "identifier": "10.1038/nrn755",
+      "doi": "10.1038/nrn755",
+      "url": "https://doi.org/10.1038/nrn755",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Attention",
+        "Dorsal/Ventral Networks"
+      ],
+      "claimsSupported": "Segregation and interaction of dorsal FEF-IPS and ventral TPJ-VFC attention networks",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-PETERSEN-POSNER-2012",
+      "title": "The attention system of the human brain: 20 years after",
+      "authors": "Petersen, S. E., & Posner, M. I.",
+      "year": 2012,
+      "venue": "Annual Review of Neuroscience",
+      "identifier": "10.1146/annurev-neuro-062111-150525",
+      "doi": "10.1146/annurev-neuro-062111-150525",
+      "url": "https://doi.org/10.1146/annurev-neuro-062111-150525",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Attention",
+        "Executive Control"
+      ],
+      "claimsSupported": "Alerting, orienting, and frontoparietal/cingulo-opercular executive attention networks",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-HICKOK-POEPPEL-2007",
+      "title": "The cortical organization of speech processing",
+      "authors": "Hickok, G., & Poeppel, D.",
+      "year": 2007,
+      "venue": "Nature Reviews Neuroscience",
+      "identifier": "10.1038/nrn2113",
+      "doi": "10.1038/nrn2113",
+      "url": "https://doi.org/10.1038/nrn2113",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Language",
+        "Dual-Stream Model"
+      ],
+      "claimsSupported": "Ventral lexical-semantic and dorsal auditory-motor streams in human speech processing",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-RAICHLE-2015",
+      "title": "The brain's default mode network",
+      "authors": "Raichle, M. E.",
+      "year": 2015,
+      "venue": "Annual Review of Neuroscience",
+      "identifier": "10.1146/annurev-neuro-071013-014030",
+      "doi": "10.1146/annurev-neuro-071013-014030",
+      "url": "https://doi.org/10.1146/annurev-neuro-071013-014030",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Default Mode Network",
+        "Intrinsic Activity"
+      ],
+      "claimsSupported": "Anatomy, metabolism, and intrinsic dynamics of the default mode network (mPFC, PCC, angular gyrus)",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-DEHAENE-CHANGEUX-2011",
+      "title": "Experimental and theoretical approaches to conscious processing",
+      "authors": "Dehaene, S., & Changeux, J. P.",
+      "year": 2011,
+      "venue": "Neuron",
+      "identifier": "10.1016/j.neuron.2011.03.018",
+      "doi": "10.1016/j.neuron.2011.03.018",
+      "url": "https://doi.org/10.1016/j.neuron.2011.03.018",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Consciousness",
+        "Global Neuronal Workspace"
+      ],
+      "claimsSupported": "Global Neuronal Workspace hypothesis and late frontoparietal ignition markers",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-TONONI-2016",
+      "title": "Integrated information theory: from consciousness to its physical substrate",
+      "authors": "Tononi, G., Boly, M., Massimini, M., & Koch, C.",
+      "year": 2016,
+      "venue": "Nature Reviews Neuroscience",
+      "identifier": "10.1038/nrn.2016.44",
+      "doi": "10.1038/nrn.2016.44",
+      "url": "https://doi.org/10.1038/nrn.2016.44",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Consciousness",
+        "Integrated Information Theory"
+      ],
+      "claimsSupported": "Theoretical postulates and cause-effect structure of Integrated Information Theory",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-FRISTON-2010",
+      "title": "The free-energy principle: a unified brain theory?",
+      "authors": "Friston, K.",
+      "year": 2010,
+      "venue": "Nature Reviews Neuroscience",
+      "identifier": "10.1038/nrn2787",
+      "doi": "10.1038/nrn2787",
+      "url": "https://doi.org/10.1038/nrn2787",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Predictive Coding",
+        "Free Energy Principle"
+      ],
+      "claimsSupported": "Hierarchical generative models, prediction error minimization, and active inference",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-HUYS-2016",
+      "title": "Computational psychiatry as a bridge from neuroscience to clinical applications",
+      "authors": "Huys, Q. J. M., Maia, T. V., & Frank, M. J.",
+      "year": 2016,
+      "venue": "Nature Neuroscience",
+      "identifier": "10.1038/nn.4238",
+      "doi": "10.1038/nn.4238",
+      "url": "https://doi.org/10.1038/nn.4238",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Computational Psychiatry",
+        "Theory-Driven Modeling"
+      ],
+      "claimsSupported": "Biophysical and reinforcement-learning theoretical models in computational psychiatry",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-BUZSAKI-2012",
+      "title": "The origin of extracellular fields and currents \u2014 EEG, ECoG, LFP and spikes",
+      "authors": "Buzs\u00e1ki, G., Anastassiou, C. A., & Koch, C.",
+      "year": 2012,
+      "venue": "Nature Reviews Neuroscience",
+      "identifier": "10.1038/nrn3241",
+      "doi": "10.1038/nrn3241",
+      "url": "https://doi.org/10.1038/nrn3241",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "EEG",
+        "LFP",
+        "Extracellular Fields"
+      ],
+      "claimsSupported": "Biophysical origin of LFP and EEG from synchronous postsynaptic currents in pyramidal dendrites",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-WELCH-1967",
+      "title": "The use of fast Fourier transform for the estimation of power spectra: a method based on time averaging over short, modified periodograms",
+      "authors": "Welch, P. D.",
+      "year": 1967,
+      "venue": "IEEE Transactions on Audio and Electroacoustics",
+      "identifier": "10.1109/TAU.1967.1161901",
+      "doi": "10.1109/TAU.1967.1161901",
+      "url": "https://doi.org/10.1109/TAU.1967.1161901",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Welch PSD",
+        "Spectral Estimation"
+      ],
+      "claimsSupported": "Windowed overlapped periodogram averaging for variance-reduced power spectral density estimation",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-TALLON-BAUDRY-1996",
+      "title": "Stimulus specificity of phase-locked and non-phase-locked 40 Hz visual responses in human",
+      "authors": "Tallon-Baudry, C., Bertrand, O., Delpuech, C., & Pernier, J.",
+      "year": 1996,
+      "venue": "The Journal of Neuroscience",
+      "identifier": "10.1523/JNEUROSCI.16-13-04240.1996",
+      "doi": "10.1523/JNEUROSCI.16-13-04240.1996",
+      "url": "https://doi.org/10.1523/JNEUROSCI.16-13-04240.1996",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Morlet Wavelet",
+        "Time-Frequency Analysis"
+      ],
+      "claimsSupported": "Complex Morlet wavelet decomposition separating evoked phase-locked vs induced gamma oscillations",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-LACHAUX-1999",
+      "title": "Measuring phase synchrony in brain signals",
+      "authors": "Lachaux, J. P., Rodriguez, E., Martinerie, J., & Varela, F. J.",
+      "year": 1999,
+      "venue": "Human Brain Mapping",
+      "identifier": "10.1002/(SICI)1097-0193(1999)8:4<194::AID-HBM4>3.0.CO;2-C",
+      "doi": "10.1002/(SICI)1097-0193(1999)8:4<194::AID-HBM4>3.0.CO;2-C",
+      "url": "https://doi.org/10.1002/(SICI)1097-0193(1999)8:4<194::AID-HBM4>3.0.CO;2-C",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Phase-Locking Value",
+        "Synchrony"
+      ],
+      "claimsSupported": "Formulation and statistical testing of Phase-Locking Value (PLV) in neural signals",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-WOLPAW-2002",
+      "title": "Brain-computer interfaces for communication and control",
+      "authors": "Wolpaw, J. R., Birbaumer, N., McFarland, D. J., Pfurtscheller, G., & Vaughan, T. M.",
+      "year": 2002,
+      "venue": "Clinical Neurophysiology",
+      "identifier": "10.1016/S1388-2457(02)00057-3",
+      "doi": "10.1016/S1388-2457(02)00057-3",
+      "url": "https://doi.org/10.1016/S1388-2457(02)00057-3",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Neurotechnology",
+        "BCI"
+      ],
+      "claimsSupported": "Signal acquisition, feature extraction, and translation algorithms in non-invasive and invasive BCIs",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-EFRON-1979",
+      "title": "Bootstrap methods: another look at the jackknife",
+      "authors": "Efron, B.",
+      "year": 1979,
+      "venue": "The Annals of Statistics",
+      "identifier": "10.1214/aos/1176344552",
+      "doi": "10.1214/aos/1176344552",
+      "url": "https://doi.org/10.1214/aos/1176344552",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Bootstrap",
+        "Statistical Inference"
+      ],
+      "claimsSupported": "Nonparametric bootstrap resampling for standard error and confidence interval estimation",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-BENJAMINI-HOCHBERG-1995",
+      "title": "Controlling the false discovery rate: a practical and powerful approach to multiple testing",
+      "authors": "Benjamini, Y., & Hochberg, Y.",
+      "year": 1995,
+      "venue": "Journal of the Royal Statistical Society: Series B",
+      "identifier": "10.1111/j.2517-6161.1995.tb02031.x",
+      "doi": "10.1111/j.2517-6161.1995.tb02031.x",
+      "url": "https://doi.org/10.1111/j.2517-6161.1995.tb02031.x",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "FDR",
+        "Multiple Testing"
+      ],
+      "claimsSupported": "Step-up procedure controlling expected False Discovery Rate across multiple comparisons",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-DESIKAN-2006",
+      "title": "An automated labeling system for subdividing the human cerebral cortex on MRI scans into gyral based regions of interest",
+      "authors": "Desikan, R. S., S\u00e9gonne, F., Fischl, B., et al.",
+      "year": 2006,
+      "venue": "NeuroImage",
+      "identifier": "10.1016/j.neuroimage.2006.01.021",
+      "doi": "10.1016/j.neuroimage.2006.01.021",
+      "url": "https://doi.org/10.1016/j.neuroimage.2006.01.021",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Neuroanatomy",
+        "Desikan-Killiany Atlas"
+      ],
+      "claimsSupported": "34-region per hemisphere gyral cortical parcellation standard",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-DESTRIEUX-2010",
+      "title": "Automatic parcellation of human cortical gyri and sulci using standard anatomical nomenclature",
+      "authors": "Destrieux, C., Fischl, B., Dale, A., & Halgren, E.",
+      "year": 2010,
+      "venue": "NeuroImage",
+      "identifier": "10.1016/j.neuroimage.2010.06.010",
+      "doi": "10.1016/j.neuroimage.2010.06.010",
+      "url": "https://doi.org/10.1016/j.neuroimage.2010.06.010",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Neuroanatomy",
+        "Destrieux Atlas"
+      ],
+      "claimsSupported": "74-region per hemisphere sulcal and gyral cortical parcellation",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-GLASSER-2016",
+      "title": "A multi-modal parcellation of human cerebral cortex",
+      "authors": "Glasser, M. F., Coalson, T. S., Robinson, E. C., et al.",
+      "year": 2016,
+      "venue": "Nature",
+      "identifier": "10.1038/nature18933",
+      "doi": "10.1038/nature18933",
+      "url": "https://doi.org/10.1038/nature18933",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Cortical Parcellation",
+        "HCP-MMP1.0"
+      ],
+      "claimsSupported": "180-area per hemisphere multimodal human cortical parcellation",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-AMUNTS-2020",
+      "title": "Julich-Brain: A 3D probabilistic atlas of the human brain's cytoarchitecture",
+      "authors": "Amunts, K., Mohlberg, H., Bludau, S., & Zilles, K.",
+      "year": 2020,
+      "venue": "Science",
+      "identifier": "10.1126/science.abb4588",
+      "doi": "10.1126/science.abb4588",
+      "url": "https://doi.org/10.1126/science.abb4588",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Cytoarchitecture",
+        "Julich-Brain",
+        "EBRAINS"
+      ],
+      "claimsSupported": "3D probabilistic cytoarchitectonic atlas of the human brain",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-HAWRYLYCZ-2012",
+      "title": "An anatomically comprehensive atlas of the adult human brain transcriptome",
+      "authors": "Hawrylycz, M. J., Lein, E. S., Guillozet-Bongaarts, A. L., et al.",
+      "year": 2012,
+      "venue": "Nature",
+      "identifier": "10.1038/nature11405",
+      "doi": "10.1038/nature11405",
+      "url": "https://doi.org/10.1038/nature11405",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "Allen Brain Atlas",
+        "Transcriptomics"
+      ],
+      "claimsSupported": "Allen Human Brain Atlas anatomical hierarchy and spatial gene expression",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-NEUROMORPHO-2007",
+      "title": "NeuroMorpho.Org: a central resource for neuronal morphologies",
+      "authors": "Ascoli, G. A., Donohue, D. E., & Halavi, M.",
+      "year": 2007,
+      "venue": "The Journal of Neuroscience",
+      "identifier": "10.1523/JNEUROSCI.2055-07.2007",
+      "doi": "10.1523/JNEUROSCI.2055-07.2007",
+      "url": "https://doi.org/10.1523/JNEUROSCI.2055-07.2007",
+      "sourceType": "OFFICIAL_DATASET_PORTAL",
+      "scientificTopics": [
+        "NeuroMorpho.Org",
+        "SWC Morphology"
+      ],
+      "claimsSupported": "Standardized 3D SWC digital neuronal reconstruction repository and citation requirements",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-MARKIEWICZ-2021",
+      "title": "The OpenNeuro resource for sharing of neuroscience data",
+      "authors": "Markiewicz, C. J., Gorgolewski, K. J., Feingold, F., et al.",
+      "year": 2021,
+      "venue": "eLife",
+      "identifier": "10.7554/eLife.71774",
+      "doi": "10.7554/eLife.71774",
+      "url": "https://doi.org/10.7554/eLife.71774",
+      "sourceType": "OFFICIAL_DATASET_PORTAL",
+      "scientificTopics": [
+        "OpenNeuro",
+        "BIDS",
+        "CC0"
+      ],
+      "claimsSupported": "OpenNeuro CC0 BIDS-compliant neuroimaging and electrophysiology repository",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-GORGOLEWSKI-2016",
+      "title": "The brain imaging data structure, a format for organizing and describing outputs of neuroimaging experiments",
+      "authors": "Gorgolewski, K. J., Auer, T., Calhoun, V. D., et al.",
+      "year": 2016,
+      "venue": "Scientific Data",
+      "identifier": "10.1038/sdata.2016.44",
+      "doi": "10.1038/sdata.2016.44",
+      "url": "https://doi.org/10.1038/sdata.2016.44",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "BIDS Standard",
+        "Metadata"
+      ],
+      "claimsSupported": "Brain Imaging Data Structure (BIDS) metadata and directory standard",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-TEETERS-2015",
+      "title": "Neurodata Without Borders: creating a common data format for neurophysiology",
+      "authors": "Teeters, J. L., Godfrey, K., Young, R., et al.",
+      "year": 2015,
+      "venue": "Neuron",
+      "identifier": "10.1016/j.neuron.2015.10.025",
+      "doi": "10.1016/j.neuron.2015.10.025",
+      "url": "https://doi.org/10.1016/j.neuron.2015.10.025",
+      "sourceType": "PEER_REVIEWED_ARTICLE",
+      "scientificTopics": [
+        "NWB",
+        "Neurophysiology Data"
+      ],
+      "claimsSupported": "Foundational Neurodata Without Borders schema for cellular and systems electrophysiology",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-RUBEL-2022",
+      "title": "The Neurodata Without Borders ecosystem for neurophysiological data science",
+      "authors": "R\u00fcbel, O., Tritt, A., Ly, R., et al.",
+      "year": 2022,
+      "venue": "eLife",
+      "identifier": "10.7554/eLife.78362",
+      "doi": "10.7554/eLife.78362",
+      "url": "https://doi.org/10.7554/eLife.78362",
+      "sourceType": "OFFICIAL_DATASET_PORTAL",
+      "scientificTopics": [
+        "NWB",
+        "DANDI Archive"
+      ],
+      "claimsSupported": "NWB data standard and DANDI archive integration",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-MCDOUGAL-2017",
+      "title": "Twenty years of ModelDB and beyond: building essential modeling tools for the future of neuroscience",
+      "authors": "McDougal, R. A., Morse, T. M., Carnevale, T., et al.",
+      "year": 2017,
+      "venue": "Journal of Computational Neuroscience",
+      "identifier": "10.1007/s10827-016-0623-7",
+      "doi": "10.1007/s10827-016-0623-7",
+      "url": "https://doi.org/10.1007/s10827-016-0623-7",
+      "sourceType": "OFFICIAL_DATASET_PORTAL",
+      "scientificTopics": [
+        "ModelDB",
+        "Computational Models"
+      ],
+      "claimsSupported": "ModelDB curated repository of published computational neuroscience model implementations",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-KANDEL-2021",
+      "title": "Principles of Neural Science (6th Edition)",
+      "authors": "Kandel, E. R., Koester, J. D., Mack, S. H., & Siegelbaum, S. A.",
+      "year": 2021,
+      "venue": "McGraw-Hill",
+      "identifier": "ISBN:978-1-259-64223-4",
+      "doi": null,
+      "url": "https://accessmedicine.mhmedical.com/",
+      "sourceType": "AUTHORITATIVE_TEXTBOOK",
+      "scientificTopics": [
+        "Comprehensive Neuroscience",
+        "Neurobiology"
+      ],
+      "claimsSupported": "Comprehensive reference for cellular, molecular, synaptic, systems, and cognitive neuroscience",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-DAYAN-2001",
+      "title": "Theoretical Neuroscience: Computational and Mathematical Modeling of Neural Systems",
+      "authors": "Dayan, P., & Abbott, L. F.",
+      "year": 2001,
+      "venue": "MIT Press",
+      "identifier": "ISBN:978-0-262-04199-7",
+      "doi": null,
+      "url": "https://mitpress.mit.edu/",
+      "sourceType": "AUTHORITATIVE_TEXTBOOK",
+      "scientificTopics": [
+        "Theoretical Neuroscience",
+        "Neural Coding",
+        "Plasticity"
+      ],
+      "claimsSupported": "Quantitative formulations of neural encoding, membrane models, network dynamics, and plasticity",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-GERSTNER-2014",
+      "title": "Neuronal Dynamics: From Single Neurons to Networks and Models of Cognition",
+      "authors": "Gerstner, W., Kistler, W. M., Naud, R., & Paninski, L.",
+      "year": 2014,
+      "venue": "Cambridge University Press",
+      "identifier": "10.1017/CBO9781107447615",
+      "doi": "10.1017/CBO9781107447615",
+      "url": "https://doi.org/10.1017/CBO9781107447615",
+      "sourceType": "AUTHORITATIVE_TEXTBOOK",
+      "scientificTopics": [
+        "Computational Neuroscience",
+        "Spiking Networks",
+        "AdEx"
+      ],
+      "claimsSupported": "Mathematical derivations of LIF, AdEx, phase planes, population dynamics, and decision attractors",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-HILLE-2001",
+      "title": "Ion Channels of Excitable Membranes (3rd Edition)",
+      "authors": "Hille, B.",
+      "year": 2001,
+      "venue": "Sinauer Associates / Oxford University Press",
+      "identifier": "ISBN:978-0-87893-321-1",
+      "doi": null,
+      "url": "https://global.oup.com/",
+      "sourceType": "AUTHORITATIVE_TEXTBOOK",
+      "scientificTopics": [
+        "Ion Channels",
+        "Nernst",
+        "GHK",
+        "Biophysics"
+      ],
+      "claimsSupported": "Definitive biophysics reference on ion channel gating, selectivity filters, and Nernst/GHK thermodynamics",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-SUTTON-BARTO-2018",
+      "title": "Reinforcement Learning: An Introduction (2nd Edition)",
+      "authors": "Sutton, R. S., & Barto, A. G.",
+      "year": 2018,
+      "venue": "MIT Press",
+      "identifier": "ISBN:978-0-262-03924-6",
+      "doi": null,
+      "url": "http://incompleteideas.net/book/the-book-2nd.html",
+      "sourceType": "AUTHORITATIVE_TEXTBOOK",
+      "scientificTopics": [
+        "Reinforcement Learning",
+        "TD Learning"
+      ],
+      "claimsSupported": "Temporal-difference learning, value functions, eligibility traces, and dopamine RPE correspondence",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "id": "REF-TNA-FIPAT",
+      "title": "Terminologia Neuroanatomica (TNA)",
+      "authors": "Federative International Programme for Anatomical Terminology (FIPAT)",
+      "year": 2017,
+      "venue": "International Federation of Associations of Anatomists (IFAA)",
+      "identifier": "FIPAT-TNA-2017",
+      "doi": null,
+      "url": "https://fipat.library.dal.ca/",
+      "sourceType": "ANATOMICAL_NOMENCLATURE_STANDARD",
+      "scientificTopics": [
+        "Neuroanatomy",
+        "Nomenclature"
+      ],
+      "claimsSupported": "Official international standard for central and peripheral human neuroanatomical terminology",
+      "accessDate": "2026-11-16",
+      "licensingNote": "Scholarly citation / open reference metadata",
+      "schemaVersion": "1.0.0"
+    }
+  ]
+}

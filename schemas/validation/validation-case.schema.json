@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cortexia.science/schemas/validation/validation-case.schema.json",
+  "title": "ModelValidationCase",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "targetModelId",
+    "validationLevel",
+    "referenceCondition",
+    "expectedBehavior",
+    "quantitativeTolerance",
+    "referenceId",
+    "schemaVersion"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^VAL-[A-Z0-9-]+$"
+    },
+    "targetModelId": {
+      "type": "string",
+      "pattern": "^MODEL-[0-9]{3}$"
+    },
+    "validationLevel": {
+      "type": "string",
+      "enum": [
+        "LEVEL_1_CONTENT",
+        "LEVEL_2_NUMERICAL",
+        "LEVEL_3_BEHAVIOR",
+        "LEVEL_4_INTEGRATION"
+      ]
+    },
+    "referenceCondition": {
+      "type": "string",
+      "minLength": 15
+    },
+    "expectedBehavior": {
+      "type": "string",
+      "minLength": 15
+    },
+    "quantitativeTolerance": {
+      "type": "string",
+      "minLength": 5
+    },
+    "referenceId": {
+      "type": "string",
+      "pattern": "^REF-[A-Z0-9-]+$"
+    },
+    "schemaVersion": {
+      "type": "string",
+      "const": "1.0.0"
+    }
+  }
+}
