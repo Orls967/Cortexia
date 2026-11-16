@@ -25,8 +25,8 @@ This file is the resume point for Phase 1 implementation. It records what is fin
 | CP-05 | Typed data layer with Zod validation | DONE | `src/data/types.ts`, `src/data/registry.ts` |
 | CP-06 | Solver core (RK4, RK45, Euler, RK2, Thomas, LU, PRNG, stimulus, recorder) | DONE | `src/kernels/core/*`, `src/kernels/solvers/ode.ts` |
 | CP-07 | Model kernels MODEL-001 … MODEL-016 | WRITTEN, not yet tested | `src/kernels/models/{conductance,integrateFire,cable,synapses}.ts` |
-| CP-08 | Model kernels MODEL-017 … MODEL-028 | PENDING | planned files in Section 4 |
-| CP-09 | Analytics kernels (26 methods) | PENDING | |
+| CP-08 | Model kernels MODEL-017 … MODEL-028 | PARTIAL: 017–022 and 027 written (untested); 023–026 and 028 pending | `src/kernels/models/{populations,networks,graphs}.ts` |
+| CP-09 | Analytics kernels (26 methods) | PARTIAL: ANALYTIC-003/004 (`fft.ts`) and ANALYTIC-016…019 (`graph.ts`, 17 unit tests green) done | `src/kernels/analytics/*`, `tests/unit/graph.test.ts` |
 | CP-10 | Validation cases `VAL-*` + Vitest suites | PENDING | |
 | CP-11 | Workers, stores, app shell, design system | PENDING | |
 | CP-12 | UCES (tooltip, inspector, knowledge pages, coverage audit) | PENDING | |
@@ -57,18 +57,21 @@ This file is the resume point for Phase 1 implementation. It records what is fin
 11. **MODEL-016** follows SYNAPTIC_MODELS §7 literally (u relaxes to U₀ and jumps before release), so first-spike release is `U₀(2 − U₀)`; disclosed in the model limitations.
 12. **Model kernels expose** `ModelDefinition { id, equations, params, initial, stimulus, solvers, views, metrics, presets, sweep, kernelLimitations, run }` (`src/kernels/core/types.ts`). Validation cases live in `src/kernels/validation/cases.ts` and are used by both Vitest and the in-app Validation panel.
 13. **Any tolerance in MODEL_VALIDATION.md that the correct implementation cannot meet is reported as a specification discrepancy**, never tuned away silently.
+14. **Commits carry no AI attribution.** No `Co-Authored-By` trailer and no tool-generated footer in commits or pull requests; every commit is authored under the repository owner's git identity only. Check `git log origin/main..HEAD --format='%h %(trailers)'` before each push.
+15. **Matrix convention:** `W[i*n + j]` is the weight of the edge `j → i` (row sums = in-strength, column sums = out-strength) in graph generators, graph analytics and network kernels.
+16. **Checkpoint cadence:** commit after every file or small group of files that typechecks and whose tests pass, and update this log in the same commit. Push only when `npm test` is green.
 
 ---
 
 ## 4. Next Steps (in order)
 
-1. `src/kernels/models/populations.ts` — MODEL-017 Wilson–Cowan, MODEL-018 Jansen–Rit, MODEL-019 Wong–Wang, MODEL-027 Kuramoto.
-2. `src/kernels/models/networks.ts` — MODEL-020 synfire chain, MODEL-021 Brunel, MODEL-022 Vogels iSTDP.
+1. ~~`populations.ts` (MODEL-017, 018, 019, 027)~~ — done.
+2. ~~`networks.ts` (MODEL-020, 021, 022)~~ and ~~`graphs.ts` (seeded generators, synthetic DK-68 graph)~~ — done.
 3. `src/kernels/models/plasticity.ts` — MODEL-023 Hebb/Oja/BCM, MODEL-024 STDP, MODEL-025 homeostatic scaling, MODEL-026 TD-RL.
-4. `src/kernels/models/connectome.ts` — MODEL-028 plus graph generators.
+4. `src/kernels/models/connectome.ts` — MODEL-028 (uses `analytics/graph.ts` and `graphs.ts`).
 5. `src/kernels/models/index.ts` — registry of all 28 definitions.
-6. `src/kernels/analytics/*` — fft, filters, spectral, spikes, graph, stats (ANALYTIC-001…026).
-7. `src/kernels/validation/cases.ts` + `tests/unit/*` — run and fix until green; commit.
+6. `src/kernels/analytics/*` — remaining: filters (001, 002), spectral (005, 006, 007, 008), spikes (009–015), stats (020–026). Done: `fft.ts`, `graph.ts`.
+7. `src/kernels/validation/cases.ts` + `tests/unit/*` — one `VAL-*` case per registry entry; run and fix until green; commit and push.
 8. Continue with CP-11 onward.
 
 ## 5. Related Documents
