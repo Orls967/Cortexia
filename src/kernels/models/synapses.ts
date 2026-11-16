@@ -86,13 +86,14 @@ function runM11(cfg: RunConfig, ctx?: RunContext): ModelOutput {
   rec.s.V![0] = V; rec.written = 1;
   for (let i = 0; i < nSteps; i++) {
     const t = i * dt;
-    let jump = 0;
-    cursor(t, dt, (tEv) => { jump += Math.exp(-(t + dt - tEv) / tau); });
+    let jump = 0, jumpArea = 0;
+    cursor(t, dt, (tEv) => { const e = Math.exp(-(t + dt - tEv) / tau); jump += e; jumpArea += tau * (1 - e); });
     const s0 = s, sEnd = s * decay + jump, sMid = s0 * halfDecay + 0.5 * jump;
     const k1 = fV(V, s0), k2 = fV(V + 0.5 * dt * k1, sMid), k3 = fV(V + 0.5 * dt * k2, sMid), k4 = fV(V + dt * k3, sEnd);
     V += (dt / 6) * (k1 + 2 * k2 + 2 * k3 + k4);
     s = sEnd;
-    charge += w * 0.5 * (s0 + sEnd) * dt;
+    // Exact integral of the piecewise-exponential trace over the step (decaying part plus events inside the step).
+    charge += w * (s0 * tau * (1 - Math.exp(-dt / tau)) + jumpArea);
     if (diverged(V)) { status = 'DIVERGED'; failedAtMs = t; break; }
     const k = i + 1;
     if (k % rec.stride === 0) { const j = k / rec.stride; if (j < rec.n) { rec.t[j] = k * dt; rec.s.s![j] = s; rec.s.I_syn![j] = w * s; rec.s.V![j] = V; rec.written = j + 1; } }
