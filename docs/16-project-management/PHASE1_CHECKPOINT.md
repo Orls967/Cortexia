@@ -25,7 +25,7 @@ This file is the resume point for Phase 1 implementation. It records what is fin
 | CP-05 | Typed data layer with Zod validation | DONE | `src/data/types.ts`, `src/data/registry.ts` |
 | CP-06 | Solver core (RK4, RK45, Euler, RK2, Thomas, LU, PRNG, stimulus, recorder) | DONE | `src/kernels/core/*`, `src/kernels/solvers/ode.ts` |
 | CP-07 | Model kernels MODEL-001 … MODEL-016 | WRITTEN, not yet tested | `src/kernels/models/{conductance,integrateFire,cable,synapses}.ts` |
-| CP-08 | Model kernels MODEL-017 … MODEL-028 | PARTIAL: 017–022 and 027 written (untested); 023–026 and 028 pending | `src/kernels/models/{populations,networks,graphs}.ts` |
+| CP-08 | Model kernels MODEL-017 … MODEL-028 | PARTIAL: 017–022, 027 written (untested); 023–026 done and tested (25 tests); 028 pending | `src/kernels/models/{populations,networks,graphs,plasticity}.ts`, `tests/unit/plasticity.test.ts` |
 | CP-09 | Analytics kernels (26 methods) | PARTIAL: ANALYTIC-003/004 (`fft.ts`) and ANALYTIC-016…019 (`graph.ts`, 17 unit tests green) done | `src/kernels/analytics/*`, `tests/unit/graph.test.ts` |
 | CP-10 | Validation cases `VAL-*` + Vitest suites | PENDING | |
 | CP-11 | Workers, stores, app shell, design system | PENDING | |
@@ -59,6 +59,9 @@ This file is the resume point for Phase 1 implementation. It records what is fin
 13. **Any tolerance in MODEL_VALIDATION.md that the correct implementation cannot meet is reported as a specification discrepancy**, never tuned away silently.
 14. **Commits carry no AI attribution.** No `Co-Authored-By` trailer and no tool-generated footer in commits or pull requests; every commit is authored under the repository owner's git identity only. Check `git log origin/main..HEAD --format='%h %(trailers)'` before each push.
 15. **Matrix convention:** `W[i*n + j]` is the weight of the edge `j → i` (row sums = in-strength, column sums = out-strength) in graph generators, graph analytics and network kernels.
+17. **MODEL-026 time axis is trials.** `durationMs` is the number of trials (`timeUnit: 'trials'`, dt fixed at 1); within-trial time is binned (`bin_ms`). The eligibility decay per bin is `exp(-bin/tau_e)`.
+18. **MODEL-023 BCM presets** use `tau_w = 3000 ms` with the registry default `tau_theta = 1000 ms` because BCM selectivity is only stable for `tau_theta < tau_w`; the Oja default `tau_w = 500 ms` puts BCM in its unstable regime (stated in the kernel limitations).
+19. **VAL-OJA-001 step count differs between sources** (MODEL_VALIDATION.md: 2,000 steps; registry: 3,000). The test runs both, over 20 seeds.
 16. **Checkpoint cadence:** commit after every file or small group of files that typechecks and whose tests pass, and update this log in the same commit. Push only when `npm test` is green.
 
 ---
@@ -67,7 +70,7 @@ This file is the resume point for Phase 1 implementation. It records what is fin
 
 1. ~~`populations.ts` (MODEL-017, 018, 019, 027)~~ — done.
 2. ~~`networks.ts` (MODEL-020, 021, 022)~~ and ~~`graphs.ts` (seeded generators, synthetic DK-68 graph)~~ — done.
-3. `src/kernels/models/plasticity.ts` — MODEL-023 Hebb/Oja/BCM, MODEL-024 STDP, MODEL-025 homeostatic scaling, MODEL-026 TD-RL.
+3. ~~`plasticity.ts` (MODEL-023 … 026)~~ — done, with `src/kernels/core/config.ts` (`defaultConfig`, `configWith`, `presetConfig`, `validateConfig`).
 4. `src/kernels/models/connectome.ts` — MODEL-028 (uses `analytics/graph.ts` and `graphs.ts`).
 5. `src/kernels/models/index.ts` — registry of all 28 definitions.
 6. `src/kernels/analytics/*` — remaining: filters (001, 002), spectral (005, 006, 007, 008), spikes (009–015), stats (020–026). Done: `fft.ts`, `graph.ts`.

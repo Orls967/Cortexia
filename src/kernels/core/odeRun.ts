@@ -19,6 +19,8 @@ export interface OdeRunSpec {
   spike?: { index: number; threshold: number; rearm: number };
   /** Index of the variable monitored by the divergence trap. */
   watch?: number;
+  /** Projects the state back onto its admissible set after every step (hard bounds such as w ∈ [0, w_max]). */
+  project?: (y: Float64Array) => void;
   /** Converts solver time (ms) to the model's internal time argument; defaults to identity. */
   maxPoints?: number;
 }
@@ -81,6 +83,7 @@ export function runOde(spec: OdeRunSpec): OdeRunResult {
       failedAtMs = t;
       break;
     }
+    spec.project?.(y);
     if (diverged(y[watch]!)) {
       status = 'DIVERGED';
       failedAtMs = t + dt;
