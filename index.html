@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0A0E17" />
+    <meta name="description" content="CORTEXIA — Comprehensive Neuroscience & Computational Brain Systems Platform. Explore the brain, decode its dynamics, model its intelligence. Educational and research use only; not a clinical tool." />
+    <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg" />
+    <title>CORTEXIA — Neuroscience & Computational Brain Systems Platform</title>
+    <script>
+      // GitHub Pages SPA deep-link restore (ADR-011): 404.html stores the requested URL, we restore it before the router mounts.
+      (function () {
+        try {
+          var r = sessionStorage.getItem('__cortexia_spa_redirect');
+          if (r) {
+            sessionStorage.removeItem('__cortexia_spa_redirect');
+            if (r !== location.pathname + location.search + location.hash) history.replaceState(null, '', r);
+          }
+        } catch (e) { /* storage unavailable: stay on the landing route */ }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>CORTEXIA requires JavaScript and WebGL2 to run its simulations and 3D studios.</noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

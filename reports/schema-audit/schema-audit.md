@@ -1,6 +1,6 @@
 # JSON Schema & Registry Validation Audit Report — CORTEXIA
 
-**Status:** `PASSED`  
+**Status:** `FAILED`  
 **Total Schemas Validated:** `24`  
 **Positive Fixtures Passed:** `6 / 6`  
 **Negative Fixtures Rejected:** `4 / 4`  

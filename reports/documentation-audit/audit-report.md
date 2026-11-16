@@ -1,7 +1,7 @@
 # Automated Documentation & Consistency Audit Report — CORTEXIA
 
-**Audit Status:** `PASSED`  
-**Total Audit Errors:** `0`  
+**Audit Status:** `FAILED`  
+**Total Audit Errors:** `348`  
 **Executed By:** `tools/documentation-audit/run_audit.py`  
 **Date:** 2026-11-16
 
@@ -9,7 +9,7 @@
 
 ## 1. Executive Summary
 
-All 17 automated Phase 0 audit checks (Markdown inventory, non-empty verification, relative link resolution, anchor resolution, duplicate ID detection, metadata headers, JSON syntax, 24 JSON Schema Draft 2020-12 validations, positive/negative fixture checks, cross-registry foreign-key integrity, citation provenance, model coverage, UCES explanation coverage, 3D asset mapping, requirements traceability, and Knowledge Graph orphan detection) **passed with `0` errors**.
+All 17 automated Phase 0 audit checks (Markdown inventory, non-empty verification, relative link resolution, anchor resolution, duplicate ID detection, metadata headers, JSON syntax, 24 JSON Schema Draft 2020-12 validations, positive/negative fixture checks, cross-registry foreign-key integrity, citation provenance, model coverage, UCES explanation coverage, 3D asset mapping, requirements traceability, and Knowledge Graph orphan detection) **passed with `348` errors**.
 
 ---
 
@@ -44,12 +44,12 @@ All 17 automated Phase 0 audit checks (Markdown inventory, non-empty verificatio
 
 ## 3. Seventeen Automated Audit Checks Summary
 
-1. **Markdown Inventory:** `70` files (`4891` lines, `49637` words).
+1. **Markdown Inventory:** `528` files (`98586` lines, `483681` words).
 2. **Empty-Document Check:** `PASSED` (`0` empty or stub files).
 3. **Relative Link Check:** `PASSED` (`0` broken relative file links).
 4. **Internal Anchor Check:** `PASSED` (`0` broken `#anchor` links).
 5. **Duplicate ID Check:** `PASSED` (`0` duplicate document or entity IDs).
-6. **Required Metadata & Sections:** `PASSED` (`68` unique `DOC-*` IDs).
+6. **Required Metadata & Sections:** `PASSED` (`69` unique `DOC-*` IDs).
 7. **JSON Syntax Check:** `PASSED` across all schemas, fixtures, and registries.
 8. **JSON Schema Draft 2020-12 Validation:** `PASSED` (`24` schemas, `6` valid fixtures passed, `4` invalid fixtures rejected as expected).
 9. **Cross-Registry Foreign-Key Consistency:** `PASSED` (`0` dangling references).

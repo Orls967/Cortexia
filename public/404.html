@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CORTEXIA — restoring route…</title>
+    <script>
+      // GitHub Pages SPA fallback (ADR-011): remember the deep link, then boot the app shell at the base path.
+      (function () {
+        var base = '/' + (location.pathname.split('/')[1] || '') + '/';
+        try { sessionStorage.setItem('__cortexia_spa_redirect', location.pathname + location.search + location.hash); } catch (e) {}
+        location.replace(base);
+      })();
+    </script>
+  </head>
+  <body style="background:#0A0E17;color:#94A3B8;font-family:sans-serif">Restoring CORTEXIA route…</body>
+</html>

@@ -66,3 +66,6 @@ playwright-report/
 test-results/
 .playwright/
 *.local
+
+# Phase 1 generated runtime data (rebuilt from registries/ by scripts/build-data.mjs)
+public/data/

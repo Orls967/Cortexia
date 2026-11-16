@@ -1,6 +1,6 @@
 # Scientific & Mathematical Integrity Audit Report — CORTEXIA
 
-**Status:** `PASSED`  
+**Status:** `FAILED`  
 **Date:** 2026-11-16
 
 ---
