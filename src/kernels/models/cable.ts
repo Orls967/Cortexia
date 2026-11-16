@@ -197,8 +197,10 @@ function runCable(cfg: RunConfig, ctx?: RunContext): ModelOutput {
   for (let r = 0; r < path.length; r++) maxErr = Math.max(maxErr, Math.abs(ys[r]! - ana[r]!) / Math.max(1e-9, ana[r]!));
   const peakProx = maxOf(series.V_proximal!) - EL, peakInj = maxOf(series.V_inject!) - EL, peakDist = maxOf(series.V_distal!) - EL;
   const argmax = (a: Float64Array) => { let m = -Infinity, q = 0; for (let i = 0; i < a.length; i++) if (a[i]! > m) { m = a[i]!; q = i; } return q; };
-  out.metrics.steadyAttenuationDistal = ys[path.length - 1]!;
-  out.metrics.profileMaxRelErrorPct = 100 * maxErr;
+  // The analytic comparison is a steady-state statement: it applies only to a current step that is still on at the end.
+  const steadyInput = Math.round(p('input_mode')) === 0 && cfg.stimulus.kind === 'step' && cfg.stimulus.startMs + cfg.stimulus.durationMs >= cfg.durationMs;
+  out.metrics.steadyAttenuationDistal = steadyInput ? ys[path.length - 1]! : NaN;
+  out.metrics.profileMaxRelErrorPct = steadyInput ? 100 * maxErr : NaN;
   out.metrics.peakAtInjectionMv = peakInj;
   out.metrics.peakAtProximalMv = peakProx;
   out.metrics.peakAtDistalMv = peakDist;

@@ -93,9 +93,9 @@ const BRUNEL_PARAMS: ParamSpec[] = [
   { key: 'g_Brunel', label: 'Relative inhibitory strength', symbol: 'g', unit: '', default: 5, min: 1, max: 10, step: 0.1, registryId: 'PARAM-063', description: 'Ratio J_I / J_E. Inhibition balances excitation at g = 4; larger values are inhibition-dominated.', group: 'Balance' },
   { key: 'eta_Brunel', label: 'External drive ratio', symbol: '\\eta', unit: '', default: 2, min: 0.5, max: 6, step: 0.05, registryId: 'PARAM-064', description: 'External Poisson rate relative to the rate needed to reach threshold without recurrent input.', group: 'Balance' },
   { key: 'D_Brunel', label: 'Synaptic delay', symbol: 'D', unit: 'ms', default: 1.5, min: 0.2, max: 5, step: 0.1, registryId: 'PARAM-065', description: 'Axonal transmission delay; sets the period of fast network oscillations.', group: 'Synapses' },
-  { key: 'N', label: 'Network size', symbol: 'N', unit: 'neurons', default: 1000, min: 200, max: 4000, step: 100, integer: true, description: '80% excitatory, 20% inhibitory (browser cap 4,000).', group: 'Network' },
-  { key: 'epsilon', label: 'Connection probability', symbol: '\\epsilon', unit: '', default: 0.1, min: 0.02, max: 0.3, step: 0.01, description: 'Each neuron receives εN_E excitatory and εN_I inhibitory inputs.', group: 'Network' },
-  { key: 'J_E', label: 'Excitatory PSP amplitude', symbol: 'J_E', unit: 'mV', default: 0.1, min: 0.02, max: 1, step: 0.01, description: 'Voltage jump caused by one excitatory spike.', group: 'Synapses' },
+  { key: 'N', label: 'Network size', symbol: 'N', unit: 'neurons', default: 3000, min: 200, max: 4000, step: 100, integer: true, description: '80% excitatory, 20% inhibitory (browser cap 4,000).', group: 'Network' },
+  { key: 'epsilon', label: 'Connection probability', symbol: '\\epsilon', unit: '', default: 0.1, min: 0.02, max: 0.3, step: 0.005, description: 'Each neuron receives C_E = εN_E excitatory and C_I = εN_I inhibitory inputs.', group: 'Network' },
+  { key: 'J_E', label: 'Excitatory PSP amplitude', symbol: 'J_E', unit: 'mV', default: 0.42, min: 0.02, max: 2, step: 0.01, description: 'Voltage jump caused by one excitatory spike. The default keeps J_E·C_E ≈ 100 mV, the value of Brunel\'s 12,500-neuron network (0.1 mV × 1,000 inputs), so the balance of recurrent and external input is preserved at browser scale. Change it together with N or ε.', group: 'Synapses' },
   { key: 'tau_m', label: 'Membrane time constant', symbol: '\\tau_m', unit: 'ms', default: 20, min: 5, max: 50, step: 0.5, description: 'Membrane time constant.', group: 'Neurons' },
   { key: 'V_th', label: 'Threshold', symbol: '\\theta', unit: 'mV', default: 20, min: 10, max: 30, step: 0.5, description: 'Spike threshold relative to rest.', group: 'Neurons' },
   { key: 'V_reset', label: 'Reset', symbol: 'V_r', unit: 'mV', default: 10, min: 0, max: 19, step: 0.5, description: 'Reset potential relative to rest.', group: 'Neurons' },
@@ -110,7 +110,7 @@ function runBrunel(cfg: RunConfig, ctx?: RunContext): ModelOutput {
   const tau = p('tau_m'), theta = p('V_th'), Vr = p('V_reset'), tref = p('tau_ref');
   if (N > 4000) throw new SimulationError('ERR_ENVELOPE_EXCEEDED', 'Network size exceeds the 4,000-neuron browser envelope.');
   const NE = Math.round(0.8 * N), NI = N - NE, CE = Math.max(1, Math.round(eps * NE)), CI = Math.max(1, Math.round(eps * NI));
-  if ((CE + CI) * N > 200_000 * 4) throw new SimulationError('ERR_ENVELOPE_EXCEEDED', 'Synapse count exceeds the browser envelope; lower N or ε.');
+  if ((CE + CI) * N > 2_500_000) throw new SimulationError('ERR_ENVELOPE_EXCEEDED', 'Synapse count exceeds the 2,500,000-synapse browser envelope; lower N or ε.');
   const nSteps = stepCount(cfg);
   const dt = cfg.dtMs;
   const rng = new Rng(cfg.seed);
@@ -195,19 +195,38 @@ function runBrunel(cfg: RunConfig, ctx?: RunContext): ModelOutput {
   out.metrics.cvIsi = isi.meanCv(0, N);
   out.metrics.synchronyChi = samples > 1 && meanVar > 0 ? Math.sqrt(popVar / meanVar) : NaN;
   out.metrics.populationFano = mc > 0 ? vc / Math.max(1, tailCounts.length - 1) / mc : NaN;
+  let band = NaN, peakHz = NaN;
   if (tailCounts.length >= 128) {
     const psd = welchPsd(Float64Array.from(tailCounts, (c) => (c * 1000) / N), 1000, 256);
     out.curves.rate_psd = { x: psd.freq, y: psd.power };
-    out.metrics.populationPeakHz = peakFrequency(psd, 5, 500);
+    peakHz = peakFrequency(psd, 10, 450);
+    // Share of the 10–450 Hz population-rate power that lies within ±15% of the spectral peak.
+    let near = 0, total = 0;
+    for (let k = 0; k < psd.freq.length; k++) {
+      const fq = psd.freq[k]!;
+      if (fq < 10 || fq > 450) continue;
+      total += psd.power[k]!;
+      if (fq >= 0.85 * peakHz && fq <= 1.15 * peakHz) near += psd.power[k]!;
+    }
+    band = total > 0 ? near / total : NaN;
   }
+  out.metrics.populationPeakHz = peakHz;
+  out.metrics.peakBandFraction = band;
   out.metrics.nuThrHz = (1000 * theta) / (J * CE * tau);
   out.metrics.synapseCount = (CE + CI) * N;
-  const cv = out.metrics.cvIsi, chi = out.metrics.synchronyChi;
+  out.metrics.inDegreeE = CE;
+  out.metrics.weightTimesInDegreeMv = J * CE;
+  const cv = out.metrics.cvIsi, chi = out.metrics.synchronyChi, rate = out.metrics.meanRateEHz;
+  const pct = Number.isFinite(band) ? `${(100 * band).toFixed(0)}%` : 'n/a';
+  // Regime labels follow measured statistics (thresholds calibrated on this kernel at N = 2,000–4,000).
+  out.metrics.regime = cv < 0.3 ? 1 : band >= 0.42 && peakHz >= 130 ? 3 : chi >= 0.28 ? 4 : 2;
   out.notes.push(
-    cv < 0.3 ? `Synchronous-regular regime: neurons fire regularly (CV = ${cv.toFixed(2)}) at high rate; excitation dominates.`
-      : chi > 0.3 ? `Synchronous-irregular regime: irregular single cells (CV = ${cv.toFixed(2)}) with a coherent population oscillation (χ = ${chi.toFixed(2)}).`
-        : `Asynchronous-irregular regime: Poisson-like firing (CV = ${Number.isFinite(cv) ? cv.toFixed(2) : 'n/a'}) with weak population synchrony (χ = ${Number.isFinite(chi) ? chi.toFixed(2) : 'n/a'}).`,
+    out.metrics.regime === 1 ? `Synchronous-regular regime: excitation dominates and neurons fire regularly (CV = ${cv.toFixed(2)}) at ${rate.toFixed(0)} Hz, close to the limit set by the refractory period.`
+      : out.metrics.regime === 3 ? `Synchronous-irregular regime, fast oscillation: single cells fire irregularly (CV = ${cv.toFixed(2)}) while the population rate oscillates at ${peakHz.toFixed(0)} Hz (${pct} of its power lies near that frequency); the period is set by the synaptic delay.`
+        : out.metrics.regime === 4 ? `Synchronous-irregular regime, slow oscillation: low, irregular firing (${rate.toFixed(1)} Hz, CV = ${cv.toFixed(2)}) with coherent population waves near ${peakHz.toFixed(0)} Hz (synchrony χ = ${chi.toFixed(2)}).`
+          : `Asynchronous-irregular regime: Poisson-like firing (CV = ${Number.isFinite(cv) ? cv.toFixed(2) : 'n/a'}) at ${rate.toFixed(1)} Hz with weak population synchrony (χ = ${Number.isFinite(chi) ? chi.toFixed(2) : 'n/a'}). The residual fast ripple around ${Number.isFinite(peakHz) ? peakHz.toFixed(0) : 'n/a'} Hz is a finite-size effect of a ${N.toLocaleString()}-neuron network.`,
   );
+  if (Math.abs(J * CE - 100) > 20) out.notes.push(`J_E·C_E = ${(J * CE).toFixed(0)} mV differs from the 100 mV of Brunel's network, so the mean recurrent input no longer balances the external drive in the same way and the (g, η) regime boundaries shift.`);
   if (log.dropped > 0) out.notes.push(`Raster storage capped at ${MAX_SPIKES.toLocaleString()} spikes; ${log.dropped.toLocaleString()} later spikes were counted in the rates but not stored.`);
   return out;
 }
@@ -240,18 +259,26 @@ export const MODEL_021: ModelDefinition = {
   ],
   metrics: [
     ...NET_METRICS,
-    { key: 'populationPeakHz', label: 'Population oscillation peak', unit: 'Hz', description: 'Frequency of the largest peak in the population-rate spectrum.', analyticId: 'ANALYTIC-004' },
+    { key: 'populationPeakHz', label: 'Population oscillation peak', unit: 'Hz', description: 'Frequency of the largest peak in the population-rate spectrum (10–450 Hz).', analyticId: 'ANALYTIC-004' },
+    { key: 'peakBandFraction', label: 'Power near the spectral peak', unit: '', description: 'Share of 10–450 Hz population-rate power within ±15% of the peak frequency; high values indicate a coherent oscillation.', analyticId: 'ANALYTIC-004', digits: 3 },
+    { key: 'regime', label: 'Regime code', unit: '', description: '1 = synchronous regular, 2 = asynchronous irregular, 3 = synchronous irregular (fast), 4 = synchronous irregular (slow), classified from CV, spectrum and synchrony.', digits: 0 },
+    { key: 'weightTimesInDegreeMv', label: 'J_E · C_E', unit: 'mV', description: 'Total excitatory recurrent weight per neuron; 100 mV reproduces the input balance of Brunel (2000).' },
     { key: 'populationFano', label: 'Population Fano factor', unit: '', description: 'Variance over mean of 1 ms population spike counts.', analyticId: 'ANALYTIC-011' },
     { key: 'nuThrHz', label: 'Threshold rate ν_thr', unit: 'Hz', description: 'External rate per afferent needed to reach threshold without recurrence.' },
   ],
   presets: [
     { id: 'AI', label: 'Asynchronous irregular (g = 5, η = 2)', description: 'In-vivo-like balanced state.', params: { g_Brunel: 5, eta_Brunel: 2 }, experimentId: 'EXP-030' },
-    { id: 'SR', label: 'Synchronous regular (g = 3, η = 2)', description: 'Excitation-dominated, high-rate regular firing.', params: { g_Brunel: 3, eta_Brunel: 2 }, durationMs: 400, experimentId: 'EXP-030' },
+    { id: 'SR', label: 'Synchronous regular (g = 3, η = 2)', description: 'Excitation-dominated, high-rate regular firing.', params: { g_Brunel: 3, eta_Brunel: 2 }, durationMs: 300, experimentId: 'EXP-030' },
     { id: 'SIfast', label: 'Synchronous irregular, fast (g = 6, η = 4)', description: 'Fast global oscillation set by the delay.', params: { g_Brunel: 6, eta_Brunel: 4 }, durationMs: 500, experimentId: 'EXP-030' },
-    { id: 'SIslow', label: 'Synchronous irregular, slow (g = 4.5, η = 0.9)', description: 'Low-rate slow oscillation near threshold.', params: { g_Brunel: 4.5, eta_Brunel: 0.9 }, durationMs: 2000, experimentId: 'EXP-030' },
+    { id: 'SIslow', label: 'Synchronous irregular, slow (g = 4.5, η = 0.9)', description: 'Low-rate slow oscillation near threshold.', params: { g_Brunel: 4.5, eta_Brunel: 0.9 }, durationMs: 1500, experimentId: 'EXP-030' },
   ],
   sweep: { paramKey: 'g_Brunel', from: 2, to: 8, steps: 9, metricKey: 'cvIsi', experimentId: 'EXP-030' },
-  kernelLimitations: ['Delta synapses and current-based input: no conductance effects or synaptic time course.', 'Finite-size network (default N = 1,000) shows stronger fluctuations than the mean-field limit analysed by Brunel (2000).', 'Spike times are resolved on the simulation grid (dt).'],
+  kernelLimitations: [
+    'Delta synapses and current-based input: no conductance effects or synaptic time course.',
+    'Scaled-down network: 3,000 neurons with C_E = 240 inputs instead of 12,500 neurons with C_E = 1,000. The weight is raised from 0.1 mV to 0.42 mV so that J_E·C_E ≈ 100 mV; with the 0.1 mV listed in the specification a network this small is driven far above threshold and fires regularly for every g.',
+    'Larger synaptic weights and shared inputs make the asynchronous state noisier and more correlated than in the mean-field limit: χ is about 0.18 here, not the < 0.15 of a large sparse network.',
+    'Spike times are resolved on the simulation grid (dt).',
+  ],
   run: runBrunel,
 };
 
@@ -261,8 +288,8 @@ const SYN_PARAMS: ParamSpec[] = [
   { key: 'p_ff_SNN', label: 'Inter-layer connection probability', symbol: 'p_{ff}', unit: '', default: 0.25, min: 0.05, max: 1, step: 0.01, registryId: 'PARAM-061', description: 'Probability that a neuron in layer k projects to a given neuron in layer k + 1.', group: 'Feedforward projection' },
   { key: 'J_ff_SNN', label: 'Feedforward synaptic weight', symbol: 'J_{ff}', unit: 'mV', default: 0.4, min: 0.05, max: 2, step: 0.01, registryId: 'PARAM-062', description: 'Voltage jump caused by one feedforward spike.', group: 'Feedforward projection' },
   { key: 'layers', label: 'Number of layers', symbol: 'L', unit: '', default: 8, min: 3, max: 10, step: 1, integer: true, description: 'Depth of the feedforward chain.', group: 'Architecture' },
-  { key: 'M', label: 'Excitatory neurons per layer', symbol: 'M', unit: '', default: 100, min: 50, max: 200, step: 10, integer: true, description: 'Width of each layer.', group: 'Architecture' },
-  { key: 'a1', label: 'Initial packet size', symbol: 'a_1', unit: 'spikes', default: 80, min: 0, max: 200, step: 1, integer: true, description: 'Number of layer-1 neurons forced to spike in the stimulus volley.', group: 'Stimulus packet' },
+  { key: 'M', label: 'Excitatory neurons per layer', symbol: 'M', unit: '', default: 150, min: 50, max: 200, step: 10, integer: true, description: 'Width of each layer. A full volley delivers p_ff·J_ff·M = 15 mV on average, about twice the distance from the background potential to threshold.', group: 'Architecture' },
+  { key: 'a1', label: 'Initial packet size', symbol: 'a_1', unit: 'spikes', default: 120, min: 0, max: 200, step: 1, integer: true, description: 'Number of layer-1 neurons forced to spike in the stimulus volley (capped at M).', group: 'Stimulus packet' },
   { key: 'sigma1', label: 'Initial packet jitter', symbol: '\\sigma_1', unit: 'ms', default: 1, min: 0, max: 10, step: 0.1, description: 'Temporal standard deviation of the stimulus volley.', group: 'Stimulus packet' },
   { key: 'g_ffi', label: 'Feedforward inhibition strength', symbol: 'g_{ffi}', unit: '', default: 2, min: 0, max: 8, step: 0.1, description: 'Inhibitory weight relative to J_ff from each layer\'s gating interneurons (0 disables them).', group: 'Feedforward inhibition' },
   { key: 'bg_mean', label: 'Background depolarization', symbol: '\\mu_{bg}', unit: 'mV', default: 8, min: 0, max: 14, step: 0.1, description: 'Mean depolarization above rest from background input.', group: 'Background' },
@@ -401,11 +428,12 @@ export const MODEL_020: ModelDefinition = {
     { key: 'spontaneousRateHz', label: 'Spontaneous rate', unit: 'Hz', description: 'Background firing rate before the stimulus.' },
   ],
   presets: [
-    { id: 'stable', label: 'Strong synchronous packet', description: 'a₁ = 80, σ₁ = 1 ms propagates and sharpens.', params: { a1: 80, sigma1: 1 }, experimentId: 'EXP-029' },
-    { id: 'weak', label: 'Small packet', description: 'a₁ = 35 fails to recruit the next layer.', params: { a1: 35, sigma1: 1 }, experimentId: 'EXP-029' },
-    { id: 'dispersed', label: 'Dispersed packet', description: 'a₁ = 80 but σ₁ = 6 ms: feedforward inhibition closes the integration window.', params: { a1: 80, sigma1: 6 }, experimentId: 'EXP-029' },
+    { id: 'stable', label: 'Strong synchronous packet', description: 'a₁ = 120, σ₁ = 1 ms: the volley grows to the full layer and sharpens as it travels.', params: { a1: 120, sigma1: 1 }, experimentId: 'EXP-029' },
+    { id: 'weak', label: 'Small packet', description: 'a₁ = 60 fails to recruit the next layer and dies out.', params: { a1: 60, sigma1: 1 }, experimentId: 'EXP-029' },
+    { id: 'dispersed', label: 'Dispersed packet', description: 'a₁ = 120 but σ₁ = 5 ms: feedforward inhibition closes the integration window before enough input has arrived.', params: { a1: 120, sigma1: 5 }, experimentId: 'EXP-029' },
+    { id: 'noFfi', label: 'Without feedforward inhibition', description: 'g_ffi = 0 widens the integration window, so a dispersed packet can still ignite the chain.', params: { a1: 120, sigma1: 5, g_ffi: 0 }, experimentId: 'EXP-029' },
   ],
-  sweep: { paramKey: 'a1', from: 20, to: 100, steps: 9, metricKey: 'finalPacketSize', experimentId: 'EXP-029' },
+  sweep: { paramKey: 'a1', from: 30, to: 150, steps: 13, metricKey: 'finalPacketSize', experimentId: 'EXP-029' },
   kernelLimitations: ['Delta synapses; background input is a diffusion (Ornstein–Uhlenbeck) approximation rather than explicit Poisson afferents.', 'Purely feedforward: no recurrent connections within a layer.', 'Fixed neuron constants: E_L = −70 mV, V_th = −55 mV, τ_m = 20 ms, τ_ref = 2 ms.'],
   run: runSynfire,
 };
@@ -414,7 +442,7 @@ export const MODEL_020: ModelDefinition = {
 
 const VOG_PARAMS: ParamSpec[] = [
   { key: 'rho0_Vogels', label: 'Target firing rate', symbol: '\\rho_0', unit: 'Hz', default: 5, min: 1, max: 20, step: 0.5, registryId: 'PARAM-066', description: 'Postsynaptic rate at which inhibitory potentiation and depression cancel.', group: 'Inhibitory plasticity' },
-  { key: 'eta_Vogels', label: 'Learning rate', symbol: '\\eta', unit: '', default: 0.001, min: 0.0001, max: 0.05, step: 0.0001, registryId: 'PARAM-067', description: 'Weight change per spike-pair event (0 freezes inhibitory weights).', group: 'Inhibitory plasticity' },
+  { key: 'eta_Vogels', label: 'Learning rate', symbol: '\\eta', unit: '', default: 0.001, min: 0, max: 0.05, step: 0.0001, registryId: 'PARAM-067', description: 'Weight change per spike-pair event (0 freezes inhibitory weights).', group: 'Inhibitory plasticity' },
   { key: 'tau_STDP', label: 'Plasticity trace time constant', symbol: '\\tau_{STDP}', unit: 'ms', default: 20, min: 5, max: 100, step: 1, description: 'Coincidence window of the symmetric inhibitory STDP rule.', group: 'Inhibitory plasticity' },
   { key: 'W0', label: 'Initial I→E weight', symbol: 'W_0', unit: '', default: 0.02, min: 0, max: 2, step: 0.01, description: 'Initial relative strength of plastic inhibitory synapses (small = under-inhibited start).', group: 'Inhibitory plasticity' },
   { key: 'plastic_on', label: 'Plasticity onset', symbol: 't_{on}', unit: 'ms', default: 500, min: 0, max: 5000, step: 50, description: 'Time at which inhibitory plasticity is switched on.', group: 'Inhibitory plasticity' },
@@ -459,7 +487,7 @@ function runVogels(cfg: RunConfig, ctx?: RunContext): ModelOutput {
   const iExc = new Float64Array(nBins), iInh = new Float64Array(nBins);
   const isi = new IsiStats(N);
   const lateFrom = Math.max(0, cfg.durationMs - Math.min(1000, cfg.durationMs / 3));
-  let plasticSynapses = 0;
+  let plasticSynapses = 0, wWritten = 0;
   for (let q = 0; q < W.length; q++) if (csrI.colIdx[q]! < NE) plasticSynapses++;
   const sampleEvery = Math.max(1, Math.round(1 / dt));
   for (let step = 0; step < nSteps; step++) {
@@ -504,6 +532,7 @@ function runVogels(cfg: RunConfig, ctx?: RunContext): ModelOutput {
       let s = 0;
       for (let q = 0; q < W.length; q++) if (csrI.colIdx[q]! < NE) s += W[q]!;
       wMean[k] = s / plasticSynapses; wT[k] = t;
+      if (k + 1 > wWritten) wWritten = k + 1;
     }
     if (ctx?.onProgress && step % 500 === 0) ctx.onProgress(step / nSteps);
   }
@@ -511,7 +540,7 @@ function runVogels(cfg: RunConfig, ctx?: RunContext): ModelOutput {
   const rateE = boxSmooth(Float64Array.from(countE, (c) => (c * 1000) / NE), 25), rateI = boxSmooth(Float64Array.from(countI, (c) => (c * 1000) / NI), 25);
   const out: ModelOutput = {
     t: tAxis, series: { rate_E: rateE, rate_I: rateI, I_exc: boxSmooth(iExc, 10), I_inh: boxSmooth(iInh, 10) },
-    curves: { w_IE_mean: { x: wT, y: wMean } }, matrices: {}, metrics: {}, notes: [], status: 'COMPLETED',
+    curves: { w_IE_mean: { x: wT.slice(0, wWritten), y: wMean.slice(0, wWritten) } }, matrices: {}, metrics: {}, notes: [], status: 'COMPLETED',
   };
   const sp = log.finish();
   out.spikes = { times: sp.times, ids: sp.ids, n: N, groups: [{ name: 'Excitatory', from: 0, to: NE, kind: 'E' }, { name: 'Inhibitory', from: NE, to: N, kind: 'I' }] };
@@ -522,7 +551,7 @@ function runVogels(cfg: RunConfig, ctx?: RunContext): ModelOutput {
   out.metrics.finalRateIHz = rateIn(countI, lateFrom, cfg.durationMs, NI);
   out.metrics.meanRateEHz = out.metrics.finalRateEHz;
   out.metrics.meanRateIHz = out.metrics.finalRateIHz;
-  out.metrics.finalMeanWeight = wMean[wSamples - 1]!;
+  out.metrics.finalMeanWeight = wWritten ? wMean[wWritten - 1]! : W0;
   out.metrics.initialMeanWeight = W0;
   out.metrics.targetRateHz = rho0;
   out.metrics.rateErrorHz = out.metrics.finalRateEHz - rho0;
@@ -553,7 +582,7 @@ export const MODEL_022: ModelDefinition = {
   initial: [],
   stimulus: null,
   solvers: ['SOLVER-HYBRID-SPIKE'],
-  defaultSolver: 'SOLVER-HYBRID-SPIKE', defaultDtMs: 0.1, minDtMs: 0.05, maxSafeDtMs: 0.2, defaultDurationMs: 5000, maxDurationMs: 10000,
+  defaultSolver: 'SOLVER-HYBRID-SPIKE', defaultDtMs: 0.1, minDtMs: 0.05, maxSafeDtMs: 0.2, defaultDurationMs: 10000, maxDurationMs: 10000,
   stochastic: true,
   views: [
     { kind: 'traces', title: 'Population firing rates (25 ms smoothing)', yLabel: 'rate (Hz)', series: [

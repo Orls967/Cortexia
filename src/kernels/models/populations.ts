@@ -156,11 +156,16 @@ export const MODEL_017: ModelDefinition = {
   ],
   presets: [
     { id: 'cycle', label: 'Limit-cycle oscillation', description: 'Wilson & Cowan (1972) oscillatory regime, P = 1.25.', experimentId: 'EXP-026' },
-    { id: 'bistable', label: 'Bistable working-memory regime', description: 'A transient cue switches the network into a persistent high-activity state.', params: { w_EE_WC: 12, w_EI_WC: 4, w_IE_WC: 13, w_II: 11, P_ext_WC: 0 }, stimulus: { kind: 'step', amplitude: 2, startMs: 100, durationMs: 40 }, experimentId: 'EXP-026' },
+    { id: 'bistable', label: 'Bistable working-memory regime', description: 'Wilson & Cowan (1972) hysteresis parameters: a transient cue switches the network from the resting state into a persistent high-activity state.', params: { w_EE_WC: 12, w_EI_WC: 4, w_IE_WC: 13, w_II: 11, P_ext_WC: 0, a_E: 1.2, theta_E: 2.8, a_I: 1, theta_I: 4 }, stimulus: { kind: 'step', amplitude: 2, startMs: 100, durationMs: 40 }, experimentId: 'EXP-026' },
+    { id: 'bistable_nocue', label: 'Bistable regime without a cue', description: 'Same parameters with no cue: activity stays in the low state, showing that the high state is a memory of the input.', params: { w_EE_WC: 12, w_EI_WC: 4, w_IE_WC: 13, w_II: 11, P_ext_WC: 0, a_E: 1.2, theta_E: 2.8, a_I: 1, theta_I: 4 }, experimentId: 'EXP-026' },
     { id: 'quiet', label: 'Stable low-activity state', description: 'Without external drive activity decays to rest.', params: { P_ext_WC: 0 } },
   ],
   sweep: { paramKey: 'P_ext_WC', from: 0, to: 3, steps: 16, metricKey: 'lateAmplitudeE', experimentId: 'EXP-026' },
-  kernelLimitations: ['Mean-field rates: individual spike timing and synchrony within a population are not represented.', 'Spatially homogeneous populations with instantaneous coupling (no delays).'],
+  kernelLimitations: [
+    'Mean-field rates: individual spike timing and synchrony within a population are not represented.',
+    'Spatially homogeneous populations with instantaneous coupling (no delays).',
+    'The bistable preset also changes the response functions (a_E = 1.2, θ_E = 2.8, a_I = 1, θ_I = 4, Wilson & Cowan 1972): with the limit-cycle response functions the weights listed in the specification give a single resting state.',
+  ],
   run: runWC,
 };
 
@@ -303,12 +308,12 @@ const WW_PARAMS: ParamSpec[] = [
   { key: 'stim_on', label: 'Stimulus onset', symbol: 't_{on}', unit: 'ms', default: 500, min: 0, max: 5000, step: 10, description: 'Time at which the sensory evidence starts.', group: 'Stimulus' },
   { key: 'stim_dur', label: 'Stimulus duration', symbol: 'T_{stim}', unit: 'ms', default: 2000, min: 50, max: 10000, step: 10, description: 'Duration of the sensory evidence.', group: 'Stimulus' },
   { key: 'I0', label: 'Background input', symbol: 'I_0', unit: 'nA', default: 0.3255, min: 0.2, max: 0.45, step: 0.0005, description: 'Mean background synaptic input.', group: 'Inputs' },
-  { key: 'sigma_noise', label: 'Noise amplitude', symbol: '\\sigma_{noise}', unit: 'nA', default: 0.02, min: 0, max: 0.1, step: 0.001, description: 'Standard deviation of the AMPA-filtered background noise.', group: 'Inputs' },
+  { key: 'sigma_noise', label: 'Noise amplitude', symbol: '\\sigma_{noise}', unit: 'nA', default: 0.02, min: 0, max: 0.1, step: 0.001, description: 'Amplitude of the white noise filtered by the AMPA time constant; the filtered current has standard deviation σ/√2.', group: 'Inputs' },
   { key: 'tau_S', label: 'NMDA gating time constant', symbol: '\\tau_S', unit: 'ms', default: 100, min: 20, max: 300, step: 1, description: 'Decay time of the slow NMDA gating variable.', group: 'Dynamics' },
   { key: 'gamma_WW', label: 'Gating rate factor', symbol: '\\gamma', unit: '', default: 0.641, min: 0.1, max: 2, step: 0.001, description: 'Controls how firing rate drives NMDA gating.', group: 'Dynamics' },
   { key: 'threshold_hz', label: 'Decision threshold', symbol: '\\theta', unit: 'Hz', default: 15, min: 5, max: 40, step: 0.5, description: 'Firing rate at which a choice is registered.', group: 'Decision' },
 ];
-const WW = { a: 270, b: 108, d: 0.154, JAext: 5.2e-4, tauAmpa: 2 };
+const WW = { a: 270, b: 108, d: 0.154, JAext: 5.2e-4, tauAmpa: 2, windowMs: 50 };
 
 function runWW(cfg: RunConfig, ctx?: RunContext): ModelOutput {
   const p = paramReader(WW_PARAMS, cfg.params);
@@ -324,7 +329,13 @@ function runWW(cfg: RunConfig, ctx?: RunContext): ModelOutput {
   let status: ModelOutput['status'] = 'COMPLETED';
   let failedAtMs: number | undefined;
   const deterministic = cfg.solver === 'SOLVER-RK4';
-  const noiseDecay = Math.exp(-dt / WW.tauAmpa), noiseKick = sigma * Math.sqrt(1 - noiseDecay * noiseDecay);
+  // τ_AMPA dI/dt = −I + η(t)·√(τ_AMPA σ²) has stationary standard deviation σ/√2; the exact OU propagator is used.
+  const noiseDecay = Math.exp(-dt / WW.tauAmpa), noiseKick = (sigma / Math.SQRT2) * Math.sqrt(1 - noiseDecay * noiseDecay);
+  // Rates are averaged over a causal 50 ms window before the threshold test, as in Wong & Wang (2006); testing the
+  // instantaneous rate would let a single fast noise excursion trigger the decision.
+  const win = Math.max(1, Math.round(WW.windowMs / dt));
+  const buf1 = new Float64Array(win), buf2 = new Float64Array(win);
+  let acc1 = 0, acc2 = 0, filled = 0, pos = 0;
   rec.s.S_1![0] = S1; rec.s.S_2![0] = S2; rec.written = 1;
   for (let i = 0; i < nSteps; i++) {
     const t = i * dt;
@@ -349,10 +360,14 @@ function runWW(cfg: RunConfig, ctx?: RunContext): ModelOutput {
       n2 = n2 * noiseDecay + noiseKick * rng.normal();
     }
     S1 = Math.min(1, Math.max(0, S1)); S2 = Math.min(1, Math.max(0, S2));
-    if (choice === 0 && on && (r1 >= thr || r2 >= thr)) { choice = r1 >= r2 ? 1 : 2; rt = t - tOn; }
     if (diverged(r1) || diverged(r2)) { status = 'DIVERGED'; failedAtMs = t; break; }
+    acc1 += r1 - buf1[pos]!; buf1[pos] = r1; acc2 += r2 - buf2[pos]!; buf2[pos] = r2;
+    pos = (pos + 1) % win;
+    if (filled < win) filled++;
+    const m1 = acc1 / filled, m2 = acc2 / filled;
+    if (choice === 0 && on && (m1 >= thr || m2 >= thr)) { choice = m1 >= m2 ? 1 : 2; rt = t + dt - tOn; }
     const k = i + 1;
-    if (k % rec.stride === 0) { const j = k / rec.stride; if (j < rec.n) { rec.t[j] = k * dt; rec.s.S_1![j] = S1; rec.s.S_2![j] = S2; rec.s.r_1![j] = r1; rec.s.r_2![j] = r2; rec.written = j + 1; } }
+    if (k % rec.stride === 0) { const j = k / rec.stride; if (j < rec.n) { rec.t[j] = k * dt; rec.s.S_1![j] = S1; rec.s.S_2![j] = S2; rec.s.r_1![j] = m1; rec.s.r_2![j] = m2; rec.written = j + 1; } }
     if (ctx?.onProgress && k % 5000 === 0) ctx.onProgress(k / nSteps);
   }
   const { t, series } = finishRecorder(rec);
@@ -377,7 +392,7 @@ export const MODEL_019: ModelDefinition = {
     '\\frac{dS_i}{dt} = -\\frac{S_i}{\\tau_S} + (1 - S_i)\\,\\gamma\\,H(x_i), \\quad i \\in \\{1, 2\\}',
     'x_1 = J_{11} S_1 - J_{12} S_2 + I_0 + I_{stim,1}(t) + I_{noise,1}(t), \\qquad x_2 = J_{11} S_2 - J_{12} S_1 + I_0 + I_{stim,2}(t) + I_{noise,2}(t)',
     'H(x) = \\frac{a x - b}{1 - \\exp[-d\\,(a x - b)]}, \\qquad I_{stim,1/2} = J_{A,ext}\\,\\mu_0\\left(1 \\pm \\tfrac{c\'}{100}\\right)',
-    '\\tau_{AMPA}\\,dI_{noise} = -I_{noise}\\,dt + \\sigma_{noise}\\sqrt{2\\tau_{AMPA}}\\,dW_t',
+    '\\tau_{AMPA}\\,\\frac{dI_{noise,i}}{dt} = -I_{noise,i} + \\eta_i(t)\\sqrt{\\tau_{AMPA}\\,\\sigma_{noise}^2}',
   ],
   params: WW_PARAMS,
   initial: [{ key: 'S_1', label: 'Gating S₁(0)', unit: '', default: 0.1 }, { key: 'S_2', label: 'Gating S₂(0)', unit: '', default: 0.1 }],
@@ -387,8 +402,8 @@ export const MODEL_019: ModelDefinition = {
   stochastic: true,
   views: [
     { kind: 'traces', title: 'Population firing rates', yLabel: 'rate (Hz)', series: [
-      { key: 'r_1', label: 'r₁', unit: 'Hz', meaning: 'Firing rate of the population selective for choice 1.' },
-      { key: 'r_2', label: 'r₂', unit: 'Hz', meaning: 'Firing rate of the population selective for choice 2.' },
+      { key: 'r_1', label: 'r₁', unit: 'Hz', meaning: 'Firing rate of the population selective for choice 1 (50 ms running average).' },
+      { key: 'r_2', label: 'r₂', unit: 'Hz', meaning: 'Firing rate of the population selective for choice 2 (50 ms running average).' },
     ] },
     { kind: 'phase', title: '(S₁, S₂) decision space', xKey: 'S_1', yKey: 'S_2', xLabel: 'S₁', yLabel: 'S₂', curves: [] },
     { kind: 'traces', title: 'NMDA gating variables', yLabel: 'S', series: [
@@ -415,7 +430,7 @@ export const MODEL_019: ModelDefinition = {
 // ───────────────────────── MODEL-027 Kuramoto ─────────────────────────
 
 const KUR_PARAMS: ParamSpec[] = [
-  { key: 'K_Kuramoto', label: 'Global coupling strength', symbol: 'K', unit: 'rad/s', default: 4, min: 0, max: 20, step: 0.05, registryId: 'PARAM-079', description: 'Strength with which each oscillator is pulled toward its neighbours\' phases.', group: 'Coupling' },
+  { key: 'K_Kuramoto', label: 'Global coupling strength', symbol: 'K', unit: 'rad/s', default: 4, min: 0, max: 100, step: 0.05, registryId: 'PARAM-079', description: 'Strength with which each oscillator is pulled toward its neighbours\' phases.', group: 'Coupling' },
   { key: 'f0_Kuramoto', label: 'Mean intrinsic frequency', symbol: 'f_0', unit: 'Hz', default: 10, min: 1, max: 80, step: 0.5, registryId: 'PARAM-080', description: 'Centre of the natural-frequency distribution.', group: 'Oscillators' },
   { key: 'gamma_Kuramoto', label: 'Frequency dispersion (Lorentzian half-width)', symbol: '\\gamma', unit: 'rad/s', default: 1, min: 0.1, max: 10, step: 0.05, registryId: 'PARAM-081', description: 'Half-width of the Lorentzian distribution of natural frequencies; critical coupling is 2γ.', group: 'Oscillators' },
   { key: 'N_osc', label: 'Number of oscillators', symbol: 'N', unit: '', default: 100, min: 2, max: 200, step: 1, integer: true, description: 'Network size (browser cap: 200).', group: 'Network' },
@@ -545,7 +560,8 @@ export const MODEL_027: ModelDefinition = {
   presets: [
     { id: 'sync', label: 'Above critical coupling (K = 2 K_c)', description: 'Partial synchronization, R ≈ 0.71.', experimentId: 'EXP-037' },
     { id: 'incoh', label: 'Below critical coupling (K = 0.5 K_c)', description: 'Incoherent state, R at the finite-size floor.', params: { K_Kuramoto: 1 }, experimentId: 'EXP-037' },
-    { id: 'smallworld', label: 'Small-world coupling graph', description: 'Synthetic Watts–Strogatz topology instead of all-to-all.', params: { topology: 2, K_Kuramoto: 40, N_osc: 80 } },
+    { id: 'random', label: 'Sparse random coupling graph', description: 'Synthetic Erdős–Rényi graph (p = 0.1): with K scaled by N/⟨k⟩ the sparse network synchronizes much like the all-to-all one.', params: { topology: 3, K_Kuramoto: 40, N_osc: 100 } },
+    { id: 'ring', label: 'Ring lattice: local coupling', description: 'Nearest-neighbour coupling cannot produce global order with heterogeneous frequencies, however strong.', params: { topology: 1, K_Kuramoto: 100, N_osc: 100 } },
     { id: 'delay', label: 'Conduction delay', description: 'A uniform 10 ms delay shifts the collective frequency and lowers coherence.', params: { delay_ms: 10, K_Kuramoto: 6 } },
   ],
   sweep: { paramKey: 'K_Kuramoto', from: 1, to: 6, steps: 11, metricKey: 'orderParameterMean', experimentId: 'EXP-037' },

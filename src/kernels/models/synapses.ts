@@ -326,8 +326,8 @@ function runM13(cfg: RunConfig, ctx?: RunContext): ModelOutput {
   const t0 = pre[0] ?? 0;
   out.metrics.peakGAmpaNs = maxOf(series.g_AMPA!);
   out.metrics.peakGGabaNs = maxOf(series.g_GABA!);
-  out.metrics.ampaTimeToPeakMs = t[argmax(series.g_AMPA!)]! - t0;
-  out.metrics.gabaTimeToPeakMs = t[argmax(series.g_GABA!)]! - (t0 + off);
+  out.metrics.ampaTimeToPeakMs = out.metrics.peakGAmpaNs > 0 ? t[argmax(series.g_AMPA!)]! - t0 : NaN;
+  out.metrics.gabaTimeToPeakMs = out.metrics.peakGGabaNs > 0 ? t[argmax(series.g_GABA!)]! - (t0 + off) : NaN;
   out.metrics.ampaAnalyticPeakTimeMs = biexpPeakTime(trA, tdA);
   out.metrics.gabaAnalyticPeakTimeMs = biexpPeakTime(trG, tdG);
   const base = current ? EL : Vhold;
@@ -666,7 +666,8 @@ function runM16(cfg: RunConfig, ctx?: RunContext): ModelOutput {
   if (gap > 0 && pre.length) { const tp = pre[pre.length - 1]! + gap; if (tp < cfg.durationMs) pre.push(tp); }
   const cursor = makeEventCursor(pre);
   const rec = makeRecorder(['u', 'x', 'g_syn'], nSteps);
-  let u = cfg.initial.u ?? U0, x = cfg.initial.x ?? 1, g = 0;
+  // Utilization starts at its resting value U₀ (the fixed point of du/dt between spikes).
+  let u = U0, x = cfg.initial.x ?? 1, g = 0;
   const releases: number[] = [];
   const eventDriven = cfg.solver === 'SOLVER-HYBRID-SPIKE';
   const relaxExact = (h: number) => { u = U0 + (u - U0) * Math.exp(-h / tauFac); x = 1 + (x - 1) * Math.exp(-h / tauRec); g *= Math.exp(-h / tauS); };
@@ -725,10 +726,7 @@ export const MODEL_016: ModelDefinition = {
     'u^+ = u^- + U_0 (1 - u^-), \\quad \\Delta r = u^+ x^-, \\quad x^+ = x^- - \\Delta r, \\quad g_{syn} \\leftarrow g_{syn} + \\bar{g}_{max}\\,\\Delta r \\quad \\text{(at each spike)}',
   ],
   params: M16_PARAMS,
-  initial: [
-    { key: 'u', label: 'Utilization u(0)', unit: '', default: 0.5 },
-    { key: 'x', label: 'Available resources x(0)', unit: '', default: 1 },
-  ],
+  initial: [{ key: 'x', label: 'Available resources x(0)', unit: '', default: 1 }],
   stimulus: null,
   solvers: ['SOLVER-HYBRID-SPIKE', 'SOLVER-RK4'],
   defaultSolver: 'SOLVER-HYBRID-SPIKE', defaultDtMs: 0.1, minDtMs: 0.01, maxSafeDtMs: 0.5, defaultDurationMs: 1200, maxDurationMs: 10000,
@@ -758,6 +756,7 @@ export const MODEL_016: ModelDefinition = {
   kernelLimitations: [
     'Deterministic mean-field description: quantal release failures and trial-to-trial variability are not modelled.',
     'Utilization relaxes to U₀ and jumps before release, so the first-spike release is U₀(2 − U₀)·x as specified in SYNAPTIC_MODELS §7.',
+    'Utilization always starts at its resting value u(0) = U₀; only the resource fraction x(0) is editable.',
   ],
   run: runM16,
 };

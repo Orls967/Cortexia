@@ -122,9 +122,9 @@ function runLif(cfg: RunConfig, ctx?: RunContext): ModelOutput {
   const rheobase = ((Vth - EL) / R) * 1e3;
   out.metrics.rheobasePa = rheobase;
   out.metrics.analyticRateHz = lifAnalyticRate(I0, tau, R, EL, Vth, Vreset, tref);
-  if (cfg.stimulus.kind === 'step' && spikes.length > 2) {
-    out.metrics.relativeErrorPct = (100 * Math.abs(out.metrics.firingRateHz! - out.metrics.analyticRateHz)) / out.metrics.analyticRateHz;
-  }
+  out.metrics.relativeErrorPct = cfg.stimulus.kind === 'step' && spikes.length > 2 && out.metrics.analyticRateHz > 0
+    ? (100 * Math.abs(out.metrics.firingRateHz! - out.metrics.analyticRateHz)) / out.metrics.analyticRateHz
+    : NaN;
   out.curves.fI_analytic = curveFrom(linspace(0, Math.max(600, 1.5 * I0), 121), (I) => lifAnalyticRate(I, tau, R, EL, Vth, Vreset, tref));
   out.curves.fI_simulated = { x: Float64Array.of(I0), y: Float64Array.of(out.metrics.firingRateHz ?? 0) };
   return out;
@@ -424,6 +424,18 @@ const ADEX_PARAMS: ParamSpec[] = [
   { key: 'V_peak', label: 'Spike cutoff', symbol: 'V_{peak}', unit: 'mV', default: 0, min: -20, max: 30, step: 1, description: 'Voltage at which a spike is registered and the reset applied.', group: 'Membrane' },
 ];
 
+/**
+ * AdEx rheobase currents (Touboul & Brette 2008; Naud et al. 2008). `onset` is the current that reaches exponential spike
+ * initiation with no adaptation (w = 0). `sustained` is the current at which the resting state is lost once adaptation
+ * has equilibrated: a saddle-node when a/g_L < τ_m/τ_w, an Andronov–Hopf bifurcation otherwise.
+ */
+export function adexRheobase(gL: number, a: number, EL: number, VT: number, dT: number, tauM: number, tauW: number): { onset: number; sustained: number; type: 'saddle-node' | 'hopf' } {
+  const onset = gL * (VT - EL - dT);
+  const ratio = tauM / tauW;
+  if (a / gL < ratio) return { onset, sustained: (gL + a) * (VT - EL - dT + dT * Math.log(1 + a / gL)), type: 'saddle-node' };
+  return { onset, sustained: (gL + a) * (VT - EL - dT + dT * Math.log(1 + ratio)) + dT * gL * (a / gL - ratio), type: 'hopf' };
+}
+
 function runAdex(cfg: RunConfig, ctx?: RunContext): ModelOutput {
   const p = paramReader(ADEX_PARAMS, cfg.params);
   const dT = p('Delta_T_AdEx'), VT = p('V_T_AdEx'), a = p('a_AdEx'), b = p('b_AdEx'), tauW = p('tau_w_AdEx');
@@ -436,14 +448,16 @@ function runAdex(cfg: RunConfig, ctx?: RunContext): ModelOutput {
   let V = cfg.initial.V ?? EL, w = cfg.initial.w ?? 0;
   // Solver guard-rail: exponent capped at 20 (NEURON_MODELS §8).
   const fV = (v: number, ww: number, I: number) => (-gL * (v - EL) + gL * dT * Math.exp(Math.min(20, (v - VT) / dT)) - ww + I) / C;
-  const fW = (v: number, ww: number) => (a * (v - EL) - ww) / tauW;
+  // The voltage argument of the adaptation equation is clamped at V_peak: above it the model has no spike waveform, and
+  // letting a(V − E_L) see the diverging upstroke inside an RK4 stage would inject a spurious jump into w.
+  const fW = (v: number, ww: number) => (a * ((v < Vpeak ? v : Vpeak) - EL) - ww) / tauW;
   let status: ModelOutput['status'] = 'COMPLETED';
   let failedAtMs: number | undefined;
   rec.s.V![0] = V; rec.s.w![0] = w; rec.written = 1;
   for (let i = 0; i < nSteps; i++) {
     const t = i * dt;
     const I0 = stim(t), Im = stim(t + 0.5 * dt), I1 = stim(t + dt);
-    const prev = V;
+    const prev = V, wPrev = w;
     const k1v = fV(V, w, I0), k1w = fW(V, w);
     const k2v = fV(V + 0.5 * dt * k1v, w + 0.5 * dt * k1w, Im), k2w = fW(V + 0.5 * dt * k1v, w + 0.5 * dt * k1w);
     const k3v = fV(V + 0.5 * dt * k2v, w + 0.5 * dt * k2w, Im), k3w = fW(V + 0.5 * dt * k2v, w + 0.5 * dt * k2w);
@@ -454,8 +468,8 @@ function runAdex(cfg: RunConfig, ctx?: RunContext): ModelOutput {
       const frac = Number.isFinite(V) && V > prev ? Math.min(1, Math.max(0, (Vpeak - prev) / (V - prev))) : 0.5;
       spikes.push(t + frac * dt);
       V = Vreset;
-      if (!Number.isFinite(w)) w = 0;
-      w += b;
+      // Advance w only up to the interpolated crossing time, using the slope at the start of the step, then apply the jump.
+      w = wPrev + frac * dt * k1w + b;
     }
     if (diverged(w) || V < -1e4) { status = 'DIVERGED'; failedAtMs = t; break; }
     const k = i + 1;
@@ -472,6 +486,11 @@ function runAdex(cfg: RunConfig, ctx?: RunContext): ModelOutput {
   out.metrics.meanAdaptationPa = meanOf(series.w!);
   const vs = linspace(-90, -40, 201);
   const I = cfg.stimulus.baseline + cfg.stimulus.amplitude;
+  const rheo = adexRheobase(gL, a, EL, VT, dT, C / gL, tauW);
+  out.metrics.rheobasePa = rheo.sustained;
+  out.metrics.rheobaseNoAdaptationPa = rheo.onset;
+  if (cfg.stimulus.kind === 'step' && spikes.length === 0 && I < rheo.onset) out.notes.push(`No spikes: the ${I} pA step is below the ${rheo.onset.toFixed(0)} pA needed to reach exponential spike initiation from rest (sustained firing needs ${rheo.sustained.toFixed(0)} pA, ${rheo.type === 'hopf' ? 'Andronov–Hopf' : 'saddle-node'} onset).`);
+  else if (cfg.stimulus.kind === 'step' && I < rheo.sustained && spikes.length > 0) out.notes.push(`Transient firing only: ${I} pA exceeds the onset current (${rheo.onset.toFixed(0)} pA) but not the ${rheo.sustained.toFixed(0)} pA needed once adaptation has built up.`);
   out.curves.V_nullcline = curveFrom(vs, (v) => -gL * (v - EL) + gL * dT * Math.exp(Math.min(20, (v - VT) / dT)) + I);
   out.curves.w_nullcline = curveFrom(vs, (v) => a * (v - EL));
   if (Number.isFinite(out.metrics.adaptationRatio) && out.metrics.adaptationRatio! > 1.2) out.notes.push(`Spike-frequency adaptation: the last inter-spike interval is ${out.metrics.adaptationRatio!.toFixed(2)}× the first.`);
@@ -493,7 +512,7 @@ export const MODEL_008: ModelDefinition = {
   ],
   stimulus: {
     label: 'Injected current', unit: 'pA', description: 'Electrode current (positive = depolarizing).',
-    default: { kind: 'step', amplitude: 500, startMs: 20, durationMs: 1e9 }, amplitudeRange: [0, 1500], kinds: ['step', 'pulse-train', 'ramp', 'sine', 'ou-noise', 'none'],
+    default: { kind: 'step', amplitude: 1000, startMs: 20, durationMs: 1e9 }, amplitudeRange: [0, 2000], kinds: ['step', 'pulse-train', 'ramp', 'sine', 'ou-noise', 'none'],
   },
   solvers: ['SOLVER-HYBRID-SPIKE', 'SOLVER-RK4'],
   defaultSolver: 'SOLVER-HYBRID-SPIKE', defaultDtMs: 0.05, minDtMs: 0.005, maxSafeDtMs: 0.1, defaultDurationMs: 500, maxDurationMs: 10000,
@@ -508,14 +527,21 @@ export const MODEL_008: ModelDefinition = {
     ...RATE_METRICS,
     { key: 'adaptationRatio', label: 'Adaptation ratio', unit: '', description: 'Last inter-spike interval divided by the first (VAL-ADEX-001 expects > 1.8 for regular spiking).' },
     { key: 'meanAdaptationPa', label: 'Mean adaptation current', unit: 'pA', description: 'Time-averaged w.' },
+    { key: 'rheobasePa', label: 'Rheobase (sustained firing)', unit: 'pA', description: 'Smallest constant current that keeps the neuron firing once adaptation has equilibrated (closed form).' },
+    { key: 'rheobaseNoAdaptationPa', label: 'Onset current from rest', unit: 'pA', description: 'Current g_L (V_T − E_L − Δ_T) that reaches spike initiation when the adaptation current is zero.' },
   ],
   presets: [
-    { id: 'rs', label: 'Regular spiking with adaptation', description: 'Cortical pyramidal defaults (Brette & Gerstner 2005).', stimulus: { kind: 'step', amplitude: 500, startMs: 20, durationMs: 1e9 }, experimentId: 'EXP-015' },
-    { id: 'tonic', label: 'Tonic spiking (no spike-triggered adaptation)', description: 'b = 0 removes adaptation.', params: { b_AdEx: 0, a_AdEx: 0 }, stimulus: { kind: 'step', amplitude: 500, startMs: 20, durationMs: 1e9 }, experimentId: 'EXP-015' },
-    { id: 'burst', label: 'Bursting', description: 'High reset potential re-triggers spikes within a burst.', params: { V_reset: -47.4, b_AdEx: 60, tau_w_AdEx: 100, a_AdEx: 2 }, stimulus: { kind: 'step', amplitude: 650, startMs: 20, durationMs: 1e9 }, experimentId: 'EXP-015' },
+    { id: 'rs', label: 'Regular spiking with adaptation', description: 'Cortical pyramidal defaults (Brette & Gerstner 2005) driven by a 1 nA step: inter-spike intervals lengthen as w builds up.', stimulus: { kind: 'step', amplitude: 1000, startMs: 20, durationMs: 1e9 }, experimentId: 'EXP-015' },
+    { id: 'tonic', label: 'Tonic spiking (no adaptation)', description: 'a = b = 0 removes adaptation: perfectly regular firing.', params: { b_AdEx: 0, a_AdEx: 0 }, stimulus: { kind: 'step', amplitude: 1000, startMs: 20, durationMs: 1e9 }, experimentId: 'EXP-015' },
+    { id: 'burst', label: 'Bursting', description: 'A reset potential above the spike-initiation zone re-triggers spikes within a burst until adaptation ends it.', params: { V_reset: -47.4, b_AdEx: 60, tau_w_AdEx: 100, a_AdEx: 2 }, stimulus: { kind: 'step', amplitude: 650, startMs: 20, durationMs: 1e9 }, experimentId: 'EXP-015' },
+    { id: 'subrheo', label: 'Below rheobase (500 pA)', description: 'The step stays below the 546 pA onset current of the default parameters: the membrane depolarizes but never spikes.', stimulus: { kind: 'step', amplitude: 500, startMs: 20, durationMs: 1e9 }, experimentId: 'EXP-015' },
   ],
-  sweep: { paramKey: 'stimulus.amplitude', from: 300, to: 1000, steps: 15, metricKey: 'firingRateHz', experimentId: 'EXP-020' },
-  kernelLimitations: ['Spike waveform above V_peak is not modelled; the upstroke is truncated and reset.', 'A single adaptation variable lumps several K⁺ currents with different time scales.'],
+  sweep: { paramKey: 'stimulus.amplitude', from: 400, to: 1400, steps: 21, metricKey: 'firingRateHz', experimentId: 'EXP-020' },
+  kernelLimitations: [
+    'Spike waveform above V_peak is not modelled; the upstroke is truncated and reset.',
+    'A single adaptation variable lumps several K⁺ currents with different time scales.',
+    'With the documented regular-spiking parameters the neuron needs about 546 pA to fire at all and about 627 pA to keep firing, so the 500 pA step named in VAL-ADEX-001 cannot elicit spikes; the default stimulus is 1 nA.',
+  ],
   run: runAdex,
 };
 

@@ -151,14 +151,19 @@ export interface PathResult {
   unreachablePairs: number;
 }
 
-export function pathMetrics(dist: Float64Array, n: number): PathResult {
-  let sum = 0, eff = 0, reach = 0, unreachable = 0, diameter = 0;
-  for (let i = 0; i < n; i++) for (let j = 0; j < n; j++) {
-    if (i === j) continue;
-    const v = dist[i * n + j]!;
-    if (Number.isFinite(v)) { sum += v; eff += 1 / v; reach++; if (v > diameter) diameter = v; } else unreachable++;
+/** Path statistics over all nodes, or over the nodes marked alive (pairs involving a removed node are excluded). */
+export function pathMetrics(dist: Float64Array, n: number, alive?: Uint8Array): PathResult {
+  let sum = 0, eff = 0, reach = 0, unreachable = 0, diameter = 0, m = 0;
+  for (let i = 0; i < n; i++) {
+    if (alive && !alive[i]) continue;
+    m++;
+    for (let j = 0; j < n; j++) {
+      if (i === j || (alive && !alive[j])) continue;
+      const v = dist[i * n + j]!;
+      if (Number.isFinite(v)) { sum += v; eff += 1 / v; reach++; if (v > diameter) diameter = v; } else unreachable++;
+    }
   }
-  const pairs = n * (n - 1);
+  const pairs = m * (m - 1);
   return { charPathLength: reach ? sum / reach : NaN, globalEfficiency: pairs ? eff / pairs : 0, diameter, unreachablePairs: unreachable };
 }
 
@@ -423,7 +428,7 @@ export interface LesionCurve {
   fraction: Float64Array;
   /** Largest connected component as a fraction of the original node count. */
   lcc: Float64Array;
-  /** Global efficiency relative to the intact graph; removed nodes count as isolated. */
+  /** Global efficiency among the surviving nodes, relative to the intact graph. */
   efficiency: Float64Array;
 }
 
@@ -438,7 +443,7 @@ export function lesionCurve(w: Float64Array, n: number, order: ArrayLike<number>
     alive.fill(1);
     for (let r = 0; r < removed; r++) alive[order[r]!] = 0;
     out.lcc[q] = connectedComponents(a, n, alive).largest / n;
-    out.efficiency[q] = e0 > 0 ? pathMetrics(distanceMatrix(a, n, weighted, alive), n).globalEfficiency / e0 : 0;
+    out.efficiency[q] = e0 > 0 ? pathMetrics(distanceMatrix(a, n, weighted, alive), n, alive).globalEfficiency / e0 : 0;
   }
   return out;
 }
