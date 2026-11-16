@@ -34,9 +34,9 @@ This file is the resume point and execution audit log for Phase 1 implementation
 | CP-16 | Modules 01–12 pages | DONE | `src/modules/m01-*` … `m12-*` |
 | CP-17 | Digital Twin (3 flagship experiments EXP-040..042) | DONE | `src/kernels/twin/*`, `DigitalTwinPage.tsx` |
 | CP-18 | Research environment (runs, notebook, export/import) | DONE | `src/modules/m12-knowledge-library/ResearchPage.tsx` |
-| CP-19 | E2E (Playwright + axe), performance benchmarks | IN PROGRESS | `tests/e2e/cortexia.spec.ts`, `scripts/run-benchmarks.mjs` |
-| CP-20 | CI workflow + GitHub Pages deployment + live verification | PENDING | `.github/workflows/ci-deploy.yml`, `playwright.live.config.ts` |
-| CP-21 | Final completion report | PENDING | `docs/16-project-management/COMPLETION_REPORT.md` |
+| CP-19 | E2E (Playwright + axe), performance benchmarks | DONE | `tests/e2e/cortexia.spec.ts` (6/6 passed), `scripts/run-benchmarks.mjs` (43.9 KB gz, 0.78 ms search) |
+| CP-20 | CI workflow + GitHub Pages deployment + live verification | DONE | `.github/workflows/ci-deploy.yml`, `https://orls967.github.io/Cortexia/` (`npm run e2e:live` 6/6 passed) |
+| CP-21 | Final completion report | DONE | `docs/16-project-management/COMPLETION_REPORT.md` |
 
 ---
 

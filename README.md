@@ -6,7 +6,7 @@
 ---
 
 > [!IMPORTANT]
-> **Phase 0 Repository Notice:** This repository currently contains the **Phase 0 Scientific, Product & Software Specification Package** for CORTEXIA. Application source code (`React`, `TypeScript`, `Three.js`, Web Workers, WASM kernels) is intentionally deferred to implementation Phases A–H. No live deployment or clinical validation is claimed in Phase 0.
+> **Phase 1 Production Release (`v1.0.0`):** Full implementation is complete and deployed to GitHub Pages at **https://orls967.github.io/Cortexia/** alongside the complete Phase 0 specification package (`docs/`, `schemas/`, `registries/`). All 12 modules (`MOD-01`–`MOD-12`), 4 procedural 3D studios (`Studios A–D`), the 3-tier UCES explanation system (`616` entity explanations, `793` searchable entities, `774` KG nodes / `3,451` edges), `28` executable computational models (`MODEL-001`–`MODEL-028`), `26` analytics methods (`ANALYTIC-001`–`026`), `19` executable validation cases (`VAL-*`), and `3` cross-scale Digital Twin experiments (`EXP-040`–`EXP-042`) run deterministically in-browser. Educational and research use only; not a clinical tool. For implementation evidence and honest limitations, see [COMPLETION_REPORT.md](docs/16-project-management/COMPLETION_REPORT.md).
 
 ---
 
