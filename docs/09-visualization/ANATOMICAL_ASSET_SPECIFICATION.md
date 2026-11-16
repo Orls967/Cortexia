@@ -20,6 +20,7 @@ This document defines the metadata contract, scientific accuracy classifications
 
 | Accuracy Classification Enum | Meaning & Generation Method | Required Viewport Disclosure Badge |
 |---|---|---|
+| `PROCEDURAL_EDUCATIONAL_APPROXIMATION` | Parametric Three.js geometry generated in-browser and anchored on registry MNI centroids or topological layouts (used in Phase 1 standalone static build where external `.glb`/`.swc` files are not bundled) | `Procedural 3D Educational Approximation (Non-Clinical)` |
 | `ATLAS_REFERENCE_MESH` | Surface mesh derived from open population stereotaxic atlases (`MNI152 / fsaverage / Julich-Brain / Allen CCF`) and decimated for WebGL | `Atlas Reference Geometry (Population Template, Simplified)` |
 | `RECONSTRUCTED_MORPHOLOGY_SWC` | 3D tubular arbor generated directly from experimentally traced `SWC` morphology coordinates (`NeuroMorpho.Org` / `Allen Cell Types`) | `Reconstructed Cellular Morphology (SWC Trace)` |
 | `BIOPHYSICAL_SCHEMATIC_3D` | Proportionally guided 3D structural schematic of organelles, synaptic clefts, or channel states | `Illustrative Biophysical 3D Schematic (Non-Atomistic)` |
@@ -33,11 +34,11 @@ Every 3D asset record in `assets-3d.json` MUST define:
 - `id`: Immutable `^ASSET-[A-Z0-9-]+$` identifier.
 - `name`: Human-readable asset group title.
 - `studio`: Target studio (`STUDIO_A_WHOLE_BRAIN`, `STUDIO_B_CELLULAR`, `STUDIO_C_SYNAPTIC_MOLECULAR`, `STUDIO_D_NETWORK`).
-- `format`: `GLB_DRACO`, `SWC_TUBE_GEOMETRY`, or `PROCEDURAL_INSTANCED_MESH`.
+- `format`: `GLB_DRACO`, `SWC_TUBE_GEOMETRY`, `PROCEDURAL_INSTANCED_MESH`, or `PROCEDURAL_PARAMETRIC_MESH`.
 - `sourceMethod`: Provenance source or procedural generator module.
 - `license`: License identifier (`CC0-1.0`, `CC-BY-4.0`, `ALLEN_NONCOMMERCIAL`, `MIT_PROCEDURAL`).
 - `mappedEntityIds`: Non-empty array of scientific entity IDs (`ANAT-*`, `CELL-*`, `MOL-*`, `MECH-*`, `CIRC-*`) bound to sub-meshes or instances.
-- `accuracyClassification`: One of the 4 enums in Section 2.
+- `accuracyClassification`: One of the 5 enums in Section 2.
 - `simplificationDisclosure`: Explicit sentence explaining geometric simplifications (e.g., vertex decimation ratio, uniform spine proxy, schematic channel cylinders).
 - `spatialScaleUnit`: `mm`, `um`, `nm`, or `topological`.
 - `lodTriangleBudgets`: `{ "lod0": number, "lod1": number, "lod2": number }`.

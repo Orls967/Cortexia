@@ -43,7 +43,8 @@
       "enum": [
         "GLB_DRACO",
         "SWC_TUBE_GEOMETRY",
-        "PROCEDURAL_INSTANCED_MESH"
+        "PROCEDURAL_INSTANCED_MESH",
+        "PROCEDURAL_PARAMETRIC_MESH"
       ]
     },
     "sourceMethod": {
@@ -67,7 +68,8 @@
         "ATLAS_REFERENCE_MESH",
         "RECONSTRUCTED_MORPHOLOGY_SWC",
         "BIOPHYSICAL_SCHEMATIC_3D",
-        "PROCEDURAL_NETWORK_GRAPH"
+        "PROCEDURAL_NETWORK_GRAPH",
+        "PROCEDURAL_EDUCATIONAL_APPROXIMATION"
       ]
     },
     "simplificationDisclosure": {
