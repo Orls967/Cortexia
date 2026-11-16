@@ -299,12 +299,12 @@ button {
   cursor: not-allowed;
 }
 .cx-btn-primary {
-  background: #0284c7;
+  background: #0369a1;
   border-color: var(--accent-ice-blue);
   color: #ffffff;
 }
 .cx-btn-primary:hover:not(:disabled) {
-  background: #0369a1;
+  background: #075985;
 }
 .cx-btn-danger {
   background: rgba(244, 63, 94, 0.16);
@@ -377,9 +377,9 @@ button {
   gap: 5px;
   padding: 2px 8px;
   border-radius: var(--radius-sm);
-  border: 1px solid rgba(56, 189, 248, 0.3);
-  background: rgba(56, 189, 248, 0.08);
-  color: #bae6fd;
+  border: 1px solid rgba(56, 189, 248, 0.42);
+  background: rgba(14, 116, 144, 0.24);
+  color: #e0f2fe;
   font-size: 12px;
   text-align: left;
 }

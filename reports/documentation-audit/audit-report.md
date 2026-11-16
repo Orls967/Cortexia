@@ -44,7 +44,7 @@ All 17 automated Phase 0 audit checks (Markdown inventory, non-empty verificatio
 
 ## 3. Seventeen Automated Audit Checks Summary
 
-1. **Markdown Inventory:** `71` files (`4972` lines, `50791` words).
+1. **Markdown Inventory:** `71` files (`4955` lines, `50265` words).
 2. **Empty-Document Check:** `PASSED` (`0` empty or stub files).
 3. **Relative Link Check:** `PASSED` (`0` broken relative file links).
 4. **Internal Anchor Check:** `PASSED` (`0` broken `#anchor` links).

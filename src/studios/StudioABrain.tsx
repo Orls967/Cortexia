@@ -128,7 +128,7 @@ export function StudioABrain({ highlightIds = [], regionActivity = null, height 
           Click any structure in the hierarchy list to inspect its 12-section UCES record and MNI coordinates.
         </p>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 5 }}>
-          {structures.slice(0, 28).map((st) => (
+          {structures.map((st) => (
             <button
               key={st.id}
               type="button"

@@ -81,7 +81,7 @@ export function EntityRef({
       {children ?? (
         <>
           <span>{label ?? id}</span>
-          {showId && <span className="tabular" style={{ opacity: 0.7, fontSize: 10 }}>{id}</span>}
+          {showId && <span className="tabular" style={{ color: '#bae6fd', fontSize: 10 }}>{id}</span>}
         </>
       )}
     </button>

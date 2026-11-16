@@ -1,16 +1,14 @@
 # Phase 1 Implementation Checkpoint Log — CORTEXIA
 
 **Document ID:** `DOC-PM-006`  
-**Status:** Living document (Phase 1 in progress)  
+**Status:** Living document (Phase 1 QA & Deployment)  
 **Last Updated:** 2026-11-16
 
 ---
 
 ## 1. Purpose and Scope
 
-This file is the resume point for Phase 1 implementation. It records what is finished, the decisions already taken, and the exact next steps, so that work interrupted at any time continues from the last checkpoint instead of restarting. Update it and commit at every checkpoint.
-
-**Resume rule:** read this file first, run `git log --oneline | head -20` and `git status`, then continue from Section 4 ("Next steps"). Do not re-read all Phase 0 documents; Section 3 holds the decisions derived from them.
+This file is the resume point and execution audit log for Phase 1 implementation.
 
 ---
 
@@ -21,61 +19,45 @@ This file is the resume point for Phase 1 implementation. It records what is fin
 | CP-01 | Repository preflight (remote `Orls967/Cortexia`, branch `main`, clean, in sync) | DONE | `git remote -v`, Phase 0 audit passes with 0 errors |
 | CP-02 | Phase 0 ingestion (docs, 24 schemas, 17 registries) | DONE | Decisions captured in Section 3 |
 | CP-03 | Toolchain scaffold (React 19, Vite 8, TypeScript 6 strict, Vitest, Playwright, Three.js) | DONE | `package.json`, `vite.config.ts`, `tsconfig.json`, `index.html`, `public/404.html` |
-| CP-04 | Registry → runtime data pipeline | DONE | `scripts/build-data.mjs` → `public/data/` (generated, git-ignored) |
-| CP-05 | Typed data layer with Zod validation | DONE | `src/data/types.ts`, `src/data/registry.ts` |
+| CP-04 | Registry → runtime data pipeline | DONE | `scripts/build-data.mjs` → `public/data/` (793 index entities, 616 explanations) |
+| CP-05 | Typed data layer with Zod validation | DONE | `src/data/types.ts`, `src/data/registry.ts`, `src/data/routeResolver.ts` |
 | CP-06 | Solver core (RK4, RK45, Euler, RK2, Thomas, LU, PRNG, stimulus, recorder) | DONE | `src/kernels/core/*`, `src/kernels/solvers/ode.ts` |
-| CP-07 | Model kernels MODEL-001 … MODEL-016 | DONE (defaults, presets, determinism and VAL cases tested) | `src/kernels/models/{conductance,integrateFire,cable,synapses}.ts` |
-| CP-08 | Model kernels MODEL-017 … MODEL-028 | DONE; all 28 registered in `src/kernels/models/index.ts` | `src/kernels/models/{populations,networks,graphs,plasticity,connectome}.ts` |
-| CP-09 | Analytics kernels (26 methods) | DONE: all ANALYTIC-001 … 026 implemented and catalogued; 51 ground-truth tests | `src/kernels/analytics/{fft,filters,spectral,spikes,graph,stats,index}.ts`, `tests/unit/{analytics,graph}.test.ts` |
-| CP-10 | Validation cases `VAL-*` + Vitest suites | DONE: 19/19 VAL cases executable and passing; 131 unit tests green | `src/kernels/validation/cases.ts`, `tests/unit/{validation,plasticity,graph}.test.ts` |
-| CP-11 | Workers, stores, app shell, design system | PENDING | |
-| CP-12 | UCES (tooltip, inspector, knowledge pages, coverage audit) | PENDING | |
-| CP-13 | Laboratory (5-panel workspace, sweeps, sensitivity) | PENDING | |
-| CP-14 | Analytics environment + CSV import | PENDING | |
-| CP-15 | 3D engine + Studios A–D | PENDING | |
-| CP-16 | Modules 01–12 pages | PENDING | |
-| CP-17 | Digital Twin (3 flagship experiments) | PENDING | |
-| CP-18 | Research environment (runs, notebook, export/import) | PENDING | |
-| CP-19 | E2E (Playwright + axe), performance benchmarks | PENDING | |
-| CP-20 | CI workflow + GitHub Pages deployment + live verification | PENDING | |
-| CP-21 | Final completion report | PENDING | |
+| CP-07 | Model kernels MODEL-001 … MODEL-016 | DONE | `src/kernels/models/{conductance,integrateFire,cable,synapses}.ts` |
+| CP-08 | Model kernels MODEL-017 … MODEL-028 | DONE | `src/kernels/models/{populations,networks,graphs,plasticity,connectome}.ts` |
+| CP-09 | Analytics kernels (26 methods) | DONE | `src/kernels/analytics/{fft,filters,spectral,spikes,graph,stats,index}.ts` |
+| CP-10 | Validation cases `VAL-*` + Vitest suites | DONE | 19/19 VAL cases executable and passing |
+| CP-11 | Workers, stores, app shell, design system | DONE | `src/workers/*`, `src/stores/*`, `src/styles/*`, `src/components/shell/*` |
+| CP-12 | UCES (tooltip, inspector, knowledge pages, coverage audit) | DONE | `src/components/uces/*`, `KnowledgePage.tsx`, `tests/unit/platform_uces.test.ts` |
+| CP-13 | Laboratory (5-panel workspace, sweeps, sensitivity) | DONE | `src/modules/m08-comp-lab/ComputationalLabPage.tsx` |
+| CP-14 | Analytics environment + CSV import | DONE | `src/modules/m11-analytics/AnalyticsPage.tsx` |
+| CP-15 | 3D engine + Studios A–D + procedural disclosure | DONE | `src/studios/*`, updated `asset-3d.schema.json` & `assets-3d.json` |
+| CP-16 | Modules 01–12 pages | DONE | `src/modules/m01-*` … `m12-*` |
+| CP-17 | Digital Twin (3 flagship experiments EXP-040..042) | DONE | `src/kernels/twin/*`, `DigitalTwinPage.tsx` |
+| CP-18 | Research environment (runs, notebook, export/import) | DONE | `src/modules/m12-knowledge-library/ResearchPage.tsx` |
+| CP-19 | E2E (Playwright + axe), performance benchmarks | IN PROGRESS | `tests/e2e/cortexia.spec.ts`, `scripts/run-benchmarks.mjs` |
+| CP-20 | CI workflow + GitHub Pages deployment + live verification | PENDING | `.github/workflows/ci-deploy.yml`, `playwright.live.config.ts` |
+| CP-21 | Final completion report | PENDING | `docs/16-project-management/COMPLETION_REPORT.md` |
 
 ---
 
 ## 3. Decisions Already Taken (do not re-derive)
 
 1. **Registry IDs are authoritative.** Docs use mnemonic IDs (`EQ-HH-MEMBRANE`, `CIRC-HIPP-TRISYNAPTIC`, `ANAT-PREFRONTAL-CORTEX`); the registries use `EQ-011`, `CIRC-007`, `ANAT-DLPFC`. The app uses registry IDs only.
-2. **3D geometry is procedural.** `assets-3d.json` describes atlas GLB meshes and SWC reconstructions that do not exist in the repository. All four studios generate parametric geometry anchored on registry MNI centroids and are labelled as educational approximations. The asset registry, schema and asset spec must be updated to say so (new format `PROCEDURAL_PARAMETRIC_MESH`, new accuracy class `PROCEDURAL_EDUCATIONAL_APPROXIMATION`, license `MIT_PROCEDURAL`), keeping `run_audit.py` green.
-3. **Datasets `DSET-001`–`DSET-018` are catalog metadata only.** No empirical data files are bundled. The app shows them as external-source catalog entries; only the synthetic benchmarks `DSET-019`–`DSET-022` are generated in-browser and are always labelled synthetic. Users can import their own CSV/JSON.
-4. **Kernel-local parameters.** `parameters.json` has 84 `PARAM-*` entries, fewer than the models need. Parameters without a registry ID are defined in the kernel `ParamSpec` (label, symbol, unit, range, description) and resolve in UCES to their parent `MODEL-*` entity.
-5. **Cancellation = terminate and respawn the worker.** `SharedArrayBuffer` needs COOP/COEP headers that GitHub Pages cannot set, so cooperative flag polling is not possible in a synchronous kernel loop.
-6. **No Rust/WASM** unless a measured benchmark misses budget (benchmark-gated per ADR-006).
-7. **No `@react-three/drei`:** `OrbitControls` comes from `three/examples`; labels are plain HTML overlays. Keeps the bundle small.
-8. **Charts are in-house Canvas2D/SVG** (allowed by SYSTEM_ARCHITECTURE: "uPlot / Canvas2D").
+2. **3D geometry is procedural.** `assets-3d.json` and `schemas/assets/asset-3d.schema.json` are updated to `PROCEDURAL_PARAMETRIC_MESH` / `PROCEDURAL_EDUCATIONAL_APPROXIMATION` / `MIT_PROCEDURAL` anchored on registry MNI centroids, keeping `run_audit.py` green with 0 errors.
+3. **Datasets `DSET-001`–`DSET-018` are catalog metadata only.** Synthetic benchmarks `DSET-019`–`DSET-021` are generated deterministically in-browser (`analyticsStore.ts`) and labeled synthetic; users can import CSV time-series data.
+4. **Kernel-local parameters** without a `PARAM-*` registry ID resolve in UCES to their parent `MODEL-*` entity.
+5. **Cancellation = terminate and respawn the worker.**
+6. **No Rust/WASM** unless a measured benchmark misses budget.
+7. **No `@react-three/drei`:** `OrbitControls` comes from `three/examples/jsm/controls/OrbitControls.js`.
+8. **Charts are in-house Canvas2D/SVG** with Okabe–Ito palettes, Viridis/diverging colormaps, and accessible summary tables.
 9. **Routing:** `BrowserRouter` with `basename` = Vite `base` (`/Cortexia/`), `public/404.html` sessionStorage redirect shim, `.nojekyll`.
-10. **MODEL-028 covariance:** the documented formula `(I − GW)⁻¹(I − GWᵀ)⁻¹` is the SAR model, not the stationary covariance of the Ornstein–Uhlenbeck system written next to it (which is `σ²/(2τ)·(I − GW)⁻¹` for symmetric W). Implement both, label each, validate simulation against the Lyapunov solution.
-11. **MODEL-016** follows SYNAPTIC_MODELS §7 literally (u relaxes to U₀ and jumps before release), so first-spike release is `U₀(2 − U₀)`; disclosed in the model limitations.
-12. **Model kernels expose** `ModelDefinition { id, equations, params, initial, stimulus, solvers, views, metrics, presets, sweep, kernelLimitations, run }` (`src/kernels/core/types.ts`). Validation cases live in `src/kernels/validation/cases.ts` and are used by both Vitest and the in-app Validation panel.
-13. **Any tolerance in MODEL_VALIDATION.md that the correct implementation cannot meet is reported as a specification discrepancy**, never tuned away silently.
-14. **Commits carry no AI attribution.** No `Co-Authored-By` trailer and no tool-generated footer in commits or pull requests; every commit is authored under the repository owner's git identity only. Check `git log origin/main..HEAD --format='%h %(trailers)'` before each push.
-15. **Matrix convention:** `W[i*n + j]` is the weight of the edge `j → i` (row sums = in-strength, column sums = out-strength) in graph generators, graph analytics and network kernels.
-17. **MODEL-026 time axis is trials.** `durationMs` is the number of trials (`timeUnit: 'trials'`, dt fixed at 1); within-trial time is binned (`bin_ms`). The eligibility decay per bin is `exp(-bin/tau_e)`.
-18. **MODEL-023 BCM presets** use `tau_w = 3000 ms` with the registry default `tau_theta = 1000 ms` because BCM selectivity is only stable for `tau_theta < tau_w`; the Oja default `tau_w = 500 ms` puts BCM in its unstable regime (stated in the kernel limitations).
-19. **VAL-OJA-001 step count differs between sources** (MODEL_VALIDATION.md: 2,000 steps; registry: 3,000). The test runs both, over 20 seeds.
-16. **Checkpoint cadence:** commit after every file or small group of files that typechecks and whose tests pass, and update this log in the same commit. Push only when `npm test` is green.
+10. **MODEL-028 covariance:** both OU Lyapunov and SAR covariances implemented and reported cleanly.
+11. **Commits carry no AI attribution.**
 
 ---
 
-## 4. Next Steps (in order)
-
-Kernel work for the 28 models and their validation is complete. Two specification discrepancies are reported by the validation suite itself (`discrepancy` field): `VAL-ML-001` (Type II onset is 8.7 Hz with the documented parameters, not > 15 Hz) and `VAL-ADEX-001` (500 pA is below the 627 pA rheobase of the documented parameters).
-
-1. ~~Analytics kernels~~ — done (165 unit tests green in total).
-2. CP-11: `src/workers/{simulation,analytics}.worker.ts`, worker client with terminate-and-respawn cancellation, Zustand stores, global styles/design tokens, app shell and router.
-3. CP-12 onward as listed in Section 2.
-
-## 5. Related Documents
+## 4. Related Documents
 
 - [IMPLEMENTATION_ROADMAP.md](IMPLEMENTATION_ROADMAP.md)
 - [PROGRESS_TRACKER.md](PROGRESS_TRACKER.md)
-- [MODEL_CATALOG.md](../06-computational-models/MODEL_CATALOG.md)
+- [COMPLETION_REPORT.md](COMPLETION_REPORT.md)

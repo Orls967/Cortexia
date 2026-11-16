@@ -29,6 +29,8 @@ export function MathFormula({ latex, display = false, label }: MathFormulaProps)
   }
   return (
     <span
+      role="math"
+      tabIndex={display ? 0 : undefined}
       className={display ? 'cx-math-display' : 'cx-math-inline'}
       style={display ? { display: 'block', overflowX: 'auto', padding: '6px 0' } : undefined}
       aria-label={label ?? latex}

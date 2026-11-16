@@ -145,7 +145,7 @@ export function parseCsvDataset(text: string, fileName: string, samplingRateHz: 
   const headers = lines[0]!.split(sep).map((h) => h.trim().replace(/^["']|["']$/g, ''));
   if (headers.length < 1) return { ok: false, error: 'No columns found in CSV header.' };
 
-  const startCol = headers.length > 1 && /^(time|t|ms|s|sec)$/i.test(headers[0]!) ? 1 : 0;
+  const startCol = headers.length > 1 && /^(time|t|ms|s|sec)(_.*)?$/i.test(headers[0]!) ? 1 : 0;
   const colNames = headers.slice(startCol);
   if (colNames.length === 0) return { ok: false, error: 'No signal columns found after time column.' };
 

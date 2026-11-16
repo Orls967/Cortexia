@@ -170,7 +170,7 @@ export function AppShell() {
             onClick={() => setSearchOpen(true)}
             aria-label="Open Global Scientific Search"
           >
-            Search <kbd className="tabular" style={{ opacity: 0.7, fontSize: 10 }}>⌘K</kbd>
+            Search <kbd className="tabular" style={{ color: 'var(--text-secondary)', fontSize: 10 }}>⌘K</kbd>
           </button>
           <button
             type="button"
@@ -229,7 +229,7 @@ export function AppShell() {
               onClick={() => setMobileRailOpen(false)}
             >
               <span>{item.label}</span>
-              <span className="tabular" style={{ fontSize: 10, opacity: 0.7 }}>{item.tag}</span>
+              <span className="tabular" style={{ fontSize: 10, color: 'var(--text-secondary)' }}>{item.tag}</span>
             </NavLink>
           ))}
           <div className="cx-rail-section" style={{ marginTop: 10 }}>Scale Scope ({activeScale})</div>
