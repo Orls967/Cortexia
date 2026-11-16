@@ -26,7 +26,7 @@ This file is the resume point for Phase 1 implementation. It records what is fin
 | CP-06 | Solver core (RK4, RK45, Euler, RK2, Thomas, LU, PRNG, stimulus, recorder) | DONE | `src/kernels/core/*`, `src/kernels/solvers/ode.ts` |
 | CP-07 | Model kernels MODEL-001 … MODEL-016 | DONE (defaults, presets, determinism and VAL cases tested) | `src/kernels/models/{conductance,integrateFire,cable,synapses}.ts` |
 | CP-08 | Model kernels MODEL-017 … MODEL-028 | DONE; all 28 registered in `src/kernels/models/index.ts` | `src/kernels/models/{populations,networks,graphs,plasticity,connectome}.ts` |
-| CP-09 | Analytics kernels (26 methods) | PARTIAL: ANALYTIC-003/004 (`fft.ts`) and ANALYTIC-016…019 (`graph.ts`, 17 unit tests green) done | `src/kernels/analytics/*`, `tests/unit/graph.test.ts` |
+| CP-09 | Analytics kernels (26 methods) | DONE: all ANALYTIC-001 … 026 implemented and catalogued; 51 ground-truth tests | `src/kernels/analytics/{fft,filters,spectral,spikes,graph,stats,index}.ts`, `tests/unit/{analytics,graph}.test.ts` |
 | CP-10 | Validation cases `VAL-*` + Vitest suites | DONE: 19/19 VAL cases executable and passing; 131 unit tests green | `src/kernels/validation/cases.ts`, `tests/unit/{validation,plasticity,graph}.test.ts` |
 | CP-11 | Workers, stores, app shell, design system | PENDING | |
 | CP-12 | UCES (tooltip, inspector, knowledge pages, coverage audit) | PENDING | |
@@ -70,7 +70,7 @@ This file is the resume point for Phase 1 implementation. It records what is fin
 
 Kernel work for the 28 models and their validation is complete. Two specification discrepancies are reported by the validation suite itself (`discrepancy` field): `VAL-ML-001` (Type II onset is 8.7 Hz with the documented parameters, not > 15 Hz) and `VAL-ADEX-001` (500 pA is below the 627 pA rheobase of the documented parameters).
 
-1. `src/kernels/analytics/*` — remaining: filters (ANALYTIC-001, 002), spectral (005 STFT, 006 Morlet, 007 ERP, 008 preprocessing), spikes (009–015), stats (020–026), plus `tests/unit/analytics.test.ts` with synthetic ground truth. Done: `fft.ts` (003, 004), `graph.ts` (016–019).
+1. ~~Analytics kernels~~ — done (165 unit tests green in total).
 2. CP-11: `src/workers/{simulation,analytics}.worker.ts`, worker client with terminate-and-respawn cancellation, Zustand stores, global styles/design tokens, app shell and router.
 3. CP-12 onward as listed in Section 2.
 
