@@ -15,6 +15,8 @@ DOCS_DIR = ROOT / "docs"
 SCHEMA_DIR = ROOT / "schemas"
 REG_DIR = ROOT / "registries"
 REPORTS_DIR = ROOT / "reports"
+# Phase 1: dependency, build and test-output folders are not part of the documentation corpus.
+EXCLUDED_DIRS = {".git", "reports", "node_modules", "dist", "public", "playwright-report", "test-results", "coverage"}
 
 
 # ---------------------------------------------------------------------------
@@ -117,7 +119,7 @@ def slugify_heading(text: str) -> str:
 def audit_markdown_files() -> Tuple[dict, List[str]]:
     md_files = sorted(
         p for p in ROOT.rglob("*.md")
-        if ".git" not in p.parts and "reports" not in p.parts
+        if not (set(p.parts) & EXCLUDED_DIRS)
     )
     errors: List[str] = []
     doc_ids = {}
