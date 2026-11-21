@@ -36,9 +36,11 @@ interface StudioABrainProps {
   /** Entities to emphasise (for example the core structures of a functional system). */
   highlightIds?: string[];
   height?: number | string;
+  /** Viewport only: no layer, clipping or projection panels (used where the studio is a preview). */
+  compact?: boolean;
 }
 
-export function StudioABrain({ highlightIds = [], height = 460 }: StudioABrainProps) {
+export function StudioABrain({ highlightIds = [], height = 460, compact = false }: StudioABrainProps) {
   const [anatomy, setAnatomy] = useState<AnatomicalEntity[]>([]);
   const [preset, setPreset] = useState<CameraPreset>(BRAIN_CAMERA_PRESETS[0]!);
   const [cortexOpacity, setCortexOpacity] = useState(() => (highlightIds.length > 0 ? 0.22 : 1));
@@ -291,7 +293,7 @@ export function StudioABrain({ highlightIds = [], height = 460 }: StudioABrainPr
         ))}
       </StudioViewport>
 
-      <div className="cx-grid-2">
+      {!compact && <div className="cx-grid-2">
         <div className="cx-card" style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
           <div className="cx-card-title">Studio A Controls — Clipping, Opacity & Layers</div>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
@@ -355,8 +357,20 @@ export function StudioABrain({ highlightIds = [], height = 460 }: StudioABrainPr
               );
             })}
           </div>
+          <div style={{ marginTop: 12, paddingTop: 10, borderTop: '1px solid var(--border-subtle)', fontSize: 12 }}>
+            {selectedEntity ? (
+              <>
+                <strong style={{ display: 'block', fontSize: 13 }}>{selectedEntity.canonicalName}</strong>
+                <span style={{ color: 'var(--text-secondary)' }}>{selectedEntity.tnaLatinName ?? selectedEntity.id} · {selectedEntity.division.replace(/_/g, ' ').toLowerCase()} · {selectedEntity.primaryScale}</span>
+                <p style={{ margin: '6px 0 0', color: 'var(--text-secondary)' }}>{selectedEntity.shortDefinition}</p>
+                <p style={{ margin: '6px 0 0', color: 'var(--text-muted)' }}>{selectedEntity.connectedStructureIds.length} registry connection{selectedEntity.connectedStructureIds.length === 1 ? '' : 's'} · atlas provenance: {selectedEntity.atlasProvenance}</p>
+              </>
+            ) : (
+              <span style={{ color: 'var(--text-secondary)' }}>No structure selected. Click a structure in the 3D view, a dot in a projection, or the hierarchy list to see its coordinates, definition and connections here.</span>
+            )}
+          </div>
         </div>
-      </div>
+      </div>}
     </div>
   );
 }

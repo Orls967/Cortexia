@@ -44,7 +44,7 @@ export function ObservatoryPage() {
     <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
       {/* Hero Observatory Header */}
       <section className="cx-card" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: 14 }}>
-        <div style={{ maxWidth: 680 }}>
+        <div style={{ maxWidth: 900 }}>
           <div style={{ display: 'flex', gap: 8, alignItems: 'center', marginBottom: 6, flexWrap: 'wrap' }}>
             <span className="cx-badge tabular" style={{ color: 'var(--accent-ice-blue)', borderColor: 'rgba(56,189,248,0.45)' }}>
               MOD-01 · OBSERVATORY
@@ -66,15 +66,15 @@ export function ObservatoryPage() {
       {/* The main route through the platform */}
       <section className="cx-card" aria-labelledby="start-here">
         <div className="cx-card-title"><span id="start-here">Start here: a guided route in {GUIDED_PATH.length} steps</span><span className="cx-badge">Follow in order, or jump anywhere</span></div>
-        <ol style={{ listStyle: 'none', margin: 0, padding: 0, display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: 8 }}>
+        <ol style={{ listStyle: 'none', margin: 0, padding: 0, display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))', gap: 8 }} className="cx-steps">
           {GUIDED_PATH.map((st, i) => (
             <li key={st.to}>
               <Link to={st.to} className="cx-card" style={{ display: 'block', height: '100%', padding: 10, textDecoration: 'none', color: 'inherit', borderColor: i === 3 ? 'var(--accent-indicator-amber)' : undefined }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
                   <span className="cx-badge tabular" aria-hidden="true">{i + 1}</span>
                   <strong style={{ fontSize: 13 }}>{st.title}</strong>
-                  {i === 3 && <span className="cx-badge" style={{ color: '#fde68a' }}>MAIN MODEL</span>}
                 </div>
+                {i === 3 && <span className="cx-badge" style={{ color: '#fde68a', marginBottom: 6, display: 'inline-block' }}>MAIN MODEL</span>}
                 <div style={{ fontSize: 12, color: 'var(--text-secondary)' }}>{st.why}</div>
               </Link>
             </li>
@@ -102,7 +102,7 @@ export function ObservatoryPage() {
 
       {/* 9-Scale Concentric Navigator + 3D Whole Brain Preview */}
       <section className="cx-grid-2">
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 14, minWidth: 0 }}>
+        <div className="cx-col">
         <div className="cx-card">
           <div className="cx-card-title">
             <span>Nine Biological Scales Navigator (L1–L9)</span>
@@ -191,7 +191,7 @@ export function ObservatoryPage() {
           </div>
           {show3D ? (
             <Suspense fallback={<div className="cx-banner">Loading 3D Brain Studio…</div>}>
-              <StudioABrain height={260} />
+              <StudioABrain height={590} compact />
             </Suspense>
           ) : (
             <div className="cx-banner">3D preview minimized. <Link to="/explore/anatomy">Open full Neuroanatomy Studio A →</Link></div>

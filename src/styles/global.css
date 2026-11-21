@@ -448,7 +448,7 @@ label {
 }
 
 .cx-grid-2 {
-  align-items: start;
+  align-items: stretch;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
@@ -650,3 +650,19 @@ label {
 .cx-landing-foot { position: absolute; bottom: 14px; left: 0; right: 0; margin: 0; text-align: center; font-size: 11px; color: var(--text-muted); z-index: 1; }
 @keyframes cx-pulse { 70% { box-shadow: 0 0 0 18px rgba(56,189,248,0); } 100% { box-shadow: 0 0 0 0 rgba(56,189,248,0); } }
 @media (prefers-reduced-motion: reduce) { .cx-landing-cta { animation: none; } }
+
+/* Cards side by side share one height so their bottoms align; a card's main content grows to fill it. */
+.cx-grid-2 > .cx-card, .cx-col > .cx-card:last-child { display: flex; flex-direction: column; }
+.cx-col { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.cx-col > .cx-card:last-child { flex: 1; }
+/* Side lists (catalogs, hierarchies) stay in view while the workspace beside them scrolls. */
+.cx-split { align-items: start; }
+@media (min-width: 1101px) { .cx-split-side { position: sticky; top: 0; max-height: calc(100vh - 140px); } }
+
+/* In a stretched card the body sits centred between the title and the bottom edge instead of leaving a void below. */
+.cx-grid-2 > .cx-card > .cx-card-title + * { margin-top: auto; }
+.cx-grid-2 > .cx-card > :last-child:not(.cx-card-title) { margin-bottom: auto; }
+
+/* Eight guided steps: two even rows of four on wide screens, never a half-empty last row. */
+@media (min-width: 1100px) { .cx-steps { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; } }
+.cx-grid-2 > .cx-card:has(.cx-studio) > * { margin-top: 0 !important; margin-bottom: 0 !important; }

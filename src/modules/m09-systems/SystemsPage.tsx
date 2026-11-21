@@ -102,7 +102,7 @@ export function SystemsPage() {
           </div>
 
           <Suspense fallback={<div className="cx-banner">Loading Studio A System Highlights…</div>}>
-            <StudioABrain highlightIds={active.coreStructureIds} height={410} />
+            <StudioABrain highlightIds={active.coreStructureIds} height={430} compact />
           </Suspense>
         </div>
       )}
