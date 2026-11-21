@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import type { SpikeData } from '../../kernels/core/types';
+import { useCanvasWidth } from './useCanvasWidth';
 
 interface RasterCanvasPlotProps {
   title: string;
@@ -9,12 +10,13 @@ interface RasterCanvasPlotProps {
 
 export function RasterCanvasPlot({ title, spikes, height = 220 }: RasterCanvasPlotProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const canvasWidth = useCanvasWidth(canvasRef, 520);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const dpr = window.devicePixelRatio || 1;
-    const w = canvas.clientWidth || 520;
+    const w = canvas.clientWidth || canvasWidth;
     const h = height;
     canvas.width = Math.round(w * dpr);
     canvas.height = Math.round(h * dpr);
@@ -60,7 +62,7 @@ export function RasterCanvasPlot({ title, spikes, height = 220 }: RasterCanvasPl
     ctx.textAlign = 'center';
     ctx.fillText('0 ms', padL, h - 8);
     ctx.fillText(`${Math.round(tMax)} ms`, padL + pw - 14, h - 8);
-  }, [spikes, height]);
+  }, [spikes, height, canvasWidth]);
 
   return (
     <div className="cx-card" style={{ padding: 12 }}>

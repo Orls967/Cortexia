@@ -7,6 +7,7 @@ import type { TwinResult } from '../kernels/twin/common';
 import type { ValidationResult } from '../kernels/validation/cases';
 import type { JobHandle } from '../workers/client';
 import { submitSimJob } from '../workers/pools';
+import { useJobStatusStore } from './jobStatusStore';
 import { useResearchStore } from './researchStore';
 import { useSelectionStore } from './selectionStore';
 
@@ -352,3 +353,9 @@ export const useLabStore = create<LabState>((set, get) => ({
     }
   },
 }));
+
+// Mirror job state into the shell's status-bar store (see jobStatusStore.ts).
+const mirrorJobStatus = (s: LabState) => useJobStatusStore.setState({ jobStatus: s.jobStatus, progress: s.progress, progressLabel: s.progressLabel });
+useJobStatusStore.setState({ cancel: () => useLabStore.getState().cancelActiveJob() });
+mirrorJobStatus(useLabStore.getState());
+useLabStore.subscribe(mirrorJobStatus);

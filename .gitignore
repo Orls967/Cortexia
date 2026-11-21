@@ -10,6 +10,7 @@ Desktop.ini
 ._*
 
 # Editor temporary and workspace files
+.claude/
 *.swp
 *.swo
 *~

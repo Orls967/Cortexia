@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import type { Curve } from '../../kernels/core/types';
 import { ChartDataTableToggle, computeSeriesSummary } from '../ui/DataTableModal';
 import { formatNum, OKABE_ITO } from './palette';
+import { useCanvasWidth } from './useCanvasWidth';
 
 export interface CurveSeries {
   key: string;
@@ -22,6 +23,7 @@ interface CurvePlotProps {
 
 export function CurvePlot({ title, xLabel, yLabel, curves, height = 220 }: CurvePlotProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const canvasWidth = useCanvasWidth(canvasRef, 460);
   const [readout, setReadout] = useState<string>('');
 
   const bounds = useMemo(() => {
@@ -44,7 +46,7 @@ export function CurvePlot({ title, xLabel, yLabel, curves, height = 220 }: Curve
     const canvas = canvasRef.current;
     if (!canvas) return;
     const dpr = window.devicePixelRatio || 1;
-    const w = canvas.clientWidth || 460;
+    const w = canvas.clientWidth || canvasWidth;
     const h = height;
     canvas.width = Math.round(w * dpr);
     canvas.height = Math.round(h * dpr);
@@ -55,7 +57,7 @@ export function CurvePlot({ title, xLabel, yLabel, curves, height = 220 }: Curve
     ctx.fillStyle = '#090d16';
     ctx.fillRect(0, 0, w, h);
 
-    const padL = 56, padR = 14, padT = 12, padB = 28;
+    const padL = 56, padR = 16, padT = 12, padB = 34;
     const pw = Math.max(20, w - padL - padR);
     const ph = Math.max(20, h - padT - padB);
     const toX = (v: number) => padL + ((v - bounds.xMin) / (bounds.xMax - bounds.xMin)) * pw;
@@ -73,8 +75,8 @@ export function CurvePlot({ title, xLabel, yLabel, curves, height = 220 }: Curve
       ctx.fillText(formatNum(bounds.yMin + f * (bounds.yMax - bounds.yMin)), padL - 6, gy + 3);
       const gx = padL + pw * f;
       ctx.beginPath(); ctx.moveTo(gx, padT); ctx.lineTo(gx, padT + ph); ctx.stroke();
-      ctx.textAlign = 'center';
-      ctx.fillText(formatNum(bounds.xMin + f * (bounds.xMax - bounds.xMin)), gx, h - 8);
+      ctx.textAlign = i === 4 ? 'right' : i === 0 ? 'left' : 'center';
+      ctx.fillText(formatNum(bounds.xMin + f * (bounds.xMax - bounds.xMin)), gx, padT + ph + 13);
     }
 
     curves.forEach((c, idx) => {
@@ -112,8 +114,8 @@ export function CurvePlot({ title, xLabel, yLabel, curves, height = 220 }: Curve
 
     ctx.fillStyle = '#94a3b8';
     ctx.font = '11px Inter, sans-serif';
-    ctx.textAlign = 'right';
-    ctx.fillText(xLabel, w - 10, h - 8);
+    ctx.textAlign = 'center';
+    ctx.fillText(xLabel, padL + pw / 2, h - 5);
     if (yLabel) {
       ctx.save();
       ctx.translate(12, padT + ph / 2);
@@ -122,7 +124,7 @@ export function CurvePlot({ title, xLabel, yLabel, curves, height = 220 }: Curve
       ctx.fillText(yLabel, 0, 0);
       ctx.restore();
     }
-  }, [curves, bounds, height, xLabel, yLabel]);
+  }, [curves, bounds, height, canvasWidth, xLabel, yLabel]);
 
   const rows = useMemo(() => curves.map((c) => computeSeriesSummary(c.label, c.curve.y)), [curves]);
 

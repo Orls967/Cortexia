@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
+import { GUIDED_PATH, stepIndex } from '../../data/learningPath';
 import { Link, NavLink, Outlet, useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { SCALES, SCALE_INFO } from '../../data/types';
 import { resolveEntityRoute } from '../../data/routeResolver';
-import { useLabStore } from '../../stores/labStore';
+import { useJobStatusStore } from '../../stores/jobStatusStore';
 import { useSelectionStore } from '../../stores/selectionStore';
 import { UCESInspectorDrawer } from '../uces/UCESInspectorDrawer';
 import { UCESTooltipPortal } from '../uces/UCESTooltipPortal';
@@ -30,11 +31,11 @@ const SUB_RAILS: Record<string, { label: string; to: string; tag: string }[]> = 
     { label: 'Cognitive Neuroscience', to: '/explore/cognition', tag: 'MOD-10' },
   ],
   lab: [
-    { label: '28-Model Simulator', to: '/lab', tag: 'MOD-08' },
-    { label: '5-Tier Digital Twin', to: '/lab/digital-twin/EXP-040', tag: 'TWIN' },
-    { label: 'Exp A: Excitability → PING', to: '/lab/digital-twin/EXP-040', tag: 'EXP-040' },
-    { label: 'Exp B: STDP → Recall', to: '/lab/digital-twin/EXP-041', tag: 'EXP-041' },
-    { label: 'Exp C: Connectome PLV', to: '/lab/digital-twin/EXP-042', tag: 'EXP-042' },
+    { label: '1 · Simulate a model', to: '/lab/MODEL-001', tag: 'MOD-08' },
+    { label: '2 · Chain models (Digital Twin)', to: '/lab/digital-twin/EXP-040', tag: 'TWIN' },
+    { label: '   Exp A: Excitability → rhythm', to: '/lab/digital-twin/EXP-040', tag: 'EXP-040' },
+    { label: '   Exp B: STDP → recall', to: '/lab/digital-twin/EXP-041', tag: 'EXP-041' },
+    { label: '   Exp C: Connectome phase-locking', to: '/lab/digital-twin/EXP-042', tag: 'EXP-042' },
   ],
   analytics: [
     { label: 'EEG & Signal Lab', to: '/analytics/signals', tag: 'MOD-11' },
@@ -65,11 +66,29 @@ function currentEnv(pathname: string): keyof typeof SUB_RAILS {
   return 'explore';
 }
 
+function NextStep({ pathname }: { pathname: string }) {
+  const i = stepIndex(pathname);
+  const next = i >= 0 ? GUIDED_PATH[i + 1] : undefined;
+  const prev = i > 0 ? GUIDED_PATH[i - 1] : undefined;
+  if (i < 0) return null;
+  return (
+    <nav className="cx-nextstep" aria-label="Guided route">
+      <span className="cx-nextstep-pos tabular">Step {i + 1} of {GUIDED_PATH.length}</span>
+      <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+        {prev && <Link to={prev.to} className="cx-btn">← {prev.title}</Link>}
+        {next && <Link to={next.to} className="cx-btn cx-btn-primary">Next: {next.title} →</Link>}
+        {!next && <Link to="/explore/observatory" className="cx-btn">Back to the start</Link>}
+      </div>
+    </nav>
+  );
+}
+
 export function AppShell() {
   const location = useLocation();
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const [mobileRailOpen, setMobileRailOpen] = useState(false);
+  const [desktopRailCollapsed, setDesktopRailCollapsed] = useState(false);
 
   const activeScale = useSelectionStore((s) => s.activeScale);
   const setActiveScale = useSelectionStore((s) => s.setActiveScale);
@@ -81,10 +100,10 @@ export function AppShell() {
   const notifications = useSelectionStore((s) => s.notifications);
   const dismissNotification = useSelectionStore((s) => s.dismissNotification);
 
-  const jobStatus = useLabStore((s) => s.jobStatus);
-  const progress = useLabStore((s) => s.progress);
-  const progressLabel = useLabStore((s) => s.progressLabel);
-  const cancelActiveJob = useLabStore((s) => s.cancelActiveJob);
+  const jobStatus = useJobStatusStore((s) => s.jobStatus);
+  const progress = useJobStatusStore((s) => s.progress);
+  const progressLabel = useJobStatusStore((s) => s.progressLabel);
+  const cancelActiveJob = useJobStatusStore((s) => s.cancel);
 
   const env = currentEnv(location.pathname);
   const railLinks = SUB_RAILS[env] ?? SUB_RAILS.explore!;
@@ -132,17 +151,26 @@ export function AppShell() {
     return () => window.removeEventListener('keydown', onKey);
   }, [setSearchOpen, toggleInspector, selectedId, navigate]);
 
+  // The drawer closes on Escape, on its backdrop and when one of its links is followed.
+  useEffect(() => {
+    if (!mobileRailOpen) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setMobileRailOpen(false); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [mobileRailOpen]);
+
   const segments = location.pathname.split('/').filter(Boolean);
 
   return (
     <div className="cx-shell">
       <header className="cx-topbar">
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10, minWidth: 0 }}>
+        <div className="cx-topbar-left">
           <button
             type="button"
-            className="cx-btn"
-            style={{ padding: '4px 8px' }}
+            className="cx-btn cx-rail-toggle"
             aria-label="Toggle module navigation"
+            aria-expanded={mobileRailOpen}
+            aria-controls="module-rail"
             onClick={() => setMobileRailOpen((o) => !o)}
           >
             ☰
@@ -170,7 +198,7 @@ export function AppShell() {
             onClick={() => setSearchOpen(true)}
             aria-label="Open Global Scientific Search"
           >
-            Search <kbd className="tabular" style={{ color: 'var(--text-secondary)', fontSize: 10 }}>⌘K</kbd>
+            Search <kbd className="tabular cx-kbd-hint" style={{ color: 'var(--text-secondary)', fontSize: 10 }}>⌘K</kbd>
           </button>
           <button
             type="button"
@@ -218,7 +246,20 @@ export function AppShell() {
       </div>
 
       <div className="cx-body">
-        <aside className={`cx-rail${mobileRailOpen ? ' cx-rail-drawer' : ''}`} aria-label="Module Navigation">
+        {mobileRailOpen && (
+          <button type="button" className="cx-rail-backdrop" aria-label="Close module navigation" onClick={() => setMobileRailOpen(false)} />
+        )}
+        <aside id="module-rail" className={`cx-rail${mobileRailOpen ? ' cx-rail-drawer' : ''}${desktopRailCollapsed ? ' cx-rail-collapsed' : ''}`} aria-label="Module Navigation">
+          <button
+            type="button"
+            className="cx-btn cx-rail-collapse-btn"
+            aria-label={desktopRailCollapsed ? 'Expand module rail' : 'Collapse module rail'}
+            aria-expanded={!desktopRailCollapsed}
+            title={desktopRailCollapsed ? 'Expand module rail' : 'Collapse module rail'}
+            onClick={() => setDesktopRailCollapsed((c) => !c)}
+          >
+            {desktopRailCollapsed ? '»' : '«'}
+          </button>
           <div className="cx-rail-section">{env} modules</div>
           {railLinks.map((item) => (
             <NavLink
@@ -246,6 +287,7 @@ export function AppShell() {
           <ErrorBoundary>
             <Outlet />
           </ErrorBoundary>
+          <NextStep pathname={location.pathname} />
         </main>
 
         <UCESInspectorDrawer />
@@ -258,12 +300,12 @@ export function AppShell() {
             {jobStatus === 'RUNNING' ? ` (${Math.round(progress * 100)}%) — ${progressLabel}` : progressLabel ? ` · ${progressLabel}` : ''}
           </span>
           {jobStatus === 'RUNNING' && (
-            <button type="button" className="cx-btn cx-btn-danger" style={{ padding: '2px 8px', fontSize: 10 }} onClick={cancelActiveJob}>
+            <button type="button" className="cx-btn cx-btn-danger" style={{ padding: '2px 8px', fontSize: 10 }} onClick={() => cancelActiveJob?.()}>
               Cancel
             </button>
           )}
         </div>
-        <div className="tabular" style={{ color: 'var(--text-muted)' }}>
+        <div className="tabular cx-telemetry-meta" style={{ color: 'var(--text-muted)' }}>
           CORTEXIA v1.0 · Deterministic Client-Side Neuroscience Runtime
         </div>
       </footer>

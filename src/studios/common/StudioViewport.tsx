@@ -1,20 +1,10 @@
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useId, useMemo, useRef, useState, type ReactNode } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { acceleratedRaycast, computeBoundsTree, disposeBoundsTree } from 'three-mesh-bvh';
 import { ErrorBoundary } from '../../components/ui/ErrorBoundary';
 import { ProvenanceBadge } from '../../components/ui/ProvenanceBadge';
-
-// Install three-mesh-bvh once for <1.5 ms raycast hover detection across all 3D studios.
-let bvhInstalled = false;
-function ensureBvh() {
-  if (bvhInstalled) return;
-  bvhInstalled = true;
-  (THREE.BufferGeometry.prototype as unknown as { computeBoundsTree: unknown }).computeBoundsTree = computeBoundsTree;
-  (THREE.BufferGeometry.prototype as unknown as { disposeBoundsTree: unknown }).disposeBoundsTree = disposeBoundsTree;
-  THREE.Mesh.prototype.raycast = acceleratedRaycast;
-}
+import { ensureBvh } from './bvh';
 
 export interface CameraPreset {
   id: string;
@@ -127,140 +117,94 @@ export function StudioViewport({
   const [mode2D, setMode2D] = useState(false);
   const [orbitDelta, setOrbitDelta] = useState({ dAzimuth: 0, dPolar: 0, dZoom: 0, seq: 0 });
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const [showDisclosure, setShowDisclosure] = useState(false);
+  const disclosureId = useId();
+  // In flat mode (2D schematic or lost context) the header is part of the flow so it cannot cover the fallback content.
+  const flat = contextLost || mode2D;
 
   return (
     <ErrorBoundary title={`${title} 3D Viewport`}>
-      <div
-        ref={containerRef}
-        tabIndex={0}
-        role="region"
-        aria-label={`${title} 3D Interactive Viewport`}
-        onKeyDown={(e) => {
-          const step = (5 * Math.PI) / 180;
-          if (e.key === 'ArrowLeft') { e.preventDefault(); setOrbitDelta((d) => ({ dAzimuth: -step, dPolar: 0, dZoom: 0, seq: d.seq + 1 })); }
-          else if (e.key === 'ArrowRight') { e.preventDefault(); setOrbitDelta((d) => ({ dAzimuth: step, dPolar: 0, dZoom: 0, seq: d.seq + 1 })); }
-          else if (e.key === 'ArrowUp') { e.preventDefault(); setOrbitDelta((d) => ({ dAzimuth: 0, dPolar: -step, dZoom: 0, seq: d.seq + 1 })); }
-          else if (e.key === 'ArrowDown') { e.preventDefault(); setOrbitDelta((d) => ({ dAzimuth: 0, dPolar: step, dZoom: 0, seq: d.seq + 1 })); }
-          else if (e.key === '+' || e.key === '=') { e.preventDefault(); setOrbitDelta((d) => ({ dAzimuth: 0, dPolar: 0, dZoom: -0.12, seq: d.seq + 1 })); }
-          else if (e.key === '-') { e.preventDefault(); setOrbitDelta((d) => ({ dAzimuth: 0, dPolar: 0, dZoom: 0.12, seq: d.seq + 1 })); }
-        }}
-        style={{
-          position: 'relative',
-          width: '100%',
-          height,
-          background: 'radial-gradient(circle at 50% 35%, #111b31 0%, #070b13 100%)',
-          borderRadius: 10,
-          border: '1px solid var(--border-subtle)',
-          overflow: 'hidden',
-        }}
-      >
-        {/* Top Overlay: Provenance Badge & Camera Presets */}
-        <div
-          style={{
-            position: 'absolute',
-            top: 10,
-            left: 10,
-            right: 10,
-            zIndex: 10,
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'flex-start',
-            gap: 8,
-            pointerEvents: 'none',
-          }}
-        >
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 4, pointerEvents: 'auto' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'wrap' }}>
-              <span className="cx-badge tabular" style={{ background: 'rgba(10,14,23,0.86)' }}>{studioTag}</span>
-              <ProvenanceBadge status="PROCEDURAL_3D" />
-            </div>
-            <div
-              style={{
-                maxWidth: 360,
-                fontSize: 10,
-                color: '#cbd5e1',
-                background: 'rgba(10, 14, 23, 0.78)',
-                padding: '3px 8px',
-                borderRadius: 4,
-                border: '1px solid rgba(51, 65, 85, 0.7)',
-              }}
-            >
-              {disclosure}
-            </div>
+      <div className="cx-studio">
+        {/* Header in normal flow: it never covers the scene or the 2D schematic. */}
+        <div className="cx-studio-bar">
+          <div className="cx-studio-id">
+            <span className="cx-badge tabular">{studioTag}</span>
+            <ProvenanceBadge status="PROCEDURAL_3D" />
+            <button type="button" className="cx-btn cx-studio-info" aria-expanded={showDisclosure} aria-controls={disclosureId} onClick={() => setShowDisclosure((v) => !v)}>
+              {showDisclosure ? 'Hide geometry note' : 'About this geometry'}
+            </button>
           </div>
-
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 4, justifyContent: 'flex-end', pointerEvents: 'auto' }}>
+          <div className="cx-studio-presets" role="group" aria-label={`${title} camera views`}>
             {presets.map((p) => (
-              <button
-                key={p.id}
-                type="button"
-                className={`cx-btn${activePreset.id === p.id ? ' cx-btn-primary' : ''}`}
-                style={{ padding: '3px 7px', fontSize: 11 }}
-                onClick={() => onSelectPreset(p)}
-              >
+              <button key={p.id} type="button" aria-pressed={!flat && activePreset.id === p.id} className={`cx-btn${!flat && activePreset.id === p.id ? ' cx-btn-primary' : ''}`} onClick={() => { setMode2D(false); onSelectPreset(p); }}>
                 {p.label}
               </button>
             ))}
             {fallback2D && (
-              <button
-                type="button"
-                className={`cx-btn${mode2D ? ' cx-btn-primary' : ''}`}
-                style={{ padding: '3px 7px', fontSize: 11 }}
-                onClick={() => setMode2D((m) => !m)}
-              >
+              <button type="button" className={`cx-btn${mode2D ? ' cx-btn-primary' : ''}`} onClick={() => setMode2D((m) => !m)}>
                 {mode2D ? '3D View' : '2D Schematic'}
               </button>
             )}
           </div>
         </div>
-
-        {(contextLost || mode2D) ? (
-          <div style={{ width: '100%', height: '100%', padding: 16, paddingTop: 72, overflowY: 'auto' }}>
-            {contextLost && (
-              <div className="cx-banner cx-banner-amber" style={{ marginBottom: 10, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <span>3D Graphics Context Interrupted — showing accessible 2D schematic mode.</span>
-                <button type="button" className="cx-btn" onClick={() => setContextLost(false)}>Restore 3D</button>
-              </div>
-            )}
-            {fallback2D ?? <div className="cx-banner">2D fallback view active.</div>}
-          </div>
-        ) : (
-          <Canvas
-            dpr={[1, 2]}
-            gl={{ antialias: true, powerPreference: 'high-performance', stencil: true, localClippingEnabled: true }}
-            camera={{ position: activePreset.position, fov: 44, near: 0.1, far: 200 }}
-            onCreated={({ gl }) => {
-              gl.localClippingEnabled = true;
-              const el = gl.domElement;
-              el.addEventListener('webglcontextlost', (ev) => { ev.preventDefault(); setContextLost(true); });
-              el.addEventListener('webglcontextrestored', () => setContextLost(false));
-            }}
-          >
-            <color attach="background" args={['#080d17']} />
-            <ambientLight intensity={0.62} />
-            <directionalLight position={[12, 16, 10]} intensity={1.15} color="#f8fafc" />
-            <directionalLight position={[-10, -8, -10]} intensity={0.45} color="#38bdf8" />
-            <hemisphereLight args={['#38bdf8', '#0f172a', 0.35]} />
-            <OrbitRig preset={activePreset} orbitDelta={orbitDelta} />
-            {children}
-          </Canvas>
-        )}
+        <p id={disclosureId} className="cx-studio-disclosure" hidden={!showDisclosure}>{disclosure}</p>
 
         <div
-          style={{
-            position: 'absolute',
-            bottom: 8,
-            left: 10,
-            zIndex: 10,
-            fontSize: 10,
-            color: 'var(--text-muted)',
-            background: 'rgba(10,14,23,0.75)',
-            padding: '2px 7px',
-            borderRadius: 4,
-            pointerEvents: 'none',
+          ref={containerRef}
+          tabIndex={0}
+          role="region"
+          aria-label={`${title} 3D Interactive Viewport`}
+          className="cx-studio-stage"
+          onKeyDown={(e) => {
+            const step = (5 * Math.PI) / 180;
+            if (e.key === 'ArrowLeft') { e.preventDefault(); setOrbitDelta((d) => ({ dAzimuth: -step, dPolar: 0, dZoom: 0, seq: d.seq + 1 })); }
+            else if (e.key === 'ArrowRight') { e.preventDefault(); setOrbitDelta((d) => ({ dAzimuth: step, dPolar: 0, dZoom: 0, seq: d.seq + 1 })); }
+            else if (e.key === 'ArrowUp') { e.preventDefault(); setOrbitDelta((d) => ({ dAzimuth: 0, dPolar: -step, dZoom: 0, seq: d.seq + 1 })); }
+            else if (e.key === 'ArrowDown') { e.preventDefault(); setOrbitDelta((d) => ({ dAzimuth: 0, dPolar: step, dZoom: 0, seq: d.seq + 1 })); }
+            else if (e.key === '+' || e.key === '=') { e.preventDefault(); setOrbitDelta((d) => ({ dAzimuth: 0, dPolar: 0, dZoom: -0.12, seq: d.seq + 1 })); }
+            else if (e.key === '-') { e.preventDefault(); setOrbitDelta((d) => ({ dAzimuth: 0, dPolar: 0, dZoom: 0.12, seq: d.seq + 1 })); }
           }}
+          style={{ height: flat ? 'auto' : height, maxHeight: flat ? height : undefined, overflowY: flat ? 'auto' : 'hidden' }}
         >
-          Drag: Orbit · Scroll: Zoom · Arrow/+/- keys: Keyboard camera · Hover/Click: UCES Inspector
+          {flat ? (
+            <div style={{ padding: 10 }}>
+              {contextLost && (
+                <div className="cx-banner cx-banner-amber" style={{ marginBottom: 10, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span>3D Graphics Context Interrupted — showing accessible 2D schematic mode.</span>
+                  <button type="button" className="cx-btn" onClick={() => setContextLost(false)}>Restore 3D</button>
+                </div>
+              )}
+              {fallback2D ?? <div className="cx-banner">2D fallback view active.</div>}
+            </div>
+          ) : (
+            <Canvas
+              dpr={[1, 2]}
+              gl={{ antialias: true, powerPreference: 'high-performance', stencil: true, localClippingEnabled: true, toneMapping: THREE.ACESFilmicToneMapping, toneMappingExposure: 1.15 }}
+              camera={{ position: activePreset.position, fov: 40, near: 0.1, far: 200 }}
+              onCreated={({ gl }) => {
+                gl.localClippingEnabled = true;
+                const el = gl.domElement;
+                // React Three Fiber releases the context when the canvas unmounts (switching to the 2D schematic or leaving
+                // the page). That is intentional, so only a loss on a canvas still in the document is reported.
+                el.addEventListener('webglcontextlost', (ev) => {
+                  if (!el.isConnected) return;
+                  ev.preventDefault();
+                  setContextLost(true);
+                });
+                el.addEventListener('webglcontextrestored', () => { if (el.isConnected) setContextLost(false); });
+              }}
+            >
+              <color attach="background" args={['#080d17']} />
+              <ambientLight intensity={0.65} />
+              <directionalLight position={[12, 16, -10]} intensity={1.45} color="#f8fafc" />
+              <directionalLight position={[-12, 6, 12]} intensity={0.7} color="#7dd3fc" />
+              <directionalLight position={[0, -10, -12]} intensity={0.45} color="#a855f7" />
+              <hemisphereLight args={['#bae6fd', '#0f172a', 0.55]} />
+              <OrbitRig preset={activePreset} orbitDelta={orbitDelta} />
+              {children}
+            </Canvas>
+          )}
+          {!flat && <div className="cx-studio-hint">Drag to orbit · scroll to zoom · arrow keys and +/− move the camera · hover or click a structure to explain it</div>}
         </div>
       </div>
     </ErrorBoundary>

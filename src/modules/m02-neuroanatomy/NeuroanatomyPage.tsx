@@ -60,9 +60,9 @@ export function NeuroanatomyPage() {
         <ProvenanceBadge status="ATLAS_DERIVED" text="TNA Nomenclature + Procedural MNI Approximation" />
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'minmax(250px, 310px) minmax(0, 1fr)', gap: 14 }}>
+      <div className="cx-split">
         {/* TNA Hierarchy Browser */}
-        <div className="cx-card" style={{ display: 'flex', flexDirection: 'column', gap: 8, maxHeight: 740, overflow: 'hidden' }}>
+        <div className="cx-card cx-split-side">
           <div className="cx-card-title">Anatomical Hierarchy ({filtered.length} / {items.length})</div>
           <input
             type="search"

@@ -136,8 +136,8 @@ export function AnalyticsPage() {
       {/* A. SIGNAL SUITE */}
       {workspace === 'signals' && activeTsMeta && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-          <div className="cx-card" style={{ display: 'flex', flexWrap: 'wrap', gap: 8, alignItems: 'flex-end', justifyContent: 'space-between' }}>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, alignItems: 'flex-end' }}>
+          <div className="cx-card" style={{ display: 'flex', flexWrap: 'wrap', gap: 8, alignItems: 'flex-end', justifyContent: 'space-between', maxWidth: '100%' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, alignItems: 'flex-end', maxWidth: '100%', minWidth: 0 }}>
               <label style={{ fontSize: 11, display: 'flex', flexDirection: 'column', gap: 2 }}>
                 Dataset
                 <select className="cx-select" value={activeTsMeta.id} onChange={(e) => selectDataset(e.target.value, 0)}>
@@ -209,7 +209,7 @@ export function AnalyticsPage() {
 
           {signalResult && (
             <>
-              <div className="cx-grid-auto">
+              <div className="cx-kpi-grid">
                 <div className="cx-card" style={{ padding: 10 }}>
                   <div style={{ fontSize: 11, color: 'var(--text-secondary)' }}>Dominant Spectral Peak</div>
                   <div className="tabular" style={{ fontSize: 18, fontWeight: 700, color: 'var(--accent-ice-blue)' }}>{signalResult.peakHz.toFixed(2)} Hz</div>
@@ -301,7 +301,7 @@ export function AnalyticsPage() {
 
           {spikeResult && (
             <>
-              <div className="cx-grid-auto">
+              <div className="cx-kpi-grid">
                 {[
                   ['Mean ISI', `${formatNum(spikeResult.isi.mean)} ms`],
                   ['CV_ISI (ANALYTIC-010)', formatNum(spikeResult.isi.cv)],
@@ -372,7 +372,7 @@ export function AnalyticsPage() {
 
           {networkResult && (
             <>
-              <div className="cx-grid-auto">
+              <div className="cx-kpi-grid">
                 {[
                   ['Nodes / Edges', `${networkResult.summary.nodes} / ${networkResult.summary.edges}`],
                   ['Mean Degree', networkResult.summary.meanDegree.toFixed(2)],

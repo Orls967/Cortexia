@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import { MODEL_TRACKS } from '../../data/learningPath';
 import { Link, useParams } from 'react-router-dom';
 import { CurvePlot } from '../../components/charts/CurvePlot';
 import { HeatmapCanvas } from '../../components/charts/HeatmapCanvas';
@@ -145,7 +146,7 @@ export function ComputationalLabPage() {
       groups.set(g, arr);
     }
     return [...groups.entries()];
-  }, [model.params]);
+  }, [model]);
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
@@ -181,9 +182,9 @@ export function ComputationalLabPage() {
       </div>
 
       {/* Model Catalog + 5-Panel Workspace */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'minmax(240px, 280px) minmax(0, 1fr)', gap: 14 }}>
+      <div className="cx-split">
         {/* Left Catalog Rail (28 Models) */}
-        <div className="cx-card" style={{ display: 'flex', flexDirection: 'column', gap: 8, maxHeight: 820, overflow: 'hidden' }}>
+        <div className="cx-card cx-split-side">
           <div className="cx-card-title">Model Catalog ({MODELS.length})</div>
           <input
             type="search"
@@ -194,30 +195,47 @@ export function ComputationalLabPage() {
             aria-label="Filter computational models"
           />
           <div style={{ flex: 1, overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: 4 }}>
-            {filteredCatalog.map((m) => {
-              const fam = modelRegistry?.get(m.id)?.modelFamilyName;
-              const active = m.id === model.id;
+            {(() => {
+              const searching = catalogFilter.trim() !== '';
+              const row = (m: (typeof MODELS)[number], start: boolean) => {
+                const fam = modelRegistry?.get(m.id)?.modelFamilyName;
+                const active = m.id === model.id;
+                return (
+                  <button
+                    key={m.id}
+                    type="button"
+                    aria-current={active ? 'true' : undefined}
+                    style={{ textAlign: 'left', padding: '7px 9px', borderRadius: 6, border: active ? '1px solid var(--accent-ice-blue)' : '1px solid transparent', background: active ? 'rgba(56,189,248,0.15)' : '#0d1422' }}
+                    onClick={() => setActiveModel(m.id)}
+                  >
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 6 }}>
+                      <strong style={{ fontSize: 12, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }} title={m.name}>{m.name}</strong>
+                      {start ? <span className="cx-badge" style={{ fontSize: 9, flexShrink: 0, color: '#fde68a', borderColor: 'rgba(245,158,11,0.5)' }}>START</span> : <span className="tabular" style={{ fontSize: 10, color: 'var(--accent-ice-blue)', flexShrink: 0 }}>{m.id}</span>}
+                    </div>
+                    {fam && <div style={{ fontSize: 10, color: 'var(--text-muted)' }}>{fam}</div>}
+                  </button>
+                );
+              };
+              if (searching) return filteredCatalog.length ? filteredCatalog.map((m) => row(m, false)) : <div style={{ fontSize: 12, color: 'var(--text-muted)', padding: 6 }}>No model matches this filter.</div>;
               return (
-                <button
-                  key={m.id}
-                  type="button"
-                  style={{
-                    textAlign: 'left',
-                    padding: '7px 9px',
-                    borderRadius: 6,
-                    border: active ? '1px solid var(--accent-ice-blue)' : '1px solid transparent',
-                    background: active ? 'rgba(56,189,248,0.15)' : '#0d1422',
-                  }}
-                  onClick={() => setActiveModel(m.id)}
-                >
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 6 }}>
-                    <strong style={{ fontSize: 12 }}>{m.name}</strong>
-                    <span className="tabular" style={{ fontSize: 10, color: 'var(--accent-ice-blue)' }}>{m.id}</span>
+                <>
+                  <div style={{ fontSize: 11, color: 'var(--text-secondary)', padding: '2px 2px 6px' }}>
+                    New here? Begin with <strong>Hodgkin–Huxley</strong>, the main model, then follow the groups in order. Each group's first model is marked START.
                   </div>
-                  {fam && <div style={{ fontSize: 10, color: 'var(--text-muted)' }}>{fam}</div>}
-                </button>
+                  {MODEL_TRACKS.map((t) => (
+                    <details key={t.id} open={t.models.includes(model.id) || t.id === 'neuron'} style={{ marginBottom: 4 }}>
+                      <summary style={{ cursor: 'pointer', fontSize: 12, fontWeight: 600, padding: '4px 2px' }}>
+                        {t.title} <span style={{ color: 'var(--text-muted)', fontWeight: 400 }}>({t.models.length})</span>
+                        <div style={{ fontSize: 10, fontWeight: 400, color: 'var(--text-secondary)' }}>{t.blurb}</div>
+                      </summary>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: 4, marginTop: 4 }}>
+                        {t.models.map((id) => MODELS.find((m) => m.id === id)).filter((m): m is NonNullable<typeof m> => !!m).map((m) => row(m, m.id === t.start))}
+                      </div>
+                    </details>
+                  ))}
+                </>
               );
-            })}
+            })()}
           </div>
         </div>
 
@@ -499,32 +517,46 @@ export function ComputationalLabPage() {
                     Compute Normalized OAT Sensitivity
                   </button>
                 </div>
-                {sensResult && (
-                  <div style={{ overflowX: 'auto' }}>
-                    <table style={{ width: '100%', fontSize: 12, borderCollapse: 'collapse' }}>
-                      <thead>
-                        <tr style={{ textAlign: 'left', borderBottom: '1px solid var(--border-strong)', color: 'var(--text-secondary)' }}>
-                          <th style={{ padding: 5 }}>Parameter</th>
-                          <th style={{ padding: 5 }}>Base</th>
-                          <th style={{ padding: 5 }}>−5%</th>
-                          <th style={{ padding: 5 }}>+5%</th>
-                          <th style={{ padding: 5 }}>Normalized Index S</th>
-                        </tr>
-                      </thead>
-                      <tbody className="tabular">
-                        {sensResult.rows.map((r) => (
-                          <tr key={r.key} style={{ borderBottom: '1px solid var(--border-subtle)' }}>
-                            <td style={{ padding: 5 }}>{r.label}</td>
-                            <td style={{ padding: 5 }}>{formatNum(r.base)} {r.unit}</td>
-                            <td style={{ padding: 5 }}>{formatNum(r.minus)}</td>
-                            <td style={{ padding: 5 }}>{formatNum(r.plus)}</td>
-                            <td style={{ padding: 5, color: 'var(--accent-ice-blue)', fontWeight: 600 }}>{formatNum(r.index)}</td>
+                {sensResult && (() => {
+                  const sorted = [...sensResult.rows].sort((a, b) => Math.abs(b.index) - Math.abs(a.index));
+                  const maxAbs = Math.max(0.01, ...sorted.map((r) => Math.abs(r.index)));
+                  return (
+                    <div style={{ overflowX: 'auto' }}>
+                      <table style={{ width: '100%', fontSize: 12, borderCollapse: 'collapse' }}>
+                        <thead>
+                          <tr style={{ textAlign: 'left', borderBottom: '1px solid var(--border-strong)', color: 'var(--text-secondary)' }}>
+                            <th style={{ padding: 5 }}>Parameter</th>
+                            <th style={{ padding: 5 }}>Base</th>
+                            <th style={{ padding: 5 }}>−5%</th>
+                            <th style={{ padding: 5 }}>+5%</th>
+                            <th style={{ padding: 5 }}>Normalized Index S</th>
+                            <th style={{ padding: 5, width: 140 }}>Magnitude</th>
                           </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                )}
+                        </thead>
+                        <tbody className="tabular">
+                          {sorted.map((r) => {
+                            const pct = Math.min(100, (Math.abs(r.index) / maxAbs) * 100);
+                            const pos = r.index >= 0;
+                            return (
+                              <tr key={r.key} style={{ borderBottom: '1px solid var(--border-subtle)' }}>
+                                <td style={{ padding: 5 }}>{r.label}</td>
+                                <td style={{ padding: 5 }}>{formatNum(r.base)} {r.unit}</td>
+                                <td style={{ padding: 5 }}>{formatNum(r.minus)}</td>
+                                <td style={{ padding: 5 }}>{formatNum(r.plus)}</td>
+                                <td style={{ padding: 5, color: pos ? 'var(--accent-ice-blue)' : 'var(--accent-indicator-amber)', fontWeight: 600 }}>{formatNum(r.index)}</td>
+                                <td style={{ padding: 5 }}>
+                                  <div style={{ width: '100%', height: 8, background: 'var(--bg-surface-sub)', borderRadius: 4, overflow: 'hidden' }}>
+                                    <div style={{ width: `${pct}%`, height: '100%', background: pos ? 'var(--accent-ice-blue)' : 'var(--accent-indicator-amber)' }} />
+                                  </div>
+                                </td>
+                              </tr>
+                            );
+                          })}
+                        </tbody>
+                      </table>
+                    </div>
+                  );
+                })()}
               </div>
             )}
 

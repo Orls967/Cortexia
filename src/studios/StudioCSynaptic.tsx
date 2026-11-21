@@ -20,6 +20,40 @@ const STAGES = [
   '6. EAAT2 Reuptake & CaMKII / LTP',
 ];
 
+function ReceptorBundle({
+  subunits,
+  open,
+  color,
+  radius = 0.24,
+  height = 0.62,
+}: {
+  subunits: 4 | 5;
+  open: boolean;
+  color: string;
+  radius?: number;
+  height?: number;
+}) {
+  const spread = open ? radius * 1.15 : radius * 0.72;
+  const tilt = open ? 0.22 : 0.04;
+  return (
+    <group>
+      {Array.from({ length: subunits }, (_, i) => {
+        const ang = (i / subunits) * Math.PI * 2;
+        return (
+          <mesh
+            key={i}
+            position={[Math.cos(ang) * spread, 0, Math.sin(ang) * spread]}
+            rotation={[Math.sin(ang) * tilt, 0, -Math.cos(ang) * tilt]}
+          >
+            <capsuleGeometry args={[radius * 0.34, height * 0.65, 6, 10]} />
+            <meshStandardMaterial color={color} emissive={open ? color : '#000000'} emissiveIntensity={open ? 0.35 : 0} roughness={0.35} />
+          </mesh>
+        );
+      })}
+    </group>
+  );
+}
+
 function DiffusingTransmitters({ stage, color }: { stage: number; color: string }) {
   const ref = useRef<THREE.InstancedMesh | null>(null);
   const count = 48;
@@ -116,18 +150,23 @@ export function StudioCSynaptic({ initialMode = 'chemical', height = 430 }: Stud
       >
         {mode === 'chemical' && (
           <group>
-            {/* Presynaptic Terminal Dome */}
-            <mesh position={[0, 2.3, 0]} scale={[2.8, 1.5, 2.4]} {...hoverBind('MECH-020', 'Presynaptic Terminal & Active Zone', 'Houses reserve and docked vesicles poised at the active zone for Ca²⁺-triggered exocytosis.')}>
-              <sphereGeometry args={[1, 24, 16, 0, Math.PI * 2, Math.PI * 0.35, Math.PI * 0.65]} />
-              <meshPhysicalMaterial color="#1e3a5f" transparent opacity={0.48} roughness={0.35} side={THREE.DoubleSide} />
-            </mesh>
-
-            {/* CaV2.1 Voltage-Gated Calcium Channels */}
-            {[-2.1, 2.1].map((x, idx) => (
-              <mesh key={idx} position={[x, 1.35, 0.3]} {...hoverBind('MOL-CH-CAV2-1', 'CaV2.1 (P/Q-type) Calcium Channel', 'Opens upon terminal depolarization to create high-concentration Ca²⁺ microdomains driving Synaptotagmin-1.')}>
-                <cylinderGeometry args={[0.2, 0.2, 0.55, 14]} />
-                <meshStandardMaterial color={stage >= 1 ? '#F59E0B' : '#64748B'} emissive={stage >= 1 ? '#F59E0B' : '#000000'} emissiveIntensity={0.6} />
+            {/* Presynaptic Terminal Dome + Active Zone Rim */}
+            <group {...hoverBind('MECH-020', 'Presynaptic Terminal & Active Zone', 'Houses reserve and docked vesicles poised at the active zone for Ca²⁺-triggered exocytosis.')}>
+              <mesh position={[0, 2.3, 0]} scale={[2.8, 1.5, 2.4]}>
+                <sphereGeometry args={[1, 28, 18, 0, Math.PI * 2, Math.PI * 0.35, Math.PI * 0.65]} />
+                <meshPhysicalMaterial color="#2563eb" emissive="#1e3a8a" emissiveIntensity={0.28} transparent opacity={0.42} roughness={0.25} clearcoat={0.4} side={THREE.DoubleSide} />
               </mesh>
+              <mesh position={[0, 1.62, 0]} rotation={[Math.PI / 2, 0, 0]}>
+                <torusGeometry args={[2.38, 0.055, 10, 48]} />
+                <meshStandardMaterial color="#60a5fa" emissive="#3b82f6" emissiveIntensity={0.65} />
+              </mesh>
+            </group>
+
+            {/* CaV2.1 Voltage-Gated Calcium Channels (4-subunit pore) */}
+            {[-2.1, 2.1].map((x, idx) => (
+              <group key={idx} position={[x, 1.35, 0.3]} {...hoverBind('MOL-CH-CAV2-1', 'CaV2.1 (P/Q-type) Calcium Channel', 'Opens upon terminal depolarization to create high-concentration Ca²⁺ microdomains driving Synaptotagmin-1.')}>
+                <ReceptorBundle subunits={4} open={stage >= 1} color={stage >= 1 ? '#F59E0B' : '#64748B'} radius={0.2} height={0.55} />
+              </group>
             ))}
 
             {/* Synaptic Vesicles & SNARE Fusion Complex */}
@@ -146,23 +185,27 @@ export function StudioCSynaptic({ initialMode = 'chemical', height = 430 }: Stud
               <meshStandardMaterial color="#10B981" transparent opacity={0.65} />
             </mesh>
 
-            {/* Postsynaptic Spine & PSD-95 */}
-            <mesh position={[0, -2.0, 0]} {...hoverBind('MOL-SIG-PSD95', 'Postsynaptic Density (PSD-95 Scaffold)', 'Electron-dense protein scaffold anchoring AMPA, NMDA, and signaling enzymes opposite the active zone.')}>
-              <cylinderGeometry args={[2.9, 1.8, 1.4, 24]} />
-              <meshStandardMaterial color="#1e293b" roughness={0.5} />
-            </mesh>
+            {/* Postsynaptic Spine & PSD-95 Plaque */}
+            <group {...hoverBind('MOL-SIG-PSD95', 'Postsynaptic Density (PSD-95 Scaffold)', 'Electron-dense protein scaffold anchoring AMPA, NMDA, and signaling enzymes opposite the active zone.')}>
+              <mesh position={[0, -2.05, 0]}>
+                <cylinderGeometry args={[2.85, 1.65, 1.45, 28]} />
+                <meshPhysicalMaterial color="#334155" emissive="#0f172a" emissiveIntensity={0.35} roughness={0.4} clearcoat={0.25} />
+              </mesh>
+              <mesh position={[0, -1.32, 0]}>
+                <cylinderGeometry args={[2.88, 2.88, 0.12, 28]} />
+                <meshStandardMaterial color="#475569" emissive="#38bdf8" emissiveIntensity={0.18} roughness={0.3} />
+              </mesh>
+            </group>
 
-            {/* Postsynaptic Receptors */}
-            <mesh position={[-1.15, -1.2, 0]} {...hoverBind('MOL-REC-AMPAR', 'AMPA Receptor', 'Fast ionotropic glutamate receptor mediating rapid Na⁺ influx and EPSP depolarization.')}>
-              <cylinderGeometry args={[0.26, 0.22, 0.6, 14]} />
-              <meshStandardMaterial color={stage >= 4 && transmitter === 'glutamate' ? '#38BDF8' : '#475569'} />
-            </mesh>
+            {/* Postsynaptic Receptors (Tetrameric AMPA/NMDA, Pentameric GABA_A) */}
+            <group position={[-1.15, -1.2, 0]} {...hoverBind('MOL-REC-AMPAR', 'AMPA Receptor (Tetramer)', 'Fast ionotropic glutamate receptor mediating rapid Na⁺ influx and EPSP depolarization.')}>
+              <ReceptorBundle subunits={4} open={stage >= 4 && transmitter === 'glutamate'} color={stage >= 4 && transmitter === 'glutamate' ? '#38BDF8' : '#475569'} radius={0.25} height={0.6} />
+            </group>
 
             <group position={[0, -1.2, 0]}>
-              <mesh {...hoverBind('MOL-REC-NMDAR', 'NMDA Receptor (Coincidence Detector)', 'Requires both glutamate binding and postsynaptic depolarization to expel the pore Mg²⁺ block and pass Ca²⁺.')}>
-                <cylinderGeometry args={[0.28, 0.24, 0.65, 14]} />
-                <meshStandardMaterial color={stage >= 4 && depolarized ? '#10B981' : '#A855F7'} />
-              </mesh>
+              <group {...hoverBind('MOL-REC-NMDAR', 'NMDA Receptor (Tetrameric Coincidence Detector)', 'Requires both glutamate binding and postsynaptic depolarization to expel the pore Mg²⁺ block and pass Ca²⁺.')}>
+                <ReceptorBundle subunits={4} open={stage >= 4 && transmitter === 'glutamate' && depolarized} color={stage >= 4 && depolarized ? '#10B981' : '#A855F7'} radius={0.27} height={0.65} />
+              </group>
               {!depolarized && (
                 <mesh position={[0, 0.15, 0]}>
                   <sphereGeometry args={[0.13, 12, 10]} />
@@ -171,10 +214,9 @@ export function StudioCSynaptic({ initialMode = 'chemical', height = 430 }: Stud
               )}
             </group>
 
-            <mesh position={[1.15, -1.2, 0]} {...hoverBind('MOL-REC-GABAA', 'GABA_A Receptor (Cl⁻ Channel)', 'Ionotropic inhibitory receptor passing Cl⁻ to produce hyperpolarizing or shunting inhibition.')}>
-              <cylinderGeometry args={[0.26, 0.22, 0.6, 14]} />
-              <meshStandardMaterial color={stage >= 4 && transmitter === 'gaba' ? '#A855F7' : '#475569'} />
-            </mesh>
+            <group position={[1.15, -1.2, 0]} {...hoverBind('MOL-REC-GABAA', 'GABA_A Receptor (Pentameric Cl⁻ Channel)', 'Ionotropic inhibitory receptor passing Cl⁻ to produce hyperpolarizing or shunting inhibition.')}>
+              <ReceptorBundle subunits={5} open={stage >= 4 && transmitter === 'gaba'} color={stage >= 4 && transmitter === 'gaba' ? '#A855F7' : '#475569'} radius={0.26} height={0.6} />
+            </group>
 
             {/* CaMKII Hexamer inside Postsynaptic Spine */}
             <mesh position={[0, -2.15, 0.7]} {...hoverBind('MOL-SIG-CAMKII', 'CaMKII Holoenzyme', 'Ca²⁺/calmodulin-activated kinase driving E-LTP phosphorylation and AMPA receptor insertion.')}>
@@ -190,46 +232,71 @@ export function StudioCSynaptic({ initialMode = 'chemical', height = 430 }: Stud
 
         {mode === 'electrical' && (
           <group>
-            {/* Pre & Post membranes bridged by 6 connexon hemichannel cylinders */}
-            <mesh position={[0, 1.5, 0]} {...hoverBind('MECH-026', 'Electrical Synapse (Presynaptic Membrane)', 'Connexin gap-junction plaque providing bidirectional ohmic coupling (I_gap = g_gap(V_pre - V_post)).')}>
-              <boxGeometry args={[5.5, 0.35, 3.2]} />
-              <meshStandardMaterial color="#1e3a5f" />
-            </mesh>
-            <mesh position={[0, -1.5, 0]} {...hoverBind('MECH-026', 'Electrical Synapse (Postsynaptic Membrane)', 'Coupled postsynaptic membrane separated by a ~3.5 nm gap.')}>
-              <boxGeometry args={[5.5, 0.35, 3.2]} />
-              <meshStandardMaterial color="#1e293b" />
-            </mesh>
-            {[-1.5, -0.5, 0.5, 1.5].map((x) => (
-              <mesh key={x} position={[x, 0, 0]} {...hoverBind('MECH-026', 'Connexon Gap-Junction Channel', 'Paired hexameric connexin channel allowing direct electrotonic current and sub-millisecond synchrony.')}>
-                <cylinderGeometry args={[0.26, 0.26, 2.8, 12]} />
-                <meshStandardMaterial color="#38BDF8" emissive="#0284c7" emissiveIntensity={0.35} />
+            {/* Pre & Post membranes with hydrophilic headgroup rims bridged by connexon hemichannels */}
+            <group position={[0, 1.5, 0]} {...hoverBind('MECH-026', 'Electrical Synapse (Presynaptic Membrane)', 'Connexin gap-junction plaque providing bidirectional ohmic coupling (I_gap = g_gap(V_pre - V_post)).')}>
+              <mesh>
+                <boxGeometry args={[5.5, 0.38, 3.2]} />
+                <meshPhysicalMaterial color="#1e3a8a" emissive="#172554" emissiveIntensity={0.35} transparent opacity={0.82} roughness={0.3} />
               </mesh>
+              <mesh position={[0, -0.2, 0]}>
+                <boxGeometry args={[5.52, 0.05, 3.22]} />
+                <meshStandardMaterial color="#38bdf8" emissive="#0284c7" emissiveIntensity={0.5} />
+              </mesh>
+            </group>
+            <group position={[0, -1.5, 0]} {...hoverBind('MECH-026', 'Electrical Synapse (Postsynaptic Membrane)', 'Coupled postsynaptic membrane separated by a ~3.5 nm gap.')}>
+              <mesh>
+                <boxGeometry args={[5.5, 0.38, 3.2]} />
+                <meshPhysicalMaterial color="#1e293b" emissive="#0f172a" emissiveIntensity={0.35} transparent opacity={0.85} roughness={0.3} />
+              </mesh>
+              <mesh position={[0, 0.2, 0]}>
+                <boxGeometry args={[5.52, 0.05, 3.22]} />
+                <meshStandardMaterial color="#38bdf8" emissive="#0284c7" emissiveIntensity={0.5} />
+              </mesh>
+            </group>
+            {[-1.5, -0.5, 0.5, 1.5].map((x) => (
+              <group key={x} position={[x, 0, 0]} {...hoverBind('MECH-026', 'Connexon Gap-Junction Channel', 'Paired hexameric connexin channel allowing direct electrotonic current and sub-millisecond synchrony.')}>
+                <ReceptorBundle subunits={5} open color="#38BDF8" radius={0.26} height={2.5} />
+              </group>
             ))}
           </group>
         )}
 
         {mode === 'channels' && (
           <group>
-            {/* Phospholipid Bilayer */}
-            <mesh position={[0, 0, 0]}>
-              <boxGeometry args={[7, 0.55, 3]} />
-              <meshPhysicalMaterial color="#1e293b" transparent opacity={0.75} />
-            </mesh>
-            {/* NaV1.1 */}
-            <mesh position={[-1.8, 0, 0]} {...hoverBind('MOL-CH-NAV1-1', 'Voltage-Gated Sodium Channel (NaV1.1)', 'Fast m³ activation and h inactivation gates driving action potential depolarization.')}>
-              <torusGeometry args={[0.55, 0.22, 14, 24]} />
-              <meshStandardMaterial color="#38BDF8" />
-            </mesh>
-            {/* KV1.1 */}
-            <mesh position={[0, 0, 0]} {...hoverBind('MOL-CH-KV1-1', 'Delayed-Rectifier Potassium Channel (KV1.1)', 'Slower n⁴ activation gate repolarizing the membrane toward E_K.')}>
-              <torusGeometry args={[0.55, 0.22, 14, 24]} />
-              <meshStandardMaterial color="#A855F7" />
-            </mesh>
-            {/* Na+/K+ ATPase */}
-            <mesh position={[1.8, 0, 0]} {...hoverBind('MOL-PUMP-NAK-ATPASE', 'Na⁺/K⁺-ATPase Pump', 'Electrogenic pump exporting 3 Na⁺ and importing 2 K⁺ per ATP to maintain resting ionic gradients.')}>
-              <cylinderGeometry args={[0.45, 0.45, 1.3, 16]} />
-              <meshStandardMaterial color="#10B981" />
-            </mesh>
+            {/* Phospholipid Bilayer with upper & lower hydrophilic headgroup planes */}
+            <group position={[0, 0, 0]}>
+              <mesh>
+                <boxGeometry args={[7, 0.55, 3]} />
+                <meshPhysicalMaterial color="#1e293b" transparent opacity={0.68} roughness={0.35} />
+              </mesh>
+              <mesh position={[0, 0.28, 0]}>
+                <boxGeometry args={[7.02, 0.04, 3.02]} />
+                <meshStandardMaterial color="#38bdf8" emissive="#0284c7" emissiveIntensity={0.45} />
+              </mesh>
+              <mesh position={[0, -0.28, 0]}>
+                <boxGeometry args={[7.02, 0.04, 3.02]} />
+                <meshStandardMaterial color="#38bdf8" emissive="#0284c7" emissiveIntensity={0.45} />
+              </mesh>
+            </group>
+            {/* NaV1.1 (4-domain transmembrane bundle) */}
+            <group position={[-1.8, 0, 0]} {...hoverBind('MOL-CH-NAV1-1', 'Voltage-Gated Sodium Channel (NaV1.1)', 'Fast m³ activation and h inactivation gates driving action potential depolarization.')}>
+              <ReceptorBundle subunits={4} open color="#38BDF8" radius={0.45} height={1.15} />
+            </group>
+            {/* KV1.1 (4-subunit tetramer) */}
+            <group position={[0, 0, 0]} {...hoverBind('MOL-CH-KV1-1', 'Delayed-Rectifier Potassium Channel (KV1.1)', 'Slower n⁴ activation gate repolarizing the membrane toward E_K.')}>
+              <ReceptorBundle subunits={4} open color="#A855F7" radius={0.45} height={1.15} />
+            </group>
+            {/* Na+/K+ ATPase (alpha/beta heterodimer) */}
+            <group position={[1.8, 0, 0]} {...hoverBind('MOL-PUMP-NAK-ATPASE', 'Na⁺/K⁺-ATPase Pump', 'Electrogenic pump exporting 3 Na⁺ and importing 2 K⁺ per ATP to maintain resting ionic gradients.')}>
+              <mesh position={[-0.16, 0, 0]}>
+                <capsuleGeometry args={[0.28, 0.85, 8, 14]} />
+                <meshStandardMaterial color="#10B981" roughness={0.35} />
+              </mesh>
+              <mesh position={[0.22, 0.12, 0]}>
+                <capsuleGeometry args={[0.18, 0.65, 8, 12]} />
+                <meshStandardMaterial color="#34D399" roughness={0.35} />
+              </mesh>
+            </group>
           </group>
         )}
       </StudioViewport>

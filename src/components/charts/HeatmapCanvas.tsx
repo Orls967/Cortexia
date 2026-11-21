@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { DIVERGING_LUT, formatNum, VIRIDIS_LUT } from './palette';
+import { useCanvasWidth } from './useCanvasWidth';
 
 interface HeatmapCanvasProps {
   title: string;
@@ -27,6 +28,7 @@ export function HeatmapCanvas({
   height = 230,
 }: HeatmapCanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const canvasWidth = useCanvasWidth(canvasRef, 440);
   const [hoverInfo, setHoverInfo] = useState<string>('');
 
   const { min, max } = useMemo(() => {
@@ -50,7 +52,7 @@ export function HeatmapCanvas({
     const canvas = canvasRef.current;
     if (!canvas || rows === 0 || cols === 0) return;
     const dpr = window.devicePixelRatio || 1;
-    const w = canvas.clientWidth || 440;
+    const w = canvas.clientWidth || canvasWidth;
     const h = height;
     canvas.width = Math.round(w * dpr);
     canvas.height = Math.round(h * dpr);
@@ -113,7 +115,7 @@ export function HeatmapCanvas({
       ctx.fillText(yLabel, 0, 0);
       ctx.restore();
     }
-  }, [rows, cols, data, min, max, diverging, height, xLabel, yLabel]);
+  }, [rows, cols, data, min, max, diverging, height, canvasWidth, xLabel, yLabel]);
 
   return (
     <div className="cx-card" style={{ padding: 12 }}>

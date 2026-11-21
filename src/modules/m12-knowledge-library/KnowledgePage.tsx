@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import { equationSection, withoutShown } from '../../components/uces/explain';
 import { Link, useParams } from 'react-router-dom';
 import { EntityRef } from '../../components/ui/EntityRef';
 import { MathFormula } from '../../components/ui/MathFormula';
@@ -127,22 +128,34 @@ export function KnowledgePage({ section = 'browse' }: { section?: 'browse' | 'en
 
             <div className="cx-banner cx-banner-cyan">{record.shortDefinition}</div>
 
-            <section>
-              <h2 style={{ fontSize: 15, margin: '0 0 6px' }}>Scientific Overview & Context</h2>
-              <p style={{ margin: '0 0 8px' }}>{record.overview}</p>
-              <p style={{ margin: '0 0 8px', color: 'var(--text-secondary)' }}>{record.biologicalContext}</p>
-              {record.anatomicalContext && <p style={{ margin: 0, color: 'var(--text-secondary)' }}>{record.anatomicalContext}</p>}
-            </section>
-
-            <section>
-              <h2 style={{ fontSize: 15, margin: '0 0 6px' }}>Biological Mechanism & Functional Significance</h2>
-              <p style={{ margin: '0 0 8px' }}>{record.detailedMechanism}</p>
-              <p style={{ margin: 0, color: 'var(--text-secondary)' }}>{record.functionalSignificance}</p>
-            </section>
+            {(() => {
+              // Each registry statement is shown once, even when several fields repeat it.
+              const shown = new Set<string>();
+              withoutShown(record.shortDefinition, shown);
+              const overview = [withoutShown(record.overview, shown), withoutShown(record.biologicalContext, shown), withoutShown(record.anatomicalContext, shown)].filter(Boolean);
+              const mechanism = [withoutShown(record.detailedMechanism, shown), withoutShown(record.functionalSignificance, shown)].filter(Boolean);
+              return (
+                <>
+                  {overview.length > 0 && (
+                    <section>
+                      <h2 style={{ fontSize: 15, margin: '0 0 6px' }}>Scientific Overview & Context</h2>
+                      {overview.map((t, i) => <p key={i} style={{ margin: '0 0 8px', color: i === 0 ? undefined : 'var(--text-secondary)' }}>{t}</p>)}
+                    </section>
+                  )}
+                  {mechanism.length > 0 && (
+                    <section>
+                      <h2 style={{ fontSize: 15, margin: '0 0 6px' }}>Biological Mechanism & Functional Significance</h2>
+                      {mechanism.map((t, i) => <p key={i} style={{ margin: '0 0 8px', color: i === 0 ? undefined : 'var(--text-secondary)' }}>{t}</p>)}
+                    </section>
+                  )}
+                </>
+              );
+            })()}
 
             {record.equations && record.equations.length > 0 && (
               <section>
-                <h2 style={{ fontSize: 15, margin: '0 0 6px' }}>Governing Equations</h2>
+                <h2 style={{ fontSize: 15, margin: '0 0 6px' }}>{equationSection(record.entityType).title}</h2>
+                {equationSection(record.entityType).note && <p style={{ margin: '0 0 8px', fontSize: 12, color: 'var(--text-secondary)' }}>{equationSection(record.entityType).note}</p>}
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                   {record.equations.map((eqId) => {
                     const eq = eqMap?.get(eqId);
@@ -164,7 +177,8 @@ export function KnowledgePage({ section = 'browse' }: { section?: 'browse' | 'en
             {record.parameters && record.parameters.length > 0 && (
               <section>
                 <h2 style={{ fontSize: 15, margin: '0 0 6px' }}>Parameters & Physical Units</h2>
-                <table style={{ width: '100%', fontSize: 12, borderCollapse: 'collapse' }}>
+                <div style={{ overflowX: 'auto' }}>
+                  <table style={{ width: '100%', fontSize: 12, borderCollapse: 'collapse' }}>
                   <thead>
                     <tr style={{ textAlign: 'left', borderBottom: '1px solid var(--border-strong)', color: 'var(--text-secondary)' }}>
                       <th style={{ padding: 6 }}>ID</th>
@@ -189,6 +203,7 @@ export function KnowledgePage({ section = 'browse' }: { section?: 'browse' | 'en
                     })}
                   </tbody>
                 </table>
+                </div>
               </section>
             )}
 
@@ -271,24 +286,29 @@ export function KnowledgePage({ section = 'browse' }: { section?: 'browse' | 'en
               <span>Local Knowledge Subgraph: {focusNode ? focusNode[1] : kgFocusId}</span>
               <span className="cx-badge tabular">{kgNeighbors.length} edges</span>
             </div>
-            <svg viewBox="0 0 460 360" style={{ width: '100%', background: '#090d16', borderRadius: 6 }} role="img" aria-label="Knowledge graph neighborhood diagram">
-              {kgNeighbors.slice(0, 14).map((nb, idx, arr) => {
-                const ang = (idx / Math.max(1, arr.length)) * Math.PI * 2;
-                const nx = 230 + Math.cos(ang) * 145;
-                const ny = 180 + Math.sin(ang) * 135;
+            <svg viewBox="0 0 560 420" style={{ width: '100%', background: 'var(--bg-surface-deep)', borderRadius: 6 }} role="img" aria-label="Knowledge graph neighborhood diagram">
+              {kgNeighbors.slice(0, 18).map((nb, idx, arr) => {
+                const ang = (idx / Math.max(1, arr.length)) * Math.PI * 2 - Math.PI / 2;
+                const radX = idx % 2 === 0 ? 148 : 210;
+                const radY = idx % 2 === 0 ? 115 : 168;
+                const nx = 280 + Math.cos(ang) * radX;
+                const ny = 210 + Math.sin(ang) * radY;
+                const lbl = nb.otherLabel.length > 20 ? `${nb.otherLabel.slice(0, 19)}…` : nb.otherLabel;
                 return (
                   <g key={`${nb.otherId}-${idx}`} style={{ cursor: 'pointer' }} onClick={() => setKgOverrideId(nb.otherId)}>
-                    <line x1={230} y1={180} x2={nx} y2={ny} stroke={nb.dir === 'out' ? '#38BDF8' : '#A855F7'} strokeWidth={1.3} strokeOpacity={0.65} />
-                    <circle cx={nx} cy={ny} r={16} fill="#151e30" stroke={nb.dir === 'out' ? '#38BDF8' : '#A855F7'} strokeWidth={1.5} />
-                    <text x={nx} y={ny + 3} textAnchor="middle" fill="#F1F5F9" fontSize={8}>{nb.otherScale}</text>
-                    <text x={nx} y={ny + 26} textAnchor="middle" fill="#94A3B8" fontSize={8}>
-                      {nb.otherLabel.slice(0, 22)}
+                    <title>{`${nb.dir === 'out' ? '→' : '←'} ${nb.rel}: ${nb.otherLabel} (${nb.otherId})`}</title>
+                    <line x1={280} y1={210} x2={nx} y2={ny} stroke={nb.dir === 'out' ? '#38BDF8' : '#A855F7'} strokeWidth={1.3} strokeOpacity={0.6} />
+                    <circle cx={nx} cy={ny} r={14} fill="#151e30" stroke={nb.dir === 'out' ? '#38BDF8' : '#A855F7'} strokeWidth={1.5} />
+                    <text x={nx} y={ny + 3} textAnchor="middle" fill="#F1F5F9" fontSize={7.5}>{nb.otherScale}</text>
+                    <text x={nx} y={ny + 24} textAnchor="middle" fill="#cbd5e1" fontSize={8}>
+                      {lbl}
                     </text>
                   </g>
                 );
               })}
-              <circle cx={230} cy={180} r={26} fill="#0284c7" stroke="#38BDF8" strokeWidth={2.5} />
-              <text x={230} y={184} textAnchor="middle" fill="#fff" fontSize={9} fontWeight={700}>
+              <circle cx={280} cy={210} r={28} fill="#0284c7" stroke="#38BDF8" strokeWidth={2.5} />
+              <text x={280} y={214} textAnchor="middle" fill="#fff" fontSize={9} fontWeight={700}>
+                <title>{focusNode?.[1] ?? kgFocusId}</title>
                 {(focusNode?.[1] ?? kgFocusId).slice(0, 14)}
               </text>
             </svg>

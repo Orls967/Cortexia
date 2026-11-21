@@ -96,6 +96,44 @@ button {
   z-index: 30;
 }
 
+.cx-topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+/* The mobile drawer toggle only exists below 1024px; desktop uses the in-rail collapse button. */
+.cx-btn.cx-rail-toggle {
+  display: none;
+  padding: 4px 8px;
+}
+
+.cx-rail.cx-rail-collapsed {
+  width: 34px;
+  min-width: 34px;
+  padding: 8px 4px;
+  align-items: center;
+}
+.cx-rail.cx-rail-collapsed > :not(.cx-rail-collapse-btn) {
+  display: none;
+}
+.cx-rail-collapse-btn {
+  align-self: flex-end;
+  padding: 2px 6px;
+  font-size: 11px;
+  margin-bottom: 4px;
+}
+@media (max-width: 1023px) {
+  .cx-rail-collapse-btn {
+    display: none;
+  }
+}
+
+.cx-rail-backdrop {
+  display: none;
+}
+
 .cx-brand {
   display: inline-flex;
   align-items: center;
@@ -263,6 +301,18 @@ button {
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
   padding: 14px;
+  box-shadow: 0 4px 18px rgba(2, 6, 23, 0.32);
+}
+
+.cx-card .katex-display {
+  font-size: 0.92em;
+  margin: 0.35em 0;
+}
+
+.cx-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+  gap: 12px;
 }
 
 .cx-card-title {
@@ -289,6 +339,7 @@ button {
   font-size: 12px;
   font-weight: 500;
   line-height: 1.2;
+  transition: background-color 0.14s ease, border-color 0.14s ease, color 0.14s ease;
 }
 .cx-btn:hover:not(:disabled) {
   border-color: var(--accent-ice-blue);
@@ -320,6 +371,14 @@ button {
   padding: 6px 9px;
   font-size: 13px;
   color: var(--text-primary);
+  /* A select is as wide as its longest option unless capped; never let a control exceed its container. */
+  max-width: 100%;
+  min-width: 0;
+}
+/* Labels wrap their control; capping the label lets the control's own max-width resolve against the row. */
+label {
+  max-width: 100%;
+  min-width: 0;
 }
 .cx-input:focus,
 .cx-select:focus {
@@ -403,6 +462,19 @@ button {
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 12px;
 }
+/* Browser list beside a workspace (model catalog, cell taxonomy, anatomical hierarchy). */
+.cx-split {
+  display: grid;
+  grid-template-columns: minmax(240px, 300px) minmax(0, 1fr);
+  gap: 14px;
+}
+.cx-split-side {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 760px;
+  overflow: hidden;
+}
 
 /* Telemetry Footer */
 .cx-telemetry {
@@ -431,13 +503,38 @@ button {
 }
 
 @media (max-width: 1023px) {
-  .cx-rail-drawer {
+  /* Below 1024px the module rail leaves the layout and becomes an off-canvas drawer. */
+  .cx-btn.cx-rail-toggle {
+    display: inline-flex;
+  }
+  .cx-rail {
+    display: none;
+  }
+  .cx-rail.cx-rail-drawer {
+    display: flex;
     position: fixed;
-    top: var(--topbar-height);
+    top: 0;
     bottom: 0;
     left: 0;
-    z-index: 45;
+    z-index: 61;
+    width: min(84vw, 300px);
+    min-width: 0;
     box-shadow: var(--shadow-popover);
+  }
+  .cx-rail-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    border: 0;
+    padding: 0;
+    background: rgba(2, 6, 23, 0.62);
+  }
+  .cx-split {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .cx-split-side {
+    max-height: 300px;
   }
   .cx-inspector-dock {
     position: fixed;
@@ -453,9 +550,10 @@ button {
     z-index: 46;
     box-shadow: var(--shadow-popover);
   }
+  /* minmax(0, 1fr), not 1fr: a bare 1fr track grows to its widest child (an equation, a long select). */
   .cx-grid-2,
   .cx-grid-3 {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
@@ -464,6 +562,36 @@ button {
     padding: 10px;
   }
   .cx-scale-strip {
+    display: none;
+  }
+  /* Two-row top bar: brand and actions first, the five environments on their own scrollable row. */
+  .cx-topbar {
+    height: auto;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 6px 10px;
+    row-gap: 6px;
+  }
+  .cx-topbar-left {
+    display: contents;
+  }
+  .cx-topbar-actions {
+    margin-left: auto;
+  }
+  .cx-env-nav {
+    order: 3;
+    flex-basis: 100%;
+    scrollbar-width: none;
+  }
+  .cx-env-nav::-webkit-scrollbar,
+  .cx-subbar::-webkit-scrollbar {
+    display: none;
+  }
+  .cx-subbar {
+    scrollbar-width: none;
+  }
+  .cx-kbd-hint,
+  .cx-telemetry-meta {
     display: none;
   }
 }
@@ -484,3 +612,25 @@ button {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ── 3D studio frame: header in flow, scene below it ─────────────────────── */
+.cx-studio { border: 1px solid var(--border-subtle); border-radius: 10px; overflow: hidden; background: #0b1220; }
+.cx-studio-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 10px; padding: 8px 10px; border-bottom: 1px solid var(--border-subtle); }
+.cx-studio-id { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.cx-studio-presets { display: flex; gap: 4px; overflow-x: auto; max-width: 100%; padding-bottom: 2px; scrollbar-width: thin; }
+.cx-studio-presets .cx-btn, .cx-studio-info { padding: 3px 8px; font-size: 11px; white-space: nowrap; flex: 0 0 auto; }
+.cx-studio-disclosure { margin: 0; padding: 8px 12px; font-size: 12px; line-height: 1.5; color: var(--text-secondary); background: rgba(245, 158, 11, 0.06); border-bottom: 1px solid var(--border-subtle); }
+.cx-studio-stage { position: relative; width: 100%; background: radial-gradient(circle at 50% 35%, #111b31 0%, #070b13 100%); overflow-x: hidden; }
+.cx-studio-stage:focus-visible { outline: 2px solid var(--accent-ice-blue); outline-offset: -2px; }
+.cx-studio-hint { position: absolute; left: 10px; bottom: 8px; right: 10px; font-size: 10px; color: var(--text-secondary); pointer-events: none; text-shadow: 0 1px 2px #000; }
+@media (max-width: 767px) { .cx-studio-hint { display: none; } }
+
+/* ── Display equations: scroll inside their card instead of being clipped ── */
+.cx-math-display { display: block; max-width: 100%; overflow-x: auto; overflow-y: hidden; padding: 6px 0 8px; scrollbar-width: thin; scrollbar-color: #475569 transparent; }
+.cx-math-display .katex-display { margin: 0; text-align: left; }
+.cx-math-display .katex { font-size: 1.02em; }
+.cx-math-display:focus-visible { outline: 2px solid var(--accent-ice-blue); outline-offset: 2px; }
+
+/* Guided-route footer */
+.cx-nextstep { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; margin-top: 20px; padding: 12px 14px; border: 1px solid var(--border-subtle); border-radius: 10px; background: #0d1422; }
+.cx-nextstep-pos { font-size: 12px; color: var(--text-secondary); }

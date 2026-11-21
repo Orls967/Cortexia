@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef } from 'react';
 import type { Curve } from '../../kernels/core/types';
 import { formatNum, OKABE_ITO } from './palette';
+import { useCanvasWidth } from './useCanvasWidth';
 
 interface PhasePlanePlotProps {
   title: string;
@@ -14,6 +15,7 @@ interface PhasePlanePlotProps {
 
 export function PhasePlanePlot({ title, xData, yData, xLabel, yLabel, nullclines, height = 240 }: PhasePlanePlotProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const canvasWidth = useCanvasWidth(canvasRef, 440);
 
   const bounds = useMemo(() => {
     let xMin = Infinity, xMax = -Infinity, yMin = Infinity, yMax = -Infinity;
@@ -37,7 +39,7 @@ export function PhasePlanePlot({ title, xData, yData, xLabel, yLabel, nullclines
     const canvas = canvasRef.current;
     if (!canvas) return;
     const dpr = window.devicePixelRatio || 1;
-    const w = canvas.clientWidth || 440;
+    const w = canvas.clientWidth || canvasWidth;
     const h = height;
     canvas.width = Math.round(w * dpr);
     canvas.height = Math.round(h * dpr);
@@ -48,7 +50,7 @@ export function PhasePlanePlot({ title, xData, yData, xLabel, yLabel, nullclines
     ctx.fillStyle = '#090d16';
     ctx.fillRect(0, 0, w, h);
 
-    const padL = 52, padR = 14, padT = 12, padB = 28;
+    const padL = 52, padR = 16, padT = 12, padB = 34;
     const pw = Math.max(20, w - padL - padR);
     const ph = Math.max(20, h - padT - padB);
     const toX = (v: number) => padL + ((v - bounds.xMin) / (bounds.xMax - bounds.xMin)) * pw;
@@ -65,8 +67,8 @@ export function PhasePlanePlot({ title, xData, yData, xLabel, yLabel, nullclines
       ctx.fillText(formatNum(bounds.yMin + f * (bounds.yMax - bounds.yMin)), padL - 6, gy + 3);
       const gx = padL + pw * f;
       ctx.beginPath(); ctx.moveTo(gx, padT); ctx.lineTo(gx, padT + ph); ctx.stroke();
-      ctx.textAlign = 'center';
-      ctx.fillText(formatNum(bounds.xMin + f * (bounds.xMax - bounds.xMin)), gx, h - 8);
+      ctx.textAlign = i === 4 ? 'right' : i === 0 ? 'left' : 'center';
+      ctx.fillText(formatNum(bounds.xMin + f * (bounds.xMax - bounds.xMin)), gx, padT + ph + 13);
     }
 
     // Nullclines
@@ -111,15 +113,15 @@ export function PhasePlanePlot({ title, xData, yData, xLabel, yLabel, nullclines
 
     ctx.fillStyle = '#94a3b8';
     ctx.font = '11px Inter, sans-serif';
-    ctx.textAlign = 'right';
-    ctx.fillText(xLabel, w - 10, h - 8);
+    ctx.textAlign = 'center';
+    ctx.fillText(xLabel, padL + pw / 2, h - 5);
     ctx.save();
     ctx.translate(12, padT + ph / 2);
     ctx.rotate(-Math.PI / 2);
     ctx.textAlign = 'center';
     ctx.fillText(yLabel, 0, 0);
     ctx.restore();
-  }, [xData, yData, nullclines, bounds, height, xLabel, yLabel]);
+  }, [xData, yData, nullclines, bounds, height, canvasWidth, xLabel, yLabel]);
 
   return (
     <div className="cx-card" style={{ padding: 12 }}>

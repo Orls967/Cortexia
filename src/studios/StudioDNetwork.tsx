@@ -3,7 +3,7 @@ import * as THREE from 'three';
 import { ProvenanceBadge } from '../components/ui/ProvenanceBadge';
 import { louvain } from '../kernels/analytics/graph';
 import { Rng } from '../kernels/core/prng';
-import { generateGraph, syntheticConnectome68 } from '../kernels/models/graphs';
+import { generateGraph, syntheticConnectome68, type GeneratedGraph } from '../kernels/models/graphs';
 import { clearHoverTarget, scheduleHoverTarget, useSelectionStore } from '../stores/selectionStore';
 import { StudioViewport, type CameraPreset } from './common/StudioViewport';
 
@@ -17,11 +17,12 @@ const COMM_COLORS = ['#38BDF8', '#A855F7', '#10B981', '#F59E0B', '#FB7185', '#22
 
 interface StudioDNetworkProps {
   mode?: 'connectome68' | 'microcircuit';
+  externalGraph?: GeneratedGraph | null;
   nodeActivity?: Float64Array | null;
   height?: number | string;
 }
 
-export function StudioDNetwork({ mode: initialMode = 'connectome68', nodeActivity = null, height = 430 }: StudioDNetworkProps) {
+export function StudioDNetwork({ mode: initialMode = 'connectome68', externalGraph = null, nodeActivity = null, height = 430 }: StudioDNetworkProps) {
   const [mode, setMode] = useState<'connectome68' | 'microcircuit'>(initialMode);
   const [threshold, setThreshold] = useState(0.18);
   const [colorByCommunity, setColorByCommunity] = useState(true);
@@ -32,6 +33,23 @@ export function StudioDNetwork({ mode: initialMode = 'connectome68', nodeActivit
   const selectEntity = useSelectionStore((s) => s.selectEntity);
 
   const graph = useMemo(() => {
+    if (externalGraph) {
+      if (externalGraph.positions) return externalGraph;
+      const pos = new Float64Array(externalGraph.n * 3);
+      for (let i = 0; i < externalGraph.n; i++) {
+        const phi = Math.acos(1 - (2 * (i + 0.5)) / externalGraph.n);
+        const theta = Math.PI * (1 + Math.sqrt(5)) * i;
+        const r = 3.2;
+        pos[i * 3] = r * Math.sin(phi) * Math.cos(theta);
+        pos[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
+        pos[i * 3 + 2] = r * Math.cos(phi) * 0.85;
+      }
+      return {
+        ...externalGraph,
+        positions: pos,
+        labels: externalGraph.labels ?? Array.from({ length: externalGraph.n }, (_, i) => `Node ${i + 1}`),
+      };
+    }
     if (mode === 'connectome68') return syntheticConnectome68(42, 0.25);
     const g = generateGraph(5, 64, 42);
     const pos = new Float64Array(g.n * 3);
@@ -49,15 +67,28 @@ export function StudioDNetwork({ mode: initialMode = 'connectome68', nodeActivit
       positions: pos,
       labels: Array.from({ length: g.n }, (_, i) => (i < Math.round(0.8 * g.n) ? `Exc E-${i}` : `Inh PV-${i}`)),
     };
-  }, [mode]);
+  }, [mode, externalGraph]);
 
   const communities = useMemo(() => louvain(graph.weights, graph.n, 1).communities, [graph]);
+
+  const nodeStrengths = useMemo(() => {
+    const str = new Float64Array(graph.n);
+    let maxS = 1e-6;
+    for (let i = 0; i < graph.n; i++) {
+      let s = 0;
+      for (let j = 0; j < graph.n; j++) s += graph.weights[i * graph.n + j]!;
+      str[i] = s;
+      if (s > maxS) maxS = s;
+    }
+    for (let i = 0; i < graph.n; i++) str[i] = str[i]! / maxS;
+    return str;
+  }, [graph]);
 
   const edges = useMemo(() => {
     const list: { key: string; from: [number, number, number]; to: [number, number, number]; w: number }[] = [];
     const n = graph.n;
     const pos = graph.positions!;
-    const scale = mode === 'connectome68' ? 0.062 : 1;
+    const scale = graph.n === 68 ? 0.062 : 1;
     for (let i = 0; i < n; i++) {
       if (lesionedNodes.has(i)) continue;
       for (let j = i + 1; j < n; j++) {
@@ -70,22 +101,31 @@ export function StudioDNetwork({ mode: initialMode = 'connectome68', nodeActivit
           to: [pos[j * 3]! * scale, pos[j * 3 + 2]! * scale, pos[j * 3 + 1]! * scale],
           w,
         });
-        if (list.length >= 260) return list;
       }
     }
-    return list;
-  }, [graph, mode, threshold, lesionedNodes]);
+    list.sort((a, b) => b.w - a.w);
+    return list.slice(0, 260);
+  }, [graph, threshold, lesionedNodes]);
 
-  const linePositions = useMemo(() => {
+  const { linePositions, lineColors } = useMemo(() => {
     const arr = new Float32Array(edges.length * 6);
+    const cols = new Float32Array(edges.length * 6);
+    const maxW = edges.length > 0 ? Math.max(0.001, edges[0]!.w) : 1;
+    const cWeak = new THREE.Color('#1e3a5f');
+    const cStrong = new THREE.Color('#38BDF8');
+    const tmp = new THREE.Color();
     edges.forEach((e, k) => {
       arr[k * 6] = e.from[0]; arr[k * 6 + 1] = e.from[1]; arr[k * 6 + 2] = e.from[2];
       arr[k * 6 + 3] = e.to[0]; arr[k * 6 + 4] = e.to[1]; arr[k * 6 + 5] = e.to[2];
+      const t = Math.min(1, Math.max(0, e.w / maxW));
+      tmp.copy(cWeak).lerp(cStrong, 0.25 + 0.75 * t);
+      cols[k * 6] = tmp.r; cols[k * 6 + 1] = tmp.g; cols[k * 6 + 2] = tmp.b;
+      cols[k * 6 + 3] = tmp.r; cols[k * 6 + 4] = tmp.g; cols[k * 6 + 5] = tmp.b;
     });
-    return arr;
+    return { linePositions: arr, lineColors: cols };
   }, [edges]);
 
-  const scale = mode === 'connectome68' ? 0.062 : 1;
+  const scale = graph.n === 68 ? 0.062 : 1;
   const targetEntityId = mode === 'connectome68' ? 'MODEL-028' : 'CIRC-003';
 
   return (
@@ -115,12 +155,18 @@ export function StudioDNetwork({ mode: initialMode = 'connectome68', nodeActivit
           </div>
         }
       >
-        {/* Translucent brain hull in connectome mode */}
+        {/* Translucent brain hull + subtle wireframe silhouette in connectome mode */}
         {mode === 'connectome68' && (
-          <mesh scale={[4.4, 3.4, 5.2]} position={[0, 0.4, -0.4]}>
-            <sphereGeometry args={[1, 24, 18]} />
-            <meshPhysicalMaterial color="#1e3a5f" transparent opacity={0.12} depthWrite={false} roughness={0.5} />
-          </mesh>
+          <group scale={[4.4, 3.4, 5.2]} position={[0, 0.4, -0.4]}>
+            <mesh>
+              <sphereGeometry args={[1, 24, 18]} />
+              <meshPhysicalMaterial color="#1e3a5f" transparent opacity={0.14} depthWrite={false} roughness={0.5} />
+            </mesh>
+            <mesh>
+              <sphereGeometry args={[1.005, 18, 14]} />
+              <meshBasicMaterial color="#38bdf8" wireframe transparent opacity={0.07} depthWrite={false} />
+            </mesh>
+          </group>
         )}
 
         {/* Network Edges */}
@@ -128,8 +174,9 @@ export function StudioDNetwork({ mode: initialMode = 'connectome68', nodeActivit
           <lineSegments>
             <bufferGeometry>
               <bufferAttribute attach="attributes-position" args={[linePositions, 3]} />
+              <bufferAttribute attach="attributes-color" args={[lineColors, 3]} />
             </bufferGeometry>
-            <lineBasicMaterial color="#38BDF8" transparent opacity={0.32} />
+            <lineBasicMaterial vertexColors transparent opacity={0.55} />
           </lineSegments>
         )}
 
@@ -173,7 +220,11 @@ export function StudioDNetwork({ mode: initialMode = 'connectome68', nodeActivit
                 selectEntity(targetEntityId, { scale: mode === 'connectome68' ? 'L8' : 'L5' });
               }}
             >
-              {mode === 'microcircuit' && !isInh ? <coneGeometry args={[0.17, 0.34, 6]} /> : <sphereGeometry args={[isSel ? 0.24 : 0.16, 12, 10]} />}
+              {mode === 'microcircuit' && !isInh ? (
+                <coneGeometry args={[0.17, 0.34, 8]} />
+              ) : (
+                <sphereGeometry args={[isSel ? 0.27 : 0.13 + 0.11 * (nodeStrengths[i] ?? 0.5), 14, 12]} />
+              )}
               <meshStandardMaterial
                 color={color}
                 emissive={isSel ? '#F59E0B' : '#000000'}

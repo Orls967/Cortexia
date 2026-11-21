@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { ChartDataTableToggle, computeSeriesSummary } from '../ui/DataTableModal';
 import { formatNum, OKABE_ITO, TRACE_DASH } from './palette';
+import { useCanvasWidth } from './useCanvasWidth';
 
 export interface TraceSeriesInput {
   key: string;
@@ -33,6 +34,7 @@ export function TraceCanvasPlot({
   onInspectSeries,
 }: TraceCanvasPlotProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const canvasWidth = useCanvasWidth(canvasRef, 520);
   const [hoverIdx, setHoverIdx] = useState<number | null>(null);
 
   const bounds = useMemo(() => {
@@ -64,7 +66,7 @@ export function TraceCanvasPlot({
     const canvas = canvasRef.current;
     if (!canvas) return;
     const dpr = window.devicePixelRatio || 1;
-    const w = canvas.clientWidth || 520;
+    const w = canvas.clientWidth || canvasWidth;
     const h = height;
     canvas.width = Math.round(w * dpr);
     canvas.height = Math.round(h * dpr);
@@ -75,7 +77,7 @@ export function TraceCanvasPlot({
     ctx.fillStyle = '#090d16';
     ctx.fillRect(0, 0, w, h);
 
-    const padL = 56, padR = 14, padT = 12, padB = 28;
+    const padL = 56, padR = 16, padT = 12, padB = 34;
     const pw = Math.max(20, w - padL - padR);
     const ph = Math.max(20, h - padT - padB);
     const toX = (v: number) => padL + ((v - bounds.xMin) / (bounds.xMax - bounds.xMin)) * pw;
@@ -105,8 +107,8 @@ export function TraceCanvasPlot({
       ctx.moveTo(gx, padT);
       ctx.lineTo(gx, padT + ph);
       ctx.stroke();
-      ctx.textAlign = 'center';
-      ctx.fillText(formatNum(xVal), gx, h - 8);
+      ctx.textAlign = i === 4 ? 'right' : i === 0 ? 'left' : 'center';
+      ctx.fillText(formatNum(xVal), gx, padT + ph + 13);
     }
 
     // Threshold line
@@ -122,9 +124,9 @@ export function TraceCanvasPlot({
       ctx.restore();
     }
 
-    // Traces (min-max decimation per pixel column so 20k points draw smoothly)
+    // Traces (true min-max decimation per pixel column so narrow spikes are never clipped)
     const n = x.length;
-    const stride = Math.max(1, Math.floor(n / (pw * 2)));
+    const cols = Math.max(1, Math.floor(pw));
     series.forEach((s, si) => {
       const len = Math.min(n, s.data.length);
       if (len < 2) return;
@@ -134,12 +136,44 @@ export function TraceCanvasPlot({
       if (s.dashed) ctx.setLineDash(TRACE_DASH[(si + 1) % TRACE_DASH.length]!);
       ctx.beginPath();
       let started = false;
-      for (let i = 0; i < len; i += stride) {
-        const yv = s.data[i]!;
-        if (!Number.isFinite(yv)) { started = false; continue; }
-        const px = toX(x[i]!);
-        const py = toY(yv);
-        if (!started) { ctx.moveTo(px, py); started = true; } else { ctx.lineTo(px, py); }
+      if (len <= cols * 2) {
+        for (let i = 0; i < len; i++) {
+          const yv = s.data[i]!;
+          if (!Number.isFinite(yv)) { started = false; continue; }
+          const px = toX(x[i]!);
+          const py = toY(yv);
+          if (!started) { ctx.moveTo(px, py); started = true; } else { ctx.lineTo(px, py); }
+        }
+      } else {
+        const xSpan = bounds.xMax - bounds.xMin || 1;
+        let idx = 0;
+        for (let c = 0; c < cols && idx < len; c++) {
+          const colEndX = c === cols - 1 ? Infinity : bounds.xMin + ((c + 1) / cols) * xSpan;
+          let minV = Infinity, maxV = -Infinity;
+          let minIdx = -1, maxIdx = -1;
+          while (idx < len && x[idx]! <= colEndX) {
+            const yv = s.data[idx]!;
+            if (Number.isFinite(yv)) {
+              if (yv < minV) { minV = yv; minIdx = idx; }
+              if (yv > maxV) { maxV = yv; maxIdx = idx; }
+            }
+            idx++;
+          }
+          if (minIdx === -1) {
+            if (idx < len && !Number.isFinite(s.data[idx]!)) started = false;
+            continue;
+          }
+          const px = padL + c + 0.5;
+          if (minIdx === maxIdx) {
+            const py = toY(minV);
+            if (!started) { ctx.moveTo(px, py); started = true; } else { ctx.lineTo(px, py); }
+          } else {
+            const firstY = toY(minIdx < maxIdx ? minV : maxV);
+            const secondY = toY(minIdx < maxIdx ? maxV : minV);
+            if (!started) { ctx.moveTo(px, firstY); started = true; } else { ctx.lineTo(px, firstY); }
+            ctx.lineTo(px, secondY);
+          }
+        }
       }
       ctx.stroke();
       ctx.restore();
@@ -159,8 +193,8 @@ export function TraceCanvasPlot({
     // Axis labels
     ctx.fillStyle = '#94a3b8';
     ctx.font = '11px Inter, sans-serif';
-    ctx.textAlign = 'right';
-    ctx.fillText(xLabel, w - 10, h - 8);
+    ctx.textAlign = 'center';
+    ctx.fillText(xLabel, padL + pw / 2, h - 5);
     if (yLabel) {
       ctx.save();
       ctx.translate(12, padT + ph / 2);
@@ -169,7 +203,7 @@ export function TraceCanvasPlot({
       ctx.fillText(yLabel, 0, 0);
       ctx.restore();
     }
-  }, [x, series, bounds, height, hoverIdx, thresholdY, xLabel, yLabel]);
+  }, [x, series, bounds, height, canvasWidth, hoverIdx, thresholdY, xLabel, yLabel]);
 
   const summaryRows = useMemo(
     () => series.map((s) => computeSeriesSummary(s.label, s.data, s.unit)),

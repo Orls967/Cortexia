@@ -1,10 +1,10 @@
 import { lazy, Suspense, useEffect, useState } from 'react';
+import { GUIDED_PATH } from '../../data/learningPath';
 import { Link } from 'react-router-dom';
 import { EntityRef } from '../../components/ui/EntityRef';
 import { ProvenanceBadge } from '../../components/ui/ProvenanceBadge';
 import { loadManifest, loadRegistry, type Manifest } from '../../data/registry';
 import { SCALES, SCALE_INFO, type SystemEntity } from '../../data/types';
-import { MODELS } from '../../kernels/models';
 import { useSelectionStore } from '../../stores/selectionStore';
 
 const StudioABrain = lazy(() => import('../../studios/StudioABrain').then((m) => ({ default: m.StudioABrain })));
@@ -28,6 +28,7 @@ export function ObservatoryPage() {
   const [manifest, setManifest] = useState<Manifest | null>(null);
   const [systems, setSystems] = useState<SystemEntity[]>([]);
   const [show3D, setShow3D] = useState(true);
+  const [kernelCount, setKernelCount] = useState<number | null>(null);
   const activeScale = useSelectionStore((s) => s.activeScale);
   const setActiveScale = useSelectionStore((s) => s.setActiveScale);
   const recentEntityIds = useSelectionStore((s) => s.recentEntityIds);
@@ -35,6 +36,8 @@ export function ObservatoryPage() {
   useEffect(() => {
     loadManifest().then(setManifest).catch(() => {});
     loadRegistry('systems').then(setSystems).catch(() => {});
+    // The kernel catalog is counted after first paint so the model code does not delay the landing page.
+    import('../../kernels/models').then((m) => setKernelCount(m.MODELS.length)).catch(() => {});
   }, []);
 
   return (
@@ -55,20 +58,38 @@ export function ObservatoryPage() {
         </div>
 
         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-          <Link to="/lab/MODEL-001" className="cx-btn cx-btn-primary">Launch Comp-Neuro Lab</Link>
-          <Link to="/lab/digital-twin/EXP-040" className="cx-btn">5-Tier Digital Twin</Link>
-          <Link to="/knowledge/graph" className="cx-btn">Explore Knowledge Graph</Link>
+          <Link to="/lab/MODEL-001" className="cx-btn cx-btn-primary">Start: simulate a neuron (Hodgkin–Huxley)</Link>
+                    <Link to="/explore/anatomy" className="cx-btn">Or explore the brain in 3D</Link>
         </div>
+      </section>
+
+      {/* The main route through the platform */}
+      <section className="cx-card" aria-labelledby="start-here">
+        <div className="cx-card-title"><span id="start-here">Start here: a guided route in {GUIDED_PATH.length} steps</span><span className="cx-badge">Follow in order, or jump anywhere</span></div>
+        <ol style={{ listStyle: 'none', margin: 0, padding: 0, display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: 8 }}>
+          {GUIDED_PATH.map((st, i) => (
+            <li key={st.to}>
+              <Link to={st.to} className="cx-card" style={{ display: 'block', height: '100%', padding: 10, textDecoration: 'none', color: 'inherit', borderColor: i === 3 ? 'var(--accent-indicator-amber)' : undefined }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
+                  <span className="cx-badge tabular" aria-hidden="true">{i + 1}</span>
+                  <strong style={{ fontSize: 13 }}>{st.title}</strong>
+                  {i === 3 && <span className="cx-badge" style={{ color: '#fde68a' }}>MAIN MODEL</span>}
+                </div>
+                <div style={{ fontSize: 12, color: 'var(--text-secondary)' }}>{st.why}</div>
+              </Link>
+            </li>
+          ))}
+        </ol>
       </section>
 
       {/* Platform Live Registry Telemetry */}
       {manifest && (
-        <section className="cx-grid-auto" aria-label="Registry Statistics">
+        <section className="cx-kpi-grid" aria-label="Registry Statistics">
           {[
             { label: 'Scientific Entities Indexed', value: manifest.counts.indexEntities },
             { label: 'UCES Complete Articles', value: manifest.counts.explanations },
             { label: 'Knowledge Graph Edges', value: manifest.counts.kgEdges },
-            { label: 'Computational Models', value: `${MODELS.length} / 28` },
+            { label: 'Model Kernels / Registry Models', value: `${kernelCount ?? '…'} / ${manifest?.counts.models ?? '…'}` },
             { label: 'Executable Validation Cases', value: manifest.counts.validationCases },
           ].map((stat) => (
             <div key={stat.label} className="cx-card" style={{ padding: 12 }}>

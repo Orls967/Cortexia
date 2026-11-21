@@ -68,7 +68,7 @@ export function ConnectomicsPage() {
       </div>
 
       {/* Graph Metrics Row */}
-      <div className="cx-grid-auto">
+      <div className="cx-kpi-grid">
         {[
           ['Nodes / Edges', `${metrics.nodes} / ${metrics.edges}`],
           ['Density', metrics.density.toFixed(3)],
@@ -87,7 +87,7 @@ export function ConnectomicsPage() {
 
       <div className="cx-grid-2">
         <Suspense fallback={<div className="cx-banner">Loading Studio D Network…</div>}>
-          <StudioDNetwork mode="connectome68" height={380} />
+          <StudioDNetwork mode="connectome68" externalGraph={layer === 'dk68' ? null : activeGraph} height={380} />
         </Suspense>
         <HeatmapCanvas
           title={`Adjacency Matrix (${activeGraph.n}×${activeGraph.n})`}

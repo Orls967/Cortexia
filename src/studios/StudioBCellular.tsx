@@ -1,7 +1,8 @@
 import { useFrame } from '@react-three/fiber';
-import { useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { clearHoverTarget, scheduleHoverTarget, useSelectionStore } from '../stores/selectionStore';
+import { withBoundsTree } from './common/bvh';
 import { StudioViewport, type CameraPreset } from './common/StudioViewport';
 
 export const CELLULAR_PRESETS: CameraPreset[] = [
@@ -51,10 +52,16 @@ function ApPulse({ myelinated, playing, speed }: { myelinated: boolean; playing:
   });
 
   return (
-    <mesh ref={pulseRef} position={[0, -0.9, 0]}>
-      <sphereGeometry args={[0.24, 16, 12]} />
-      <meshStandardMaterial color="#f59e0b" emissive="#f59e0b" emissiveIntensity={1.2} />
-    </mesh>
+    <group ref={pulseRef} position={[0, -0.9, 0]}>
+      <mesh>
+        <sphereGeometry args={[0.18, 16, 12]} />
+        <meshStandardMaterial color="#fde047" emissive="#f59e0b" emissiveIntensity={1.6} />
+      </mesh>
+      <mesh>
+        <sphereGeometry args={[0.32, 16, 12]} />
+        <meshBasicMaterial color="#f59e0b" transparent opacity={0.28} depthWrite={false} />
+      </mesh>
+    </group>
   );
 }
 
@@ -77,7 +84,7 @@ export function StudioBCellular({ cellId = 'CELL-PYRAMIDAL-L5', onSelectCell, he
   const info = CELL_LABELS[cellId];
   const isMyelinated = myelinatedOverride ?? info.myelinated;
 
-  const dendriteBranches = useMemo(() => {
+  const dendriteGeometries = useMemo(() => {
     const branches: { key: string; pts: THREE.Vector3[]; r: number }[] = [];
     if (cellId === 'CELL-PURKINJE') {
       // Planar dense candelabra arbor
@@ -92,6 +99,63 @@ export function StudioBCellular({ cellId = 'CELL-PYRAMIDAL-L5', onSelectCell, he
           key: `p2-${i}`,
           pts: [new THREE.Vector3(x1 * 0.6, 2.0, 0), new THREE.Vector3(x1 * 1.25, 3.4, -0.1)],
           r: 0.04,
+        });
+      }
+    } else if (cellId === 'CELL-SENSORY-DRG') {
+      // Pseudounipolar T-stem from offset soma bifurcating into peripheral (up) & central (down to AIS/axon) branches
+      branches.push({
+        key: 'drg-stem',
+        pts: [new THREE.Vector3(1.15, 0.25, 0), new THREE.Vector3(0.45, 0.25, 0), new THREE.Vector3(0, 0.25, 0)],
+        r: 0.09,
+      });
+      branches.push({
+        key: 'drg-peripheral',
+        pts: [new THREE.Vector3(0, 0.25, 0), new THREE.Vector3(0, 2.0, 0), new THREE.Vector3(-0.35, 3.7, 0.2)],
+        r: 0.07,
+      });
+      branches.push({
+        key: 'drg-periph-twig-1',
+        pts: [new THREE.Vector3(-0.18, 2.8, 0.1), new THREE.Vector3(0.45, 3.6, -0.25)],
+        r: 0.04,
+      });
+    } else if (cellId === 'CELL-MOTOR-ALPHA') {
+      // Multipolar stellate spinal motor neuron with thick radiating dendrites in 3D
+      for (let i = 0; i < 8; i++) {
+        const ang = (i / 8) * Math.PI * 2;
+        const elev = (i % 2 === 0 ? 1 : -0.35) * 1.15;
+        branches.push({
+          key: `motor-${i}`,
+          pts: [
+            new THREE.Vector3(0, 0.1, 0),
+            new THREE.Vector3(Math.cos(ang) * 1.5, 0.4 + elev * 0.6, Math.sin(ang) * 1.5),
+            new THREE.Vector3(Math.cos(ang + 0.18) * 2.7, 0.6 + elev, Math.sin(ang + 0.18) * 2.7),
+          ],
+          r: 0.07,
+        });
+      }
+    } else if (cellId === 'CELL-EPENDYMAL') {
+      // Apical motile cilia tufts projecting into the ventricular lumen
+      for (let i = -3; i <= 3; i++) {
+        const x = i * 0.16;
+        branches.push({
+          key: `cilium-${i}`,
+          pts: [new THREE.Vector3(x, 0.55, (i % 2) * 0.12), new THREE.Vector3(x * 1.2 + 0.15, 1.35, (i % 2) * 0.18), new THREE.Vector3(x * 1.4 + 0.3, 2.1, 0)],
+          r: 0.032,
+        });
+      }
+    } else if (cellId === 'CELL-OLIGODENDROCYTE') {
+      // Processes reaching out to wrap nearby axonal internode segments
+      for (let i = 0; i < 5; i++) {
+        const ang = (i / 5) * Math.PI * 2;
+        const yTarget = ((i % 3) - 1) * 1.4;
+        branches.push({
+          key: `oligo-${i}`,
+          pts: [
+            new THREE.Vector3(0, 0, 0),
+            new THREE.Vector3(Math.cos(ang) * 1.1, yTarget * 0.5, Math.sin(ang) * 1.1),
+            new THREE.Vector3(Math.cos(ang) * 2.1, yTarget, Math.sin(ang) * 2.1),
+          ],
+          r: 0.05,
         });
       }
     } else if (cellId === 'CELL-INTERNEURON-PV-BASKET' || info.kind === 'glia') {
@@ -110,7 +174,7 @@ export function StudioBCellular({ cellId = 'CELL-PYRAMIDAL-L5', onSelectCell, he
         });
       }
     } else {
-      // Apical shaft + tuft + basal dendrites
+      // Apical shaft + tuft + basal dendrites (Pyramidal L5 / CA1)
       branches.push({
         key: 'apical-main',
         pts: [new THREE.Vector3(0, 0.5, 0), new THREE.Vector3(0.08, 2.1, 0), new THREE.Vector3(0, 3.7, 0)],
@@ -133,8 +197,15 @@ export function StudioBCellular({ cellId = 'CELL-PYRAMIDAL-L5', onSelectCell, he
         });
       }
     }
-    return branches;
+    return branches.map((b) => ({
+      key: b.key,
+      geometry: withBoundsTree(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(b.pts), 16, b.r, 8, false)),
+    }));
   }, [cellId, info.kind]);
+
+  useEffect(() => () => {
+    for (const b of dendriteGeometries) b.geometry.dispose();
+  }, [dendriteGeometries]);
 
   const hoverBind = (id: string, label: string, def: string) => ({
     onPointerOver: (e: { stopPropagation: () => void; nativeEvent: PointerEvent }) => {
@@ -149,7 +220,25 @@ export function StudioBCellular({ cellId = 'CELL-PYRAMIDAL-L5', onSelectCell, he
     },
   });
 
+  const pyramidalSomaGeo = useMemo(() => {
+    const pts = [
+      new THREE.Vector2(0.01, -0.45),
+      new THREE.Vector2(0.46, -0.35),
+      new THREE.Vector2(0.56, -0.12),
+      new THREE.Vector2(0.42, 0.18),
+      new THREE.Vector2(0.22, 0.45),
+      new THREE.Vector2(0.11, 0.68),
+      new THREE.Vector2(0.01, 0.72),
+    ];
+    return withBoundsTree(new THREE.LatheGeometry(pts, 24));
+  }, []);
+
+  useEffect(() => () => pyramidalSomaGeo.dispose(), [pyramidalSomaGeo]);
+
   const showPart = (p: string) => !isolatePart || isolatePart === p;
+
+  const hasSpines = cellId.includes('PYRAMIDAL') || cellId === 'CELL-PURKINJE';
+  const somaPosition: [number, number, number] = cellId === 'CELL-SENSORY-DRG' ? [1.25, 0.25, 0] : [0, 0.05, 0];
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
@@ -178,46 +267,59 @@ export function StudioBCellular({ cellId = 'CELL-PYRAMIDAL-L5', onSelectCell, he
         {showPart('soma') && (
           <mesh
             name={cellId}
-            position={[0, 0.05, 0]}
+            position={somaPosition}
+            geometry={cellId.includes('PYRAMIDAL') ? pyramidalSomaGeo : undefined}
             {...hoverBind(cellId, `${info.name} — Soma`, `Cell body (~${info.somaUm} µm) integrating synaptic potentials and housing the nucleus.`)}
           >
-            {cellId.includes('PYRAMIDAL') ? <coneGeometry args={[0.55, 1.05, 12]} /> : <sphereGeometry args={[0.55, 22, 16]} />}
-            <meshStandardMaterial
+            {!cellId.includes('PYRAMIDAL') && (
+              cellId === 'CELL-EPENDYMAL' ? (
+                <cylinderGeometry args={[0.62, 0.62, 1.05, 20]} />
+              ) : (
+                <sphereGeometry args={[cellId === 'CELL-MOTOR-ALPHA' ? 0.66 : 0.55, 24, 18]} />
+              )
+            )}
+            <meshPhysicalMaterial
               color={selectedId === cellId ? '#38BDF8' : info.kind === 'glia' ? '#10B981' : '#0EA5E9'}
-              emissive={selectedId === cellId ? '#38bdf8' : '#000000'}
-              emissiveIntensity={0.45}
-              roughness={0.35}
+              emissive={selectedId === cellId ? '#38bdf8' : '#0369a1'}
+              emissiveIntensity={selectedId === cellId ? 0.45 : 0.14}
+              roughness={0.28}
+              clearcoat={0.35}
             />
           </mesh>
         )}
 
-        {/* Dendritic / Glial Arbors */}
-        {showPart('dendrites') && dendriteBranches.map((b) => {
-          const curve = new THREE.CatmullRomCurve3(b.pts);
-          const geo = new THREE.TubeGeometry(curve, 16, b.r, 8, false);
-          return (
-            <mesh
-              key={b.key}
-              geometry={geo}
-              {...hoverBind(cellId, `${info.name} — Arbors`, 'Dendritic / cellular branches receiving excitatory and inhibitory inputs.')}
-            >
-              <meshStandardMaterial color={info.kind === 'glia' ? '#34D399' : '#38BDF8'} roughness={0.45} />
-            </mesh>
-          );
-        })}
-
-        {/* Dendritic Spines on Neurons */}
-        {info.kind === 'neuron' && showPart('spines') && [1.2, 1.8, 2.5, 3.0].map((y, idx) => (
+        {/* Dendritic / Glial Arbors (Memoized & disposed) */}
+        {showPart('dendrites') && dendriteGeometries.map((b) => (
           <mesh
-            key={y}
-            name="CELL-COMP-DENDRITIC-SPINE"
-            position={[idx % 2 === 0 ? 0.16 : -0.16, y, 0.08]}
-            {...hoverBind('CELL-COMP-DENDRITIC-SPINE', 'Dendritic Spine', 'Postsynaptic protrusion housing AMPA/NMDA receptors and biochemical Ca²⁺ microdomains.')}
+            key={b.key}
+            geometry={b.geometry}
+            {...hoverBind(cellId, `${info.name} — Arbors`, 'Dendritic / cellular branches receiving excitatory and inhibitory inputs.')}
           >
-            <sphereGeometry args={[0.09, 10, 8]} />
-            <meshStandardMaterial color={selectedId === 'CELL-COMP-DENDRITIC-SPINE' ? '#F59E0B' : '#A855F7'} />
+            <meshStandardMaterial color={info.kind === 'glia' ? '#34D399' : '#38BDF8'} roughness={0.38} />
           </mesh>
         ))}
+
+        {/* Mushroom Dendritic Spines (Neck + Head) on Spiny Neurons */}
+        {hasSpines && showPart('spines') && [1.2, 1.8, 2.5, 3.0].map((y, idx) => {
+          const side = idx % 2 === 0 ? 1 : -1;
+          return (
+            <group
+              key={y}
+              position={[side * 0.1, y, 0.06]}
+              rotation={[0, 0, -side * 1.25]}
+              {...hoverBind('CELL-COMP-DENDRITIC-SPINE', 'Dendritic Spine', 'Postsynaptic protrusion housing AMPA/NMDA receptors and biochemical Ca²⁺ microdomains.')}
+            >
+              <mesh position={[0, 0.08, 0]}>
+                <cylinderGeometry args={[0.022, 0.028, 0.14, 8]} />
+                <meshStandardMaterial color="#c084fc" />
+              </mesh>
+              <mesh name="CELL-COMP-DENDRITIC-SPINE" position={[0, 0.17, 0]}>
+                <sphereGeometry args={[0.075, 12, 10]} />
+                <meshStandardMaterial color={selectedId === 'CELL-COMP-DENDRITIC-SPINE' ? '#F59E0B' : '#A855F7'} emissive="#7e22ce" emissiveIntensity={0.25} roughness={0.3} />
+              </mesh>
+            </group>
+          );
+        })}
 
         {/* Neuron Axon + AIS + Myelin + Terminals */}
         {info.kind === 'neuron' && (
@@ -251,8 +353,8 @@ export function StudioBCellular({ cellId = 'CELL-PYRAMIDAL-L5', onSelectCell, he
                 position={[0, y, 0]}
                 {...hoverBind('CELL-OLIGODENDROCYTE', 'Myelin Internode (Oligodendrocyte)', 'Insulating lipid sheath reducing membrane capacitance and speeding saltatory conduction across Nodes of Ranvier.')}
               >
-                <cylinderGeometry args={[0.17, 0.17, 0.82, 16]} />
-                <meshPhysicalMaterial color="#A855F7" transparent opacity={0.62} roughness={0.3} />
+                <capsuleGeometry args={[0.17, 0.56, 8, 18]} />
+                <meshPhysicalMaterial color="#a855f7" emissive="#581c87" emissiveIntensity={0.22} transparent opacity={0.72} roughness={0.22} clearcoat={0.45} />
               </mesh>
             ))}
 

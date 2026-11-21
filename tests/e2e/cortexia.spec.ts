@@ -66,6 +66,10 @@ test.describe('CORTEXIA Full Application E2E, 3D Studios, UCES, Workers & Access
     // Navigate to Tier C Dedicated Scientific Page
     await page.getByRole('link', { name: /Open Full Scientific Page/i }).click();
     await expect(page.locator('h1').first()).toContainText(/Hippocampus/i);
+    // An anatomical structure is not governed by equations itself: the section names the associated models instead.
+    await expect(page.locator('article')).toContainText('Equations of Associated Models');
+    await expect(page.locator('article')).not.toContainText('Governing Equations');
+    await page.goto('knowledge/MODEL-001', { waitUntil: 'networkidle' });
     await expect(page.locator('article')).toContainText('Governing Equations');
   });
 
@@ -129,12 +133,76 @@ test.describe('CORTEXIA Full Application E2E, 3D Studios, UCES, Workers & Access
       const seriousOrCritical = results.violations.filter((v) => v.impact === 'critical' || v.impact === 'serious');
       expect(seriousOrCritical, `Axe violations on ${r}: ${JSON.stringify(seriousOrCritical, null, 2)}`).toEqual([]);
     }
+  });
 
-    // Mobile viewport check
-    await page.setViewportSize({ width: 390, height: 844 });
+  test('mobile layout: content uses the full width, nothing is clipped, navigation is reachable', async ({ page }) => {
+    const width = 390;
+    await page.setViewportSize({ width, height: 844 });
+    for (const r of ['explore/observatory', 'explore/anatomy', 'explore/cellular', 'explore/synapses', 'lab/MODEL-001', 'lab/digital-twin', 'analytics/signals', 'knowledge/ANAT-HIPPOCAMPUS', 'research']) {
+      await page.goto(r, { waitUntil: 'networkidle' });
+      await expect(page.locator('h1').first()).toBeVisible();
+      // The module rail must not take layout space until it is opened.
+      await expect(page.locator('#module-rail')).toBeHidden();
+      const main = await page.locator('#main-content').boundingBox();
+      expect(main!.width, `main content width on ${r}`).toBeGreaterThanOrEqual(width - 2);
+      // No content may extend past the right edge of the scroll container (it would be clipped, not scrollable).
+      const overflow = await page.evaluate(() => {
+        const m = document.getElementById('main-content')!;
+        const limit = m.getBoundingClientRect().right + 1;
+        const offenders: string[] = [];
+        for (const el of Array.from(m.querySelectorAll<HTMLElement>('*'))) {
+          const rect = el.getBoundingClientRect();
+          if (rect.width === 0 || rect.right <= limit) continue;
+          // Content inside its own horizontal scroller is reachable and therefore allowed.
+          let scrollable = false;
+          for (let a = el.parentElement; a && a !== m; a = a.parentElement) {
+            const ox = getComputedStyle(a).overflowX;
+            if (ox === 'auto' || ox === 'scroll' || ox === 'hidden') { scrollable = true; break; }
+          }
+          if (!scrollable) offenders.push(`${el.tagName.toLowerCase()}.${String(el.className).slice(0, 40)} right=${Math.round(rect.right)}`);
+        }
+        return offenders.slice(0, 5);
+      });
+      expect(overflow, `clipped content on ${r}`).toEqual([]);
+      // All five environments stay reachable from the top bar.
+      for (const env of ['Explore', 'Laboratory', 'Analytics', 'Knowledge', 'Research']) {
+        await expect(page.getByRole('navigation', { name: 'Work Environments' }).getByRole('link', { name: env, exact: true })).toBeAttached();
+      }
+    }
+
+    // Drawer: opens from the toggle, closes on Escape, and closes after following a link.
     await page.goto('explore/observatory', { waitUntil: 'networkidle' });
-    await expect(page.locator('h1').first()).toBeVisible();
-    await page.getByRole('button', { name: /Toggle module navigation/i }).click();
-    await expect(page.getByRole('navigation', { name: /Module Navigation/i }).or(page.locator('.cx-rail-drawer'))).toBeVisible();
+    const toggle = page.getByRole('button', { name: /Toggle module navigation/i });
+    await toggle.click();
+    await expect(page.locator('#module-rail')).toBeVisible();
+    await expect(toggle).toHaveAttribute('aria-expanded', 'true');
+    await page.keyboard.press('Escape');
+    await expect(page.locator('#module-rail')).toBeHidden();
+    await toggle.click();
+    await page.locator('#module-rail').getByRole('link', { name: /Cellular/ }).click();
+    await expect(page).toHaveURL(/explore\/cellular/);
+    await expect(page.locator('#module-rail')).toBeHidden();
+  });
+
+  test('desktop layout keeps the module rail visible and hides its toggle', async ({ page }) => {
+    await page.goto('explore/observatory', { waitUntil: 'networkidle' });
+    await expect(page.locator('#module-rail')).toBeVisible();
+    await expect(page.getByRole('button', { name: /Toggle module navigation/i })).toBeHidden();
+  });
+
+  test('switching a studio to its 2D schematic does not report a lost graphics context', async ({ page }) => {
+    await page.goto('explore/synapses', { waitUntil: 'networkidle' });
+    await page.getByRole('button', { name: '2D Schematic' }).click();
+    await expect(page.getByText('Nanoscale Synaptic & Molecular Components')).toBeVisible();
+    // React Three Fiber releases the WebGL context shortly after the canvas unmounts.
+    await page.waitForTimeout(1500);
+    await expect(page.getByText(/Graphics Context Interrupted/i)).toHaveCount(0);
+    // The schematic heading must not be covered by the studio header.
+    const heading = await page.getByText('Nanoscale Synaptic & Molecular Components').boundingBox();
+    const badge = await page.getByText('STUDIO C · L1–L4 (nm)').boundingBox();
+    const presets = await page.getByRole('button', { name: '3D View' }).boundingBox();
+    expect(heading!.y).toBeGreaterThanOrEqual(Math.max(badge!.y + badge!.height, presets!.y + presets!.height));
+    await page.getByRole('button', { name: '3D View' }).click();
+    await expect(page.locator('canvas').first()).toBeVisible();
   });
 });

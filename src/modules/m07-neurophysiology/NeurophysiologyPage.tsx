@@ -84,7 +84,8 @@ export function NeurophysiologyPage() {
               <line x1={52} y1={88} x2={88} y2={88} stroke="#38BDF8" strokeWidth={3} />
               <line x1={52} y1={104} x2={88} y2={104} stroke="#38BDF8" strokeWidth={3} />
               <line x1={70} y1={104} x2={70} y2={170} stroke="#CBD5E1" strokeWidth={2} />
-              <text x={70} y={135} textAnchor="middle" fill="#F1F5F9" fontSize={12}>C_m</text>
+              <rect x={48} y={122} width={44} height={20} rx={4} fill="#090d16" stroke="#334155" strokeWidth={1} />
+              <text x={70} y={136} textAnchor="middle" fill="#F1F5F9" fontSize={11} fontWeight={600}>C_m</text>
             </g>
 
             {/* g_Na */}
@@ -93,7 +94,8 @@ export function NeurophysiologyPage() {
               <rect x={148} y={62} width={34} height={42} rx={4} fill="#1e293b" stroke="#F59E0B" strokeWidth={2} />
               <text x={165} y={87} textAnchor="middle" fill="#F59E0B" fontSize={11}>g_Na</text>
               <line x1={165} y1={104} x2={165} y2={170} stroke="#CBD5E1" strokeWidth={2} />
-              <text x={165} y={145} textAnchor="middle" fill="#94A3B8" fontSize={10}>+50 mV</text>
+              <rect x={139} y={131} width={52} height={19} rx={4} fill="#090d16" stroke="#F59E0B" strokeOpacity={0.5} strokeWidth={1} />
+              <text x={165} y={144} textAnchor="middle" fill="#fcd34d" fontSize={10}>+50 mV</text>
             </g>
 
             {/* g_K */}
@@ -102,7 +104,8 @@ export function NeurophysiologyPage() {
               <rect x={243} y={62} width={34} height={42} rx={4} fill="#1e293b" stroke="#A855F7" strokeWidth={2} />
               <text x={260} y={87} textAnchor="middle" fill="#A855F7" fontSize={11}>g_K</text>
               <line x1={260} y1={104} x2={260} y2={170} stroke="#CBD5E1" strokeWidth={2} />
-              <text x={260} y={145} textAnchor="middle" fill="#94A3B8" fontSize={10}>−77 mV</text>
+              <rect x={234} y={131} width={52} height={19} rx={4} fill="#090d16" stroke="#A855F7" strokeOpacity={0.5} strokeWidth={1} />
+              <text x={260} y={144} textAnchor="middle" fill="#d8b4fe" fontSize={10}>−77 mV</text>
             </g>
 
             {/* g_L */}
@@ -111,7 +114,8 @@ export function NeurophysiologyPage() {
               <rect x={333} y={62} width={34} height={42} rx={4} fill="#1e293b" stroke="#10B981" strokeWidth={2} />
               <text x={350} y={87} textAnchor="middle" fill="#10B981" fontSize={11}>g_L</text>
               <line x1={350} y1={104} x2={350} y2={170} stroke="#CBD5E1" strokeWidth={2} />
-              <text x={350} y={145} textAnchor="middle" fill="#94A3B8" fontSize={10}>−54 mV</text>
+              <rect x={324} y={131} width={52} height={19} rx={4} fill="#090d16" stroke="#10B981" strokeOpacity={0.5} strokeWidth={1} />
+              <text x={350} y={144} textAnchor="middle" fill="#6ee7b7" fontSize={10}>−54 mV</text>
             </g>
           </svg>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginTop: 8 }}>

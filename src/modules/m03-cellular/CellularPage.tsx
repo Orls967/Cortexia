@@ -15,6 +15,25 @@ const STUDIO_IDS = new Set<CellMorphologyId>([
   'CELL-MICROGLIA', 'CELL-EPENDYMAL',
 ]);
 
+function resolveStudioCell(id: string, cell?: CellularEntity): CellMorphologyId {
+  if (STUDIO_IDS.has(id as CellMorphologyId)) return id as CellMorphologyId;
+  if (id.includes('CA3') || id.includes('CA2')) return 'CELL-PYRAMIDAL-CA1';
+  if (id.includes('PYRAMIDAL')) return 'CELL-PYRAMIDAL-L5';
+  if (id.includes('SCHWANN')) return 'CELL-OLIGODENDROCYTE';
+  if (id.includes('ASTROCYTE') || id.includes('BERGMANN') || id.includes('RADIAL')) return 'CELL-ASTROCYTE-PROTOPLASMIC';
+  if (id.includes('MICROGLIA')) return 'CELL-MICROGLIA';
+  if (id.includes('EPENDYMAL') || id.includes('CHOROID')) return 'CELL-EPENDYMAL';
+  if (cell?.cellCategory === 'GLIAL_CELL') return 'CELL-ASTROCYTE-PROTOPLASMIC';
+  if (cell?.cellCategory === 'INHIBITORY_INTERNEURON' || id.includes('INTERNEURON') || id.includes('CHANDELIER') || id.includes('MARTINOTTI') || id.includes('VIP') || id.includes('GOLGI') || id.includes('STELLATE-INHIBITORY')) {
+    return 'CELL-INTERNEURON-PV-BASKET';
+  }
+  if (id.includes('MOTOR') || id.includes('DOPAMINERGIC') || id.includes('SEROTONERGIC') || id.includes('NORADRENERGIC') || id.includes('CHOLINERGIC')) {
+    return 'CELL-MOTOR-ALPHA';
+  }
+  if (id.includes('SENSORY') || id.includes('BIPOLAR') || id.includes('GANGLION')) return 'CELL-SENSORY-DRG';
+  return 'CELL-PYRAMIDAL-L5';
+}
+
 export function CellularPage() {
   const { entityId } = useParams();
   const [cells, setCells] = useState<CellularEntity[]>([]);
@@ -40,9 +59,7 @@ export function CellularPage() {
 
   const active = useMemo(() => cells.find((c) => c.id === activeId) ?? cells[0], [cells, activeId]);
   const compare = useMemo(() => cells.find((c) => c.id === compareId) ?? cells[1], [cells, compareId]);
-  const studioCell: CellMorphologyId = STUDIO_IDS.has(activeId as CellMorphologyId)
-    ? (activeId as CellMorphologyId)
-    : 'CELL-PYRAMIDAL-L5';
+  const studioCell: CellMorphologyId = resolveStudioCell(activeId, active);
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
@@ -54,8 +71,8 @@ export function CellularPage() {
         <ProvenanceBadge status="ESTABLISHED" text="30 Cellular Entities · Studio B" />
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'minmax(240px, 290px) minmax(0, 1fr)', gap: 14 }}>
-        <div className="cx-card" style={{ display: 'flex', flexDirection: 'column', gap: 8, maxHeight: 720, overflow: 'hidden' }}>
+      <div className="cx-split">
+        <div className="cx-card cx-split-side">
           <div className="cx-card-title">Cell Taxonomy ({visible.length})</div>
           <select className="cx-select" value={category} onChange={(e) => setCategory(e.target.value)} aria-label="Filter cell category">
             {categories.map((c) => <option key={c} value={c}>{c}</option>)}

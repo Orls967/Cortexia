@@ -144,7 +144,9 @@ export const useResearchStore = create<ResearchState>((set, get) => ({
     const full: ExperimentRunRecord = { ...record, runId, createdAt: new Date().toISOString() };
     if (output) runOutputCache.set(runId, output);
     set((s) => {
-      const runs = [full, ...s.runs].slice(0, 60);
+      const combined = [full, ...s.runs];
+      for (const evicted of combined.slice(60)) runOutputCache.delete(evicted.runId);
+      const runs = combined.slice(0, 60);
       persist(runs, s.notebooks);
       return { runs };
     });

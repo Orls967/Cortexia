@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { equationSection, NOTHING_NEW, withoutShown } from './explain';
 import {
   loadExplanation, loadIndex, loadRegistryMap,
   type EntityIndex,
@@ -70,6 +71,19 @@ export function UCESInspectorDrawer() {
   }, [selectedId]);
 
   const record = selectedId && loadedPair?.id === selectedId ? loadedPair.rec : null;
+  // Each registry statement appears once across sections 2–5, even when several fields repeat it.
+  const texts = (() => {
+    const shown = new Set<string>();
+    if (!record) return { overview: '', role: '', context: '', anatomical: '', mechanism: '' };
+    withoutShown(record.shortDefinition, shown);
+    return {
+      overview: withoutShown(record.overview, shown),
+      role: withoutShown(record.functionalSignificance, shown),
+      context: withoutShown(record.biologicalContext, shown),
+      anatomical: withoutShown(record.anatomicalContext, shown),
+      mechanism: withoutShown(record.detailedMechanism, shown),
+    };
+  })();
 
   if (!inspectorOpen) return null;
 
@@ -212,28 +226,27 @@ export function UCESInspectorDrawer() {
             <section className="cx-card" style={{ padding: 10 }}>
               <SectionTitle>2. Definition & Overview</SectionTitle>
               <p style={{ margin: '0 0 6px', fontSize: 13, fontWeight: 500 }}>{record.shortDefinition}</p>
-              <p style={{ margin: 0, fontSize: 12, color: 'var(--text-secondary)' }}>{record.overview}</p>
+              {texts.overview && <p style={{ margin: 0, fontSize: 12, color: 'var(--text-secondary)' }}>{texts.overview}</p>}
             </section>
 
             {/* 3. Biological Role & Functional Significance */}
             <section>
               <SectionTitle>3. Biological Role & Functional Significance</SectionTitle>
-              <p style={{ margin: 0, fontSize: 12, color: 'var(--text-secondary)' }}>{record.functionalSignificance}</p>
+              <p style={{ margin: 0, fontSize: 12, color: 'var(--text-secondary)' }}>{texts.role || NOTHING_NEW}</p>
             </section>
 
             {/* 4. Anatomical / Biological Context */}
             <section>
               <SectionTitle>4. Biological & Anatomical Context</SectionTitle>
-              <p style={{ margin: '0 0 4px', fontSize: 12, color: 'var(--text-secondary)' }}>{record.biologicalContext}</p>
-              {record.anatomicalContext && (
-                <p style={{ margin: 0, fontSize: 12, color: 'var(--text-secondary)' }}>{record.anatomicalContext}</p>
-              )}
+              {texts.context && <p style={{ margin: '0 0 4px', fontSize: 12, color: 'var(--text-secondary)' }}>{texts.context}</p>}
+              {texts.anatomical && <p style={{ margin: 0, fontSize: 12, color: 'var(--text-secondary)' }}>{texts.anatomical}</p>}
+              {!texts.context && !texts.anatomical && <p style={{ margin: 0, fontSize: 12, color: 'var(--text-secondary)' }}>{NOTHING_NEW}</p>}
             </section>
 
             {/* 5. Detailed Mechanism */}
             <section>
               <SectionTitle>5. Detailed Mechanism</SectionTitle>
-              <p style={{ margin: 0, fontSize: 12, color: 'var(--text-secondary)' }}>{record.detailedMechanism}</p>
+              <p style={{ margin: 0, fontSize: 12, color: 'var(--text-secondary)' }}>{texts.mechanism || NOTHING_NEW}</p>
             </section>
 
             {/* 6. Related Entities */}
@@ -256,7 +269,10 @@ export function UCESInspectorDrawer() {
 
             {/* 7. Governing Equations */}
             <section>
-              <SectionTitle>7. Governing Equations</SectionTitle>
+              <SectionTitle>{`7. ${equationSection(record.entityType).title}`}</SectionTitle>
+              {record.equations && record.equations.length > 0 && equationSection(record.entityType).note && (
+                <div style={{ fontSize: 11, color: 'var(--text-secondary)', marginBottom: 6 }}>{equationSection(record.entityType).note}</div>
+              )}
               {!record.equations || record.equations.length === 0 ? (
                 <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>
                   Not directly governed by a standalone ODE at this scale — see linked models.
