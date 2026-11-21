@@ -175,7 +175,7 @@ export function AppShell() {
           >
             ☰
           </button>
-          <Link to="/explore/observatory" className="cx-brand">
+          <Link to="/" className="cx-brand" aria-label="CORTEXIA home">
             <span style={{ color: 'var(--accent-ice-blue)' }}>◈</span> CORTEXIA
           </Link>
           <nav className="cx-env-nav" aria-label="Work Environments">

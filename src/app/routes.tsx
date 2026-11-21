@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { AppShell } from '../components/shell/AppShell';
 
+const LandingPage = lazy(() => import('../modules/m00-landing/LandingPage').then((m) => ({ default: m.LandingPage })));
 const ObservatoryPage = lazy(() => import('../modules/m01-observatory/ObservatoryPage').then((m) => ({ default: m.ObservatoryPage })));
 const NeuroanatomyPage = lazy(() => import('../modules/m02-neuroanatomy/NeuroanatomyPage').then((m) => ({ default: m.NeuroanatomyPage })));
 const CellularPage = lazy(() => import('../modules/m03-cellular/CellularPage').then((m) => ({ default: m.CellularPage })));
@@ -25,8 +26,8 @@ export function AppRoutes() {
     <BrowserRouter basename={base}>
       <Suspense fallback={<Loading />}>
         <Routes>
+          <Route path="/" element={<LandingPage />} />
           <Route element={<AppShell />}>
-            <Route path="/" element={<Navigate to="/explore/observatory" replace />} />
             <Route path="/explore/observatory" element={<ObservatoryPage />} />
             <Route path="/explore/anatomy" element={<NeuroanatomyPage />} />
             <Route path="/explore/anatomy/:entityId" element={<NeuroanatomyPage />} />
@@ -68,7 +69,7 @@ export function AppRoutes() {
             <Route path="/research/notebook" element={<ResearchPage tab="notebook" />} />
             <Route path="/research/notebook/:notebookId" element={<ResearchPage tab="notebook" />} />
 
-            <Route path="*" element={<Navigate to="/explore/observatory" replace />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Route>
         </Routes>
       </Suspense>

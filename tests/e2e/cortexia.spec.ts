@@ -205,4 +205,20 @@ test.describe('CORTEXIA Full Application E2E, 3D Studios, UCES, Workers & Access
     await page.getByRole('button', { name: '3D View' }).click();
     await expect(page.locator('canvas').first()).toBeVisible();
   });
+
+  test('opens on an animated landing page with a centred button that enters the app', async ({ page }) => {
+    await page.goto('', { waitUntil: 'networkidle' });
+    await expect(page.locator('h1')).toHaveText('CORTEXIA');
+    const cta = page.getByRole('link', { name: 'Enter CORTEXIA' });
+    const box = await cta.boundingBox();
+    const vp = page.viewportSize()!;
+    expect(Math.abs(box!.x + box!.width / 2 - vp.width / 2)).toBeLessThan(2);
+    // The canvas keeps animating: two frames a moment apart differ.
+    const frame = () => page.locator('canvas').evaluate((c: HTMLCanvasElement) => c.toDataURL().length + c.toDataURL().slice(-200));
+    const a = await frame();
+    await page.waitForTimeout(700);
+    expect(await frame()).not.toEqual(a);
+    await cta.click();
+    await expect(page).toHaveURL(/explore\/observatory/);
+  });
 });

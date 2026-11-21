@@ -107,7 +107,7 @@ export function ObservatoryPage() {
             <span>Nine Biological Scales Navigator (L1–L9)</span>
             <span className="cx-badge tabular">{activeScale}: {SCALE_INFO[activeScale].name}</span>
           </div>
-          <div style={{ display: 'flex', gap: 12, alignItems: 'center', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: 16, alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap' }}>
             <svg viewBox="0 0 220 220" style={{ width: 200, height: 200, flexShrink: 0 }} role="img" aria-label="Nine biological scales concentric navigator">
               {[...SCALES].reverse().map((sc, idx) => {
                 const r = 100 - idx * 9.5;
