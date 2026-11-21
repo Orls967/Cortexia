@@ -46,8 +46,13 @@ test.describe('CORTEXIA Full Application E2E, 3D Studios, UCES, Workers & Access
     // Hover over a known EntityRef chip -> wait >180ms for Tier A tooltip
     const chip = page.locator('[data-entity-id="ANAT-HIPPOCAMPUS"]').first();
     await expect(chip).toBeVisible();
-    await chip.hover();
-    await expect(page.getByTestId('uces-tooltip')).toBeVisible({ timeout: 3000 });
+    // The layout can still shift while lazy content loads on a slow runner, which moves the chip out from under
+    // the pointer; hover again until the tooltip (180 ms intent delay) appears.
+    await expect(async () => {
+      await page.mouse.move(0, 0);
+      await chip.hover();
+      await expect(page.getByTestId('uces-tooltip')).toBeVisible({ timeout: 1500 });
+    }).toPass({ timeout: 15000 });
     await expect(page.getByTestId('uces-tooltip')).toContainText('ANAT-HIPPOCAMPUS');
 
     // Click opens Tier B Inspector with 12 sections
