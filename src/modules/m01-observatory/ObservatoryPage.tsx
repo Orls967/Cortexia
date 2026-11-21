@@ -102,6 +102,7 @@ export function ObservatoryPage() {
 
       {/* 9-Scale Concentric Navigator + 3D Whole Brain Preview */}
       <section className="cx-grid-2">
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 14, minWidth: 0 }}>
         <div className="cx-card">
           <div className="cx-card-title">
             <span>Nine Biological Scales Navigator (L1–L9)</span>
@@ -153,25 +154,6 @@ export function ObservatoryPage() {
         </div>
 
         <div className="cx-card">
-          <div className="cx-card-title">
-            <span>Interactive Whole-Brain Overview (Studio A)</span>
-            <button type="button" className="cx-btn" style={{ fontSize: 11, padding: '3px 8px' }} onClick={() => setShow3D((s) => !s)}>
-              {show3D ? 'Hide 3D' : 'Show 3D'}
-            </button>
-          </div>
-          {show3D ? (
-            <Suspense fallback={<div className="cx-banner">Loading 3D Brain Studio…</div>}>
-              <StudioABrain height={260} />
-            </Suspense>
-          ) : (
-            <div className="cx-banner">3D preview minimized. <Link to="/explore/anatomy">Open full Neuroanatomy Studio A →</Link></div>
-          )}
-        </div>
-      </section>
-
-      {/* Featured Models, Digital Twin & Recent Entities */}
-      <section className="cx-grid-2">
-        <div className="cx-card">
           <div className="cx-card-title">Featured Computational Models & Digital Twin</div>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
             {['MODEL-001', 'MODEL-008', 'MODEL-009', 'MODEL-016', 'MODEL-017', 'MODEL-018', 'MODEL-021', 'MODEL-024', 'MODEL-027', 'MODEL-028'].map((mid) => (
@@ -197,6 +179,23 @@ export function ObservatoryPage() {
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 5 }}>
             {systems.slice(0, 8).map((sys) => <EntityRef key={sys.id} id={sys.id} label={sys.canonicalName} />)}
           </div>
+        </div>
+        </div>
+
+        <div className="cx-card">
+          <div className="cx-card-title">
+            <span>Interactive Whole-Brain Overview (Studio A)</span>
+            <button type="button" className="cx-btn" style={{ fontSize: 11, padding: '3px 8px' }} onClick={() => setShow3D((s) => !s)}>
+              {show3D ? 'Hide 3D' : 'Show 3D'}
+            </button>
+          </div>
+          {show3D ? (
+            <Suspense fallback={<div className="cx-banner">Loading 3D Brain Studio…</div>}>
+              <StudioABrain height={260} />
+            </Suspense>
+          ) : (
+            <div className="cx-banner">3D preview minimized. <Link to="/explore/anatomy">Open full Neuroanatomy Studio A →</Link></div>
+          )}
         </div>
       </section>
 
